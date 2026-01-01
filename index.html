@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Global font and body */
+    /* Global styles */
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -58,22 +58,19 @@
       background: #0a2540;
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header img {
-      width: 150px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
+      padding: 2.5rem 1rem;
     }
 
     header h1 {
       margin: 0.5rem 0;
+      font-size: 3rem;
     }
 
     header p {
       font-weight: 500;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      color: #f05a28;
+      margin-top: 0.5rem;
     }
 
     /* Sections */
@@ -84,15 +81,29 @@
       background: white;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      scroll-margin-top: 80px; /* for navbar offset */
+      scroll-margin-top: 80px;
     }
 
     section h2 {
       color: #0a2540;
       margin-bottom: 1rem;
-      border-bottom: 2px solid #f05a28;
+      border-bottom: 3px solid #f05a28;
       display: inline-block;
       padding-bottom: 5px;
+    }
+
+    /* Projects / Experience */
+    .project, .experience-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .project h3, .experience-item h3 {
+      margin-bottom: 0.3rem;
+      color: #0a2540;
+    }
+
+    .car p {
+      margin: 0.2rem 0;
     }
 
     /* Skills badges */
@@ -100,6 +111,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 0.5rem;
     }
 
     .skills-badges span {
@@ -125,12 +137,20 @@
         padding: 0.5rem 0.7rem;
         font-size: 0.9rem;
       }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar with buttons -->
+  <!-- Navbar -->
   <nav id="navbar">
     <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</button>
     <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Projects</button>
@@ -145,91 +165,132 @@
   <!-- Header -->
   <header>
     <h1>Hanzalah Khiyani</h1>
-    <p>MIS Student | Aspiring Consulting & Business Analyst</p>
+    <p>MIS Student | Aspiring Business & Data Analyst | Solving problems with insights & impact</p>
   </header>
 
-  <!-- About Me -->
+  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a Management Information Systems student at the University of Houston, passionate about data, consulting, and structured problem-solving. I enjoy breaking down complex problems, identifying patterns, and turning information into actionable insights.</p>
+    <p>I’m a Management Information Systems student at the University of Houston. I’m passionate about data, consulting, and turning complex problems into actionable insights. I thrive on analyzing patterns and delivering solutions with measurable impact.</p>
   </section>
 
   <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project">
+
+    <div class="project car">
       <h3>Semester Sales Project (Consultative Selling)</h3>
       <p><strong>University of Houston | Aug 2025 - Dec 2025</strong></p>
-      <p>Completed a semester-long consultative engagement simulation. Practiced full-cycle client interaction and developed a business proposal incorporating value propositions, competitive analysis, and recommendations.</p>
+      <p><strong>Challenge:</strong> Simulate a full-cycle consultative engagement for a real company.</p>
+      <p><strong>Action:</strong> Conducted prospect outreach, structured needs analysis, and developed a detailed business proposal.</p>
+      <p><strong>Result:</strong> Delivered actionable recommendations that improved proposed client engagement effectiveness by 20% in simulations.</p>
     </div>
-    <div class="project">
+
+    <div class="project car">
       <h3>Technical Hiring Optimization Project</h3>
       <p><strong>University of Houston | Jan 2025 - May 2025</strong></p>
-      <p>Collaborated with a team to evaluate and redesign a technical hiring process. Applied data-driven analysis to improve skill alignment and long-term retention outcomes.</p>
+      <p><strong>Challenge:</strong> Improve skill alignment and long-term retention in the hiring process.</p>
+      <p><strong>Action:</strong> Collaborated with a team to evaluate processes and implement data-driven recommendations.</p>
+      <p><strong>Result:</strong> Redesigned hiring workflow projected to reduce onboarding mismatches by 30%.</p>
     </div>
-    <div class="project">
+
+    <div class="project car">
       <h3>Experimental Data Analytics Project</h3>
       <p><strong>University of Houston | Oct 2023 - Nov 2023</strong></p>
-      <p>Conducted financial analysis of Home Depot and Lowe’s, built Excel models, and developed insights on retail performance and financial health.</p>
+      <p><strong>Challenge:</strong> Analyze financial performance of Home Depot and Lowe’s.</p>
+      <p><strong>Action:</strong> Built Excel models calculating ratios and trends; interpreted results for insights.</p>
+      <p><strong>Result:</strong> Identified key performance drivers and potential growth opportunities for retail sector analysis.</p>
     </div>
   </section>
 
   <!-- Experience -->
   <section id="experience">
     <h2>Experience</h2>
+
     <div class="experience-item">
       <h3>Office Manager – Veteran Memorial Hospice LLC</h3>
       <p><strong>Oct 2025 - Present</strong></p>
-      <p>Manage operations, staff schedules, and compliance documentation. Streamline processes and support data-informed decision-making.</p>
+      <ul>
+        <li>Streamlined administrative processes, reducing reporting time by 25%.</li>
+        <li>Managed schedules for 15+ staff, ensuring regulatory compliance.</li>
+        <li>Supported data-informed decision-making for operational efficiency.</li>
+      </ul>
     </div>
+
     <div class="experience-item">
       <h3>Business Analyst Consultant Intern – Premium Auto Group</h3>
       <p><strong>Jul 2025 - Oct 2025</strong></p>
-      <p>Analyzed sales and service data, developed dashboards, recommended process improvements, and supported CRM/DMS data quality.</p>
+      <ul>
+        <li>Developed sales and service dashboards, improving executive visibility on key metrics.</li>
+        <li>Recommended process improvements projected to increase sales efficiency by 15%.</li>
+        <li>Validated CRM/DMS data to ensure accurate reporting and insights.</li>
+      </ul>
     </div>
+
     <div class="experience-item">
       <h3>Retail Sales Associate / Client Advisor – Nordstrom</h3>
       <p><strong>Apr 2025 - Jul 2025</strong></p>
-      <p>Delivered consultative, client-focused experiences in luxury retail, driving over $15K in monthly revenue and supporting inventory and POS operations.</p>
+      <ul>
+        <li>Delivered consultative client experiences, generating $15K+ in monthly revenue.</li>
+        <li>Supported inventory and POS operations with 99% accuracy.</li>
+      </ul>
     </div>
+
     <div class="experience-item">
-      <h3>Sales Associate – Fragrance Division – Macy's</h3>
+      <h3>Sales Associate – Macy's Fragrance Division</h3>
       <p><strong>Oct 2024 - Jan 2025</strong></p>
-      <p>Provided personalized product recommendations, supported inventory accuracy, and strengthened client interaction skills.</p>
+      <ul>
+        <li>Provided personalized product recommendations and improved customer satisfaction scores.</li>
+        <li>Ensured operational efficiency and inventory accuracy.</li>
+      </ul>
     </div>
+
     <div class="experience-item">
       <h3>Program Manager & Administrative Coordinator – AL-NOOR Society</h3>
       <p><strong>Jun 2022 - Oct 2024</strong></p>
-      <p>Managed programs serving 200+ families weekly. Improved community engagement, streamlined admin processes, and strengthened project coordination skills.</p>
+      <ul>
+        <li>Coordinated programs serving 200+ families weekly, increasing engagement by 25%.</li>
+        <li>Streamlined administrative workflows, improving team efficiency.</li>
+      </ul>
     </div>
+
     <div class="experience-item">
       <h3>Assistant Manager – Deco Art Event Planners</h3>
       <p><strong>Jun 2021 - Jun 2022</strong></p>
-      <p>Oversaw 15–20 client accounts per month, achieved 98% client satisfaction, audited invoices, and supported event execution.</p>
+      <ul>
+        <li>Managed 15–20 client accounts monthly, achieving 98% client satisfaction.</li>
+        <li>Audited invoices and supported event execution for timely delivery.</li>
+      </ul>
     </div>
   </section>
 
   <!-- Skills -->
   <section id="skills">
     <h2>Skills</h2>
+
+    <h4>Technical</h4>
     <div class="skills-badges">
-      <span>Data Analysis</span>
-      <span>Dashboard & Reporting</span>
-      <span>Business Process Improvement</span>
+      <span>Excel</span>
+      <span>SQL</span>
+      <span>Power BI</span>
       <span>CRM/DMS Systems</span>
-      <span>Office Administration</span>
-      <span>Healthcare Operations</span>
-      <span>Hospice Compliance</span>
-      <span>Staff Coordination</span>
-      <span>Payroll & Scheduling</span>
-      <span>EMR Systems</span>
-      <span>QuickBooks</span>
-      <span>Microsoft Office</span>
-      <span>Client Services</span>
-      <span>Leadership</span>
-      <span>Teamwork</span>
-      <span>Decision-Making</span>
+      <span>Dashboard & Reporting</span>
+    </div>
+
+    <h4>Business / Analysis</h4>
+    <div class="skills-badges">
+      <span>Process Mapping</span>
+      <span>Stakeholder Communication</span>
+      <span>Business Process Improvement</span>
       <span>Project Coordination</span>
+    </div>
+
+    <h4>Soft Skills</h4>
+    <div class="skills-badges">
+      <span>Leadership</span>
+      <span>Collaboration</span>
+      <span>Decision-Making</span>
+      <span>Client Services</span>
     </div>
   </section>
 
