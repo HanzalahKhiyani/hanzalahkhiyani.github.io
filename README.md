@@ -1,5 +1,3 @@
-# Hanzalah Khiyani Portfolio
-
 Welcome to my personal portfolio!  
 
 I am an **MIS student** at the University of Houston, passionate about technology, consulting, and building impactful projects. This site showcases my projects, resume, and skills.
