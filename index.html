@@ -4,173 +4,155 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hanzalah Khiyani Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #222; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    h2 { color: #0a2540; margin-bottom: 0.5rem; }
-    section { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-    ul { list-style: none; padding: 0; margin: 0; }
-
-    /* Header */
-    header { background: #0a2540; color: #fff; padding: 2rem 1rem; text-align: center; }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { font-size: 1rem; margin-top: 0.3rem; }
-
-    /* Navigation */
-    nav { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; justify-content: center; padding: 1rem; position: fixed; top: 0; width: 100%; z-index: 10; transition: top 0.3s; }
-    nav a { margin: 0.5rem 1rem; font-weight: 600; }
-
-    /* Project / Experience / Skills Boxes */
-    .project, .experience-item, .cert-item, .award-item { margin-bottom: 1.5rem; }
-    .skills-list li, .tools-list li { background: #0a2540; color: #fff; padding: 0.4rem 0.8rem; margin: 0.3rem; border-radius: 5px; font-size: 0.9rem; display: inline-block; }
-
-    /* Buttons */
-    a.button { display: inline-block; background: #0a2540; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-top: 0.5rem; }
-
-    /* Footer */
-    footer { text-align: center; padding: 1rem; background: #0a2540; color: #fff; margin-top: 2rem; }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      header h1 { font-size: 1.6rem; }
-      header p { font-size: 0.95rem; }
-      nav { flex-direction: column; }
-      nav a { margin: 0.3rem 0; }
-      section { margin: 1rem; padding: 0 0.5rem; }
-      .skills-list li { font-size: 0.85rem; padding: 0.3rem 0.6rem; }
-    }
-
-    @media (max-width: 480px) {
-      header h1 { font-size: 1.4rem; }
-      header p { font-size: 0.85rem; }
-      nav a { font-size: 0.9rem; }
-    }
-
-    /* Extra top spacing to prevent content behind navbar */
-    body { padding-top: 70px; }
-  </style>
 </head>
-<body>
+<body style="padding-top: 70px;"> <!-- space for navbar -->
 
-<header>
+<!-- Header -->
+<header style="background: #0a2540; color: white; text-align: center; padding: 2rem 1rem;">
   <h1>Hanzalah Khiyani</h1>
   <p>MIS Student | Aspiring Consulting & Business Analyst</p>
 </header>
 
-<nav id="navbar">
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#experience">Experience</a>
-  <a href="#skills">Skills</a>
-  <a href="#education">Education</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#awards">Honors</a>
+<!-- Fixed Navbar -->
+<nav id="navbar" style="position: fixed; top: 0; width: 100%; background: #fff; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; text-align: center;">
+  <a href="#about">About</a> |
+  <a href="#projects">Projects</a> |
+  <a href="#experience">Experience</a> |
+  <a href="#skills">Skills</a> |
+  <a href="#education">Education</a> |
+  <a href="#certifications">Certifications</a> |
+  <a href="#awards">Honors</a> |
   <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
+<!-- About Me -->
+<section id="about" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>About Me</h2>
-  <p>I’m a Management Information Systems student at the University of Houston, passionate about data, consulting, and structured problem-solving. I enjoy breaking down complex problems, identifying patterns, and turning information into actionable insights. My goal is to contribute to consulting or business analyst roles, applying analytical skills to real-world client solutions.</p>
+  <p>
+    I’m a Management Information Systems student at the University of Houston, passionate about data, consulting, and structured problem-solving. I enjoy breaking down complex problems, identifying patterns, and turning information into actionable insights.
+  </p>
 </section>
 
-<section id="projects">
+<!-- Projects -->
+<section id="projects" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>Projects</h2>
+
   <div class="project">
     <h3>Semester Sales Project (Consultative Selling)</h3>
     <p><strong>University of Houston, C.T. Bauer College of Business | Aug 2025 - Dec 2025</strong></p>
-    <p>Completed a semester-long consultative engagement simulation representing a real company. Practiced full-cycle client interaction including prospect outreach, needs discovery, structured questioning, and solution development. Developed and presented a business proposal with value propositions, competitive analysis, and recommendations.</p>
+    <p>Completed a semester-long consultative engagement simulation. Practiced full-cycle client interaction and developed a business proposal incorporating value propositions, competitive analysis, and recommendations.</p>
   </div>
 
   <div class="project">
     <h3>Technical Hiring Optimization Project</h3>
     <p><strong>University of Houston, C.T. Bauer College of Business | Jan 2025 - May 2025</strong></p>
-    <p>Collaborated with a team of eight to evaluate and redesign a technical hiring process. Applied data-driven analysis to improve skill alignment and long-term retention outcomes. Developed structured process improvement recommendations aligned with organizational hiring goals.</p>
+    <p>Collaborated with a team to evaluate and redesign a technical hiring process. Applied data-driven analysis to improve skill alignment and long-term retention outcomes.</p>
   </div>
 
   <div class="project">
     <h3>Experimental Data Analytics Project</h3>
     <p><strong>University of Houston, C.T. Bauer College of Business | Oct 2023 - Nov 2023</strong></p>
-    <p>Conducted financial statement analysis on Home Depot and Lowe’s using publicly available filings. Built Excel models to calculate key financial ratios and perform multi-year trend analysis. Developed insights on retail performance, financial health, and market impacts.</p>
+    <p>Conducted financial analysis of Home Depot and Lowe’s, built Excel models, and developed insights on retail performance and financial health.</p>
   </div>
 </section>
 
-<section id="experience">
+<!-- Experience -->
+<section id="experience" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>Experience</h2>
+
   <div class="experience-item">
     <h3>Office Manager – Veteran Memorial Hospice LLC</h3>
     <p><strong>Oct 2025 - Present</strong></p>
-    <p>Manage daily operations, staff schedules, and compliance documentation. Streamline internal processes and support data-informed decision-making.</p>
+    <p>Manage operations, staff schedules, and compliance documentation. Streamline processes and support data-informed decision-making.</p>
   </div>
 
   <div class="experience-item">
     <h3>Business Analyst Consultant Intern – Premium Auto Group</h3>
     <p><strong>Jul 2025 - Oct 2025</strong></p>
-    <p>Analyzed sales and service data, developed dashboards, and recommended process improvements. Supported CRM/DMS data quality and strategic decision-making.</p>
+    <p>Analyzed sales and service data, developed dashboards, recommended process improvements, and supported CRM/DMS data quality.</p>
+  </div>
+
+  <div class="experience-item">
+    <h3>Retail Sales Associate / Client Advisor – Nordstrom</h3>
+    <p><strong>Apr 2025 - Jul 2025</strong></p>
+    <p>Delivered consultative, client-focused experiences in luxury retail, driving over $15K in monthly revenue and supporting inventory and POS operations.</p>
+  </div>
+
+  <div class="experience-item">
+    <h3>Sales Associate – Fragrance Division – Macy's</h3>
+    <p><strong>Oct 2024 - Jan 2025</strong></p>
+    <p>Provided personalized product recommendations, supported inventory accuracy, and strengthened client interaction skills.</p>
+  </div>
+
+  <div class="experience-item">
+    <h3>Program Manager & Administrative Coordinator – AL-NOOR Society of Greater Houston</h3>
+    <p><strong>Jun 2022 - Oct 2024</strong></p>
+    <p>Managed programs serving 200+ families weekly. Improved community engagement, streamlined admin processes, and strengthened project coordination skills.</p>
+  </div>
+
+  <div class="experience-item">
+    <h3>Assistant Manager – Deco Art Event Planners</h3>
+    <p><strong>Jun 2021 - Jun 2022</strong></p>
+    <p>Oversaw 15–20 client accounts per month, achieved 98% client satisfaction, audited invoices, and supported event execution.</p>
   </div>
 </section>
 
-<section id="skills">
+<!-- Skills -->
+<section id="skills" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>Skills</h2>
-  <ul class="skills-list">
+  <ul>
     <li>Data Analysis</li>
     <li>Dashboard & Reporting Development</li>
     <li>Business Process Improvement</li>
     <li>CRM/DMS Systems</li>
-    <li>Microsoft Excel</li>
-    <li>Microsoft Office Suite</li>
-    <li>QuickBooks</li>
+    <li>Office Administration</li>
+    <li>Healthcare Operations</li>
+    <li>Hospice Compliance</li>
+    <li>Staff Coordination</li>
+    <li>Payroll & Scheduling</li>
     <li>EMR Systems</li>
+    <li>QuickBooks</li>
+    <li>Microsoft Office Suite</li>
     <li>Client Services</li>
     <li>Leadership & Teamwork</li>
+    <li>Decision-Making & Communication</li>
+    <li>Project Coordination</li>
   </ul>
 </section>
 
-<section id="education">
+<!-- Education -->
+<section id="education" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>Education</h2>
   <p><strong>University of Houston, C.T. Bauer College of Business</strong><br>BBA, Management Information Systems | Sep 2023 - May 2027</p>
+  <p><strong>Michael E. DeBakey High School for Health Professions</strong><br>High School Diploma | Aug 2019 - Jun 2023</p>
 </section>
 
-<section id="certifications">
+<!-- Certifications -->
+<section id="certifications" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>Certifications</h2>
-  <p><strong>Certificate of Competency in SQL</strong> – LearnSQL.com | Dec 2025<br>Credential ID: 09E6C0/12/2025<br><a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" class="button" target="_blank">View Certificate</a></p>
+  <p><strong>Certificate of Competency in SQL</strong> – LearnSQL.com | Dec 2025<br>Credential ID: 09E6C0/12/2025</p>
 </section>
 
-<section id="awards">
+<!-- Honors & Awards -->
+<section id="awards" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>Honors & Awards</h2>
-  <ul class="award-list">
-    <li>Dean's List – University of Houston, C.T. Bauer College of Business | Fall 2024</li>
-    <li>Dean's List – University of Houston, C.T. Bauer College of Business | Spring 2025</li>
+  <ul>
+    <li>Dean's List – Fall 2024</li>
+    <li>Dean's List – Spring 2025</li>
   </ul>
 </section>
 
-<section id="contact">
+<!-- Contact -->
+<section id="contact" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
   <h2>Contact</h2>
   <p>Email: khiyani.hanzalah@gmail.com</p>
   <p>LinkedIn: <a href="https://linkedin.com/in/hanzalah-khiyani" target="_blank">linkedin.com/in/hanzalah-khiyani</a></p>
 </section>
 
-<footer>
+<!-- Footer -->
+<footer style="text-align: center; padding: 1rem; background: #0a2540; color: white; margin-top: 2rem;">
   <p>&copy; 2026 Hanzalah Khiyani. All rights reserved.</p>
 </footer>
-
-<script>
-  // Hide navbar on scroll down, show on scroll up
-  let lastScrollTop = 0;
-  const navbar = document.getElementById('navbar');
-
-  window.addEventListener('scroll', function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if(scrollTop > lastScrollTop) {
-      // Scroll down
-      navbar.style.top = '-70px';
-    } else {
-      // Scroll up
-      navbar.style.top = '0';
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-  });
-</script>
 
 </body>
 </html>
