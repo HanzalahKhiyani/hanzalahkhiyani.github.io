@@ -40,7 +40,4 @@ Conducted financial statement analysis on Home Depot and Lowe’s using publicly
 - CRM & Sales Tools (if applicable)
 
 ## 📫 Contact
-- Email: khiyani.hanzalah@gmail.com  
 - LinkedIn: [linkedin.com/in/hanzalah-khiyani](https://linkedin.com/in/hanzalah-khiyani)  
-- GitHub: [github.com/yourusername](https://github.com/yourusername)
-
