@@ -1,4 +1,4 @@
-# Hanzalah Khiyani Portfolio
+# Hanzalah (Hanz) Khiyani Portfolio
 
 Welcome! I’m an **MIS student** at the University of Houston, passionate about data, consulting, and structured problem-solving. I enjoy breaking down complex problems, identifying patterns, and turning information into actionable insights. I’m seeking **consulting analyst or business analyst internship opportunities** where I can apply analytical skills to real-world problems.
 
