@@ -6,7 +6,6 @@
   <title>Hanzalah Khiyani Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Base Styles */
     body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #222; line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
     h2 { color: #0a2540; margin-bottom: 0.5rem; }
@@ -19,7 +18,7 @@
     header p { font-size: 1rem; margin-top: 0.3rem; }
 
     /* Navigation */
-    nav { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; justify-content: center; padding: 1rem; position: sticky; top: 0; z-index: 10; }
+    nav { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; justify-content: center; padding: 1rem; position: fixed; top: 0; width: 100%; z-index: 10; transition: top 0.3s; }
     nav a { margin: 0.5rem 1rem; font-weight: 600; }
 
     /* Project / Experience / Skills Boxes */
@@ -39,7 +38,7 @@
       nav { flex-direction: column; }
       nav a { margin: 0.3rem 0; }
       section { margin: 1rem; padding: 0 0.5rem; }
-      .skills-list li, .tools-list li { font-size: 0.85rem; padding: 0.3rem 0.6rem; }
+      .skills-list li { font-size: 0.85rem; padding: 0.3rem 0.6rem; }
     }
 
     @media (max-width: 480px) {
@@ -47,6 +46,9 @@
       header p { font-size: 0.85rem; }
       nav a { font-size: 0.9rem; }
     }
+
+    /* Extra top spacing to prevent content behind navbar */
+    body { padding-top: 70px; }
   </style>
 </head>
 <body>
@@ -56,7 +58,7 @@
   <p>MIS Student | Aspiring Consulting & Business Analyst</p>
 </header>
 
-<nav>
+<nav id="navbar">
   <a href="#about">About</a>
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
@@ -74,7 +76,6 @@
 
 <section id="projects">
   <h2>Projects</h2>
-
   <div class="project">
     <h3>Semester Sales Project (Consultative Selling)</h3>
     <p><strong>University of Houston, C.T. Bauer College of Business | Aug 2025 - Dec 2025</strong></p>
@@ -96,47 +97,16 @@
 
 <section id="experience">
   <h2>Experience</h2>
-
   <div class="experience-item">
     <h3>Office Manager – Veteran Memorial Hospice LLC</h3>
     <p><strong>Oct 2025 - Present</strong></p>
     <p>Manage daily operations, staff schedules, and compliance documentation. Streamline internal processes and support data-informed decision-making.</p>
-    <p><strong>Skills:</strong> Office Administration, Healthcare Operations, Hospice Compliance, Staff Coordination, Payroll & Scheduling, EMR Systems, QuickBooks, Microsoft Office Suite, Regulatory Documentation, Patient & Family Relations</p>
   </div>
 
   <div class="experience-item">
     <h3>Business Analyst Consultant Intern – Premium Auto Group</h3>
     <p><strong>Jul 2025 - Oct 2025</strong></p>
     <p>Analyzed sales and service data, developed dashboards, and recommended process improvements. Supported CRM/DMS data quality and strategic decision-making.</p>
-    <p><strong>Skills:</strong> Data Analysis, Business Process Improvement, Dashboard & Reporting Development, Business Requirements, CRM/DMS Systems</p>
-  </div>
-
-  <div class="experience-item">
-    <h3>Retail Sales Associate / Client Advisor – Nordstrom</h3>
-    <p><strong>Apr 2025 - Jul 2025</strong></p>
-    <p>Delivered consultative client experiences, driving $15K+ in monthly revenue. Supported inventory management and POS operations.</p>
-    <p><strong>Skills:</strong> Client Services, Communication, Sales</p>
-  </div>
-
-  <div class="experience-item">
-    <h3>Sales Associate – Macy's</h3>
-    <p><strong>Oct 2024 - Jan 2025</strong></p>
-    <p>Provided personalized, consultative recommendations for customers. Ensured inventory accuracy and operational efficiency.</p>
-    <p><strong>Skills:</strong> Management, Client Services, Communication</p>
-  </div>
-
-  <div class="experience-item">
-    <h3>Program Manager & Administrative Coordinator – AL-NOOR Society</h3>
-    <p><strong>Jun 2022 - Oct 2024</strong></p>
-    <p>Coordinated programs for 200+ families weekly. Improved community engagement by 25% through operational organization and outreach planning.</p>
-    <p><strong>Skills:</strong> Activity Coordination, Project Coordination, Organization Skills, Time Management, Youth Leadership, Decision-Making, Communication</p>
-  </div>
-
-  <div class="experience-item">
-    <h3>Assistant Manager – Deco Art Event Planners</h3>
-    <p><strong>Jun 2021 - Jun 2022</strong></p>
-    <p>Managed 15–20 client accounts monthly. Maintained billing accuracy, supported event execution, and ensured high client satisfaction.</p>
-    <p><strong>Skills:</strong> Leadership, Client Services, Decision-Making, Teamwork</p>
   </div>
 </section>
 
@@ -146,18 +116,12 @@
     <li>Data Analysis</li>
     <li>Dashboard & Reporting Development</li>
     <li>Business Process Improvement</li>
-    <li>Business Requirements</li>
     <li>CRM/DMS Systems</li>
     <li>Microsoft Excel</li>
     <li>Microsoft Office Suite</li>
     <li>QuickBooks</li>
     <li>EMR Systems</li>
-    <li>Regulatory Documentation</li>
-    <li>Payroll & Scheduling</li>
-    <li>Office Administration</li>
-    <li>Healthcare Operations</li>
-    <li>Hospice Compliance</li>
-    <li>Client Services & Sales</li>
+    <li>Client Services</li>
     <li>Leadership & Teamwork</li>
   </ul>
 </section>
@@ -165,7 +129,6 @@
 <section id="education">
   <h2>Education</h2>
   <p><strong>University of Houston, C.T. Bauer College of Business</strong><br>BBA, Management Information Systems | Sep 2023 - May 2027</p>
-  <p><strong>Michael E. DeBakey High School for Health Professions</strong><br>High School Diploma | Aug 2019 - Jun 2023</p>
 </section>
 
 <section id="certifications">
@@ -190,6 +153,24 @@
 <footer>
   <p>&copy; 2026 Hanzalah Khiyani. All rights reserved.</p>
 </footer>
+
+<script>
+  // Hide navbar on scroll down, show on scroll up
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if(scrollTop > lastScrollTop) {
+      // Scroll down
+      navbar.style.top = '-70px';
+    } else {
+      // Scroll up
+      navbar.style.top = '0';
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+  });
+</script>
 
 </body>
 </html>
