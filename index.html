@@ -4,155 +4,269 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hanzalah Khiyani Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global font and body */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 90px; /* space for navbar */
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* Navbar */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #0a2540;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #navbar button {
+      background: #f05a28;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    #navbar button:hover {
+      background: #d14b20;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      background: #0a2540;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      margin: 0.5rem 0;
+    }
+
+    header p {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      scroll-margin-top: 80px; /* for navbar offset */
+    }
+
+    section h2 {
+      color: #0a2540;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #f05a28;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Skills badges */
+    .skills-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skills-badges span {
+      background: #0a2540;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0a2540;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      #navbar button {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
-<body style="padding-top: 70px;"> <!-- space for navbar -->
+<body>
 
-<!-- Header -->
-<header style="background: #0a2540; color: white; text-align: center; padding: 2rem 1rem;">
-  <h1>Hanzalah Khiyani</h1>
-  <p>MIS Student | Aspiring Consulting & Business Analyst</p>
-</header>
+  <!-- Navbar with buttons -->
+  <nav id="navbar">
+    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</button>
+    <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Projects</button>
+    <button onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">Experience</button>
+    <button onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skills</button>
+    <button onclick="document.getElementById('education').scrollIntoView({behavior:'smooth'})">Education</button>
+    <button onclick="document.getElementById('certifications').scrollIntoView({behavior:'smooth'})">Certifications</button>
+    <button onclick="document.getElementById('awards').scrollIntoView({behavior:'smooth'})">Honors</button>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+  </nav>
 
-<!-- Fixed Navbar -->
-<nav id="navbar" style="position: fixed; top: 0; width: 100%; background: #fff; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; text-align: center;">
-  <a href="#about">About</a> |
-  <a href="#projects">Projects</a> |
-  <a href="#experience">Experience</a> |
-  <a href="#skills">Skills</a> |
-  <a href="#education">Education</a> |
-  <a href="#certifications">Certifications</a> |
-  <a href="#awards">Honors</a> |
-  <a href="#contact">Contact</a>
-</nav>
+  <!-- Header -->
+  <header>
+    <img src="assets/profile.jpg" alt="Hanzalah Khiyani">
+    <h1>Hanzalah Khiyani</h1>
+    <p>MIS Student | Aspiring Consulting & Business Analyst</p>
+  </header>
 
-<!-- About Me -->
-<section id="about" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>About Me</h2>
-  <p>
-    I’m a Management Information Systems student at the University of Houston, passionate about data, consulting, and structured problem-solving. I enjoy breaking down complex problems, identifying patterns, and turning information into actionable insights.
-  </p>
-</section>
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a Management Information Systems student at the University of Houston, passionate about data, consulting, and structured problem-solving. I enjoy breaking down complex problems, identifying patterns, and turning information into actionable insights.</p>
+  </section>
 
-<!-- Projects -->
-<section id="projects" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>Projects</h2>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Semester Sales Project (Consultative Selling)</h3>
+      <p><strong>University of Houston | Aug 2025 - Dec 2025</strong></p>
+      <p>Completed a semester-long consultative engagement simulation. Practiced full-cycle client interaction and developed a business proposal incorporating value propositions, competitive analysis, and recommendations.</p>
+    </div>
+    <div class="project">
+      <h3>Technical Hiring Optimization Project</h3>
+      <p><strong>University of Houston | Jan 2025 - May 2025</strong></p>
+      <p>Collaborated with a team to evaluate and redesign a technical hiring process. Applied data-driven analysis to improve skill alignment and long-term retention outcomes.</p>
+    </div>
+    <div class="project">
+      <h3>Experimental Data Analytics Project</h3>
+      <p><strong>University of Houston | Oct 2023 - Nov 2023</strong></p>
+      <p>Conducted financial analysis of Home Depot and Lowe’s, built Excel models, and developed insights on retail performance and financial health.</p>
+    </div>
+  </section>
 
-  <div class="project">
-    <h3>Semester Sales Project (Consultative Selling)</h3>
-    <p><strong>University of Houston, C.T. Bauer College of Business | Aug 2025 - Dec 2025</strong></p>
-    <p>Completed a semester-long consultative engagement simulation. Practiced full-cycle client interaction and developed a business proposal incorporating value propositions, competitive analysis, and recommendations.</p>
-  </div>
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-item">
+      <h3>Office Manager – Veteran Memorial Hospice LLC</h3>
+      <p><strong>Oct 2025 - Present</strong></p>
+      <p>Manage operations, staff schedules, and compliance documentation. Streamline processes and support data-informed decision-making.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Business Analyst Consultant Intern – Premium Auto Group</h3>
+      <p><strong>Jul 2025 - Oct 2025</strong></p>
+      <p>Analyzed sales and service data, developed dashboards, recommended process improvements, and supported CRM/DMS data quality.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Retail Sales Associate / Client Advisor – Nordstrom</h3>
+      <p><strong>Apr 2025 - Jul 2025</strong></p>
+      <p>Delivered consultative, client-focused experiences in luxury retail, driving over $15K in monthly revenue and supporting inventory and POS operations.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Sales Associate – Fragrance Division – Macy's</h3>
+      <p><strong>Oct 2024 - Jan 2025</strong></p>
+      <p>Provided personalized product recommendations, supported inventory accuracy, and strengthened client interaction skills.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Program Manager & Administrative Coordinator – AL-NOOR Society</h3>
+      <p><strong>Jun 2022 - Oct 2024</strong></p>
+      <p>Managed programs serving 200+ families weekly. Improved community engagement, streamlined admin processes, and strengthened project coordination skills.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Assistant Manager – Deco Art Event Planners</h3>
+      <p><strong>Jun 2021 - Jun 2022</strong></p>
+      <p>Oversaw 15–20 client accounts per month, achieved 98% client satisfaction, audited invoices, and supported event execution.</p>
+    </div>
+  </section>
 
-  <div class="project">
-    <h3>Technical Hiring Optimization Project</h3>
-    <p><strong>University of Houston, C.T. Bauer College of Business | Jan 2025 - May 2025</strong></p>
-    <p>Collaborated with a team to evaluate and redesign a technical hiring process. Applied data-driven analysis to improve skill alignment and long-term retention outcomes.</p>
-  </div>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-badges">
+      <span>Data Analysis</span>
+      <span>Dashboard & Reporting</span>
+      <span>Business Process Improvement</span>
+      <span>CRM/DMS Systems</span>
+      <span>Office Administration</span>
+      <span>Healthcare Operations</span>
+      <span>Hospice Compliance</span>
+      <span>Staff Coordination</span>
+      <span>Payroll & Scheduling</span>
+      <span>EMR Systems</span>
+      <span>QuickBooks</span>
+      <span>Microsoft Office</span>
+      <span>Client Services</span>
+      <span>Leadership</span>
+      <span>Teamwork</span>
+      <span>Decision-Making</span>
+      <span>Project Coordination</span>
+    </div>
+  </section>
 
-  <div class="project">
-    <h3>Experimental Data Analytics Project</h3>
-    <p><strong>University of Houston, C.T. Bauer College of Business | Oct 2023 - Nov 2023</strong></p>
-    <p>Conducted financial analysis of Home Depot and Lowe’s, built Excel models, and developed insights on retail performance and financial health.</p>
-  </div>
-</section>
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>University of Houston, C.T. Bauer College of Business</strong><br>BBA, Management Information Systems | Sep 2023 - May 2027</p>
+    <p><strong>Michael E. DeBakey High School for Health Professions</strong><br>High School Diploma | Aug 2019 - Jun 2023</p>
+  </section>
 
-<!-- Experience -->
-<section id="experience" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>Experience</h2>
+  <!-- Certifications -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <p><strong>Certificate of Competency in SQL</strong> – LearnSQL.com | Dec 2025<br>Credential ID: 09E6C0/12/2025</p>
+  </section>
 
-  <div class="experience-item">
-    <h3>Office Manager – Veteran Memorial Hospice LLC</h3>
-    <p><strong>Oct 2025 - Present</strong></p>
-    <p>Manage operations, staff schedules, and compliance documentation. Streamline processes and support data-informed decision-making.</p>
-  </div>
+  <!-- Honors & Awards -->
+  <section id="awards">
+    <h2>Honors & Awards</h2>
+    <ul>
+      <li>Dean's List – Fall 2024</li>
+      <li>Dean's List – Spring 2025</li>
+    </ul>
+  </section>
 
-  <div class="experience-item">
-    <h3>Business Analyst Consultant Intern – Premium Auto Group</h3>
-    <p><strong>Jul 2025 - Oct 2025</strong></p>
-    <p>Analyzed sales and service data, developed dashboards, recommended process improvements, and supported CRM/DMS data quality.</p>
-  </div>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:khiyani.hanzalah@gmail.com">khiyani.hanzalah@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/hanzalah-khiyani" target="_blank">linkedin.com/in/hanzalah-khiyani</a></p>
+  </section>
 
-  <div class="experience-item">
-    <h3>Retail Sales Associate / Client Advisor – Nordstrom</h3>
-    <p><strong>Apr 2025 - Jul 2025</strong></p>
-    <p>Delivered consultative, client-focused experiences in luxury retail, driving over $15K in monthly revenue and supporting inventory and POS operations.</p>
-  </div>
-
-  <div class="experience-item">
-    <h3>Sales Associate – Fragrance Division – Macy's</h3>
-    <p><strong>Oct 2024 - Jan 2025</strong></p>
-    <p>Provided personalized product recommendations, supported inventory accuracy, and strengthened client interaction skills.</p>
-  </div>
-
-  <div class="experience-item">
-    <h3>Program Manager & Administrative Coordinator – AL-NOOR Society of Greater Houston</h3>
-    <p><strong>Jun 2022 - Oct 2024</strong></p>
-    <p>Managed programs serving 200+ families weekly. Improved community engagement, streamlined admin processes, and strengthened project coordination skills.</p>
-  </div>
-
-  <div class="experience-item">
-    <h3>Assistant Manager – Deco Art Event Planners</h3>
-    <p><strong>Jun 2021 - Jun 2022</strong></p>
-    <p>Oversaw 15–20 client accounts per month, achieved 98% client satisfaction, audited invoices, and supported event execution.</p>
-  </div>
-</section>
-
-<!-- Skills -->
-<section id="skills" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>Skills</h2>
-  <ul>
-    <li>Data Analysis</li>
-    <li>Dashboard & Reporting Development</li>
-    <li>Business Process Improvement</li>
-    <li>CRM/DMS Systems</li>
-    <li>Office Administration</li>
-    <li>Healthcare Operations</li>
-    <li>Hospice Compliance</li>
-    <li>Staff Coordination</li>
-    <li>Payroll & Scheduling</li>
-    <li>EMR Systems</li>
-    <li>QuickBooks</li>
-    <li>Microsoft Office Suite</li>
-    <li>Client Services</li>
-    <li>Leadership & Teamwork</li>
-    <li>Decision-Making & Communication</li>
-    <li>Project Coordination</li>
-  </ul>
-</section>
-
-<!-- Education -->
-<section id="education" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>Education</h2>
-  <p><strong>University of Houston, C.T. Bauer College of Business</strong><br>BBA, Management Information Systems | Sep 2023 - May 2027</p>
-  <p><strong>Michael E. DeBakey High School for Health Professions</strong><br>High School Diploma | Aug 2019 - Jun 2023</p>
-</section>
-
-<!-- Certifications -->
-<section id="certifications" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>Certifications</h2>
-  <p><strong>Certificate of Competency in SQL</strong> – LearnSQL.com | Dec 2025<br>Credential ID: 09E6C0/12/2025</p>
-</section>
-
-<!-- Honors & Awards -->
-<section id="awards" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>Honors & Awards</h2>
-  <ul>
-    <li>Dean's List – Fall 2024</li>
-    <li>Dean's List – Spring 2025</li>
-  </ul>
-</section>
-
-<!-- Contact -->
-<section id="contact" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; scroll-margin-top: 70px;">
-  <h2>Contact</h2>
-  <p>Email: khiyani.hanzalah@gmail.com</p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/hanzalah-khiyani" target="_blank">linkedin.com/in/hanzalah-khiyani</a></p>
-</section>
-
-<!-- Footer -->
-<footer style="text-align: center; padding: 1rem; background: #0a2540; color: white; margin-top: 2rem;">
-  <p>&copy; 2026 Hanzalah Khiyani. All rights reserved.</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Hanzalah Khiyani. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
