@@ -13,7 +13,7 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      padding-top: 90px; /* space for navbar */
+      padding-top: 90px; /* default space for navbar */
       background: #f5f5f5;
       color: #333;
     }
@@ -58,7 +58,7 @@
       background: #0a2540;
       color: white;
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 3rem 1rem 2rem 1rem;
     }
 
     header h1 {
@@ -133,8 +133,16 @@
 
     /* Responsive adjustments */
     @media (max-width: 600px) {
+      body {
+        padding-top: 140px; /* more space for taller/wrapped navbar */
+      }
+
+      #navbar {
+        padding: 0.8rem 0.5rem;
+      }
+
       #navbar button {
-        padding: 0.5rem 0.7rem;
+        padding: 0.4rem 0.7rem;
         font-size: 0.9rem;
       }
 
@@ -144,6 +152,14 @@
 
       header p {
         font-size: 1rem;
+      }
+
+      section {
+        padding: 1.5rem 1rem;
+      }
+
+      section {
+        scroll-margin-top: 120px;
       }
     }
   </style>
@@ -302,15 +318,14 @@
   </section>
 
   <!-- Certifications -->
-<section id="certifications">
-  <h2>Certifications</h2>
-  <p>
-    <strong>Certificate of Competency in SQL</strong> – LearnSQL.com | Dec 2025<br>
-    Credential ID: 09E6C0/12/2025<br>
-    <a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" target="_blank">View Certificate »</a>
-  </p>
-</section>
-
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <p>
+      <strong>Certificate of Competency in SQL</strong> – LearnSQL.com | Dec 2025<br>
+      Credential ID: 09E6C0/12/2025<br>
+      <a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" target="_blank">View Certificate »</a>
+    </p>
+  </section>
 
   <!-- Honors & Awards -->
   <section id="awards">
