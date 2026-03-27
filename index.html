@@ -70,6 +70,84 @@
 
         .nav-links a:hover { color: var(--accent); }
 
+        /* HAMBURGER */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-muted);
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease, background 0.2s;
+        }
+
+        .hamburger:hover span { background: var(--accent); }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* DROPDOWN MENU */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0; right: 0;
+            width: 260px;
+            height: 100vh;
+            background: rgba(15,15,15,0.98);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid var(--border);
+            padding: 80px 40px 40px;
+            gap: 8px;
+            list-style: none;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 150;
+        }
+
+        .nav-links.open {
+            transform: translateX(0);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: block;
+        }
+
+        .nav-links li:last-child a { border-bottom: none; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* OVERLAY */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 140;
+        }
+
+        .nav-overlay.open { display: block; }
+
         /* HERO */
         .hero {
             min-height: 100vh;
@@ -642,7 +720,6 @@
         /* ACTIVE NAV on scroll highlight */
         @media (max-width: 768px) {
             nav { padding: 16px 24px; }
-            .nav-links { display: none; }
             .hero { padding: 100px 24px 60px; }
             .section { padding: 70px 24px; }
             .about-grid, .projects-grid, .skills-grid, .edu-cert-grid { grid-template-columns: 1fr; }
@@ -654,10 +731,18 @@
 </head>
 <body>
 
+<!-- OVERLAY -->
+<div class="nav-overlay" id="nav-overlay"></div>
+
 <!-- NAV -->
 <nav id="navbar">
     <div class="nav-logo">HK</div>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
