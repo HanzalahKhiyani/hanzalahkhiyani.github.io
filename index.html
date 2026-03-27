@@ -568,6 +568,57 @@
             color: var(--text);
         }
 
+        /* FORM */
+        .form-card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 36px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .form-input {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            padding: 12px 14px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus { border-color: var(--accent); }
+        .form-input::placeholder { color: var(--text-muted); }
+        .form-textarea { resize: vertical; min-height: 110px; }
+        .form-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: #0f0f0f;
+            border: none;
+            border-radius: 2px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            margin-top: 4px;
+        }
+        .form-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+        .form-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .form-success { margin-top: 14px; font-size: 14px; color: #7ecba1; text-align: center; }
+        .form-error { margin-top: 14px; font-size: 14px; color: #e07070; text-align: center; }
+
         /* FOOTER */
         footer {
             padding: 28px 60px;
@@ -677,7 +728,7 @@
                 <div class="exp-company">Extern</div>
             </div>
             <div>
-                <div class="exp-role">NY Racing - Sponsorship Strategy & Analytics Extern</div>
+                <div class="exp-role">NY Racing = Sponsorship Strategy & Analytics Extern</div>
                 <div class="exp-desc">Analyzing sponsorship visibility and ROI across the 2024 NASCAR Cup Series using multi-source data.</div>
                 <ul class="exp-bullets">
                     <li>Built a dataset combining race performance, social media engagement, YouTube exposure, and media coverage</li>
@@ -781,7 +832,7 @@
         <div class="exp-item">
             <div class="exp-meta">
                 <div class="exp-date">Jun 2022 — Oct 2024</div>
-                <div class="exp-company">Al-Noor Society of Greater Houston</div>
+                <div class="exp-company">AL-NOOR Society</div>
             </div>
             <div>
                 <div class="exp-role">Program Manager & Administrative Coordinator</div>
@@ -793,6 +844,43 @@
                 </ul>
                 <span class="tag">Program Management</span>
                 <span class="tag">Community</span>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-meta">
+                <div class="exp-date">Oct 2024 — Jan 2025</div>
+                <div class="exp-company">Macy's</div>
+            </div>
+            <div>
+                <div class="exp-role">Sales Associate — Fragrance Division</div>
+                <div class="exp-desc">Delivered personalized, consultative product recommendations in a high-volume, fast-paced retail environment.</div>
+                <ul class="exp-bullets">
+                    <li>Applied needs assessment and communication skills to match diverse customer preferences with the right products</li>
+                    <li>Maintained inventory accuracy and product availability during peak demand periods</li>
+                    <li>Strengthened client interaction, operational efficiency, and service delivery skills relevant to client-facing roles</li>
+                </ul>
+                <span class="tag">Client Services</span>
+                <span class="tag">Retail</span>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-meta">
+                <div class="exp-date">Jun 2021 — Jun 2022</div>
+                <div class="exp-company">Deco Art Event Planners</div>
+            </div>
+            <div>
+                <div class="exp-role">Assistant Manager</div>
+                <div class="exp-desc">Oversaw client accounts and supported seamless event execution for an event planning business.</div>
+                <ul class="exp-bullets">
+                    <li>Managed 15–20 active client accounts per month, maintaining a 98% client satisfaction rate</li>
+                    <li>Audited invoices and payments weekly to improve billing accuracy and reduce errors</li>
+                    <li>Partnered with senior managers on client relationship management and operational quality control</li>
+                </ul>
+                <span class="tag">Account Management</span>
+                <span class="tag">Operations</span>
+                <span class="tag">Leadership</span>
             </div>
         </div>
 
@@ -926,20 +1014,44 @@
         <div>
             <div class="section-label">Contact</div>
             <div class="contact-heading">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></div>
-            <p class="contact-sub">I'm open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out — I'd love to connect.</p>
-        </div>
-        <div class="contact-links">
-            <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com">
-                <span class="contact-link-label">Email</span>
-                <span class="contact-link-value">khiyani.hanzalah@gmail.com</span>
+            <p class="contact-sub">I'm open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Send a message below or reach out directly.</p>
+            <div class="contact-links" style="margin-top:28px;">
+            <a class="contact-link-item" href="/cdn-cgi/l/email-protection#7d161514041c131453151c13071c111c153d1a101c1411531e1210">
+                <span class="contact-link-label">Email directly</span>
+                <span class="contact-link-value"><span class="__cf_email__" data-cfemail="ea818283938b8483c4828b84908b868b82aa8d878b8386c4898587">[email&#160;protected]</span></span>
             </a>
             <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
                 <span class="contact-link-label">LinkedIn</span>
                 <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
             </a>
+            </div>
+        </div>
+        <div class="form-card">
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label class="form-label" for="name">Your Name</label>
+                    <input class="form-input" type="text" id="name" name="name" placeholder="Jane Smith" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Your Email</label>
+                    <input class="form-input" type="email" id="email" name="email" placeholder="jane@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="subject">Subject</label>
+                    <input class="form-input" type="text" id="subject" name="subject" placeholder="Internship opportunity, collaboration...">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea class="form-input form-textarea" id="message" name="message" placeholder="Tell me a bit about what you have in mind..." required></textarea>
+                </div>
+                <button type="submit" class="form-btn" id="submit-btn">Send Message</button>
+                <div id="form-success" class="form-success" style="display:none;">✓ Message sent — I'll get back to you soon.</div>
+                <div id="form-error" class="form-error" style="display:none;">Something went wrong. Please email me directly.</div>
+            </form>
         </div>
     </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -947,15 +1059,4 @@
     <div class="footer-right">© 2026 · Houston, TX</div>
 </footer>
 
-<script>
-    let lastScroll = 0;
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        const current = window.pageYOffset;
-        navbar.style.transform = current > lastScroll && current > 80 ? 'translateY(-100%)' : 'translateY(0)';
-        lastScroll = current;
-    });
-</script>
-
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5d
