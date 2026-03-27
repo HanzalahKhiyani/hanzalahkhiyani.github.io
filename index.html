@@ -19,7 +19,6 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
 
         body {
@@ -30,7 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* NAV */
+        /* ── NAV ── */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -42,7 +41,12 @@
             background: rgba(15,15,15,0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
-            transition: transform 0.3s ease;
+            /* hide/show via translate */
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav.nav-hidden {
+            transform: translateY(-100%);
         }
 
         .nav-logo {
@@ -52,8 +56,11 @@
             letter-spacing: 0.5px;
         }
 
+        /* Always-visible horizontal links — no hamburger */
         .nav-links {
             display: flex;
+            flex-direction: row;
+            align-items: center;
             gap: 32px;
             list-style: none;
         }
@@ -66,89 +73,12 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: color 0.2s;
+            white-space: nowrap;
         }
 
         .nav-links a:hover { color: var(--accent); }
 
-        /* HAMBURGER */
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
-            background: none;
-            border: none;
-            z-index: 200;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-muted);
-            border-radius: 2px;
-            transition: transform 0.3s ease, opacity 0.3s ease, background 0.2s;
-        }
-
-        .hamburger:hover span { background: var(--accent); }
-
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* DROPDOWN MENU */
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 0; right: 0;
-            width: 260px;
-            height: 100vh;
-            background: rgba(15,15,15,0.98);
-            backdrop-filter: blur(20px);
-            border-left: 1px solid var(--border);
-            padding: 80px 40px 40px;
-            gap: 8px;
-            list-style: none;
-            transform: translateX(100%);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 150;
-        }
-
-        .nav-links.open {
-            transform: translateX(0);
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color 0.2s;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-            display: block;
-        }
-
-        .nav-links li:last-child a { border-bottom: none; }
-        .nav-links a:hover { color: var(--accent); }
-
-        /* OVERLAY */
-        .nav-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 140;
-        }
-
-        .nav-overlay.open { display: block; }
-
-        /* HERO */
+        /* ── HERO ── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -167,9 +97,7 @@
             pointer-events: none;
         }
 
-        .hero-inner {
-            max-width: 820px;
-        }
+        .hero-inner { max-width: 820px; }
 
         .hero-eyebrow {
             font-size: 12px;
@@ -199,10 +127,7 @@
             margin-bottom: 28px;
         }
 
-        h1 em {
-            font-style: italic;
-            color: var(--accent);
-        }
+        h1 em { font-style: italic; color: var(--accent); }
 
         .hero-sub {
             font-size: 18px;
@@ -213,11 +138,7 @@
             line-height: 1.8;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
 
         .btn-primary {
             display: inline-block;
@@ -251,7 +172,7 @@
 
         .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* SECTION WRAPPER */
+        /* ── SECTIONS ── */
         .section {
             padding: 100px 60px;
             max-width: 1100px;
@@ -285,7 +206,6 @@
             color: var(--text);
         }
 
-        /* DIVIDER */
         .divider {
             height: 1px;
             background: var(--border);
@@ -293,7 +213,7 @@
             margin: 0 auto;
         }
 
-        /* ABOUT */
+        /* ── ABOUT ── */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -329,13 +249,9 @@
             margin-bottom: 6px;
         }
 
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
+        .stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
 
-        /* EXPERIENCE */
+        /* ── EXPERIENCE ── */
         .exp-list { display: flex; flex-direction: column; gap: 0; }
 
         .exp-item {
@@ -344,27 +260,14 @@
             gap: 40px;
             padding: 40px 0;
             border-bottom: 1px solid var(--border);
-            transition: background 0.2s;
         }
 
         .exp-item:first-child { border-top: 1px solid var(--border); }
 
-        .exp-meta {
-            padding-top: 4px;
-        }
+        .exp-meta { padding-top: 4px; }
 
-        .exp-date {
-            font-size: 12px;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .exp-company {
-            font-size: 13px;
-            color: var(--accent);
-            font-weight: 500;
-        }
+        .exp-date { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 8px; }
+        .exp-company { font-size: 13px; color: var(--accent); font-weight: 500; }
 
         .exp-role {
             font-family: 'Playfair Display', serif;
@@ -373,19 +276,9 @@
             color: var(--text);
         }
 
-        .exp-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-            line-height: 1.7;
-        }
+        .exp-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.7; }
 
-        .exp-bullets {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 
         .exp-bullets li {
             font-size: 14px;
@@ -416,12 +309,8 @@
             margin-right: 6px;
         }
 
-        /* PROJECTS */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
+        /* ── PROJECTS ── */
+        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
         .project-card {
             background: var(--surface);
@@ -456,25 +345,11 @@
             font-weight: 700;
         }
 
-        .project-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
+        .project-name { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 12px; color: var(--text); }
+        .project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
 
-        .project-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.75;
-        }
-
-        /* SKILLS */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
+        /* ── SKILLS ── */
+        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
         .skill-group {
             background: var(--surface2);
@@ -512,12 +387,8 @@
             flex-shrink: 0;
         }
 
-        /* EDUCATION + CERT */
-        .edu-cert-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 32px;
-        }
+        /* ── EDUCATION ── */
+        .edu-cert-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
 
         .edu-card, .cert-card {
             background: var(--surface);
@@ -526,23 +397,9 @@
             border-radius: 4px;
         }
 
-        .edu-degree {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin-bottom: 6px;
-        }
-
-        .edu-school {
-            font-size: 14px;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .edu-detail {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-        }
+        .edu-degree { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 6px; }
+        .edu-school { font-size: 14px; color: var(--accent); margin-bottom: 4px; }
+        .edu-detail { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
 
         .gpa-badge {
             display: inline-block;
@@ -555,9 +412,7 @@
             border-radius: 2px;
         }
 
-        .coursework {
-            margin-top: 20px;
-        }
+        .coursework { margin-top: 20px; }
 
         .coursework-label {
             font-size: 11px;
@@ -567,24 +422,11 @@
             margin-bottom: 10px;
         }
 
-        .cert-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
+        .cert-name { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
+        .cert-issuer { font-size: 13px; color: var(--accent); margin-bottom: 4px; }
+        .cert-date { font-size: 12px; color: var(--text-muted); }
 
-        .cert-issuer {
-            font-size: 13px;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .cert-date {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        /* CONTACT */
+        /* ── CONTACT ── */
         #contact {
             background: var(--surface);
             border-top: 1px solid var(--border);
@@ -601,24 +443,10 @@
             align-items: center;
         }
 
-        .contact-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
+        .contact-heading { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.15; margin-bottom: 20px; }
+        .contact-sub { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
 
-        .contact-sub {
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+        .contact-links { display: flex; flex-direction: column; gap: 20px; }
 
         .contact-link-item {
             display: flex;
@@ -634,26 +462,13 @@
 
         .contact-link-item:hover { border-color: var(--accent); }
 
-        .contact-link-label {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
+        .contact-link-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+        .contact-link-value { font-size: 15px; color: var(--text); }
 
-        .contact-link-value {
-            font-size: 15px;
-            color: var(--text);
-        }
-
-        /* FORM */
-        .form-card {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 36px;
-        }
+        /* ── FORM ── */
+        .form-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 36px; }
         .form-group { margin-bottom: 20px; }
+
         .form-label {
             display: block;
             font-size: 11px;
@@ -662,6 +477,7 @@
             color: var(--text-muted);
             margin-bottom: 8px;
         }
+
         .form-input {
             width: 100%;
             background: var(--bg);
@@ -674,9 +490,11 @@
             outline: none;
             transition: border-color 0.2s;
         }
+
         .form-input:focus { border-color: var(--accent); }
         .form-input::placeholder { color: var(--text-muted); }
         .form-textarea { resize: vertical; min-height: 110px; }
+
         .form-btn {
             width: 100%;
             padding: 14px;
@@ -692,12 +510,13 @@
             transition: opacity 0.2s, transform 0.2s;
             margin-top: 4px;
         }
+
         .form-btn:hover { opacity: 0.88; transform: translateY(-1px); }
         .form-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
         .form-success { margin-top: 14px; font-size: 14px; color: #7ecba1; text-align: center; }
         .form-error { margin-top: 14px; font-size: 14px; color: #e07070; text-align: center; }
 
-        /* FOOTER */
+        /* ── FOOTER ── */
         footer {
             padding: 28px 60px;
             display: flex;
@@ -706,43 +525,35 @@
             border-top: 1px solid var(--border);
         }
 
-        .footer-left {
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            color: var(--accent);
-        }
+        .footer-left { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--accent); }
+        .footer-right { font-size: 12px; color: var(--text-muted); }
 
-        .footer-right {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        /* ACTIVE NAV on scroll highlight */
-        @media (max-width: 768px) {
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
             nav { padding: 16px 24px; }
+            .nav-links { gap: 18px; }
+            .nav-links a { font-size: 11px; }
+        }
+
+        @media (max-width: 768px) {
             .hero { padding: 100px 24px 60px; }
             .section { padding: 70px 24px; }
             .about-grid, .projects-grid, .skills-grid, .edu-cert-grid { grid-template-columns: 1fr; }
             .exp-item { grid-template-columns: 1fr; gap: 8px; }
             .contact-inner { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
             footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+            /* On small screens collapse nav links to fewer items or scroll horizontally */
+            .nav-links { gap: 14px; overflow-x: auto; }
+            .nav-links a { font-size: 10px; letter-spacing: 0.5px; }
         }
     </style>
 </head>
 <body>
 
-<!-- OVERLAY -->
-<div class="nav-overlay" id="nav-overlay"></div>
-
-<!-- NAV -->
+<!-- NAV — no hamburger, always horizontal -->
 <nav id="navbar">
     <div class="nav-logo">HK</div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
+    <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -804,7 +615,6 @@
 <section class="section" id="experience">
     <div class="section-label">Experience</div>
     <h2>Where I've worked.</h2>
-
     <div class="exp-list">
 
         <div class="exp-item">
@@ -979,7 +789,6 @@
     <div class="section-label">Projects</div>
     <h2>Selected work.</h2>
     <div class="projects-grid">
-
         <div class="project-card">
             <div class="project-num">01</div>
             <div class="project-name">MG Horse Habitat — Relational Database & SQL Analytics</div>
@@ -988,7 +797,6 @@
             <span class="tag">Data Modeling</span>
             <span class="tag">Oracle</span>
         </div>
-
         <div class="project-card">
             <div class="project-num">02</div>
             <div class="project-name">Financial Data Analysis — Home Depot vs. Lowe's</div>
@@ -996,7 +804,6 @@
             <span class="tag">Excel</span>
             <span class="tag">Financial Analysis</span>
         </div>
-
         <div class="project-card">
             <div class="project-num">03</div>
             <div class="project-name">Technical Hiring Optimization — Activera Consulting</div>
@@ -1004,7 +811,6 @@
             <span class="tag">Process Design</span>
             <span class="tag">Consulting</span>
         </div>
-
         <div class="project-card">
             <div class="project-num">04</div>
             <div class="project-name">Consultative Selling Simulation</div>
@@ -1012,7 +818,6 @@
             <span class="tag">Business Development</span>
             <span class="tag">Strategy</span>
         </div>
-
     </div>
 </section>
 
@@ -1089,7 +894,10 @@
             <div class="cert-name">SQL Certificate of Competency</div>
             <div class="cert-issuer">LearnSQL.com</div>
             <div class="cert-date">Issued December 2025</div>
-            <a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" target="_blank" style="display:inline-flex; align-items:center; gap:8px; margin-top:16px; padding:9px 16px; background:var(--accent-dim); border:1px solid rgba(200,169,110,0.3); color:var(--accent); font-size:12px; letter-spacing:1px; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(200,169,110,0.22)'; this.style.borderColor='rgba(200,169,110,0.5)'" onmouseout="this.style.background='var(--accent-dim)'; this.style.borderColor='rgba(200,169,110,0.3)'">
+            <a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" target="_blank"
+               style="display:inline-flex; align-items:center; gap:8px; margin-top:16px; padding:9px 16px; background:var(--accent-dim); border:1px solid rgba(200,169,110,0.3); color:var(--accent); font-size:12px; letter-spacing:1px; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:background 0.2s, border-color 0.2s;"
+               onmouseover="this.style.background='rgba(200,169,110,0.22)'; this.style.borderColor='rgba(200,169,110,0.5)'"
+               onmouseout="this.style.background='var(--accent-dim)'; this.style.borderColor='rgba(200,169,110,0.3)'">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 Show Credential
             </a>
@@ -1105,14 +913,14 @@
             <div class="contact-heading">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></div>
             <p class="contact-sub">I'm open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Send a message below or reach out directly.</p>
             <div class="contact-links" style="margin-top:28px;">
-            <a class="contact-link-item" href="/cdn-cgi/l/email-protection#7d161514041c131453151c13071c111c153d1a101c1411531e1210">
-                <span class="contact-link-label">Email directly</span>
-                <span class="contact-link-value"><span class="__cf_email__" data-cfemail="ea818283938b8483c4828b84908b868b82aa8d878b8386c4898587">[email&#160;protected]</span></span>
-            </a>
-            <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
-                <span class="contact-link-label">LinkedIn</span>
-                <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
-            </a>
+                <a class="contact-link-item" href="mailto:hanzalah.khiyani@example.com">
+                    <span class="contact-link-label">Email directly</span>
+                    <span class="contact-link-value">hanzalah.khiyani@gmail.com</span>
+                </a>
+                <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
+                    <span class="contact-link-label">LinkedIn</span>
+                    <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
+                </a>
             </div>
         </div>
         <div class="form-card">
@@ -1141,11 +949,74 @@
     </div>
 </section>
 
-
 <!-- FOOTER -->
 <footer>
     <div class="footer-left">Hanzalah Khiyani</div>
     <div class="footer-right">© 2026 · Houston, TX</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5d
+<script>
+    // ── Smart navbar: hide on scroll down, reveal on scroll up ──
+    const navbar = document.getElementById('navbar');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScrollY = window.scrollY;
+
+                // Always show nav when near the top
+                if (currentScrollY < 80) {
+                    navbar.classList.remove('nav-hidden');
+                } else if (currentScrollY > lastScrollY) {
+                    // Scrolling DOWN → hide
+                    navbar.classList.add('nav-hidden');
+                } else {
+                    // Scrolling UP → reveal
+                    navbar.classList.remove('nav-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // ── Contact form (Formspree async) ──
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { Accept: 'application/json' }
+                });
+                if (res.ok) {
+                    successMsg.style.display = 'block';
+                    form.reset();
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            } catch {
+                errorMsg.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    }
+</script>
+</body>
+</html>
