@@ -443,6 +443,12 @@
             align-items: center;
         }
 
+        /* Single-column layout when form is removed */
+        .contact-inner--simple {
+            grid-template-columns: 1fr;
+            max-width: 680px;
+        }
+
         .contact-heading { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.15; margin-bottom: 20px; }
         .contact-sub { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
 
@@ -568,7 +574,7 @@
     <div class="hero-inner">
         <div class="hero-eyebrow">MIS @ University of Houston</div>
         <h1>Hanzalah<br><em>Khiyani</em></h1>
-        <p class="hero-sub">Consulting & Data Analytics — turning complex business problems into structured, data-driven decisions.</p>
+        <p class="hero-sub">Consulting & Data Analytics — turning complex business problems into structured, data-driven decisions through analytics and consulting frameworks.</p>
         <div class="hero-cta">
             <a href="#experience" class="btn-primary">View Experience</a>
             <a href="#contact" class="btn-ghost">Get in Touch</a>
@@ -620,10 +626,10 @@
         <div class="exp-item">
             <div class="exp-meta">
                 <div class="exp-date">Mar 2026 — Present</div>
-                <div class="exp-company">NY Racing</div>
+                <div class="exp-company">Extern</div>
             </div>
             <div>
-                <div class="exp-role">Sponsorship Strategy & Analytics Extern</div>
+                <div class="exp-role">NY Racing — Sponsorship Strategy & Analytics Externship</div>
                 <div class="exp-desc">Analyzing sponsorship visibility and ROI across the 2024 NASCAR Cup Series using multi-source data.</div>
                 <ul class="exp-bullets">
                     <li>Built a dataset combining race performance, social media engagement, YouTube exposure, and media coverage</li>
@@ -656,10 +662,10 @@
         <div class="exp-item">
             <div class="exp-meta">
                 <div class="exp-date">Jan 2026 — Mar 2026</div>
-                <div class="exp-company">HP Tech Ventures</div>
+                <div class="exp-company">Extern</div>
             </div>
             <div>
-                <div class="exp-role">Deal Sourcing & Startup Analysis Extern</div>
+                <div class="exp-role">HP Tech Ventures — Deal Sourcing & Startup Analysis Externship</div>
                 <div class="exp-desc">Evaluated early-stage startups aligned with a corporate venture capital investment thesis.</div>
                 <ul class="exp-bullets">
                     <li>Researched hardware and software companies focused on PC performance (cooling systems, GPU tech)</li>
@@ -792,7 +798,7 @@
         <div class="project-card">
             <div class="project-num">01</div>
             <div class="project-name">MG Horse Habitat — Relational Database & SQL Analytics</div>
-            <div class="project-desc">Designed and implemented a normalized relational database covering 160+ horses, 55 customers, 20 workers, and 15 races. Wrote complex SQL queries for operational analysis using Oracle and DBeaver.</div>
+            <div class="project-desc">Built a relational database to analyze horse performance and customer activity across 160+ horses, 55 customers, and 15 races — enabling operational insights and trend analysis through complex SQL queries in Oracle and DBeaver.</div>
             <span class="tag">SQL</span>
             <span class="tag">Data Modeling</span>
             <span class="tag">Oracle</span>
@@ -800,21 +806,21 @@
         <div class="project-card">
             <div class="project-num">02</div>
             <div class="project-name">Financial Data Analysis — Home Depot vs. Lowe's</div>
-            <div class="project-desc">Built Excel models to evaluate profitability, liquidity, and efficiency ratios. Conducted multi-year trend analysis and translated financial data into business insights.</div>
+            <div class="project-desc">Modeled five years of financial data for Home Depot and Lowe's in Excel, evaluating profitability, liquidity, and efficiency ratios to surface which company held the stronger competitive position — and why.</div>
             <span class="tag">Excel</span>
             <span class="tag">Financial Analysis</span>
         </div>
         <div class="project-card">
             <div class="project-num">03</div>
             <div class="project-name">Technical Hiring Optimization — Activera Consulting</div>
-            <div class="project-desc">Designed a scalable evaluation framework to assess technical candidates before project assignment. Proposed improvements to hiring quality and consultant-to-project alignment.</div>
+            <div class="project-desc">Designed a scalable technical evaluation framework for Activera Consulting to reduce mis-hires and improve consultant-to-project fit — translating vague hiring pain points into a structured, repeatable screening process.</div>
             <span class="tag">Process Design</span>
             <span class="tag">Consulting</span>
         </div>
         <div class="project-card">
             <div class="project-num">04</div>
             <div class="project-name">Consultative Selling Simulation</div>
-            <div class="project-desc">Semester-long sales simulation: conducted structured needs assessments, developed tailored solutions with value propositions and competitive analysis, and delivered a client-style final proposal.</div>
+            <div class="project-desc">Led a semester-long B2B sales simulation end-to-end — running structured discovery calls, building a tailored value proposition with competitive analysis, and delivering a polished client-ready proposal that closed the deal.</div>
             <span class="tag">Business Development</span>
             <span class="tag">Strategy</span>
         </div>
@@ -907,44 +913,21 @@
 
 <!-- CONTACT -->
 <section id="contact">
-    <div class="contact-inner">
+    <div class="contact-inner contact-inner--simple">
         <div>
             <div class="section-label">Contact</div>
             <div class="contact-heading">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></div>
-            <p class="contact-sub">I'm open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Send a message below or reach out directly.</p>
+            <p class="contact-sub">I'm open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out directly — I'd love to connect.</p>
             <div class="contact-links" style="margin-top:28px;">
-                <a class="contact-link-item" href="mailto:hanzalah.khiyani@example.com">
-                    <span class="contact-link-label">Email directly</span>
-                    <span class="contact-link-value">hanzalah.khiyani@gmail.com</span>
+                <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com">
+                    <span class="contact-link-label">Email</span>
+                    <span class="contact-link-value">khiyani.hanzalah@gmail.com</span>
                 </a>
                 <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
                     <span class="contact-link-label">LinkedIn</span>
                     <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
                 </a>
             </div>
-        </div>
-        <div class="form-card">
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label class="form-label" for="name">Your Name</label>
-                    <input class="form-input" type="text" id="name" name="name" placeholder="Jane Smith" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="email">Your Email</label>
-                    <input class="form-input" type="email" id="email" name="email" placeholder="jane@company.com" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="subject">Subject</label>
-                    <input class="form-input" type="text" id="subject" name="subject" placeholder="Internship opportunity, collaboration...">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea class="form-input form-textarea" id="message" name="message" placeholder="Tell me a bit about what you have in mind..." required></textarea>
-                </div>
-                <button type="submit" class="form-btn" id="submit-btn">Send Message</button>
-                <div id="form-success" class="form-success" style="display:none;">✓ Message sent — I'll get back to you soon.</div>
-                <div id="form-error" class="form-error" style="display:none;">Something went wrong. Please email me directly.</div>
-            </form>
         </div>
     </div>
 </section>
@@ -955,7 +938,7 @@
     <div class="footer-right">© 2026 · Houston, TX</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Smart navbar: hide on scroll down, reveal on scroll up ──
     const navbar = document.getElementById('navbar');
     let lastScrollY = window.scrollY;
@@ -983,40 +966,6 @@
             ticking = true;
         }
     }, { passive: true });
-
-    // ── Contact form (Formspree async) ──
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const successMsg = document.getElementById('form-success');
-    const errorMsg = document.getElementById('form-error');
-
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending…';
-            successMsg.style.display = 'none';
-            errorMsg.style.display = 'none';
-            try {
-                const res = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { Accept: 'application/json' }
-                });
-                if (res.ok) {
-                    successMsg.style.display = 'block';
-                    form.reset();
-                } else {
-                    errorMsg.style.display = 'block';
-                }
-            } catch {
-                errorMsg.style.display = 'block';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
-            }
-        });
-    }
 </script>
 </body>
 </html>
