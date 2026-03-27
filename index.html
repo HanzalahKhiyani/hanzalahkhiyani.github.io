@@ -333,8 +333,19 @@
             transition: transform 0.3s ease;
         }
 
-        .project-card:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-2px); }
+        .project-card:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
         .project-card:hover::before { transform: scaleX(1); }
+
+        /* ── FADE-IN ANIMATION ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .project-num {
             font-family: 'Playfair Display', serif;
@@ -617,6 +628,41 @@
 
 <div class="divider"></div>
 
+<!-- MY APPROACH -->
+<section class="section fade-in" id="approach">
+    <div class="section-label">My Approach</div>
+    <h2>How I think through problems.</h2>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>I approach complex business problems through a structured, four-step framework:</p>
+            <p><strong>1. Structure</strong> — Break ambiguity into clear components and define the core problem.</p>
+            <p><strong>2. Data</strong> — Identify and analyze the right data to inform decisions.</p>
+            <p><strong>3. Insight</strong> — Translate analysis into meaningful, business-relevant findings.</p>
+            <p><strong>4. Decision</strong> — Deliver clear, actionable recommendations that drive outcomes.</p>
+        </div>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Step Problem-Solving Framework</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Live Externships</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Analytics Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Industries Analyzed</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- EXPERIENCE -->
 <section class="section" id="experience">
     <div class="section-label">Experience</div>
@@ -632,9 +678,8 @@
                 <div class="exp-role">NY Racing — Sponsorship Strategy & Analytics Externship</div>
                 <div class="exp-desc">Analyzing sponsorship visibility and ROI across the 2024 NASCAR Cup Series using multi-source data.</div>
                 <ul class="exp-bullets">
-                    <li>Built a dataset combining race performance, social media engagement, YouTube exposure, and media coverage</li>
-                    <li>Developed a weighted scoring model to quantify sponsor visibility and exposure efficiency</li>
-                    <li>Benchmarked sponsorship value across events and placements</li>
+                    <li>Integrated 4 data sources (race results, social media, YouTube, press coverage) into a unified dataset to model sponsor exposure across the 2024 NASCAR Cup Series</li>
+                    <li>Built a weighted scoring model to rank sponsorship placements by visibility ROI, enabling direct comparison across events and positions</li>
                 </ul>
                 <span class="tag">Data Analytics</span>
                 <span class="tag">ROI Modeling</span>
@@ -650,9 +695,8 @@
                 <div class="exp-role">Salesforce Career Journey Participant</div>
                 <div class="exp-desc">Consulting development program focused on CRM systems and Salesforce implementation.</div>
                 <ul class="exp-bullets">
-                    <li>Completed hands-on Trailhead modules in Salesforce and CRM analytics</li>
-                    <li>Learned consulting workflows, business process mapping, and client engagement fundamentals</li>
-                    <li>Collaborated on case-based exercises and problem-solving scenarios</li>
+                    <li>Completed Salesforce Trailhead modules in CRM analytics and implementation, building a working foundation in enterprise software and client data workflows</li>
+                    <li>Applied consulting frameworks to case exercises — mapping business processes and identifying improvement opportunities in simulated client engagements</li>
                 </ul>
                 <span class="tag">Salesforce</span>
                 <span class="tag">Consulting</span>
@@ -668,9 +712,8 @@
                 <div class="exp-role">HP Tech Ventures — Deal Sourcing & Startup Analysis Externship</div>
                 <div class="exp-desc">Evaluated early-stage startups aligned with a corporate venture capital investment thesis.</div>
                 <ul class="exp-bullets">
-                    <li>Researched hardware and software companies focused on PC performance (cooling systems, GPU tech)</li>
-                    <li>Applied structured screening frameworks to assess market opportunity and product differentiation</li>
-                    <li>Selected and analyzed a target company for deeper due diligence</li>
+                    <li>Screened 10+ early-stage hardware and software startups using a structured VC evaluation framework focused on market size, product differentiation, and strategic fit</li>
+                    <li>Selected and scoped a target company for deeper due diligence, producing a focused investment brief aligned with HP's corporate venture thesis</li>
                 </ul>
                 <span class="tag">Venture Capital</span>
                 <span class="tag">Market Research</span>
@@ -686,9 +729,8 @@
                 <div class="exp-role">Office Manager</div>
                 <div class="exp-desc">Managed administrative and operational functions for a healthcare organization.</div>
                 <ul class="exp-bullets">
-                    <li>Coordinated staffing schedules and daily operations across clinical teams</li>
-                    <li>Maintained compliance with Medicare, Medicaid, and regulatory requirements</li>
-                    <li>Improved internal processes and supported audit readiness</li>
+                    <li>Standardized scheduling and daily operations across clinical teams by redesigning coordination processes, reducing gaps in staffing coverage</li>
+                    <li>Maintained full compliance with Medicare and Medicaid requirements through proactive documentation and audit preparation</li>
                 </ul>
                 <span class="tag">Operations</span>
                 <span class="tag">Healthcare</span>
@@ -704,9 +746,8 @@
                 <div class="exp-role">Business Analyst Intern</div>
                 <div class="exp-desc">Analyzed dealership data to improve operational performance and decision-making.</div>
                 <ul class="exp-bullets">
-                    <li>Built dashboards and reports to track sales, service, and customer metrics</li>
-                    <li>Identified workflow inefficiencies across sales and service processes</li>
-                    <li>Gathered business requirements and assessed CRM/DMS data quality</li>
+                    <li>Built sales and service dashboards from CRM/DMS data, surfacing KPIs that directly informed operational decisions across the dealership</li>
+                    <li>Identified workflow inefficiencies in the sales pipeline and proposed process changes that reduced friction between departments</li>
                 </ul>
                 <span class="tag">Dashboards</span>
                 <span class="tag">CRM</span>
@@ -722,8 +763,8 @@
                 <div class="exp-role">Client Advisor — Luxury Accessories</div>
                 <div class="exp-desc">Delivered consultative sales in a luxury retail environment.</div>
                 <ul class="exp-bullets">
-                    <li>Generated $15K+ in monthly revenue through personalized client engagement</li>
-                    <li>Used customer insights and sales trends to guide recommendations</li>
+                    <li>Generated $15K+ in monthly revenue by applying a consultative approach — assessing individual client needs and matching them to tailored product recommendations</li>
+                    <li>Analyzed sales trends and client feedback to continuously refine recommendations, driving repeat engagement and loyalty</li>
                 </ul>
                 <span class="tag">Sales</span>
                 <span class="tag">Client Relations</span>
@@ -739,9 +780,8 @@
                 <div class="exp-role">Program Manager & Administrative Coordinator</div>
                 <div class="exp-desc">Managed community programs serving 200+ families on a weekly basis.</div>
                 <ul class="exp-bullets">
-                    <li>Coordinated scheduling, logistics, and stakeholder communication</li>
-                    <li>Increased community engagement by ~25% through improved outreach and organization</li>
-                    <li>Streamlined administrative and record-keeping processes</li>
+                    <li>Redesigned outreach and scheduling systems to improve program delivery quality, contributing to a ~25% increase in community engagement over 12 months</li>
+                    <li>Managed end-to-end logistics and stakeholder communication for weekly programming serving 200+ families across all touchpoints</li>
                 </ul>
                 <span class="tag">Program Management</span>
                 <span class="tag">Community</span>
@@ -757,9 +797,8 @@
                 <div class="exp-role">Sales Associate — Fragrance Division</div>
                 <div class="exp-desc">Delivered personalized, consultative product recommendations in a high-volume, fast-paced retail environment.</div>
                 <ul class="exp-bullets">
-                    <li>Applied needs assessment and communication skills to match diverse customer preferences with the right products</li>
-                    <li>Maintained inventory accuracy and product availability during peak demand periods</li>
-                    <li>Strengthened client interaction, operational efficiency, and service delivery skills relevant to client-facing roles</li>
+                    <li>Applied structured needs assessments to guide customers to the right products, consistently meeting sales targets in a high-volume retail environment</li>
+                    <li>Maintained inventory accuracy during peak demand by implementing systematic availability checks, reducing lost sales from stockouts</li>
                 </ul>
                 <span class="tag">Client Services</span>
                 <span class="tag">Retail</span>
@@ -775,9 +814,8 @@
                 <div class="exp-role">Assistant Manager</div>
                 <div class="exp-desc">Oversaw client accounts and supported seamless event execution for an event planning business.</div>
                 <ul class="exp-bullets">
-                    <li>Managed 15–20 active client accounts per month, maintaining a 98% client satisfaction rate</li>
-                    <li>Audited invoices and payments weekly to improve billing accuracy and reduce errors</li>
-                    <li>Partnered with senior managers on client relationship management and operational quality control</li>
+                    <li>Managed 15–20 active client accounts per month through proactive communication and quality control, maintaining a 98% client satisfaction rate</li>
+                    <li>Improved billing accuracy by auditing invoices weekly, reducing payment errors and establishing a more reliable financial tracking process</li>
                 </ul>
                 <span class="tag">Account Management</span>
                 <span class="tag">Operations</span>
@@ -871,6 +909,32 @@
 
 <div class="divider"></div>
 
+<!-- HOW I APPLY MY SKILLS -->
+<section class="section fade-in" id="skills-applied">
+    <div class="section-label">In Practice</div>
+    <h2>How I apply my skills.</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-name">SQL & Data Modeling</div>
+            <div class="project-desc">Built a relational database modeling 160+ entities and extracted insights using complex SQL queries (joins, aggregations, subqueries).</div>
+        </div>
+        <div class="project-card">
+            <div class="project-name">Data Analytics</div>
+            <div class="project-desc">Developed multi-source datasets and scoring models to quantify ROI and benchmark performance across business scenarios.</div>
+        </div>
+        <div class="project-card">
+            <div class="project-name">Excel & Financial Analysis</div>
+            <div class="project-desc">Modeled 5 years of financial data to evaluate profitability, liquidity, and competitive positioning.</div>
+        </div>
+        <div class="project-card">
+            <div class="project-name">CRM & Process Improvement</div>
+            <div class="project-desc">Analyzed workflows and data quality to improve operational efficiency and decision-making systems.</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- EDUCATION -->
 <section class="section" id="education">
     <div class="section-label">Education & Certifications</div>
@@ -919,9 +983,9 @@
             <div class="contact-heading">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></div>
             <p class="contact-sub">I'm open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out directly — I'd love to connect.</p>
             <div class="contact-links" style="margin-top:28px;">
-                <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com">
+                <a class="contact-link-item" href="/cdn-cgi/l/email-protection#5833303121393631763039362239343930183f35393134763b3735">
                     <span class="contact-link-label">Email</span>
-                    <span class="contact-link-value">khiyani.hanzalah@gmail.com</span>
+                    <span class="contact-link-value"><span class="__cf_email__" data-cfemail="c4afacadbda5aaadeaaca5aabea5a8a5ac84a3a9a5ada8eaa7aba9">[email&#160;protected]</span></span>
                 </a>
                 <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
                     <span class="contact-link-label">LinkedIn</span>
@@ -938,7 +1002,7 @@
     <div class="footer-right">© 2026 · Houston, TX</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Smart navbar: hide on scroll down, reveal on scroll up ──
     const navbar = document.getElementById('navbar');
     let lastScrollY = window.scrollY;
@@ -966,6 +1030,18 @@
             ticking = true;
         }
     }, { passive: true });
+
+    // ── Fade-in on scroll ──
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
