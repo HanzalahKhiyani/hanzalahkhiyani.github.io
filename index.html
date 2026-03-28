@@ -704,6 +704,33 @@
         .contact-link-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
         .contact-link-value { font-size: 15px; color: var(--text); }
 
+        /* ── RECRUITER SCAN STRIP ── */
+        .recruiter-strip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+
+        .recruiter-tag {
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 5px 11px;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            background: var(--surface2);
+            white-space: nowrap;
+        }
+
+        .recruiter-tag--accent {
+            color: var(--accent);
+            border-color: rgba(200,169,110,0.25);
+            background: var(--accent-dim);
+        }
+
         /* ── FOOTER ── */
         footer {
             padding: 28px 60px;
@@ -760,11 +787,23 @@
     <div class="hero-inner">
         <div class="hero-eyebrow">MIS @ University of Houston</div>
         <h1>Hanzalah<br><em>Khiyani</em></h1>
-        <p class="hero-sub">I turn ambiguous business problems into structured, data-backed decisions — across analytics, strategy, and investment evaluation.</p>
+
+        <!-- UPDATE 1: Sharp, concise positioning -->
+        <p class="hero-sub">I use data and structured thinking to turn ambiguous business problems into clear, actionable decisions.</p>
+
         <div class="hero-cta">
             <a href="#experience" class="btn-primary">View Experience</a>
             <a href="#contact" class="btn-ghost">Get in Touch</a>
         </div>
+
+        <!-- UPDATE 2: Recruiter scan strip — below CTA, above proof strip -->
+        <div class="recruiter-strip">
+            <span class="recruiter-tag">MIS — Bauer College of Business</span>
+            <span class="recruiter-tag">Analytics &amp; Consulting</span>
+            <span class="recruiter-tag">GPA 3.56</span>
+            <span class="recruiter-tag recruiter-tag--accent">Open to Summer 2026 Internships</span>
+        </div>
+
         <div class="proof-strip">
             <div class="proof-item">
                 <span class="proof-value">$15K+</span>
@@ -773,6 +812,10 @@
             <div class="proof-item">
                 <span class="proof-value">200+</span>
                 <span class="proof-label">Families Served</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-value">~35%</span>
+                <span class="proof-label">Efficiency Gains</span>
             </div>
             <div class="proof-item">
                 <span class="proof-value">3.56</span>
@@ -788,6 +831,16 @@
 <section id="selected-impact">
     <div class="impact-inner">
         <div class="impact-grid">
+            <div class="impact-item">
+                <span class="impact-value">SQL</span>
+                <!-- UPDATE 6: "Reporting time reduced via..." phrase removed; reworded cleanly -->
+                <span class="impact-desc">Relational database designed and queried to replace manual, error-prone reporting</span>
+            </div>
+            <div class="impact-item">
+                <span class="impact-value">Scoring</span>
+                <!-- UPDATE 6: "Weighted scoring model built for sponsorship investment decisions" removed; reworded -->
+                <span class="impact-desc">Visibility scoring framework built to support sponsorship placement decisions</span>
+            </div>
             <div class="impact-item">
                 <span class="impact-value">$15K+</span>
                 <span class="impact-desc">Monthly revenue generated through consultative sales</span>
@@ -813,7 +866,7 @@
     <div class="about-grid">
         <div class="about-text">
             <p>I'm an analytics-first consultant in training — a Management Information Systems student at the C.T. Bauer College of Business with experience at the intersection of data, strategy, and business problem-solving.</p>
-            <p>Through externships with NY Racing and HP Tech Ventures, I've worked on real business problems — integrating multi-source datasets, modeling ROI, evaluating early-stage investments, and translating findings into clear, defensible recommendations.</p>
+            <p>Through externships with NY Racing and HP Tech Ventures, I've worked on real business problems — integrating multi-source datasets, modeling investment returns, evaluating early-stage startups, and translating findings into clear, defensible recommendations.</p>
             <p>I'm drawn to roles where analytical rigor and strategic thinking converge — where insights don't just inform decisions, they drive them.</p>
         </div>
         <div class="stat-grid">
@@ -823,7 +876,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-number">9+</div>
-                <div class="stat-label">Roles & Externships</div>
+                <div class="stat-label">Roles &amp; Externships</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">$15K+</div>
@@ -886,14 +939,16 @@
                 <div class="exp-company">Extern</div>
             </div>
             <div>
-                <div class="exp-role">NY Racing — Sponsorship Strategy & Analytics Externship</div>
-                <div class="exp-desc">Analytics-led evaluation of sponsorship visibility and ROI across the 2024 NASCAR Cup Series.</div>
+                <div class="exp-role">NY Racing — Sponsorship Strategy &amp; Analytics Externship</div>
+                <!-- UPDATE 3: Elevated desc to signal high-value, real-world experience -->
+                <div class="exp-desc">Top-impact externship focused on sponsorship analytics across NASCAR datasets.</div>
                 <ul class="exp-bullets">
-                    <li>Ranked sponsorship placements by visibility ROI using a weighted scoring model across 4 data sources — producing a replicable investment framework applicable directly to future season negotiations</li>
-                    <li>Eliminated an estimated ~40% of manual reporting effort by unifying race results, social media, YouTube, and press data into a single structured dataset enabling consistent cross-event measurement</li>
+                    <!-- UPDATE 9: Impact-first language — outcome leads -->
+                    <li>Ranked sponsorship placements by visibility value using a weighted scoring framework across 4 data sources — producing a replicable model applicable directly to future season negotiations</li>
+                    <li>Eliminated an estimated ~40% of manual consolidation effort by unifying race results, social media, YouTube, and press data into a single structured dataset enabling consistent cross-event measurement</li>
                 </ul>
                 <span class="tag">Data Analytics</span>
-                <span class="tag">ROI Modeling</span>
+                <span class="tag">Scoring Models</span>
             </div>
         </div>
 
@@ -906,7 +961,8 @@
                 <div class="exp-role">Salesforce Career Journey Participant</div>
                 <div class="exp-desc">Consulting development program focused on CRM systems, Salesforce implementation, and advisory workflow.</div>
                 <ul class="exp-bullets">
-                    <li>Reduced modeled resolution time by ~30% by applying structured consulting frameworks to simulated client cases — mapping business processes and surfacing high-impact improvement opportunities</li>
+                    <!-- UPDATE 4: "modeled" → "simulated" for credibility -->
+                    <li>Reduced simulated case resolution time by ~30% by applying structured consulting frameworks to client scenarios — mapping business processes and surfacing high-impact improvement opportunities</li>
                     <li>Established working fluency in enterprise CRM data workflows through Salesforce Trailhead modules in analytics and implementation architecture — directly applicable to client engagement environments</li>
                 </ul>
                 <span class="tag">Salesforce</span>
@@ -920,7 +976,7 @@
                 <div class="exp-company">Extern</div>
             </div>
             <div>
-                <div class="exp-role">HP Tech Ventures — Deal Sourcing & Startup Analysis Externship</div>
+                <div class="exp-role">HP Tech Ventures — Deal Sourcing &amp; Startup Analysis Externship</div>
                 <div class="exp-desc">Structured evaluation of early-stage startups against a corporate venture capital investment thesis.</div>
                 <ul class="exp-bullets">
                     <li>Delivered a focused go/no-go investment brief aligned to HP's corporate venture thesis — cutting evaluation cycle time by ~50% by narrowing a 10+ startup pipeline to one high-conviction target</li>
@@ -940,6 +996,7 @@
                 <div class="exp-role">Office Manager</div>
                 <div class="exp-desc">Operational leadership across administrative, scheduling, and compliance functions in a regulated healthcare environment.</div>
                 <ul class="exp-bullets">
+                    <!-- UPDATE 9: Impact-first on scheduling improvement -->
                     <li>Improved coverage reliability by ~35% within the first 60 days by redesigning clinical scheduling workflows from the ground up — eliminating recurring staffing gaps across care teams</li>
                     <li>Achieved zero compliance deficiencies across all Medicare and Medicaid review periods through proactive documentation protocols and structured audit preparation throughout tenure</li>
                 </ul>
@@ -957,7 +1014,8 @@
                 <div class="exp-role">Business Analyst Intern</div>
                 <div class="exp-desc">Data-driven analysis of dealership operations to improve performance visibility and decision speed.</div>
                 <ul class="exp-bullets">
-                    <li>Cut management reporting time by ~25% by building sales and service dashboards from CRM and DMS data — enabling faster, evidence-based operational decisions across the dealership</li>
+                    <!-- UPDATE 9: "building dashboards" → "enabled faster decision-making through dashboards" -->
+                    <li>Enabled faster, evidence-based operational decisions by building sales and service dashboards from CRM and DMS data — reducing management reporting time by ~25%</li>
                     <li>Improved deal velocity by ~20% by diagnosing pipeline friction through structured workflow analysis and proposing process changes that reduced cross-department handoff delays</li>
                 </ul>
                 <span class="tag">Dashboards</span>
@@ -988,7 +1046,7 @@
                 <div class="exp-company">Al-Noor Society of Greater Houston</div>
             </div>
             <div>
-                <div class="exp-role">Program Manager & Administrative Coordinator</div>
+                <div class="exp-role">Program Manager &amp; Administrative Coordinator</div>
                 <div class="exp-desc">End-to-end management of community programming serving 200+ families weekly across Houston.</div>
                 <ul class="exp-bullets">
                     <li>Drove a ~25% increase in community engagement over 12 months — the program's highest participation rate in recent history — by redesigning outreach systems and scheduling infrastructure</li>
@@ -1026,7 +1084,8 @@
                 <div class="exp-desc">Account management and operational oversight across a high-volume event planning business.</div>
                 <ul class="exp-bullets">
                     <li>Sustained a 98% client satisfaction rate with no contract losses by managing 15–20 active accounts monthly through proactive communication and end-to-end quality control</li>
-                    <li>Reduced billing errors by ~30% by introducing weekly invoice audits — establishing a more rigorous financial tracking process that the team continued after departure</li>
+                    <!-- UPDATE 9: "Reduced billing errors by ~30% by introducing weekly invoice audits" → impact-forward -->
+                    <li>Reduced billing errors by ~30% by introducing weekly invoice audits — establishing a more rigorous financial tracking process that improved accuracy and continued after departure</li>
                 </ul>
                 <span class="tag">Account Management</span>
                 <span class="tag">Operations</span>
@@ -1041,18 +1100,19 @@
 
 <!-- PROJECTS -->
 <section class="section fade-in" id="projects">
-    <div class="section-label">Analytics & Consulting Projects</div>
+    <div class="section-label">Analytics &amp; Consulting Projects</div>
     <h2>Selected work.</h2>
     <p class="section-subtitle">Applied analytics and consulting projects solving real business problems with measurable outcomes.</p>
     <div class="projects-grid">
 
         <div class="project-card fade-in fade-in-delay-1">
             <div class="project-num">01</div>
-            <div class="project-name">MG Horse Habitat — Relational Database & SQL Analytics</div>
+            <div class="project-name">MG Horse Habitat — Relational Database &amp; SQL Analytics</div>
             <div class="project-desc">
                 <span class="pdl">Problem:</span> No structured data layer existed for a stable managing 160+ horses, 55 customers, and 15 races — making performance analysis dependent on manual, error-prone effort.<br><br>
                 <span class="pdl">Action:</span> Designed a fully normalized relational database and extracted operational insights using complex SQL (joins, aggregations, subqueries) in Oracle and DBeaver.<br><br>
-                <span class="pdl">Result:</span> Cut ad hoc reporting time by ~60% and established a repeatable analytics infrastructure enabling ongoing performance tracking.
+                <!-- UPDATE 6: "Reporting time reduced via relational database and SQL automation" removed; reworded naturally -->
+                <span class="pdl">Result:</span> Eliminated the need for manual, error-prone reporting and established a repeatable analytics infrastructure enabling ongoing performance tracking.
             </div>
             <span class="tag">SQL</span>
             <span class="tag">Data Modeling</span>
@@ -1065,7 +1125,8 @@
             <div class="project-desc">
                 <span class="pdl">Problem:</span> Conventional wisdom on Home Depot vs. Lowe's competitive positioning lacked rigorous financial backing — creating ambiguity for strategic decision-making.<br><br>
                 <span class="pdl">Action:</span> Modeled five years of financial statements in Excel, evaluating profitability, liquidity, and efficiency ratios across both companies in a structured comparative framework.<br><br>
-                <span class="pdl">Result:</span> Produced a defensible competitive assessment identifying Home Depot's structural advantages — with clear evidence supporting a go-forward strategic recommendation.
+                <!-- UPDATE 5: Stronger result sentence connecting analysis → business decision -->
+                <span class="pdl">Result:</span> Produced a defensible competitive assessment identifying Home Depot's structural advantages — informing a clear investment and strategic positioning recommendation.
             </div>
             <span class="tag">Excel</span>
             <span class="tag">Financial Analysis</span>
@@ -1111,16 +1172,16 @@
     </div>
     <div class="skills-grid">
         <div class="skill-group">
-            <div class="skill-group-title">Data & Analytics</div>
+            <div class="skill-group-title">Data &amp; Analytics</div>
             <div class="skill-item">SQL</div>
-            <div class="skill-item">Excel & Modeling</div>
+            <div class="skill-item">Excel &amp; Modeling</div>
             <div class="skill-item">Data Architecture</div>
             <div class="skill-item">Business Intelligence</div>
             <div class="skill-item">Quantitative Analysis</div>
         </div>
         <div class="skill-group">
             <div class="skill-group-title">Technical Tools</div>
-            <div class="skill-item">Oracle & DBeaver</div>
+            <div class="skill-item">Oracle &amp; DBeaver</div>
             <div class="skill-item">Salesforce CRM</div>
             <div class="skill-item">Dashboard Design</div>
             <div class="skill-item">CRM Systems</div>
@@ -1131,7 +1192,7 @@
             <div class="skill-item">Business Analysis</div>
             <div class="skill-item">Process Improvement</div>
             <div class="skill-item">Strategic Analysis</div>
-            <div class="skill-item">ROI & Valuation</div>
+            <div class="skill-item">Returns &amp; Valuation</div>
             <div class="skill-item">Market Research</div>
         </div>
         <div class="skill-group">
@@ -1153,20 +1214,21 @@
     <h2 class="no-subtitle">How I apply my skills.</h2>
     <div class="projects-grid">
         <div class="project-card fade-in fade-in-delay-1">
-            <div class="project-name">SQL & Data Architecture</div>
-            <div class="project-desc">Designed and queried a relational database modeling 160+ entities — using joins, aggregations, and subqueries to extract operational insights that wouldn't surface in a spreadsheet, reducing ad hoc reporting time by ~60%.</div>
+            <div class="project-name">SQL &amp; Data Architecture</div>
+            <div class="project-desc">Designed and queried a relational database modeling 160+ entities — using joins, aggregations, and subqueries to extract operational insights that wouldn't surface in a spreadsheet, significantly reducing ad hoc reporting time.</div>
         </div>
         <div class="project-card fade-in fade-in-delay-2">
             <div class="project-name">Multi-Source Data Analytics</div>
-            <div class="project-desc">Built integrated datasets and custom scoring models to quantify sponsorship ROI across four data sources — turning fragmented inputs into a single, decision-ready view that eliminated ~40% of manual consolidation effort.</div>
+            <div class="project-desc">Built integrated datasets and custom scoring frameworks to quantify sponsorship visibility value across four data sources — turning fragmented inputs into a single, decision-ready view that eliminated ~40% of manual consolidation effort.</div>
         </div>
         <div class="project-card fade-in fade-in-delay-3">
-            <div class="project-name">Excel & Financial Modeling</div>
+            <div class="project-name">Excel &amp; Financial Modeling</div>
             <div class="project-desc">Modeled five years of financial statements to evaluate profitability, liquidity, and competitive positioning — producing analysis that went beyond the numbers to support a clear, evidence-backed strategic recommendation.</div>
         </div>
         <div class="project-card fade-in fade-in-delay-4">
-            <div class="project-name">CRM & Process Improvement</div>
-            <div class="project-desc">Diagnosed workflow inefficiencies in CRM and DMS environments, then designed process changes estimated to improve operational efficiency by ~20–25% — with direct impact on management decision speed and reliability.</div>
+            <div class="project-name">CRM &amp; Process Improvement</div>
+            <!-- UPDATE 9: "diagnosed workflow inefficiencies" → impact-forward framing -->
+            <div class="project-desc">Improved decision speed and operational reliability by diagnosing workflow inefficiencies in CRM and DMS environments — designing process changes estimated to deliver ~20–25% efficiency gains with direct impact on management visibility.</div>
         </div>
     </div>
 </section>
@@ -1175,7 +1237,7 @@
 
 <!-- EDUCATION -->
 <section class="section fade-in" id="education">
-    <div class="section-label">Education & Certifications</div>
+    <div class="section-label">Education &amp; Certifications</div>
     <h2 class="no-subtitle">Academic background.</h2>
     <div class="edu-cert-grid">
         <div class="edu-card">
@@ -1226,14 +1288,35 @@
             </div>
             <div class="contact-availability">Available for Summer 2026 Internships</div>
             <div class="contact-links" style="margin-top:28px;">
-                <a class="contact-link-item" href="/cdn-cgi/l/email-protection#5833303121393631763039362239343930183f35393134763b3735">
+
+                <!-- UPDATE 8: Plain mailto link — no Cloudflare protection, real email displayed -->
+                <a class="contact-link-item" href="mailto:hanzalahkhiyani@gmail.com">
                     <span class="contact-link-label">Email</span>
-                    <span class="contact-link-value"><span class="__cf_email__" data-cfemail="c4afacadbda5aaadeaaca5aabea5a8a5ac84a3a9a5ada8eaa7aba9">[email&#160;protected]</span></span>
+                    <span class="contact-link-value">hanzalahkhiyani@gmail.com</span>
                 </a>
+
                 <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
                     <span class="contact-link-label">LinkedIn</span>
                     <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
                 </a>
+
+                <!-- UPDATE 7: Clear, low-friction CTA added under LinkedIn -->
+                <a class="contact-link-item" href="mailto:hanzalahkhiyani@gmail.com?subject=Let%27s%20Connect%20%E2%80%94%20Internship%20%2F%20Opportunity" style="flex-direction:row; align-items:center; justify-content:space-between; background: var(--accent-dim); border-color: rgba(200,169,110,0.25);">
+                    <span style="display:flex; flex-direction:column; gap:4px;">
+                        <span class="contact-link-label" style="color: var(--accent);">Send a Note</span>
+                        <span class="contact-link-value" style="color: var(--accent);">Start the conversation →</span>
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </a>
+
+                <a class="contact-link-item" href="#" target="_blank" style="flex-direction:row; align-items:center; justify-content:space-between;">
+                    <span style="display:flex; flex-direction:column; gap:4px;">
+                        <span class="contact-link-label">Resume</span>
+                        <span class="contact-link-value">View or download PDF</span>
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+
             </div>
         </div>
     </div>
@@ -1245,7 +1328,6 @@
     <div class="footer-right">© 2026 · Houston, TX</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
     // ── Smart navbar: hide on scroll down, reveal on scroll up ──
     const navbar = document.getElementById('navbar');
