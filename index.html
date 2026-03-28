@@ -9,12 +9,13 @@
         :root {
             --bg: #0f0f0f;
             --surface: #161616;
-            --surface2: #1e1e1e;
-            --surface3: #191919;
+            --surface2: #1c1c1c;
+            --surface3: #222222;
             --border: #2a2a2a;
             --accent: #c8a96e;
+            --accent-2: #6f8fa6;
             --accent-dim: rgba(200,169,110,0.12);
-            --text: #e8e4dc;
+            --text: #f5f3ef;
             --text-muted: #7a7570;
             --text-mid: #a09890;
         }
@@ -377,7 +378,7 @@
             padding: 4px 10px;
             background: var(--accent-dim);
             border: 1px solid rgba(200,169,110,0.2);
-            color: var(--accent);
+            color: rgba(200,169,110,0.85);
             font-size: 11px;
             letter-spacing: 0.5px;
             border-radius: 2px;
@@ -938,7 +939,7 @@
         <div class="exp-item fade-in">
             <div class="exp-meta">
                 <div class="exp-date">Mar 2026 — Present</div>
-                <div class="exp-company">Extern</div>
+                <div class="exp-company">Extern (Remote Experiential Learning Platform)</div>
             </div>
             <div>
                 <div class="exp-role">NY Racing — Sponsorship Strategy &amp; Analytics Externship</div>
@@ -1291,7 +1292,6 @@
             <div class="contact-availability">Available for Summer 2026 Internships</div>
             <div class="contact-links" style="margin-top:28px;">
 
-                <!-- UPDATE 8: Plain mailto link — no Cloudflare protection, real email displayed -->
                 <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com">
                     <span class="contact-link-label">Email</span>
                     <span class="contact-link-value">khiyani.hanzalah@gmail.com</span>
@@ -1302,7 +1302,6 @@
                     <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
                 </a>
 
-                <!-- UPDATE 7: Clear, low-friction CTA added under LinkedIn -->
                 <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com?subject=Let%27s%20Connect%20%E2%80%94%20Internship%20%2F%20Opportunity" style="flex-direction:row; align-items:center; justify-content:space-between; background: var(--accent-dim); border-color: rgba(200,169,110,0.25);">
                     <span style="display:flex; flex-direction:column; gap:4px;">
                         <span class="contact-link-label" style="color: var(--accent);">Send a Note</span>
@@ -1310,6 +1309,7 @@
                     </span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 </a>
+
             </div>
         </div>
     </div>
@@ -1331,6 +1331,7 @@
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const currentScrollY = window.scrollY;
+
                 if (currentScrollY < 80) {
                     navbar.classList.remove('nav-hidden');
                 } else if (currentScrollY > lastScrollY) {
@@ -1338,25 +1339,33 @@
                 } else {
                     navbar.classList.remove('nav-hidden');
                 }
+
                 lastScrollY = currentScrollY;
                 ticking = false;
             });
+
             ticking = true;
         }
-    }, { passive: true });
+    });
 
     // ── Fade-in on scroll ──
-    const fadeEls = document.querySelectorAll('.fade-in');
+    const faders = document.querySelectorAll('.fade-in');
 
-    const revealOnScroll = () => {
-        fadeEls.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 60) {
-                el.classList.add('visible');
-            }
-        });
+    const appearOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px"
     };
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
 </script>
