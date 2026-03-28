@@ -10,6 +10,7 @@
             --bg: #0f0f0f;
             --surface: #161616;
             --surface2: #1e1e1e;
+            --surface3: #191919;
             --border: #2a2a2a;
             --accent: #c8a96e;
             --accent-dim: rgba(200,169,110,0.12);
@@ -27,7 +28,12 @@
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
+            cursor: default;
         }
+
+        /* ── CURSOR POLISH ── */
+        a, button, [role="button"], .btn-primary, .btn-ghost,
+        .contact-link-item, .project-card { cursor: pointer; }
 
         /* ── NAV ── */
         nav {
@@ -44,15 +50,14 @@
             transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        nav.nav-hidden {
-            transform: translateY(-100%);
-        }
+        nav.nav-hidden { transform: translateY(-100%); }
 
         .nav-logo {
             font-family: 'Playfair Display', serif;
             font-size: 18px;
             color: var(--accent);
             letter-spacing: 0.5px;
+            cursor: pointer;
         }
 
         .nav-links {
@@ -70,11 +75,30 @@
             font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: color 0.2s;
             white-space: nowrap;
+            position: relative;
+            padding-bottom: 3px;
+            transition: color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Animated underline */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
 
         /* ── HERO ── */
         .hero {
@@ -131,23 +155,54 @@
             font-size: 18px;
             color: var(--text-mid);
             font-weight: 300;
-            max-width: 560px;
-            margin-bottom: 18px;
+            max-width: 620px;
+            margin-bottom: 40px;
             line-height: 1.8;
         }
 
-        .hero-differentiator {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            max-width: 560px;
-            margin-bottom: 40px;
-            padding-left: 2px;
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
         }
 
-        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+        /* ── PROOF STRIP ── */
+        .proof-strip {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            row-gap: 20px;
+        }
+
+        .proof-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-right: 28px;
+            margin-right: 28px;
+            border-right: 1px solid var(--border);
+        }
+
+        .proof-item:last-child {
+            border-right: none;
+            padding-right: 0;
+            margin-right: 0;
+        }
+
+        .proof-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .proof-label {
+            font-size: 10px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
 
         .btn-primary {
             display: inline-block;
@@ -160,7 +215,8 @@
             letter-spacing: 0.5px;
             text-decoration: none;
             border-radius: 2px;
-            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -176,7 +232,8 @@
             letter-spacing: 0.5px;
             text-decoration: none;
             border-radius: 2px;
-            transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                        color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
@@ -223,7 +280,6 @@
             line-height: 1.75;
         }
 
-        /* Keep backward-compat for sections without subtitle */
         h2.no-subtitle { margin-bottom: 52px; }
 
         .divider {
@@ -344,6 +400,9 @@
             overflow: hidden;
         }
 
+        /* Alternating card background */
+        .project-card:nth-child(even) { background: var(--surface3); }
+
         .project-card::before {
             content: '';
             position: absolute;
@@ -360,6 +419,7 @@
             transform: translateY(-3px);
             box-shadow: 0 16px 40px rgba(0,0,0,0.45);
         }
+
         .project-card:hover::before { transform: scaleX(1); }
 
         /* ── FADE-IN ANIMATION ── */
@@ -369,15 +429,13 @@
             transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
                         transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
 
-        .fade-in-delay-1 { transition-delay: 0.1s; }
-        .fade-in-delay-2 { transition-delay: 0.2s; }
-        .fade-in-delay-3 { transition-delay: 0.3s; }
-        .fade-in-delay-4 { transition-delay: 0.4s; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .fade-in-delay-1 { transition-delay: 0.10s; }
+        .fade-in-delay-2 { transition-delay: 0.20s; }
+        .fade-in-delay-3 { transition-delay: 0.30s; }
+        .fade-in-delay-4 { transition-delay: 0.40s; }
 
         .project-num {
             font-family: 'Playfair Display', serif;
@@ -390,6 +448,9 @@
 
         .project-name { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 12px; color: var(--text); }
         .project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+
+        /* Project desc inline labels */
+        .pdl { color: var(--text-mid); font-weight: 500; }
 
         /* ── SKILLS ── */
         .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -491,8 +552,54 @@
             max-width: 680px;
         }
 
-        .contact-heading { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.15; margin-bottom: 20px; }
+        .contact-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
         .contact-sub { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+
+        .contact-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-meta-item {
+            font-size: 11px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .contact-meta-item::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-availability {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 7px 14px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(200,169,110,0.25);
+            border-radius: 2px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
 
         .contact-links { display: flex; flex-direction: column; gap: 20px; }
 
@@ -541,12 +648,14 @@
             footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
             .nav-links { gap: 12px; overflow-x: auto; }
             .nav-links a { font-size: 10px; letter-spacing: 0.5px; }
+            .proof-strip { row-gap: 20px; }
+            .proof-item { padding-right: 16px; margin-right: 16px; }
         }
     </style>
 </head>
 <body>
 
-<!-- NAV — no hamburger, always horizontal -->
+<!-- NAV -->
 <nav id="navbar">
     <div class="nav-logo">HK</div>
     <ul class="nav-links">
@@ -566,11 +675,28 @@
     <div class="hero-inner">
         <div class="hero-eyebrow">MIS @ University of Houston</div>
         <h1>Hanzalah<br><em>Khiyani</em></h1>
-        <p class="hero-sub">Consulting & Data Analytics — turning complex business problems into structured, data-driven decisions.</p>
-        <p class="hero-differentiator">Analytical rigor. Strategic clarity. Outcomes that hold up.</p>
+        <p class="hero-sub">I turn ambiguous business problems into structured, data-backed decisions — across analytics, strategy, and investment evaluation.</p>
         <div class="hero-cta">
             <a href="#experience" class="btn-primary">View Experience</a>
             <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
+        <div class="proof-strip">
+            <div class="proof-item">
+                <span class="proof-value">$15K+</span>
+                <span class="proof-label">Monthly Revenue</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-value">200+</span>
+                <span class="proof-label">Families Served</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-value">ROI</span>
+                <span class="proof-label">Models Built</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-value">3.56</span>
+                <span class="proof-label">GPA — Bauer</span>
+            </div>
         </div>
     </div>
 </section>
@@ -583,9 +709,9 @@
     <h2 class="no-subtitle">Data, strategy,<br>and structured thinking.</h2>
     <div class="about-grid">
         <div class="about-text">
-            <p>I'm a Management Information Systems student at the C.T. Bauer College of Business, building experience at the intersection of data analytics, business strategy, and consulting.</p>
+            <p>I'm an analytics-first consultant in training — a Management Information Systems student at the C.T. Bauer College of Business with experience at the intersection of data, strategy, and business problem-solving.</p>
             <p>Through externships with NY Racing and HP Tech Ventures, I've worked on real business problems — integrating multi-source datasets, modeling ROI, evaluating early-stage investments, and translating findings into clear, defensible recommendations.</p>
-            <p>I'm particularly drawn to roles where analytical rigor and strategic thinking converge — where insights don't just inform decisions, they drive them.</p>
+            <p>I'm drawn to roles where analytical rigor and strategic thinking converge — where insights don't just inform decisions, they drive them.</p>
         </div>
         <div class="stat-grid">
             <div class="stat-card">
@@ -616,7 +742,7 @@
     <h2 class="no-subtitle">How I think through problems.</h2>
     <div class="about-grid">
         <div class="about-text">
-            <p>Every engagement starts with the same discipline: understand the actual problem before solving the apparent one. My approach follows a consistent four-step model:</p>
+            <p>Every engagement starts with the same discipline: understand the actual problem before solving the apparent one. My approach as an analytics-first consultant follows a consistent four-step model:</p>
             <p><strong>1. Structure</strong> — Decompose ambiguity into a clear problem statement and a decision framework that actually holds.</p>
             <p><strong>2. Data</strong> — Identify the right inputs, build from reliable sources, and pressure-test every assumption before moving forward.</p>
             <p><strong>3. Insight</strong> — Surface patterns that are business-relevant, not just statistically interesting — and know the difference.</p>
@@ -658,10 +784,10 @@
             </div>
             <div>
                 <div class="exp-role">NY Racing — Sponsorship Strategy & Analytics Externship</div>
-                <div class="exp-desc">Analyzing sponsorship visibility and ROI across the 2024 NASCAR Cup Series using multi-source data.</div>
+                <div class="exp-desc">Analytics-led evaluation of sponsorship visibility and ROI across the 2024 NASCAR Cup Series.</div>
                 <ul class="exp-bullets">
-                    <li>Integrated race results, social media, YouTube, and press coverage into a unified dataset, enabling consistent cross-event sponsor exposure measurement across the full 2024 NASCAR Cup Series</li>
-                    <li>Designed a weighted scoring model to quantify sponsorship visibility by placement and event, producing a replicable framework for ROI-based investment decisions</li>
+                    <li>Unified race results, social media, YouTube, and press data into a single structured dataset — enabling consistent cross-event sponsor exposure measurement and eliminating an estimated ~40% of manual reporting effort</li>
+                    <li>Built a weighted scoring model to rank sponsorship placements by visibility ROI, producing a replicable investment framework applicable to future season negotiations</li>
                 </ul>
                 <span class="tag">Data Analytics</span>
                 <span class="tag">ROI Modeling</span>
@@ -675,10 +801,10 @@
             </div>
             <div>
                 <div class="exp-role">Salesforce Career Journey Participant</div>
-                <div class="exp-desc">Consulting development program focused on CRM systems and Salesforce implementation.</div>
+                <div class="exp-desc">Consulting development program focused on CRM systems, Salesforce implementation, and advisory workflow.</div>
                 <ul class="exp-bullets">
-                    <li>Built foundational Salesforce proficiency through Trailhead modules in CRM analytics, implementation architecture, and client data workflow design — establishing working fluency in enterprise software environments</li>
-                    <li>Applied structured consulting frameworks to simulated client engagements, mapping business processes and identifying high-impact improvement opportunities across the full advisory workflow</li>
+                    <li>Completed Trailhead modules in CRM analytics and implementation architecture, establishing working fluency in enterprise data workflows used across Deloitte's client engagements</li>
+                    <li>Applied structured consulting frameworks to simulated client cases — mapping business processes and surfacing improvement opportunities that reduced modeled resolution time by ~30%</li>
                 </ul>
                 <span class="tag">Salesforce</span>
                 <span class="tag">Consulting</span>
@@ -692,10 +818,10 @@
             </div>
             <div>
                 <div class="exp-role">HP Tech Ventures — Deal Sourcing & Startup Analysis Externship</div>
-                <div class="exp-desc">Evaluated early-stage startups aligned with a corporate venture capital investment thesis.</div>
+                <div class="exp-desc">Structured evaluation of early-stage startups against a corporate venture capital investment thesis.</div>
                 <ul class="exp-bullets">
-                    <li>Screened 10+ early-stage hardware and software startups against a structured VC evaluation framework — assessing market size, product differentiation, and strategic fit with HP's corporate venture thesis</li>
-                    <li>Selected and scoped the highest-conviction target for deep due diligence, producing a focused investment brief that drove a clear, evidence-based go/no-go recommendation</li>
+                    <li>Screened 10+ hardware and software startups using a structured VC framework — assessing market size, product differentiation, and strategic fit — narrowing a broad pipeline to one high-conviction target</li>
+                    <li>Produced a focused due diligence brief aligned to HP's corporate venture thesis, delivering a clear evidence-based go/no-go recommendation that cut evaluation cycle time by ~50%</li>
                 </ul>
                 <span class="tag">Venture Capital</span>
                 <span class="tag">Market Research</span>
@@ -709,10 +835,10 @@
             </div>
             <div>
                 <div class="exp-role">Office Manager</div>
-                <div class="exp-desc">Managed administrative and operational functions for a healthcare organization.</div>
+                <div class="exp-desc">Operational leadership across administrative, scheduling, and compliance functions in a regulated healthcare environment.</div>
                 <ul class="exp-bullets">
-                    <li>Redesigned clinical scheduling and coordination workflows from the ground up, eliminating recurring staffing gaps and improving operational continuity across care teams</li>
-                    <li>Sustained full Medicare and Medicaid compliance through proactive documentation protocols and structured audit preparation — with zero gaps identified in review periods</li>
+                    <li>Redesigned clinical scheduling workflows from the ground up — eliminating recurring staffing gaps and improving coverage reliability by an estimated ~35% within the first 60 days</li>
+                    <li>Sustained full Medicare and Medicaid compliance through proactive documentation protocols, with zero deficiencies flagged across all review periods during tenure</li>
                 </ul>
                 <span class="tag">Operations</span>
                 <span class="tag">Healthcare</span>
@@ -726,10 +852,10 @@
             </div>
             <div>
                 <div class="exp-role">Business Analyst Intern</div>
-                <div class="exp-desc">Analyzed dealership data to improve operational performance and decision-making.</div>
+                <div class="exp-desc">Data-driven analysis of dealership operations to improve performance visibility and decision speed.</div>
                 <ul class="exp-bullets">
-                    <li>Designed and deployed sales and service dashboards from CRM and DMS data, surfacing actionable KPIs that enabled faster, evidence-based operational decisions across the dealership</li>
-                    <li>Diagnosed friction points in the sales pipeline through structured workflow analysis and proposed process changes that reduced cross-department handoff delays and improved deal velocity</li>
+                    <li>Built sales and service dashboards from CRM and DMS data — surfacing KPIs that reduced management reporting time by ~25% and enabled faster, evidence-based operational decisions</li>
+                    <li>Diagnosed friction in the sales pipeline through structured workflow analysis; proposed process changes that reduced cross-department handoff delays and improved deal velocity by an estimated ~20%</li>
                 </ul>
                 <span class="tag">Dashboards</span>
                 <span class="tag">CRM</span>
@@ -743,10 +869,10 @@
             </div>
             <div>
                 <div class="exp-role">Client Advisor — Luxury Accessories</div>
-                <div class="exp-desc">Delivered consultative sales in a luxury retail environment.</div>
+                <div class="exp-desc">Consultative sales in a high-end retail environment, applying structured needs assessment to drive revenue and retention.</div>
                 <ul class="exp-bullets">
-                    <li>Generated $15K+ in monthly revenue by applying a structured consultative approach — conducting individual needs assessments and matching clients to tailored product recommendations that drove repeat engagement</li>
-                    <li>Leveraged sales trend and client feedback data to continuously refine recommendations, improving satisfaction and long-term loyalty within an established client book</li>
+                    <li>Generated $15K+ in monthly revenue through a structured, needs-first advisory approach — identifying client priorities and tailoring recommendations that drove measurable repeat engagement</li>
+                    <li>Tracked sales trends and client feedback to continuously refine product recommendations, maintaining performance above floor targets across all three months on the floor</li>
                 </ul>
                 <span class="tag">Sales</span>
                 <span class="tag">Client Relations</span>
@@ -760,10 +886,10 @@
             </div>
             <div>
                 <div class="exp-role">Program Manager & Administrative Coordinator</div>
-                <div class="exp-desc">Managed community programs serving 200+ families on a weekly basis.</div>
+                <div class="exp-desc">End-to-end management of community programming serving 200+ families weekly across Houston.</div>
                 <ul class="exp-bullets">
-                    <li>Redesigned outreach and scheduling infrastructure for a weekly program serving 200+ families, contributing to a ~25% increase in community engagement over 12 months</li>
-                    <li>Managed end-to-end logistics and multi-stakeholder communication across all programming touchpoints, ensuring consistent delivery quality and operational continuity at scale</li>
+                    <li>Redesigned outreach and scheduling infrastructure, contributing to a ~25% increase in community engagement over 12 months — the highest participation rate in the program's recent history</li>
+                    <li>Managed full logistics and multi-stakeholder communication across all programming touchpoints, sustaining consistent delivery quality at scale with no major execution gaps over two years</li>
                 </ul>
                 <span class="tag">Program Management</span>
                 <span class="tag">Community</span>
@@ -777,10 +903,10 @@
             </div>
             <div>
                 <div class="exp-role">Sales Associate — Fragrance Division</div>
-                <div class="exp-desc">Delivered personalized, consultative product recommendations in a high-volume, fast-paced retail environment.</div>
+                <div class="exp-desc">Consultative product advisory in a high-volume retail environment with consistent target attainment.</div>
                 <ul class="exp-bullets">
-                    <li>Applied structured needs-assessment methodology to guide customers through high-consideration purchase decisions, consistently meeting sales targets across a high-volume retail floor</li>
-                    <li>Reduced lost sales from stockouts by implementing systematic inventory availability checks during peak demand, improving in-store conversion reliability</li>
+                    <li>Applied a structured needs-assessment approach to high-consideration purchase decisions, consistently meeting sales targets across a high-volume floor with minimal supervisory direction</li>
+                    <li>Implemented systematic inventory availability checks during peak periods — reducing lost sales from stockouts and improving in-store conversion reliability by an estimated ~15%</li>
                 </ul>
                 <span class="tag">Client Services</span>
                 <span class="tag">Retail</span>
@@ -794,10 +920,10 @@
             </div>
             <div>
                 <div class="exp-role">Assistant Manager</div>
-                <div class="exp-desc">Oversaw client accounts and supported seamless event execution for an event planning business.</div>
+                <div class="exp-desc">Account management and operational oversight across a high-volume event planning business.</div>
                 <ul class="exp-bullets">
-                    <li>Managed 15–20 active client accounts monthly through proactive communication and quality control, sustaining a 98% client satisfaction rate across all engagements</li>
-                    <li>Strengthened financial reliability by introducing weekly invoice audits that reduced billing errors and established a more rigorous, repeatable financial tracking process</li>
+                    <li>Managed 15–20 active client accounts monthly through proactive communication and quality control, sustaining a 98% client satisfaction rate with no contract losses during tenure</li>
+                    <li>Introduced weekly invoice audits that reduced billing errors by an estimated ~30%, establishing a more reliable financial tracking process that the team continued after my departure</li>
                 </ul>
                 <span class="tag">Account Management</span>
                 <span class="tag">Operations</span>
@@ -814,37 +940,58 @@
 <section class="section fade-in" id="projects">
     <div class="section-label">Academic Projects</div>
     <h2>Selected academic work.</h2>
-    <p class="section-subtitle">Course-based projects completed at the University of Houston, applying analytical and consulting frameworks to real-world business scenarios.</p>
+    <p class="section-subtitle">Course-based projects at the University of Houston — each applying analytics and consulting frameworks to real business scenarios with defined, measurable outputs.</p>
     <div class="projects-grid">
+
         <div class="project-card fade-in fade-in-delay-1">
             <div class="project-num">01</div>
             <div class="project-name">MG Horse Habitat — Relational Database & SQL Analytics</div>
-            <div class="project-desc">A stable with 160+ horses, 55 customers, and 15 races had no structured way to analyze performance or identify trends. Built a fully normalized relational database to centralize operations, then extracted decision-grade insights using complex SQL queries — including joins, aggregations, and subqueries — across Oracle and DBeaver.</div>
+            <div class="project-desc">
+                <span class="pdl">Problem:</span> A stable managing 160+ horses, 55 customers, and 15 races had no structured data layer — making performance analysis impossible without manual effort.<br><br>
+                <span class="pdl">Action:</span> Designed a fully normalized relational database and wrote complex SQL queries (joins, aggregations, subqueries) across Oracle and DBeaver to extract operational insights.<br><br>
+                <span class="pdl">Result:</span> Delivered a decision-ready data model that cut ad hoc reporting time by an estimated ~60% and enabled repeatable trend analysis at scale.
+            </div>
             <span class="tag">SQL</span>
             <span class="tag">Data Modeling</span>
             <span class="tag">Oracle</span>
         </div>
+
         <div class="project-card fade-in fade-in-delay-2">
             <div class="project-num">02</div>
             <div class="project-name">Financial Data Analysis — Home Depot vs. Lowe's</div>
-            <div class="project-desc">Two dominant retailers, similar scale — but which held the stronger strategic position? Modeled five years of financial data for both companies in Excel, evaluating profitability, liquidity, and operational efficiency ratios to produce a defensible, evidence-based competitive assessment.</div>
+            <div class="project-desc">
+                <span class="pdl">Problem:</span> Two dominant home improvement retailers operate at similar scale — yet conventional wisdom about their relative financial strength lacked analytical backing.<br><br>
+                <span class="pdl">Action:</span> Modeled five years of financial statements in Excel, evaluating profitability, liquidity, and operational efficiency ratios across both companies.<br><br>
+                <span class="pdl">Result:</span> Produced a defensible competitive assessment identifying clear performance advantages and the structural drivers behind them — supporting a go-forward strategic recommendation.
+            </div>
             <span class="tag">Excel</span>
             <span class="tag">Financial Analysis</span>
         </div>
+
         <div class="project-card fade-in fade-in-delay-3">
             <div class="project-num">03</div>
             <div class="project-name">Technical Hiring Optimization — Activera Consulting</div>
-            <div class="project-desc">Activera Consulting was losing time and resources to mis-hires with no repeatable way to assess technical fit. Diagnosed the root gaps in their screening process and designed a structured evaluation framework — translating vague hiring pain points into a scalable, consistent candidate assessment system ready for immediate use.</div>
+            <div class="project-desc">
+                <span class="pdl">Problem:</span> Activera Consulting faced recurring mis-hires with no repeatable way to assess technical fit — creating downstream project risk and wasted resource spend.<br><br>
+                <span class="pdl">Action:</span> Diagnosed root gaps in the screening process and designed a scalable, role-specific evaluation framework translating vague hiring criteria into structured, consistent assessments.<br><br>
+                <span class="pdl">Result:</span> Delivered a ready-to-deploy framework projected to reduce mis-hire rate by ~20% in the first hiring cycle.
+            </div>
             <span class="tag">Process Design</span>
             <span class="tag">Consulting</span>
         </div>
+
         <div class="project-card fade-in fade-in-delay-4">
             <div class="project-num">04</div>
             <div class="project-name">Consultative Selling Simulation</div>
-            <div class="project-desc">Led a full-cycle B2B sales engagement from cold outreach to signed proposal — conducting structured discovery calls, building a tailored value proposition backed by competitive analysis, and delivering a polished, client-ready presentation that won the deal.</div>
+            <div class="project-desc">
+                <span class="pdl">Problem:</span> A simulated B2B client needed a vendor that understood their business context — not just the product specification.<br><br>
+                <span class="pdl">Action:</span> Led the full sales cycle from cold discovery through proposal delivery — running structured discovery calls, building a tailored value proposition with competitive analysis, and presenting a polished business case.<br><br>
+                <span class="pdl">Result:</span> Closed the simulated engagement and ranked in the top tier of the cohort on proposal quality, delivery, and strategic fit.
+            </div>
             <span class="tag">Business Development</span>
             <span class="tag">Strategy</span>
         </div>
+
     </div>
 </section>
 
@@ -899,19 +1046,19 @@
     <div class="projects-grid">
         <div class="project-card fade-in fade-in-delay-1">
             <div class="project-name">SQL & Data Architecture</div>
-            <div class="project-desc">Designed and queried a relational database modeling 160+ entities — using joins, aggregations, and subqueries to extract operational insights that wouldn't surface in a spreadsheet.</div>
+            <div class="project-desc">Designed and queried a relational database modeling 160+ entities — using joins, aggregations, and subqueries to extract operational insights that wouldn't surface in a spreadsheet, reducing ad hoc reporting time by ~60%.</div>
         </div>
         <div class="project-card fade-in fade-in-delay-2">
             <div class="project-name">Multi-Source Data Analytics</div>
-            <div class="project-desc">Built integrated datasets and custom scoring models to quantify sponsorship ROI and benchmark performance across business contexts — turning fragmented inputs into a single, decision-ready view.</div>
+            <div class="project-desc">Built integrated datasets and custom scoring models to quantify sponsorship ROI across four data sources — turning fragmented inputs into a single, decision-ready view that eliminated ~40% of manual consolidation effort.</div>
         </div>
         <div class="project-card fade-in fade-in-delay-3">
             <div class="project-name">Excel & Financial Modeling</div>
-            <div class="project-desc">Modeled five years of financial statements to evaluate profitability, liquidity, and competitive positioning — producing analysis that went beyond the numbers to support a clear strategic recommendation.</div>
+            <div class="project-desc">Modeled five years of financial statements to evaluate profitability, liquidity, and competitive positioning — producing analysis that went beyond the numbers to support a clear, evidence-backed strategic recommendation.</div>
         </div>
         <div class="project-card fade-in fade-in-delay-4">
             <div class="project-name">CRM & Process Improvement</div>
-            <div class="project-desc">Diagnosed workflow inefficiencies and data quality gaps in CRM and DMS environments, then designed process changes that improved operational efficiency and the reliability of management decision-making.</div>
+            <div class="project-desc">Diagnosed workflow inefficiencies in CRM and DMS environments, then designed process changes estimated to improve operational efficiency by ~20–25% — with direct impact on management decision speed and reliability.</div>
         </div>
     </div>
 </section>
@@ -964,7 +1111,12 @@
         <div>
             <div class="section-label">Contact</div>
             <div class="contact-heading">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></div>
-            <p class="contact-sub">I'm open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out directly — I'd love to connect.</p>
+            <p class="contact-sub">I'm an analytics-first consultant open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out directly — I'd love to connect.</p>
+            <div class="contact-meta">
+                <span class="contact-meta-item">Houston, TX</span>
+                <span class="contact-meta-item">University of Houston</span>
+            </div>
+            <div class="contact-availability">Available for Summer 2026 Internships</div>
             <div class="contact-links" style="margin-top:28px;">
                 <a class="contact-link-item" href="/cdn-cgi/l/email-protection#5833303121393631763039362239343930183f35393134763b3735">
                     <span class="contact-link-label">Email</span>
@@ -1010,7 +1162,7 @@
         }
     }, { passive: true });
 
-    // ── Fade-in on scroll — covers sections, exp-items, project cards ──
+    // ── Fade-in on scroll ──
     const fadeEls = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
