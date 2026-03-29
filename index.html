@@ -1348,24 +1348,33 @@
         }
     });
 
-    // ── Fade-in on scroll ──
-    const faders = document.querySelectorAll('.fade-in');
+// ── Fade-in on scroll (Safari-safe) ──
+const faders = document.querySelectorAll('.fade-in');
 
-    const appearOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -40px 0px"
-    };
+const appearOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px -10% 0px"
+};
 
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             observer.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+        }
     });
+}, appearOptions);
+
+faders.forEach(el => {
+    appearOnScroll.observe(el);
+});
+
+// ✅ SAFARI FAILSAFE (THIS FIXES YOUR ISSUE)
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 600);
+});
 </script>
