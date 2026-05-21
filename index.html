@@ -1,1388 +1,873 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanzalah Khiyani — Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0f0f0f;
-            --surface: #161616;
-            --surface2: #1c1c1c;
-            --surface3: #222222;
-            --border: #2a2a2a;
-            --accent: #c8a96e;
-            --accent-2: #6f8fa6;
-            --accent-dim: rgba(200,169,110,0.12);
-            --text: #f5f3ef;
-            --text-muted: #7a7570;
-            --text-mid: #a09890;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-            cursor: default;
-        }
-
-        /* ── CURSOR POLISH ── */
-        a, button, [role="button"], .btn-primary, .btn-ghost,
-        .contact-link-item, .project-card { cursor: pointer; }
-
-        /* ── NAV ── */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 60px;
-            background: rgba(15,15,15,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav.nav-hidden { transform: translateY(-100%); }
-
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            color: var(--accent);
-            letter-spacing: 0.5px;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            position: relative;
-            padding-bottom: 3px;
-            transition: color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Animated underline */
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-links a:hover { color: var(--accent); }
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 60px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -200px; right: -200px;
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-inner { max-width: 760px; }
-
-        .hero-eyebrow {
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .hero-eyebrow::before {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(48px, 7vw, 84px);
-            font-weight: 700;
-            line-height: 1.05;
-            color: var(--text);
-            margin-bottom: 28px;
-        }
-
-        h1 em { font-style: italic; color: var(--accent); }
-
-        .hero-sub {
-            font-size: 18px;
-            color: var(--text-mid);
-            font-weight: 300;
-            max-width: 620px;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 44px;
-        }
-
-        /* ── PROOF STRIP ── */
-        .proof-strip {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            row-gap: 20px;
-        }
-
-        .proof-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            padding-right: 28px;
-            margin-right: 28px;
-            border-right: 1px solid var(--border);
-        }
-
-        .proof-item:last-child {
-            border-right: none;
-            padding-right: 0;
-            margin-right: 0;
-        }
-
-        .proof-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .proof-label {
-            font-size: 10px;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 32px;
-            background: var(--accent);
-            color: #0f0f0f;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-
-        .btn-ghost {
-            display: inline-block;
-            padding: 14px 32px;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                        color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-        /* ── SECTIONS ── */
-        .section {
-            padding: 100px 60px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-label::after {
-            content: '';
-            flex: 1;
-            max-width: 60px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .section-subtitle {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin-bottom: 44px;
-            max-width: 640px;
-            line-height: 1.75;
-        }
-
-        h2.no-subtitle { margin-bottom: 52px; }
-
-        .divider {
-            height: 1px;
-            background: var(--border);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* ── ABOUT ── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .about-text p {
-            color: var(--text-mid);
-            font-size: 16px;
-            margin-bottom: 20px;
-            line-height: 1.85;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .stat-card {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            padding: 24px;
-            border-radius: 4px;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
-
-        /* ── EXPERIENCE ── */
-        .exp-list { display: flex; flex-direction: column; gap: 0; }
-
-        .exp-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 40px;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .exp-item:first-child { border-top: 1px solid var(--border); }
-
-        .exp-meta { padding-top: 4px; }
-
-        .exp-date { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 8px; }
-        .exp-company { font-size: 13px; color: var(--accent); font-weight: 500; }
-
-        .exp-role {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--text);
-        }
-
-        .exp-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.7; }
-
-        .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-
-        .exp-bullets li {
-            font-size: 14px;
-            color: var(--text-mid);
-            padding-left: 16px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .exp-bullets li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 12px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 10px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(200,169,110,0.2);
-            color: rgba(200,169,110,0.85);
-            font-size: 11px;
-            letter-spacing: 0.5px;
-            border-radius: 2px;
-            margin-top: 12px;
-            margin-right: 6px;
-        }
-
-        /* ── PROJECTS ── */
-        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-        .project-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 32px;
-            border-radius: 4px;
-            transition: border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-                        box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Alternating card background */
-        .project-card:nth-child(even) { background: var(--surface3); }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .project-card:hover {
-            border-color: rgba(200,169,110,0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
-        }
-
-        .project-card:hover::before { transform: scaleX(1); }
-
-        /* ── FADE-IN ANIMATION ── */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        .fade-in-delay-1 { transition-delay: 0.10s; }
-        .fade-in-delay-2 { transition-delay: 0.20s; }
-        .fade-in-delay-3 { transition-delay: 0.30s; }
-        .fade-in-delay-4 { transition-delay: 0.40s; }
-
-        .project-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            color: var(--border);
-            line-height: 1;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .project-name { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 12px; color: var(--text); }
-        .project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
-
-        /* Project desc inline labels */
-        .pdl { color: var(--text-mid); font-weight: 500; }
-
-        /* ── SELECTED IMPACT ── */
-        #selected-impact {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .impact-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 72px 60px;
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0;
-        }
-
-        .impact-item {
-            padding: 28px 28px 28px 0;
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .impact-item:first-child { padding-left: 0; }
-        .impact-item:last-child { border-right: none; padding-right: 0; padding-left: 28px; }
-        .impact-item:not(:first-child):not(:last-child) { padding-left: 28px; }
-
-        .impact-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: var(--accent);
-            line-height: 1;
-            font-weight: 600;
-        }
-
-        .impact-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            letter-spacing: 0.3px;
-            line-height: 1.55;
-        }
-
-        /* ── CORE TOOLS BAR ── */
-        .core-tools-bar {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-
-        .core-tools-label {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-
-        .core-tools-sep {
-            width: 1px;
-            height: 12px;
-            background: var(--border);
-            flex-shrink: 0;
-        }
-
-        .core-tools-list {
-            font-size: 13px;
-            color: var(--text-mid);
-            letter-spacing: 0.2px;
-        }
-
-        @media (max-width: 768px) {
-            .impact-grid { grid-template-columns: repeat(2, 1fr); }
-            .impact-item { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; }
-            .impact-item:last-child { border-bottom: none; padding-left: 0; }
-            .impact-item:not(:first-child) { padding-left: 0; }
-            .impact-inner { padding: 48px 24px; }
-        }
-
-        /* ── SKILLS ── */
-        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-
-        .skill-group {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            padding: 28px;
-            border-radius: 4px;
-        }
-
-        .skill-group-title {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .skill-item {
-            font-size: 14px;
-            color: var(--text-mid);
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-item::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        /* ── EDUCATION ── */
-        .edu-cert-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
-
-        .edu-card, .cert-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 36px;
-            border-radius: 4px;
-        }
-
-        .edu-degree { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 6px; }
-        .edu-school { font-size: 14px; color: var(--accent); margin-bottom: 4px; }
-        .edu-detail { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
-
-        .gpa-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(200,169,110,0.3);
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 600;
-            border-radius: 2px;
-        }
-
-        .coursework { margin-top: 20px; }
-
-        .coursework-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .cert-name { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
-        .cert-issuer { font-size: 13px; color: var(--accent); margin-bottom: 4px; }
-        .cert-date { font-size: 12px; color: var(--text-muted); }
-
-        /* ── CONTACT ── */
-        #contact {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .contact-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 100px 60px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .contact-inner--simple {
-            grid-template-columns: 1fr;
-            max-width: 680px;
-        }
-
-        .contact-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
-
-        .contact-sub { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
-
-        .contact-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-
-        .contact-meta-item {
-            font-size: 11px;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-
-        .contact-meta-item::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .contact-availability {
-            display: inline-block;
-            margin-top: 18px;
-            padding: 7px 14px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(200,169,110,0.25);
-            border-radius: 2px;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
-
-        .contact-links { display: flex; flex-direction: column; gap: 20px; }
-
-        .contact-link-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            padding: 20px;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            text-decoration: none;
-            transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-link-item:hover { border-color: var(--accent); }
-
-        .contact-link-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
-        .contact-link-value { font-size: 15px; color: var(--text); }
-
-        /* ── RECRUITER SCAN STRIP ── */
-        .recruiter-strip {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 28px;
-        }
-
-        .recruiter-tag {
-            font-size: 11px;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            padding: 5px 11px;
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            background: var(--surface2);
-            white-space: nowrap;
-        }
-
-        .recruiter-tag--accent {
-            color: var(--accent);
-            border-color: rgba(200,169,110,0.25);
-            background: var(--accent-dim);
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            padding: 28px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-left { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--accent); }
-        .footer-right { font-size: 12px; color: var(--text-muted); }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            nav { padding: 16px 24px; }
-            .nav-links { gap: 16px; }
-            .nav-links a { font-size: 11px; }
-        }
-
-        @media (max-width: 768px) {
-            .hero { padding: 100px 24px 60px; }
-            .section { padding: 70px 24px; }
-            .about-grid, .projects-grid, .skills-grid, .edu-cert-grid { grid-template-columns: 1fr; }
-            .exp-item { grid-template-columns: 1fr; gap: 8px; }
-            .contact-inner { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
-            footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
-            .nav-links { gap: 12px; overflow-x: auto; }
-            .nav-links a { font-size: 10px; letter-spacing: 0.5px; }
-            .proof-strip { row-gap: 20px; }
-            .proof-item { padding-right: 16px; margin-right: 16px; }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Hanzalah Khiyani — Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #0f0f0f;
+    --surface: #161616;
+    --surface2: #1c1c1c;
+    --surface3: #222222;
+    --border: #2a2a2a;
+
+    --accent: #c8a96e;
+    --accent-2: #6f8fa6;
+    --accent-dim: rgba(200,169,110,0.12);
+
+    --text: #f5f3ef;
+    --text-muted: #7a7570;
+    --text-mid: #a09890;
+}
+
+/* ───────────────────────────── */
+/* RESET */
+/* ───────────────────────────── */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+    cursor:default;
+}
+
+/* ───────────────────────────── */
+/* GLOBAL POLISH */
+/* ───────────────────────────── */
+
+a,
+button,
+[role="button"],
+.btn-primary,
+.btn-ghost,
+.contact-link-item,
+.project-card{
+    cursor:pointer;
+}
+
+/* smoother hover transitions everywhere */
+
+.btn-primary,
+.btn-ghost{
+    transition:
+        border-color 0.25s cubic-bezier(0.4,0,0.2,1),
+        color 0.25s cubic-bezier(0.4,0,0.2,1),
+        transform 0.25s cubic-bezier(0.4,0,0.2,1),
+        opacity 0.25s cubic-bezier(0.4,0,0.2,1),
+        background 0.25s cubic-bezier(0.4,0,0.2,1),
+        box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ───────────────────────────── */
+/* NAV */
+/* ───────────────────────────── */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:100;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 60px;
+
+    background:rgba(15,15,15,0.92);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--border);
+
+    transition:
+        transform 0.35s cubic-bezier(0.4,0,0.2,1),
+        background 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+nav.nav-hidden{
+    transform:translateY(-100%);
+}
+
+.nav-logo{
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    color:var(--accent);
+    letter-spacing:0.5px;
+    cursor:pointer;
+}
+
+.nav-links{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--text-muted);
+
+    font-size:12px;
+    font-weight:500;
+
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    white-space:nowrap;
+
+    position:relative;
+    padding-bottom:3px;
+
+    transition:
+        color 0.22s cubic-bezier(0.4,0,0.2,1),
+        opacity 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:1px;
+
+    background:var(--accent);
+
+    transform:scaleX(0);
+    transform-origin:right;
+
+    transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);
+}
+
+.nav-links a:hover{
+    color:var(--accent);
+}
+
+.nav-links a:hover::after{
+    transform:scaleX(1);
+    transform-origin:left;
+}
+
+/* ───────────────────────────── */
+/* HERO */
+/* ───────────────────────────── */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:120px 60px 80px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+
+    position:absolute;
+    top:-200px;
+    right:-200px;
+
+    width:700px;
+    height:700px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(200,169,110,0.07) 0%,
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+.hero-inner{
+    max-width:760px;
+}
+
+.hero-eyebrow{
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    color:var(--accent);
+
+    margin-bottom:24px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.hero-eyebrow::before{
+    content:'';
+
+    display:block;
+
+    width:40px;
+    height:1px;
+
+    background:var(--accent);
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+
+    font-size:clamp(48px,7vw,84px);
+    font-weight:700;
+
+    line-height:1.05;
+
+    color:var(--text);
+
+    margin-bottom:28px;
+}
+
+/* UPDATED SURNAME STYLE */
+
+.surname{
+    color:var(--accent);
+    font-style:italic;
+    font-weight:600;
+}
+
+.hero-sub{
+    font-size:18px;
+    color:var(--text-mid);
+    font-weight:300;
+
+    max-width:620px;
+
+    margin-bottom:40px;
+
+    line-height:1.8;
+}
+
+/* ───────────────────────────── */
+/* CTA BUTTONS */
+/* ───────────────────────────── */
+
+.hero-cta{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+
+    margin-bottom:44px;
+}
+
+.btn-primary{
+    display:inline-block;
+
+    padding:14px 32px;
+
+    background:var(--accent);
+    color:#0f0f0f;
+
+    font-family:'DM Sans',sans-serif;
+    font-weight:600;
+    font-size:14px;
+
+    letter-spacing:0.5px;
+    text-decoration:none;
+
+    border-radius:2px;
+}
+
+.btn-primary:hover{
+    opacity:0.88;
+    transform:translateY(-1px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.35);
+}
+
+.btn-ghost{
+    display:inline-block;
+
+    padding:14px 32px;
+
+    border:1px solid var(--border);
+
+    color:var(--text-muted);
+
+    font-family:'DM Sans',sans-serif;
+    font-weight:500;
+    font-size:14px;
+
+    letter-spacing:0.5px;
+    text-decoration:none;
+
+    border-radius:2px;
+
+    background:transparent;
+}
+
+/* UPDATED HOVER */
+
+.btn-ghost:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-1px);
+}
+
+/* ───────────────────────────── */
+/* RECRUITER STRIP */
+/* ───────────────────────────── */
+
+.recruiter-strip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+
+    margin-bottom:28px;
+}
+
+.recruiter-tag{
+    font-size:11px;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+
+    color:var(--text-muted);
+
+    padding:5px 11px;
+
+    border:1px solid var(--border);
+    border-radius:2px;
+
+    background:var(--surface2);
+
+    white-space:nowrap;
+
+    transition:
+        border-color 0.25s cubic-bezier(0.4,0,0.2,1),
+        color 0.25s cubic-bezier(0.4,0,0.2,1),
+        transform 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+.recruiter-tag:hover{
+    border-color:rgba(200,169,110,0.3);
+    color:var(--accent);
+    transform:translateY(-1px);
+}
+
+.recruiter-tag--accent{
+    color:var(--accent);
+
+    border-color:rgba(200,169,110,0.25);
+    background:var(--accent-dim);
+}
+
+/* ───────────────────────────── */
+/* DIVIDER */
+/* ───────────────────────────── */
+
+.divider{
+    height:1px;
+    background:var(--border);
+
+    max-width:1100px;
+    margin:0 auto;
+}
+
+/* ───────────────────────────── */
+/* SECTIONS */
+/* ───────────────────────────── */
+
+.section{
+    padding:100px 60px;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.section-label{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    color:var(--accent);
+
+    margin-bottom:16px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.section-label::after{
+    content:'';
+
+    flex:1;
+    max-width:60px;
+    height:1px;
+
+    background:var(--accent);
+}
+
+h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(32px,4vw,48px);
+    font-weight:600;
+
+    margin-bottom:16px;
+
+    color:var(--text);
+}
+
+h2.no-subtitle{
+    margin-bottom:52px;
+}
+
+.section-subtitle{
+    font-size:15px;
+    color:var(--text-muted);
+
+    margin-bottom:44px;
+
+    max-width:640px;
+    line-height:1.75;
+}
+
+/* ───────────────────────────── */
+/* PROJECT CARDS */
+/* ───────────────────────────── */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+}
+
+.project-card{
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    padding:32px;
+    border-radius:4px;
+
+    position:relative;
+    overflow:hidden;
+
+    transition:
+        border-color 0.32s cubic-bezier(0.4,0,0.2,1),
+        transform 0.32s cubic-bezier(0.4,0,0.2,1),
+        box-shadow 0.32s cubic-bezier(0.4,0,0.2,1),
+        background 0.32s cubic-bezier(0.4,0,0.2,1);
+}
+
+.project-card:nth-child(even){
+    background:var(--surface3);
+}
+
+.project-card::before{
+    content:'';
+
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+
+    height:2px;
+
+    background:var(--accent);
+
+    transform:scaleX(0);
+    transform-origin:left;
+
+    transition:transform 0.36s cubic-bezier(0.4,0,0.2,1);
+}
+
+.project-card:hover{
+    border-color:rgba(200,169,110,0.3);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 16px 40px rgba(0,0,0,0.45);
+}
+
+.project-card:hover::before{
+    transform:scaleX(1);
+}
+
+/* ───────────────────────────── */
+/* FADE-IN */
+/* ───────────────────────────── */
+
+.fade-in{
+    opacity:0;
+    transform:translateY(22px);
+
+    transition:
+        opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+        transform 0.65s cubic-bezier(0.4,0,0.2,1);
+}
+
+.fade-in.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.fade-in-delay-1{
+    transition-delay:0.10s;
+}
+
+.fade-in-delay-2{
+    transition-delay:0.20s;
+}
+
+.fade-in-delay-3{
+    transition-delay:0.30s;
+}
+
+.fade-in-delay-4{
+    transition-delay:0.40s;
+}
+
+/* ───────────────────────────── */
+/* RESPONSIVE */
+/* ───────────────────────────── */
+
+@media (max-width:900px){
+
+    nav{
+        padding:16px 24px;
+    }
+
+    .nav-links{
+        gap:16px;
+    }
+
+    .nav-links a{
+        font-size:11px;
+    }
+}
+
+@media (max-width:768px){
+
+    .hero{
+        padding:100px 24px 60px;
+    }
+
+    .section{
+        padding:70px 24px;
+    }
+
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        gap:12px;
+        overflow-x:auto;
+    }
+
+    .nav-links a{
+        font-size:10px;
+        letter-spacing:0.5px;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
 <!-- NAV -->
+
 <nav id="navbar">
-    <div class="nav-logo">HK — Portfolio</div>
+
+    <div class="nav-logo">
+        HK — Portfolio
+    </div>
+
     <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#approach">My Approach</a></li>
-        <li><a href="#skills-applied">In Practice</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+
 </nav>
 
 <!-- HERO -->
+
 <section class="hero">
+
     <div class="hero-inner">
-        <div class="hero-eyebrow">MIS & Finance @ University of Houston</div>
+
+        <div class="hero-eyebrow">
+            MIS & Finance @ University of Houston
+        </div>
+
         <h1>
             <span>Hanzalah</span><br>
             <span class="surname">Khiyani</span>
         </h1>
 
-        <!-- UPDATE 1: Sharp, concise positioning -->
-        <p class="hero-sub">Analytics-focused MIS & Finance student translating complex operational and business data into strategic decisions.</p>
-
-        <p style="font-size:14px; color:var(--text-muted); font-weight:400; letter-spacing:0.3px; margin-bottom:40px; margin-top:-12px;">Focused on analytics, consulting, and strategy opportunities where data drives measurable impact.</p>
+        <p class="hero-sub">
+            Analytics-focused MIS & Finance student translating complex operational and business data into strategic decisions.
+        </p>
 
         <div class="hero-cta">
-            <a href="#experience" class="btn-primary">View Experience</a>
-            <a href="#contact" class="btn-ghost">Get in Touch</a>
-        </div>
 
-        <!-- UPDATE 2: Recruiter scan strip — below CTA, above proof strip -->
-        <div class="recruiter-strip">
-            <span class="recruiter-tag">MIS & Finance — Bauer College of Business</span>
-            <span class="recruiter-tag">Data Analytics · Consulting · Strategy</span>
-            <span class="recruiter-tag">GPA 3.55</span>
-            <span class="recruiter-tag recruiter-tag--accent">Open to Summer 2026 Internships</span>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ABOUT -->
-<section class="section fade-in" id="about">
-    <div class="section-label">About</div>
-    <h2 class="no-subtitle">Data, strategy,<br>and structured thinking.</h2>
-    <div class="about-grid">
-        <div class="about-text">
-            <p>I turn complex business problems into actionable insights using data, structured analysis, and strategic thinking. Through externships with NY Racing and HP Tech Ventures, I’ve built multi-source datasets, developed scoring frameworks, and evaluated startups to support decision-making. I’m seeking summer 2026 roles in analytics, consulting, or strategy where insights drive outcomes.</p>
-        </div>
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="stat-number">3.56</div>
-                <div class="stat-label">GPA — Bauer College</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">9+</div>
-                <div class="stat-label">Roles &amp; Externships</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">$15K+</div>
-                <div class="stat-label">Monthly Revenue Generated</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">200+</div>
-                <div class="stat-label">Families Served Weekly</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- MY APPROACH -->
-<section class="section fade-in" id="approach">
-    <div class="section-label">My Approach</div>
-    <h2 class="no-subtitle">How I think through problems.</h2>
-    <div class="about-grid">
-        <div class="about-text">
-            <p>Every engagement starts with the same discipline: understand the actual problem before solving the apparent one. My approach as an analytics-first consultant follows a consistent four-step model:</p>
-            <p><strong>1. Structure</strong> — Decompose ambiguity into a clear problem statement and a decision framework that actually holds.</p>
-            <p><strong>2. Data</strong> — Identify the right inputs, build from reliable sources, and pressure-test every assumption before moving forward.</p>
-            <p><strong>3. Insight</strong> — Surface patterns that are business-relevant, not just statistically interesting — and know the difference.</p>
-            <p><strong>4. Recommend</strong> — Deliver a clear point of view with a defensible path forward. Analysis without a recommendation is unfinished work.</p>
-        </div>
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Step Problem-Solving Model</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2+</div>
-                <div class="stat-label">Live Externships</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">4+</div>
-                <div class="stat-label">Analytics Projects</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Industries Analyzed</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-<section class="section fade-in" id="experience">
-    <div class="section-label">Experience</div>
-    <h2 class="no-subtitle">Where I've worked.</h2>
-    <div class="exp-list">
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">May 2026 — Present</div>
-                <div class="exp-company">Extern</div>
-            </div>
-            <div>
-                <div class="exp-role">Institute of Mental Health — Healthcare Operations & Consulting Externship</div>
-                <!-- UPDATE 3: Elevated desc to signal high-value, real-world experience -->
-                <div class="exp-desc">High-impact externship analyzing care coordination workflows and operational efficiency within a large-scale psychiatric hospital system.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: Impact-first language — outcome leads -->
-                    <li>Analyzed case management workflows across inpatient, emergency, and discharge stages to identify gaps in care continuity and patient experience</li>
-                    <li>Applied process mapping and operational analysis frameworks to surface inefficiencies, hidden risks, and coordination gaps across multidisciplinary teams</li>
-                    <li>Developed a data-driven dashboard to quantify coordination impact and deliver 5+ recommendations for workflow and care optimization</li>
-                </ul>
-                <span class="tag">Process Mapping</span>
-                <span class="tag">Operational Analysis</span>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Healthcare Management</span>
-            </div>
-        </div>
-        
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Mar 2026 — May 2026</div>
-                <div class="exp-company">Extern</div>
-            </div>
-            <div>
-                <div class="exp-role">Nascar NY Racing — Sponsorship ROI Externship</div>
-                <!-- UPDATE 3: Elevated desc to signal high-value, real-world experience -->
-                <div class="exp-desc">High-impact externship analyzing real-world sponsorship performance across multi-source NASCAR datasets.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: Impact-first language — outcome leads -->
-                    <li>Built a dataset combining race results, social media, YouTube, and media coverage to analyze sponsorship visibility across the 2024 NASCAR Cup Series</li>
-                    <li>Created a weighted scoring model to compare sponsor exposure across races and identify high-performing placements</li>
-                    <li>Delivered 5+ recommendations on sponsorship positioning based on data trends across events</li>
-                </ul>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Data Modeling</span>
-                <span class="tag">Microsoft Excel</span>
-                <span class="tag">Strategic Analysis</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Mar 2026 — April 2026</div>
-                <div class="exp-company">Deloitte Digital</div>
-            </div>
-            <div>
-                <div class="exp-role">Salesforce Consulting Trainee</div>
-                <div class="exp-desc">Consulting development program focused on CRM systems, Salesforce implementation, and advisory workflow.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 4: "modeled" → "simulated" for credibility -->
-                    <li>Completed hands-on training in Salesforce CRM, including Trailhead modules and implementation workflows</li>
-                    <li>Analyzed business processes to identify inefficiencies and map CRM-based improvements</li>
-                    <li>Evaluated business workflows in team-based case exercises to identify opportunities for process improvement using CRM solutions</li>
-                </ul>
-                <span class="tag">Salesforce CRM Analytics</span>
-                <span class="tag">Business Analysis</span>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Customer Relationship Management (CRM)</span>
-                <span class="tag">Consulting</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jan 2026 — Mar 2026</div>
-                <div class="exp-company">Extern</div>
-            </div>
-            <div>
-                <div class="exp-role">HP Tech Ventures – Deal Sourcing & Startup Analysis Externship</div>
-                <div class="exp-desc">Structured evaluation of early-stage startups against a corporate venture capital investment thesis.</div>
-                <ul class="exp-bullets">
-                    <li>Evaluated 5+ early-stage startups using structured frameworks (market size, product, strategic fit)</li>
-                    <li>Conducted market research on hardware and GPU-related technologies, including cooling systems</li>
-                    <li>Delivered an investment recommendation supported by market, product, and competitive analysis</li>
-                </ul>
-                <span class="tag">Strategic Analysis</span>
-                <span class="tag">Market Research</span>
-                <span class="tag">Financial Analysis</span>
-                <span class="tag">Due Diligence</span>
-                <span class="tag">Investment Analysis</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Oct 2025 — Jan 2026</div>
-                <div class="exp-company">Veteran Memorial Hospice</div>
-            </div>
-            <div>
-                <div class="exp-role">Operations Manager (Healthcare Services)</div>
-                <div class="exp-desc">Operational leadership across administrative, scheduling, and compliance functions in a regulated healthcare environment.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: Impact-first on scheduling improvement -->
-                    <li>Managed scheduling and operations across clinical teams to maintain service coverage and compliance</li>
-                    <li>Redesigned staffing and coordination processes, improving scheduling efficiency and coverage reliability</li>
-                    <li>Maintained audit documentation and ensured compliance with healthcare regulations</li>
-                </ul>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Healthcare Management</span>
-                <span class="tag">Operations Management</span>
-                <span class="tag">Hospice Compliance</span>
-                <span class="tag">Scheduling</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jul 2025 — Oct 2025</div>
-                <div class="exp-company">Premium Auto Group</div>
-            </div>
-            <div>
-                <div class="exp-role">Business Analyst Intern</div>
-                <div class="exp-desc">Data-driven analysis of dealership operations to improve performance visibility and decision speed.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: "building dashboards" → "enabled faster decision-making through dashboards" -->
-                    <li>Analyzed sales, service, and CRM/DMS data to identify performance trends and operational gaps</li>
-                    <li>Built dashboards and reports that reduced manual reporting time and improved visibility for management</li>
-                    <li>Recommended process improvements across sales and service workflows to increase deal speed</li>
-                </ul>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Business Analysis</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Customer Relationship Management (CRM)</span>
-                <span class="tag">Business Process Improvement</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Apr 2025 — Jul 2025</div>
-                <div class="exp-company">Nordstrom</div>
-            </div>
-            <div>
-                <div class="exp-role">Retail Sales Associate / Client Advisor – Luxury Accessories</div>
-                <div class="exp-desc">Consultative sales in a high-end retail environment, applying structured needs assessment to drive revenue and retention.</div>
-                <ul class="exp-bullets">
-                    <li>Generated $15K+ monthly revenue through personalized product recommendations</li>
-                    <li>Used customer purchase data to improve repeat sales and client retention</li>
-                    <li>Coordinated with team members to maintain inventory accuracy and product availability</li>
-                </ul>
-                <span class="tag">Customer Relationship Management (CRM)</span>
-                <span class="tag">Sales</span>
-                <span class="tag">Customer Experience</span>
-                <span class="tag">Upselling</span>
-                <span class="tag">Communication</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Oct 2024 — Jan 2025</div>
-                <div class="exp-company">Macy's</div>
-            </div>
-            <div>
-                <div class="exp-role">Sales Associate — Fragrance Division</div>
-                <div class="exp-desc">Consultative product advisory in a high-volume retail environment with consistent target attainment.</div>
-                <ul class="exp-bullets">
-                    <li>Assisted customers in a high-volume retail environment, driving product sales and satisfaction</li>
-                    <li>Matched products to customer preferences to improve conversion rates</li>
-                    <li>Supported inventory tracking and restocking during peak demand</li>
-                </ul>
-                <span class="tag">Sales</span>
-                <span class="tag">Communication</span>
-                <span class="tag">Customer Service</span>
-                <span class="tag">Retail Operations</span>
-                <span class="tag">Product Knowledge</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jun 2022 — Oct 2024</div>
-                <div class="exp-company">Al-Noor Society of Greater Houston</div>
-            </div>
-            <div>
-                <div class="exp-role">Program Manager &amp; Administrative Coordinator</div>
-                <div class="exp-desc">End-to-end management of community programming serving 200+ families weekly across Houston.</div>
-                <ul class="exp-bullets">
-                    <li>Managed weekly programming serving 200+ families, including scheduling and logistics</li>
-                    <li>Increased participation by ~25% through improved outreach and program organization</li>
-                    <li>Streamlined administrative processes to improve consistency in program delivery</li>
-                </ul>
-                <span class="tag">Operations Management</span>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Program Management</span>
-                <span class="tag">Stakeholder Management</span>
-                <span class="tag">Project Coordination</span>
-            </div>
-        </div>
-        
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jun 2021 — Jun 2022</div>
-                <div class="exp-company">Deco Art Event Planners</div>
-            </div>
-            <div>
-                <div class="exp-role">Operations &amp; Account Manager</div>
-                <div class="exp-desc">Account management and operational oversight across a high-volume event planning business.</div>
-                <ul class="exp-bullets">
-                    <li>Managed 15–20 client accounts monthly, maintaining a 98% satisfaction rate</li>
-                    <li>Reduced billing errors by implementing weekly invoice review processes</li>
-                    <li>Coordinated event logistics across vendors and internal teams</li>
-                </ul>
-                <span class="tag">Operations Management</span>
-                <span class="tag">Project Coordination</span>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Account Management</span>
-                <span class="tag">Client Relations</span>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<section class="section fade-in" id="projects">
-    <div class="section-label">Analytics &amp; Consulting Projects</div>
-    <h2>Selected work.</h2>
-    <p class="section-subtitle">Applied analytics and consulting projects solving real business problems with measurable outcomes.</p>
-    <div class="projects-grid">
-
-        <div class="project-card fade-in fade-in-delay-1">
-            <div class="project-num">01</div>
-            <div class="project-name">MG Horse Habitat — Relational Database &amp; SQL Analytics</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> No structured data layer existed for a stable managing 160+ horses, 55 customers, and 15 races — making performance analysis dependent on manual, error-prone effort.<br><br>
-                <span class="pdl">Action:</span> Designed a fully normalized relational database and extracted operational insights using complex SQL (joins, aggregations, subqueries) in Oracle and DBeaver.<br><br>
-                <!-- UPDATE 6: "Reporting time reduced via relational database and SQL automation" removed; reworded naturally -->
-                <span class="pdl">Result:</span> Eliminated the need for manual, error-prone reporting and established a repeatable analytics infrastructure enabling ongoing performance tracking.
-            </div>
-            <span class="tag">SQL</span>
-            <span class="tag">Data Modeling</span>
-            <span class="tag">Data Analysis</span>
-            <span class="tag">Relational Databases</span>
-            <span class="tag">Database Queries</span>
-        </div>
-
-        <div class="project-card fade-in fade-in-delay-2">
-            <div class="project-num">02</div>
-            <div class="project-name">Financial Data Analysis — Home Depot vs. Lowe's</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> Conventional wisdom on Home Depot vs. Lowe's competitive positioning lacked rigorous financial backing — creating ambiguity for strategic decision-making.<br><br>
-                <span class="pdl">Action:</span> Modeled five years of financial statements in Excel, evaluating profitability, liquidity, and efficiency ratios across both companies in a structured comparative framework.<br><br>
-                <!-- UPDATE 5: Stronger result sentence connecting analysis → business decision -->
-                <span class="pdl">Result:</span> Produced a defensible competitive assessment identifying Home Depot's structural advantages — informing a clear investment and strategic positioning recommendation.
-            </div>
-            <span class="tag">Excel</span>
-            <span class="tag">Financial Analysis</span>
-        </div>
-
-        <div class="project-card fade-in fade-in-delay-3">
-            <div class="project-num">03</div>
-            <div class="project-name">Technical Hiring Optimization — Activera Consulting</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> Activera Consulting faced recurring mis-hires with no repeatable screening process — generating downstream project risk and compounding resource waste across engagements.<br><br>
-                <span class="pdl">Action:</span> Diagnosed root gaps in the existing hiring process, then designed a scalable role-specific evaluation framework translating vague fit criteria into consistent, structured assessments.<br><br>
-                <span class="pdl">Result:</span> Delivered a deployment-ready framework projected to reduce mis-hire rate by ~20% in the first hiring cycle.
-            </div>
-            <span class="tag">Process Design</span>
-            <span class="tag">Consulting</span>
-        </div>
-
-        <div class="project-card fade-in fade-in-delay-4">
-            <div class="project-num">04</div>
-            <div class="project-name">Consultative Selling — B2B Advisory Exercise</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> A B2B client needed a vendor partner who understood their business context — not one selling on product specs alone.<br><br>
-                <span class="pdl">Action:</span> Led the full sales cycle: structured discovery calls to identify client priorities, a tailored value proposition backed by competitive analysis, and a polished, client-ready business case presentation.<br><br>
-                <span class="pdl">Result:</span> Closed the engagement by delivering a tailored, client-ready solution aligned to business needs.
-            </div>
-            <span class="tag">Business Development</span>
-            <span class="tag">Strategy</span>
-        </div>
-
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<section class="section fade-in" id="skills">
-    <div class="section-label">Skills</div>
-    <h2 class="no-subtitle">What I work with.</h2>
-    <div class="core-tools-bar">
-        <span class="core-tools-label">Core Tools</span>
-        <span class="core-tools-sep"></span>
-        <span class="core-tools-list">SQL (Oracle, DBeaver) &nbsp;·&nbsp; Excel (Financial Modeling) &nbsp;·&nbsp; Salesforce CRM</span>
-    </div>
-    <div class="skills-grid">
-        <div class="skill-group">
-            <div class="skill-group-title">Data &amp; Analytics</div>
-            <div class="skill-item">SQL</div>
-            <div class="skill-item">Excel &amp; Modeling</div>
-            <div class="skill-item">Data Architecture</div>
-            <div class="skill-item">Business Intelligence</div>
-            <div class="skill-item">Quantitative Analysis</div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-group-title">Technical Tools</div>
-            <div class="skill-item">Oracle &amp; DBeaver</div>
-            <div class="skill-item">Salesforce CRM</div>
-            <div class="skill-item">Dashboard Design</div>
-            <div class="skill-item">CRM Systems</div>
-            <div class="skill-item">Data Visualization</div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-group-title">Business</div>
-            <div class="skill-item">Business Analysis</div>
-            <div class="skill-item">Process Improvement</div>
-            <div class="skill-item">Strategic Analysis</div>
-            <div class="skill-item">Returns &amp; Valuation</div>
-            <div class="skill-item">Market Research</div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-group-title">Core Strengths</div>
-            <div class="skill-item">Structured Problem-Solving</div>
-            <div class="skill-item">Executive Communication</div>
-            <div class="skill-item">Stakeholder Management</div>
-            <div class="skill-item">Cross-Functional Thinking</div>
-            <div class="skill-item">Adaptability Under Ambiguity</div>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- IN PRACTICE -->
-<section class="section fade-in" id="skills-applied">
-    <div class="section-label">In Practice</div>
-    <h2 class="no-subtitle">How I apply my skills.</h2>
-    <div class="projects-grid">
-        <div class="project-card fade-in fade-in-delay-1">
-            <div class="project-name">SQL &amp; Data Architecture</div>
-            <div class="project-desc">Designed and queried a relational database modeling 160+ entities — using joins, aggregations, and subqueries to extract operational insights that wouldn't surface in a spreadsheet, enabling faster, more reliable operational decision-making.</div>
-        </div>
-        <div class="project-card fade-in fade-in-delay-2">
-            <div class="project-name">Multi-Source Data Analytics</div>
-            <div class="project-desc">Built integrated datasets and custom scoring frameworks to quantify sponsorship visibility value across four data sources — turning fragmented inputs into a single, decision-ready view that eliminated ~40% of manual consolidation effort.</div>
-        </div>
-        <div class="project-card fade-in fade-in-delay-3">
-            <div class="project-name">Excel &amp; Financial Modeling</div>
-            <div class="project-desc">Modeled five years of financial statements to evaluate profitability, liquidity, and competitive positioning — producing analysis that went beyond the numbers to support a clear, evidence-backed strategic recommendation.</div>
-        </div>
-        <div class="project-card fade-in fade-in-delay-4">
-            <div class="project-name">CRM &amp; Process Improvement</div>
-            <!-- UPDATE 9: "diagnosed workflow inefficiencies" → impact-forward framing -->
-            <div class="project-desc">Improved decision speed and operational reliability by diagnosing workflow inefficiencies in CRM and DMS environments — designing process changes estimated to deliver ~20–25% efficiency gains with direct impact on management visibility.</div>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-<section class="section fade-in" id="education">
-    <div class="section-label">Education &amp; Certifications</div>
-    <h2 class="no-subtitle">Academic background.</h2>
-    <div class="edu-cert-grid">
-        <div class="edu-card">
-            <div class="edu-degree">BBA, Management Information Systems</div>
-            <div class="edu-school">University of Houston — C.T. Bauer College of Business</div>
-            <div class="edu-detail">Aug 2023 – May 2027 &nbsp;·&nbsp; Houston, TX</div>
-            <span class="gpa-badge">GPA 3.55 / 4.00</span>
-            <div class="coursework">
-                <div class="coursework-label">Relevant Coursework</div>
-                <div>
-                    <span class="tag">Data Management (SQL)</span>
-                    <span class="tag">Business Analytics</span>
-                    <span class="tag">Systems Analysis</span>
-                    <span class="tag">Data Visualization</span>
-                </div>
-            </div>
-            <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border);">
-                <div class="edu-degree" style="font-size:16px;">High School Diploma</div>
-                <div class="edu-school">Michael E. DeBakey High School for Health Professions</div>
-            </div>
-        </div>
-        <div class="cert-card">
-            <div class="section-label" style="margin-bottom: 24px;">Certifications</div>
-            <div class="cert-name">SQL Certificate of Competency</div>
-            <div class="cert-issuer">LearnSQL.com</div>
-            <div class="cert-date">Issued December 2025</div>
-            <a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" target="_blank"
-               style="display:inline-flex; align-items:center; gap:8px; margin-top:16px; padding:9px 16px; background:var(--accent-dim); border:1px solid rgba(200,169,110,0.3); color:var(--accent); font-size:12px; letter-spacing:1px; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:background 0.25s cubic-bezier(0.4,0,0.2,1), border-color 0.25s cubic-bezier(0.4,0,0.2,1);"
-               onmouseover="this.style.background='rgba(200,169,110,0.22)'; this.style.borderColor='rgba(200,169,110,0.5)'"
-               onmouseout="this.style.background='var(--accent-dim)'; this.style.borderColor='rgba(200,169,110,0.3)'">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Show Credential
+            <a href="#projects" class="btn-primary">
+                View Experience
             </a>
+
+            <a href="#contact" class="btn-ghost">
+                Get in Touch
+            </a>
+
         </div>
+
+        <div class="recruiter-strip">
+
+            <span class="recruiter-tag">
+                MIS & Finance — Bauer College of Business
+            </span>
+
+            <span class="recruiter-tag">
+                Data Analytics · Consulting · Strategy
+            </span>
+
+            <span class="recruiter-tag">
+                GPA 3.55
+            </span>
+
+            <span class="recruiter-tag recruiter-tag--accent">
+                Open to Summer 2026 Internships
+            </span>
+
+        </div>
+
     </div>
+
+</section>
+
+<!-- SAMPLE SECTION -->
+
+<div class="divider"></div>
+
+<section class="section fade-in" id="about">
+
+    <div class="section-label">
+        About
+    </div>
+
+    <h2 class="no-subtitle">
+        Data, strategy,<br>
+        and structured thinking.
+    </h2>
+
+    <p class="section-subtitle">
+        I turn complex business problems into actionable insights using data, structured analysis, and strategic thinking.
+    </p>
+
+</section>
+
+<!-- SAMPLE PROJECTS -->
+
+<div class="divider"></div>
+
+<section class="section fade-in" id="projects">
+
+    <div class="section-label">
+        Projects
+    </div>
+
+    <h2>
+        Selected Work.
+    </h2>
+
+    <div class="projects-grid">
+
+        <div class="project-card fade-in fade-in-delay-1">
+
+            <div class="project-name">
+                SQL Analytics Project
+            </div>
+
+            <div class="project-desc">
+                Built relational databases and extracted operational insights using complex SQL queries and analytics frameworks.
+            </div>
+
+        </div>
+
+        <div class="project-card fade-in fade-in-delay-2">
+
+            <div class="project-name">
+                Financial Analysis
+            </div>
+
+            <div class="project-desc">
+                Modeled five years of financial statements to support strategic investment recommendations.
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <div class="contact-inner contact-inner--simple">
-        <div>
-            <div class="section-label">Contact</div>
-            <div class="contact-heading">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></div>
-            <p class="contact-sub">I'm an analytics-first consultant open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out directly — I'm always open to discussing opportunities and solving real business problems.</p>
-            <div class="contact-meta">
-                <span class="contact-meta-item">Houston, TX</span>
-                <span class="contact-meta-item">University of Houston</span>
-            </div>
-            <div class="contact-availability">Available for Summer 2026 Internships</div>
-            <div class="contact-links" style="margin-top:28px;">
 
-                <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com">
-                    <span class="contact-link-label">Email</span>
-                    <span class="contact-link-value">khiyani.hanzalah@gmail.com</span>
-                </a>
+<div class="divider"></div>
 
-                <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
-                    <span class="contact-link-label">LinkedIn</span>
-                    <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
-                </a>
+<section class="section fade-in" id="contact">
 
-                <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com?subject=Let%27s%20Connect%20%E2%80%94%20Internship%20%2F%20Opportunity" style="flex-direction:row; align-items:center; justify-content:space-between; background: var(--accent-dim); border-color: rgba(200,169,110,0.25);">
-                    <span style="display:flex; flex-direction:column; gap:4px;">
-                        <span class="contact-link-label" style="color: var(--accent);">Send a Note</span>
-                        <span class="contact-link-value" style="color: var(--accent);">Start the conversation →</span>
-                    </span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </a>
-
-            </div>
-        </div>
+    <div class="section-label">
+        Contact
     </div>
+
+    <h2 class="no-subtitle">
+        Let's work together.
+    </h2>
+
+    <a href="mailto:khiyani.hanzalah@gmail.com" class="btn-primary">
+        Email Me
+    </a>
+
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <div class="footer-left">Hanzalah Khiyani</div>
-    <div class="footer-right">© 2026 · Houston, TX</div>
+
+<div class="divider"></div>
+
+<footer style="
+padding:28px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+    <div style="
+    font-family:'Playfair Display',serif;
+    color:var(--accent);
+    ">
+        Hanzalah Khiyani
+    </div>
+
+    <div style="
+    font-size:12px;
+    color:var(--text-muted);
+    ">
+        © 2026 · Houston, TX
+    </div>
+
 </footer>
 
+<!-- JS -->
+
 <script>
-    // ── Smart navbar: hide on scroll down, reveal on scroll up ──
-    const navbar = document.getElementById('navbar');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
 
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const currentScrollY = window.scrollY;
+/* ───────────────────────────── */
+/* NAVBAR HIDE/SHOW */
+/* ───────────────────────────── */
 
-                if (currentScrollY < 80) {
-                    navbar.classList.remove('nav-hidden');
-                } else if (currentScrollY > lastScrollY) {
-                    navbar.classList.add('nav-hidden');
-                } else {
-                    navbar.classList.remove('nav-hidden');
-                }
+const navbar = document.getElementById('navbar');
 
-                lastScrollY = currentScrollY;
-                ticking = false;
-            });
+let lastScrollY = window.scrollY;
+let ticking = false;
 
-            ticking = true;
-        }
-    });
+window.addEventListener('scroll', () => {
 
-// ── Fade-in on scroll (Safari-safe) ──
+    if (!ticking) {
+
+        window.requestAnimationFrame(() => {
+
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY < 80) {
+
+                navbar.classList.remove('nav-hidden');
+
+            } else if (currentScrollY > lastScrollY) {
+
+                navbar.classList.add('nav-hidden');
+
+            } else {
+
+                navbar.classList.remove('nav-hidden');
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+
+        });
+
+        ticking = true;
+    }
+});
+
+/* ───────────────────────────── */
+/* FADE-IN */
+/* ───────────────────────────── */
+
 const faders = document.querySelectorAll('.fade-in');
 
 const appearOptions = {
-    threshold: 0,
-    rootMargin: "0px 0px -10% 0px"
+    threshold:0,
+    rootMargin:"0px 0px -10% 0px"
 };
 
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
+
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
+
+        if(entry.isIntersecting){
+
             entry.target.classList.add('visible');
+
             observer.unobserve(entry.target);
         }
     });
+
 }, appearOptions);
 
 faders.forEach(el => {
     appearOnScroll.observe(el);
 });
 
-// ✅ SAFARI FAILSAFE (THIS FIXES YOUR ISSUE)
+/* SAFARI FAILSAFE */
+
 window.addEventListener("load", () => {
+
     setTimeout(() => {
+
         document.querySelectorAll('.fade-in').forEach(el => {
             el.classList.add('visible');
         });
+
     }, 600);
+
 });
+
 </script>
+
+</body>
+</html>
