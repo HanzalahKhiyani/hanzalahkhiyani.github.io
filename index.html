@@ -32,7 +32,7 @@
   --fui:       'Syne', sans-serif;
   --fbody:     'DM Sans', sans-serif;
 }
- 
+
 /* ─── RESET ──────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
@@ -40,7 +40,7 @@ img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 button{border:none;background:none;cursor:pointer;font:inherit}
- 
+
 /* ─── BASE ───────────────────────────────────────────── */
 body{
   font-family:var(--fbody);
@@ -50,7 +50,7 @@ body{
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
- 
+
 /* ─── GRAIN OVERLAY ──────────────────────────────────── */
 #grain{
   position:fixed;inset:0;z-index:9999;
@@ -59,14 +59,14 @@ body{
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:220px 220px;
 }
- 
+
 /* ─── AMBIENT ORBS ───────────────────────────────────── */
 .orb{position:fixed;border-radius:50%;pointer-events:none;will-change:transform}
 .orb-1{width:700px;height:700px;top:-220px;right:-180px;background:radial-gradient(circle,rgba(196,165,90,.07) 0%,transparent 68%);animation:orbFloat 18s ease-in-out infinite}
 .orb-2{width:500px;height:500px;bottom:10%;left:-160px;background:radial-gradient(circle,rgba(91,143,168,.055) 0%,transparent 68%);animation:orbFloat 22s ease-in-out infinite reverse}
 .orb-3{width:400px;height:400px;top:55%;right:5%;background:radial-gradient(circle,rgba(196,165,90,.045) 0%,transparent 68%);animation:orbFloat 26s ease-in-out infinite 4s}
 @keyframes orbFloat{0%,100%{transform:translate(0,0)}33%{transform:translate(-20px,30px)}66%{transform:translate(20px,-20px)}}
- 
+
 /* ─── NAV ────────────────────────────────────────────── */
 #nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
@@ -97,7 +97,7 @@ body{
 }
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
- 
+
 /* ─── HERO ───────────────────────────────────────────── */
 #hero{
   min-height:100vh;display:grid;
@@ -111,7 +111,7 @@ body{
   background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(196,165,90,.055),transparent 70%);
   pointer-events:none;
 }
- 
+
 .hero-left{position:relative;z-index:2}
 .hero-eyebrow{
   display:flex;align-items:center;gap:14px;
@@ -167,7 +167,7 @@ body{
   transition:border-color .2s,color .2s;
 }
 .hero-tag.open{color:var(--gold);border-color:rgba(196,165,90,.3);background:var(--g-dim)}
- 
+
 /* ─── HERO VISUAL (right panel) ──────────────────────── */
 .hero-right{
   position:relative;display:flex;justify-content:center;align-items:center;
@@ -176,7 +176,7 @@ body{
 .viz-wrapper{
   position:relative;width:100%;max-width:440px;
 }
- 
+
 /* Grid dot background */
 .viz-grid{
   position:absolute;inset:-20px;
@@ -185,7 +185,7 @@ body{
   opacity:.5;border-radius:8px;
   mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
 }
- 
+
 /* Main dashboard card */
 .viz-card{
   position:relative;z-index:2;
@@ -209,7 +209,7 @@ body{
 .viz-live{display:flex;align-items:center;gap:6px;font-family:var(--fui);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
 .viz-live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(196,165,90,.4)}50%{opacity:.8;box-shadow:0 0 0 6px rgba(196,165,90,0)}}
- 
+
 /* Bar chart */
 .viz-chart{height:120px;display:flex;align-items:flex-end;gap:12px;padding:0 4px;margin-bottom:16px}
 .viz-bar-group{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -227,10 +227,10 @@ body{
 .viz-bar.blue{background:linear-gradient(180deg,#7bafc8,var(--blue))}
 .viz-bar.blue::after{color:#7bafc8}
 .viz-bar-label{font-family:var(--fui);font-size:9px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;text-align:center}
- 
+
 /* chart bottom rule */
 .viz-chart-rule{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin-bottom:16px}
- 
+
 /* Metrics row */
 .viz-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .viz-metric{
@@ -244,7 +244,7 @@ body{
   line-height:1;margin-bottom:4px;
 }
 .viz-metric-lbl{font-family:var(--fui);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
- 
+
 /* Floating chips */
 .viz-chip{
   position:absolute;z-index:3;
@@ -262,7 +262,7 @@ body{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
 .viz-chip-lbl{font-family:var(--fui);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:3px}
- 
+
 /* Glow ring */
 .viz-glow{
   position:absolute;top:50%;left:50%;
@@ -271,25 +271,25 @@ body{
   background:radial-gradient(circle,rgba(196,165,90,.06),transparent 70%);
   pointer-events:none;z-index:1;
 }
- 
+
 /* ─── GOLD DIVIDER ───────────────────────────────────── */
 .gold-rule{
   height:1px;max-width:1200px;margin:0 auto;
   background:linear-gradient(90deg,transparent,rgba(196,165,90,.2) 30%,rgba(196,165,90,.2) 70%,transparent);
 }
- 
+
 /* ─── SECTION SHELL ──────────────────────────────────── */
 .section{padding:96px 64px;max-width:1200px;margin:0 auto}
 .section-alt{background:var(--s1)}
 .section-deep{background:var(--s2)}
- 
+
 .sec-label{
   display:inline-flex;align-items:center;gap:12px;
   font-family:var(--fui);font-size:10px;font-weight:600;
   letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;
 }
 .sec-label-line{width:36px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
- 
+
 h2{
   font-family:var(--fdisp);font-size:clamp(32px,4vw,50px);
   font-weight:600;line-height:1.1;color:var(--text);
@@ -297,7 +297,7 @@ h2{
 }
 h2 em{font-style:italic;color:var(--gold)}
 .sec-sub{font-size:15px;color:var(--mid);max-width:600px;line-height:1.8;margin-bottom:48px}
- 
+
 /* ─── SELECTED IMPACT ─────────────────────────────────── */
 #impact{
   background:linear-gradient(135deg,var(--s1) 0%,var(--s2) 100%);
@@ -337,1099 +337,1605 @@ h2 em{font-style:italic;color:var(--gold)}
 .impact-desc{font-family:var(--fui);font-size:11px;letter-spacing:.5px;color:var(--mid);line-height:1.6}
 .impact-context{font-size:11px;color:var(--muted);margin-top:4px}
 
-        /* ── ABOUT ── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .about-text p {
-            color: var(--text-mid);
-            font-size: 16px;
-            margin-bottom: 20px;
-            line-height: 1.85;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .stat-card {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            padding: 24px;
-            border-radius: 4px;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
-
-        /* ── EXPERIENCE ── */
-        .exp-list { display: flex; flex-direction: column; gap: 0; }
-
-        .exp-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 40px;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .exp-item:first-child { border-top: 1px solid var(--border); }
-
-        .exp-meta { padding-top: 4px; }
-
-        .exp-date { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 8px; }
-        .exp-company { font-size: 13px; color: var(--accent); font-weight: 500; }
-
-        .exp-role {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--text);
-        }
-
-        .exp-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.7; }
-
-        .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-
-        .exp-bullets li {
-            font-size: 14px;
-            color: var(--text-mid);
-            padding-left: 16px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .exp-bullets li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 12px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 10px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(200,169,110,0.2);
-            color: rgba(200,169,110,0.85);
-            font-size: 11px;
-            letter-spacing: 0.5px;
-            border-radius: 2px;
-            margin-top: 12px;
-            margin-right: 6px;
-        }
-
-        /* ── PROJECTS ── */
-        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-        .project-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 32px;
-            border-radius: 4px;
-            transition: border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-                        box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Alternating card background */
-        .project-card:nth-child(even) { background: var(--surface3); }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .project-card:hover {
-            border-color: rgba(200,169,110,0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
-        }
-
-        .project-card:hover::before { transform: scaleX(1); }
-
-        /* ── FADE-IN ANIMATION ── */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        .fade-in-delay-1 { transition-delay: 0.10s; }
-        .fade-in-delay-2 { transition-delay: 0.20s; }
-        .fade-in-delay-3 { transition-delay: 0.30s; }
-        .fade-in-delay-4 { transition-delay: 0.40s; }
-
-        .project-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            color: var(--border);
-            line-height: 1;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .project-name { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 12px; color: var(--text); }
-        .project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
-
-        /* Project desc inline labels */
-        .pdl { color: var(--text-mid); font-weight: 500; }
-
-        /* ── SELECTED IMPACT ── */
-        #selected-impact {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .impact-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 72px 60px;
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0;
-        }
-
-        .impact-item {
-            padding: 28px 28px 28px 0;
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .impact-item:first-child { padding-left: 0; }
-        .impact-item:last-child { border-right: none; padding-right: 0; padding-left: 28px; }
-        .impact-item:not(:first-child):not(:last-child) { padding-left: 28px; }
-
-        .impact-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: var(--accent);
-            line-height: 1;
-            font-weight: 600;
-        }
-
-        .impact-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            letter-spacing: 0.3px;
-            line-height: 1.55;
-        }
-
-        /* ── CORE TOOLS BAR ── */
-        .core-tools-bar {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-
-        .core-tools-label {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-
-        .core-tools-sep {
-            width: 1px;
-            height: 12px;
-            background: var(--border);
-            flex-shrink: 0;
-        }
-
-        .core-tools-list {
-            font-size: 13px;
-            color: var(--text-mid);
-            letter-spacing: 0.2px;
-        }
-
-        @media (max-width: 768px) {
-            .impact-grid { grid-template-columns: repeat(2, 1fr); }
-            .impact-item { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; }
-            .impact-item:last-child { border-bottom: none; padding-left: 0; }
-            .impact-item:not(:first-child) { padding-left: 0; }
-            .impact-inner { padding: 48px 24px; }
-        }
-
-        /* ── SKILLS ── */
-        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-
-        .skill-group {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            padding: 28px;
-            border-radius: 4px;
-        }
-
-        .skill-group-title {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .skill-item {
-            font-size: 14px;
-            color: var(--text-mid);
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-item::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        /* ── EDUCATION ── */
-        .edu-cert-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
-
-        .edu-card, .cert-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 36px;
-            border-radius: 4px;
-        }
-
-        .edu-degree { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 6px; }
-        .edu-school { font-size: 14px; color: var(--accent); margin-bottom: 4px; }
-        .edu-detail { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
-
-        .gpa-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(200,169,110,0.3);
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 600;
-            border-radius: 2px;
-        }
-
-        .coursework { margin-top: 20px; }
-
-        .coursework-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .cert-name { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
-        .cert-issuer { font-size: 13px; color: var(--accent); margin-bottom: 4px; }
-        .cert-date { font-size: 12px; color: var(--text-muted); }
-
-        /* ── CONTACT ── */
-        #contact {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .contact-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 100px 60px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .contact-inner--simple {
-            grid-template-columns: 1fr;
-            max-width: 680px;
-        }
-
-        .contact-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
-
-        .contact-sub { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
-
-        .contact-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-
-        .contact-meta-item {
-            font-size: 11px;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-
-        .contact-meta-item::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .contact-availability {
-            display: inline-block;
-            margin-top: 18px;
-            padding: 7px 14px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(200,169,110,0.25);
-            border-radius: 2px;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
-
-        .contact-links { display: flex; flex-direction: column; gap: 20px; }
-
-        .contact-link-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            padding: 20px;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            text-decoration: none;
-            transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-link-item:hover { border-color: var(--accent); }
-
-        .contact-link-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
-        .contact-link-value { font-size: 15px; color: var(--text); }
-
-        /* ── RECRUITER SCAN STRIP ── */
-        .recruiter-strip {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 28px;
-        }
-
-        .recruiter-tag {
-            font-size: 11px;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            padding: 5px 11px;
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            background: var(--surface2);
-            white-space: nowrap;
-        }
-
-        .recruiter-tag--accent {
-            color: var(--accent);
-            border-color: rgba(200,169,110,0.25);
-            background: var(--accent-dim);
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            padding: 28px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-left { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--accent); }
-        .footer-right { font-size: 12px; color: var(--text-muted); }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            nav { padding: 16px 24px; }
-            .nav-links { gap: 16px; }
-            .nav-links a { font-size: 11px; }
-        }
-
-        @media (max-width: 768px) {
-            .hero { padding: 100px 24px 60px; }
-            .section { padding: 70px 24px; }
-            .about-grid, .projects-grid, .skills-grid, .edu-cert-grid { grid-template-columns: 1fr; }
-            .exp-item { grid-template-columns: 1fr; gap: 8px; }
-            .contact-inner { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
-            footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
-            .nav-links { gap: 12px; overflow-x: auto; }
-            .nav-links a { font-size: 10px; letter-spacing: 0.5px; }
-            .proof-strip { row-gap: 20px; }
-            .proof-item { padding-right: 16px; margin-right: 16px; }
-        }
-    </style>
+/* ─── ABOUT ──────────────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
+.about-text p{font-size:16px;color:var(--mid);line-height:1.9;margin-bottom:20px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{
+  background:var(--s2);border:1px solid var(--border);
+  padding:24px;border-radius:6px;
+  transition:border-color .3s,box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.stat-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 0 0,var(--g-dim),transparent 70%);
+  opacity:0;transition:opacity .3s;
+}
+.stat-card:hover{border-color:var(--border-lg);box-shadow:0 0 30px rgba(196,165,90,.08)}
+.stat-card:hover::before{opacity:1}
+.stat-num{
+  font-family:var(--fdisp);font-size:38px;font-weight:700;line-height:1;
+  background:linear-gradient(135deg,var(--gold),var(--gold-b));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px;
+}
+.stat-lbl{font-family:var(--fui);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+
+/* ─── WHAT I'M LOOKING FOR ───────────────────────────── */
+#looking{background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.looking-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.looking-card{
+  background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;padding:28px;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.looking-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-l));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .36s cubic-bezier(.4,0,.2,1);
+}
+.looking-card:hover{border-color:var(--border-lg);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.4),0 0 40px rgba(196,165,90,.07)}
+.looking-card:hover::after{transform:scaleX(1)}
+.looking-icon{
+  width:44px;height:44px;border-radius:8px;
+  background:var(--g-dim);border:1px solid rgba(196,165,90,.15);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;font-size:20px;
+}
+.looking-title{font-family:var(--fdisp);font-size:20px;font-weight:600;color:var(--text);margin-bottom:10px}
+.looking-desc{font-size:13px;color:var(--mid);line-height:1.75;margin-bottom:16px}
+.looking-roles{display:flex;flex-wrap:wrap;gap:6px}
+.looking-role{
+  font-family:var(--fui);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--muted);padding:4px 9px;border:1px solid var(--border);border-radius:2px;
+  background:var(--s3);
+}
+
+/* ─── EXPERIENCE ─────────────────────────────────────── */
+.exp-list{display:flex;flex-direction:column}
+.exp-item{
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.exp-item:first-child{border-top:1px solid var(--border)}
+.exp-trigger{
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:20px;align-items:center;
+  padding:24px 0;cursor:pointer;
+  transition:background .2s;
+}
+.exp-trigger:hover .exp-role-title{color:var(--gold)}
+.exp-badge{
+  width:42px;height:42px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fui);font-size:9px;font-weight:700;letter-spacing:.5px;
+  flex-shrink:0;
+}
+.exp-meta-row{display:flex;flex-direction:column;gap:3px}
+.exp-role-title{
+  font-family:var(--fdisp);font-size:19px;font-weight:600;
+  color:var(--text);transition:color .2s;line-height:1.2;
+}
+.exp-meta-line{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--fui);font-size:10px;letter-spacing:1px;
+  text-transform:uppercase;color:var(--muted);
+}
+.exp-meta-sep{color:var(--border)}
+.exp-expand-btn{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--s2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:border-color .2s,transform .3s,background .2s;
+}
+.exp-item.open .exp-expand-btn{
+  transform:rotate(45deg);border-color:var(--gold);background:var(--g-dim);
+}
+.exp-expand-btn svg{stroke:var(--mid);transition:stroke .2s}
+.exp-item.open .exp-expand-btn svg{stroke:var(--gold)}
+
+.exp-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .48s cubic-bezier(.4,0,.2,1);
+}
+.exp-item.open .exp-body{max-height:600px}
+.exp-body-inner{padding:0 0 28px 62px}
+.exp-desc{font-size:14px;color:var(--mid);line-height:1.8;margin-bottom:16px;max-width:680px}
+.exp-bullets{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.exp-bullet{
+  display:flex;gap:12px;font-size:14px;color:var(--mid);line-height:1.6;
+}
+.exp-bullet-arrow{color:var(--gold);font-size:12px;flex-shrink:0;margin-top:3px}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px}
+.exp-tag{
+  font-family:var(--fui);font-size:9px;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(196,165,90,.7);padding:4px 10px;
+  background:var(--g-dim);border:1px solid rgba(196,165,90,.15);border-radius:2px;
+}
+
+/* Company badge colors */
+.badge-teal{background:#0f2a28;color:#4ecdc4;border:1px solid #1a3a38}
+.badge-orange{background:#2a1a0f;color:#f0a060;border:1px solid #3a2a18}
+.badge-green{background:#0f2a18;color:#60d090;border:1px solid #1a3a28}
+.badge-blue{background:#0f1a2a;color:#60a0d0;border:1px solid #182038}
+.badge-purple{background:#1a0f2a;color:#a060d0;border:1px solid #2a1a40}
+.badge-gold{background:#2a1f0a;color:#c4a55a;border:1px solid #3a2f18}
+.badge-pink{background:#2a0f18;color:#d06080;border:1px solid #3a1828}
+.badge-slate{background:#181820;color:#8890b0;border:1px solid #282840}
+.badge-red{background:#2a1010;color:#d07060;border:1px solid #3a2020}
+.badge-lime{background:#1a2a10;color:#90d060;border:1px solid #2a3a18}
+
+/* ─── PROJECTS ───────────────────────────────────────── */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.proj-card{
+  background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;
+  transition:border-color .32s,transform .32s,box-shadow .32s;
+  position:relative;
+}
+.proj-card:hover{
+  border-color:rgba(196,165,90,.3);
+  transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 50px rgba(196,165,90,.06);
+}
+
+/* Visual thumbnail */
+.proj-visual{
+  height:160px;position:relative;overflow:hidden;
+  background:var(--s3);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+}
+.proj-visual svg{width:100%;height:100%}
+
+/* Animated top bar */
+.proj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-b));
+  transform:scaleX(0);transform-origin:left;z-index:2;
+  transition:transform .38s cubic-bezier(.4,0,.2,1);
+}
+.proj-card:hover::before{transform:scaleX(1)}
+
+.proj-body{padding:28px}
+.proj-num{
+  font-family:var(--fdisp);font-size:13px;font-weight:600;
+  color:var(--muted);margin-bottom:10px;letter-spacing:1px;
+}
+.proj-name{font-family:var(--fdisp);font-size:21px;font-weight:600;color:var(--text);margin-bottom:12px;line-height:1.25}
+.proj-pill{
+  display:inline-block;margin-bottom:14px;
+  padding:4px 10px;background:var(--g-dim);
+  border:1px solid rgba(196,165,90,.15);border-radius:2px;
+  font-family:var(--fui);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);
+}
+.proj-psa{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.proj-row{display:flex;gap:8px}
+.proj-row-label{
+  font-family:var(--fui);font-size:10px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;color:var(--gold);
+  flex-shrink:0;padding-top:1px;min-width:64px;
+}
+.proj-row-text{font-size:13px;color:var(--mid);line-height:1.6}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px}
+.proj-tag{
+  font-family:var(--fui);font-size:9px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--muted);padding:4px 9px;border:1px solid var(--border);border-radius:2px;
+  background:var(--s3);
+}
+
+/* ─── SVG CHART STYLES ───────────────────────────────── */
+.chart-bar{transition:height .8s cubic-bezier(.4,0,.2,1),y .8s cubic-bezier(.4,0,.2,1)}
+
+/* ─── SKILLS ─────────────────────────────────────────── */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.skill-group{
+  background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;padding:28px;
+  transition:border-color .3s;
+}
+.skill-group:hover{border-color:rgba(196,165,90,.2)}
+.skill-group-title{
+  font-family:var(--fui);font-size:10px;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;padding-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+.skill-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;color:var(--mid);padding:7px 0;
+  border-bottom:1px solid rgba(255,255,255,.03);
+}
+.skill-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.skill-item:last-child{border-bottom:none}
+.core-bar{
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+  padding:14px 18px;background:var(--s2);border:1px solid var(--border);border-radius:6px;
+}
+.core-bar-label{font-family:var(--fui);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.core-bar-sep{width:1px;height:14px;background:var(--border);flex-shrink:0}
+.core-bar-val{font-size:13px;color:var(--mid)}
+
+/* ─── EDUCATION ──────────────────────────────────────── */
+.edu-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:24px}
+.edu-card,.cert-card{
+  background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;padding:36px;
+  transition:border-color .3s;
+}
+.edu-card:hover,.cert-card:hover{border-color:rgba(196,165,90,.2)}
+.edu-degree{font-family:var(--fdisp);font-size:22px;font-weight:600;margin-bottom:6px}
+.edu-school{
+  font-family:var(--fui);font-size:11px;letter-spacing:1px;color:var(--gold);margin-bottom:4px;text-transform:uppercase;
+}
+.edu-detail{font-size:12px;color:var(--muted);margin-bottom:18px}
+.gpa-badge{
+  display:inline-block;padding:6px 14px;
+  background:var(--g-dim);border:1px solid rgba(196,165,90,.25);
+  color:var(--gold);font-family:var(--fui);font-size:12px;font-weight:700;
+  border-radius:3px;letter-spacing:.5px;
+}
+.coursework-label{
+  font-family:var(--fui);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin:20px 0 10px;
+}
+.edu-tags{display:flex;flex-wrap:wrap;gap:6px}
+.edu-tag{
+  font-family:var(--fui);font-size:9px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--muted);padding:4px 9px;border:1px solid var(--border);border-radius:2px;background:var(--s3);
+}
+.edu-sub{margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.cert-label{
+  font-family:var(--fui);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+.cert-name{font-family:var(--fdisp);font-size:19px;font-weight:600;margin-bottom:6px}
+.cert-issuer{font-size:12px;color:var(--gold);margin-bottom:2px;font-family:var(--fui)}
+.cert-date{font-size:12px;color:var(--muted)}
+.cert-link{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:18px;padding:10px 18px;
+  background:var(--g-dim);border:1px solid rgba(196,165,90,.25);
+  color:var(--gold);border-radius:3px;
+  font-family:var(--fui);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  transition:background .2s,border-color .2s;
+}
+.cert-link:hover{background:rgba(196,165,90,.12);border-color:rgba(196,165,90,.4)}
+
+/* ─── CONTACT ────────────────────────────────────────── */
+#contact{
+  background:linear-gradient(135deg,var(--s1) 0%,var(--bg) 100%);
+  border-top:1px solid var(--border);position:relative;overflow:hidden;
+}
+#contact::before{
+  content:'';position:absolute;bottom:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,165,90,.07),transparent 70%);
+  pointer-events:none;
+}
+.contact-inner{
+  max-width:1200px;margin:0 auto;
+  padding:100px 64px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;position:relative;z-index:1;
+}
+.contact-heading{
+  font-family:var(--fdisp);font-size:clamp(36px,5vw,58px);
+  font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-.5px;
+}
+.contact-sub{font-size:15px;color:var(--mid);line-height:1.85;margin-bottom:24px}
+.contact-avail{
+  display:inline-block;padding:8px 16px;
+  background:var(--g-dim);border:1px solid rgba(196,165,90,.25);
+  color:var(--gold);border-radius:3px;
+  font-family:var(--fui);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:32px;
+}
+.contact-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px}
+.contact-meta-item{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--fui);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);
+}
+.contact-meta-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.contact-links{display:flex;flex-direction:column;gap:14px}
+.contact-link{
+  display:flex;flex-direction:column;gap:5px;
+  padding:20px 22px;background:var(--s2);border:1px solid var(--border);
+  border-radius:6px;transition:border-color .25s,box-shadow .25s,transform .25s;
+}
+.contact-link:hover{border-color:rgba(196,165,90,.3);transform:translateX(4px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.contact-link-label{font-family:var(--fui);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.contact-link-val{font-size:15px;color:var(--text)}
+.contact-cta{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px;
+  background:linear-gradient(135deg,rgba(196,165,90,.12),rgba(196,165,90,.06));
+  border:1px solid rgba(196,165,90,.25);border-radius:6px;
+  transition:background .25s,transform .25s;
+}
+.contact-cta:hover{background:linear-gradient(135deg,rgba(196,165,90,.18),rgba(196,165,90,.10));transform:translateX(4px)}
+.contact-cta-text{display:flex;flex-direction:column;gap:4px}
+.contact-cta-label{font-family:var(--fui);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.contact-cta-val{font-size:16px;color:var(--gold);font-weight:500}
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+footer{
+  padding:28px 64px;display:flex;justify-content:space-between;
+  align-items:center;border-top:1px solid var(--border);
+}
+.footer-logo{font-family:var(--fdisp);font-size:17px;color:var(--gold)}
+.footer-right{font-family:var(--fui);font-size:10px;letter-spacing:1.5px;color:var(--muted)}
+
+/* ─── APPROACH ───────────────────────────────────────── */
+.approach-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.approach-step{
+  background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;padding:28px;position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s;
+}
+.approach-step:hover{border-color:rgba(196,165,90,.25);transform:translateY(-3px)}
+.approach-step-num{
+  font-family:var(--fdisp);font-size:64px;font-weight:700;
+  color:rgba(196,165,90,.07);line-height:1;position:absolute;
+  top:16px;right:16px;pointer-events:none;
+}
+.approach-step-title{
+  font-family:var(--fdisp);font-size:20px;font-weight:600;
+  color:var(--text);margin-bottom:12px;position:relative;z-index:1;
+}
+.approach-step-title span{color:var(--gold)}
+.approach-step-text{font-size:14px;color:var(--mid);line-height:1.75;position:relative;z-index:1}
+
+/* ─── ANIMATIONS ─────────────────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr;padding:120px 40px 60px}
+  .hero-right{display:none}
+  .impact-grid{grid-template-columns:repeat(3,1fr)}
+  .looking-grid{grid-template-columns:1fr 1fr}
+  .approach-steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  #nav{padding:16px 24px}
+  #nav.scrolled{padding:12px 24px}
+  .nav-links{gap:16px}
+  .nav-links a{font-size:10px;letter-spacing:1px}
+  #hero{padding:100px 24px 60px}
+  .section{padding:64px 24px}
+  .impact-inner{padding:48px 24px}
+  .impact-grid{grid-template-columns:1fr 1fr}
+  .about-grid,.edu-grid,.contact-inner{grid-template-columns:1fr;gap:40px}
+  .skills-grid,.projects-grid{grid-template-columns:1fr}
+  .looking-grid,.approach-steps{grid-template-columns:1fr}
+  footer{padding:20px 24px;flex-direction:column;gap:10px;text-align:center}
+  .contact-inner{padding:64px 24px}
+  .exp-trigger{grid-template-columns:auto 1fr auto;gap:12px}
+  .exp-body-inner{padding-left:54px}
+}
+@media(max-width:480px){
+  h2{font-size:28px}
+  .impact-grid{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+
+/* ─── SCROLL PROGRESS ────────────────────────────────── */
+#progress{
+  position:fixed;top:0;left:0;z-index:9998;
+  height:2px;width:0%;
+  background:linear-gradient(90deg,var(--gold),var(--gold-b));
+  transition:width .1s linear;
+}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-    <div class="nav-logo">HK — Portfolio</div>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#approach">My Approach</a></li>
-        <li><a href="#skills-applied">In Practice</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<!-- GRAIN + ORBS -->
+<div id="grain"></div>
+<div id="progress"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ─── NAV ─────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-logo" onclick="scrollTo({top:0,behavior:'smooth'})">HK</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-inner">
-        <div class="hero-eyebrow">MIS & Finance @ University of Houston</div>
-        <h1>
-            <span>Hanzalah</span><br>
-            <span class="surname">Khiyani</span>
-        </h1>
-
-        <!-- UPDATE 1: Sharp, concise positioning -->
-        <p class="hero-sub">Analytics-focused MIS & Finance student translating complex operational and business data into strategic decisions.</p>
-
-        <p style="font-size:14px; color:var(--text-muted); font-weight:400; letter-spacing:0.3px; margin-bottom:40px; margin-top:-12px;">Focused on analytics, consulting, and strategy opportunities where data drives measurable impact.</p>
-
-        <div class="hero-cta">
-            <a href="#experience" class="btn-primary">View Experience</a>
-            <a href="#contact" class="btn-ghost">Get in Touch</a>
-        </div>
-
-        <!-- UPDATE 2: Recruiter scan strip — below CTA, above proof strip -->
-        <div class="recruiter-strip">
-            <span class="recruiter-tag">MIS & Finance — Bauer College of Business</span>
-            <span class="recruiter-tag">Data Analytics · Consulting · Strategy</span>
-            <span class="recruiter-tag">GPA 3.55</span>
-            <span class="recruiter-tag recruiter-tag--accent">Open to Summer 2026 Internships</span>
-        </div>
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      MIS &amp; Finance — Bauer College of Business
     </div>
+    <div class="hero-name">
+      <span class="hero-name-first">Hanzalah</span>
+      <span class="hero-name-last">Khiyani</span>
+    </div>
+    <p class="hero-tagline">Analytics-focused MIS &amp; Finance student translating complex business data into strategic decisions — across ventures, operations, and consulting.</p>
+    <p class="hero-focus">Analytics · Consulting · Strategy · Operations</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-gold">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        View Experience
+      </a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag">Bauer College · UH</span>
+      <span class="hero-tag">GPA 3.55</span>
+      <span class="hero-tag">SQL Certified</span>
+      <span class="hero-tag open">Open — Summer 2026</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="viz-wrapper">
+      <div class="viz-grid"></div>
+      <div class="viz-glow"></div>
+
+      <!-- Floating chips -->
+      <div class="viz-chip viz-chip-1">
+        <div class="viz-chip-val">$15K+</div>
+        <div class="viz-chip-lbl">Monthly Revenue</div>
+      </div>
+      <div class="viz-chip viz-chip-2">
+        <div class="viz-chip-val">200+</div>
+        <div class="viz-chip-lbl">Families Served</div>
+      </div>
+
+      <!-- Main dashboard card -->
+      <div class="viz-card">
+        <div class="viz-card-header">
+          <span class="viz-card-title">Analytics Overview</span>
+          <span class="viz-live"><span class="viz-live-dot"></span>Active</span>
+        </div>
+
+        <div class="viz-chart">
+          <div class="viz-bar-group">
+            <div class="viz-bar" data-height="82" data-val="82" style="height:0"></div>
+            <div class="viz-bar-label">NASCAR</div>
+          </div>
+          <div class="viz-bar-group">
+            <div class="viz-bar blue" data-height="68" data-val="5+" style="height:0"></div>
+            <div class="viz-bar-label">HP VC</div>
+          </div>
+          <div class="viz-bar-group">
+            <div class="viz-bar" data-height="91" data-val="91" style="height:0"></div>
+            <div class="viz-bar-label">Ops</div>
+          </div>
+          <div class="viz-bar-group">
+            <div class="viz-bar blue" data-height="74" data-val="3.56" style="height:0"></div>
+            <div class="viz-bar-label">GPA</div>
+          </div>
+        </div>
+
+        <div class="viz-chart-rule"></div>
+
+        <div class="viz-metrics">
+          <div class="viz-metric">
+            <div class="viz-metric-val">9+</div>
+            <div class="viz-metric-lbl">Roles</div>
+          </div>
+          <div class="viz-metric">
+            <div class="viz-metric-val">4+</div>
+            <div class="viz-metric-lbl">Projects</div>
+          </div>
+          <div class="viz-metric">
+            <div class="viz-metric-val">3</div>
+            <div class="viz-metric-lbl">Industries</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="divider"></div>
+<div class="gold-rule"></div>
 
-<!-- ABOUT -->
-<section class="section fade-in" id="about">
-    <div class="section-label">About</div>
-    <h2 class="no-subtitle">Data, strategy,<br>and structured thinking.</h2>
-    <div class="about-grid">
-        <div class="about-text">
-            <p>I turn complex business problems into actionable insights using data, structured analysis, and strategic thinking. Through externships with NY Racing and HP Tech Ventures, I’ve built multi-source datasets, developed scoring frameworks, and evaluated startups to support decision-making. I’m seeking summer 2026 roles in analytics, consulting, or strategy where insights drive outcomes.</p>
-        </div>
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="stat-number">3.56</div>
-                <div class="stat-label">GPA — Bauer College</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">9+</div>
-                <div class="stat-label">Roles &amp; Externships</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">$15K+</div>
-                <div class="stat-label">Monthly Revenue Generated</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">200+</div>
-                <div class="stat-label">Families Served Weekly</div>
-            </div>
-        </div>
+<!-- ─── SELECTED IMPACT ───────────────────────────────── -->
+<section id="impact">
+  <div class="impact-inner">
+    <div class="impact-header reveal">
+      <div class="sec-label"><span class="sec-label-line"></span>Selected Impact</div>
+      <h2>Key <em>wins</em> at a glance.</h2>
     </div>
+    <div class="impact-grid">
+      <div class="impact-item reveal reveal-delay-1">
+        <div class="impact-val" data-target="15" data-prefix="$" data-suffix="K+">$0</div>
+        <div class="impact-desc">Monthly Revenue Generated</div>
+        <div class="impact-context">Nordstrom — Luxury Accessories</div>
+      </div>
+      <div class="impact-item reveal reveal-delay-2">
+        <div class="impact-val" data-target="200" data-suffix="+">0</div>
+        <div class="impact-desc">Families Served Weekly</div>
+        <div class="impact-context">Al-Noor Society of Greater Houston</div>
+      </div>
+      <div class="impact-item reveal reveal-delay-3">
+        <div class="impact-val" data-target="5" data-suffix="+">0</div>
+        <div class="impact-desc">Startups Evaluated</div>
+        <div class="impact-context">HP Tech Ventures Externship</div>
+      </div>
+      <div class="impact-item reveal reveal-delay-4">
+        <div class="impact-val" data-target="25" data-prefix="~" data-suffix="%">~0%</div>
+        <div class="impact-desc">Participation Growth</div>
+        <div class="impact-context">Improved outreach &amp; program org</div>
+      </div>
+      <div class="impact-item reveal" style="transition-delay:.5s">
+        <div class="impact-val" data-target="9" data-suffix="+">0</div>
+        <div class="impact-desc">Roles &amp; Externships</div>
+        <div class="impact-context">Analytics · Consulting · Operations</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="divider"></div>
+<div class="gold-rule"></div>
 
-<!-- MY APPROACH -->
-<section class="section fade-in" id="approach">
-    <div class="section-label">My Approach</div>
-    <h2 class="no-subtitle">How I think through problems.</h2>
-    <div class="about-grid">
-        <div class="about-text">
-            <p>Every engagement starts with the same discipline: understand the actual problem before solving the apparent one. My approach as an analytics-first consultant follows a consistent four-step model:</p>
-            <p><strong>1. Structure</strong> — Decompose ambiguity into a clear problem statement and a decision framework that actually holds.</p>
-            <p><strong>2. Data</strong> — Identify the right inputs, build from reliable sources, and pressure-test every assumption before moving forward.</p>
-            <p><strong>3. Insight</strong> — Surface patterns that are business-relevant, not just statistically interesting — and know the difference.</p>
-            <p><strong>4. Recommend</strong> — Deliver a clear point of view with a defensible path forward. Analysis without a recommendation is unfinished work.</p>
-        </div>
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Step Problem-Solving Model</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2+</div>
-                <div class="stat-label">Live Externships</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">4+</div>
-                <div class="stat-label">Analytics Projects</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Industries Analyzed</div>
-            </div>
-        </div>
+<!-- ─── ABOUT ─────────────────────────────────────────── -->
+<section class="section" id="about">
+  <div class="sec-label"><span class="sec-label-line"></span>About</div>
+  <h2>Data, strategy,<br><em>and structured thinking.</em></h2>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>I turn complex business problems into actionable insights using data, structured analysis, and strategic thinking. Through externships with NASCAR NY Racing and HP Tech Ventures, I've built multi-source datasets, developed scoring frameworks, and evaluated startups to support real investment decisions.</p>
+      <p>Currently pursuing my BBA in Management Information Systems at Bauer College of Business (UH), with a double concentration in Finance — I'm seeking Summer 2026 opportunities in analytics, consulting, or strategy where insights drive measurable outcomes.</p>
     </div>
+    <div class="stat-grid">
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-num">3.56</div>
+        <div class="stat-lbl">GPA — Bauer College</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-num">9+</div>
+        <div class="stat-lbl">Roles &amp; Externships</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-num">$15K+</div>
+        <div class="stat-lbl">Monthly Revenue Generated</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-4">
+        <div class="stat-num">200+</div>
+        <div class="stat-lbl">Families Served Weekly</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="divider"></div>
+<div class="gold-rule"></div>
 
-<!-- EXPERIENCE -->
-<section class="section fade-in" id="experience">
-    <div class="section-label">Experience</div>
-    <h2 class="no-subtitle">Where I've worked.</h2>
-    <div class="exp-list">
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">May 2026 — Present</div>
-                <div class="exp-company">Extern</div>
-            </div>
-            <div>
-                <div class="exp-role">Institute of Mental Health — Healthcare Operations & Consulting Externship</div>
-                <!-- UPDATE 3: Elevated desc to signal high-value, real-world experience -->
-                <div class="exp-desc">High-impact externship analyzing care coordination workflows and operational efficiency within a large-scale psychiatric hospital system.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: Impact-first language — outcome leads -->
-                    <li>Analyzed case management workflows across inpatient, emergency, and discharge stages to identify gaps in care continuity and patient experience</li>
-                    <li>Applied process mapping and operational analysis frameworks to surface inefficiencies, hidden risks, and coordination gaps across multidisciplinary teams</li>
-                    <li>Developed a data-driven dashboard to quantify coordination impact and deliver 5+ recommendations for workflow and care optimization</li>
-                </ul>
-                <span class="tag">Process Mapping</span>
-                <span class="tag">Operational Analysis</span>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Healthcare Management</span>
-            </div>
+<!-- ─── WHAT I'M LOOKING FOR ──────────────────────────── -->
+<section id="looking" class="section-alt">
+  <div class="section" style="padding-top:96px;padding-bottom:96px">
+    <div class="sec-label"><span class="sec-label-line"></span>What I'm Looking For</div>
+    <h2>Open to the <em>right opportunity.</em></h2>
+    <p class="sec-sub">Targeting roles where analytical rigor and strategic thinking intersect — Summer 2026 internships and beyond.</p>
+    <div class="looking-grid">
+      <div class="looking-card reveal reveal-delay-1">
+        <div class="looking-icon">📊</div>
+        <div class="looking-title">Data Analytics</div>
+        <div class="looking-desc">Turning raw business data into decision-ready insights. SQL, modeling, dashboards, and beyond.</div>
+        <div class="looking-roles">
+          <span class="looking-role">Business Analyst</span>
+          <span class="looking-role">Data Analyst</span>
+          <span class="looking-role">Ops Analyst</span>
         </div>
-        
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Mar 2026 — May 2026</div>
-                <div class="exp-company">Extern</div>
-            </div>
-            <div>
-                <div class="exp-role">Nascar NY Racing — Sponsorship ROI Externship</div>
-                <!-- UPDATE 3: Elevated desc to signal high-value, real-world experience -->
-                <div class="exp-desc">High-impact externship analyzing real-world sponsorship performance across multi-source NASCAR datasets.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: Impact-first language — outcome leads -->
-                    <li>Built a dataset combining race results, social media, YouTube, and media coverage to analyze sponsorship visibility across the 2024 NASCAR Cup Series</li>
-                    <li>Created a weighted scoring model to compare sponsor exposure across races and identify high-performing placements</li>
-                    <li>Delivered 5+ recommendations on sponsorship positioning based on data trends across events</li>
-                </ul>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Data Modeling</span>
-                <span class="tag">Microsoft Excel</span>
-                <span class="tag">Strategic Analysis</span>
-            </div>
+      </div>
+      <div class="looking-card reveal reveal-delay-2">
+        <div class="looking-icon">♟</div>
+        <div class="looking-title">Strategy Consulting</div>
+        <div class="looking-desc">Structuring ambiguous problems, synthesizing research, and delivering defensible recommendations.</div>
+        <div class="looking-roles">
+          <span class="looking-role">Strategy Analyst</span>
+          <span class="looking-role">Consulting Associate</span>
         </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Mar 2026 — April 2026</div>
-                <div class="exp-company">Deloitte Digital</div>
-            </div>
-            <div>
-                <div class="exp-role">Salesforce Consulting Trainee</div>
-                <div class="exp-desc">Consulting development program focused on CRM systems, Salesforce implementation, and advisory workflow.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 4: "modeled" → "simulated" for credibility -->
-                    <li>Completed hands-on training in Salesforce CRM, including Trailhead modules and implementation workflows</li>
-                    <li>Analyzed business processes to identify inefficiencies and map CRM-based improvements</li>
-                    <li>Evaluated business workflows in team-based case exercises to identify opportunities for process improvement using CRM solutions</li>
-                </ul>
-                <span class="tag">Salesforce CRM Analytics</span>
-                <span class="tag">Business Analysis</span>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Customer Relationship Management (CRM)</span>
-                <span class="tag">Consulting</span>
-            </div>
+      </div>
+      <div class="looking-card reveal reveal-delay-3">
+        <div class="looking-icon">⚙️</div>
+        <div class="looking-title">Operations</div>
+        <div class="looking-desc">Process design, cross-functional coordination, and operational efficiency across complex systems.</div>
+        <div class="looking-roles">
+          <span class="looking-role">Ops Analyst</span>
+          <span class="looking-role">Program Manager</span>
+          <span class="looking-role">BizOps</span>
         </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jan 2026 — Mar 2026</div>
-                <div class="exp-company">Extern</div>
-            </div>
-            <div>
-                <div class="exp-role">HP Tech Ventures – Deal Sourcing & Startup Analysis Externship</div>
-                <div class="exp-desc">Structured evaluation of early-stage startups against a corporate venture capital investment thesis.</div>
-                <ul class="exp-bullets">
-                    <li>Evaluated 5+ early-stage startups using structured frameworks (market size, product, strategic fit)</li>
-                    <li>Conducted market research on hardware and GPU-related technologies, including cooling systems</li>
-                    <li>Delivered an investment recommendation supported by market, product, and competitive analysis</li>
-                </ul>
-                <span class="tag">Strategic Analysis</span>
-                <span class="tag">Market Research</span>
-                <span class="tag">Financial Analysis</span>
-                <span class="tag">Due Diligence</span>
-                <span class="tag">Investment Analysis</span>
-            </div>
+      </div>
+      <div class="looking-card reveal reveal-delay-4">
+        <div class="looking-icon">📈</div>
+        <div class="looking-title">Corporate Finance / VC</div>
+        <div class="looking-desc">Market sizing, startup evaluation, financial modeling, and investment thesis development.</div>
+        <div class="looking-roles">
+          <span class="looking-role">Finance Analyst</span>
+          <span class="looking-role">VC Analyst</span>
+          <span class="looking-role">Associate</span>
         </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Oct 2025 — Jan 2026</div>
-                <div class="exp-company">Veteran Memorial Hospice</div>
-            </div>
-            <div>
-                <div class="exp-role">Operations Manager (Healthcare Services)</div>
-                <div class="exp-desc">Operational leadership across administrative, scheduling, and compliance functions in a regulated healthcare environment.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: Impact-first on scheduling improvement -->
-                    <li>Managed scheduling and operations across clinical teams to maintain service coverage and compliance</li>
-                    <li>Redesigned staffing and coordination processes, improving scheduling efficiency and coverage reliability</li>
-                    <li>Maintained audit documentation and ensured compliance with healthcare regulations</li>
-                </ul>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Healthcare Management</span>
-                <span class="tag">Operations Management</span>
-                <span class="tag">Hospice Compliance</span>
-                <span class="tag">Scheduling</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jul 2025 — Oct 2025</div>
-                <div class="exp-company">Premium Auto Group</div>
-            </div>
-            <div>
-                <div class="exp-role">Business Analyst Intern</div>
-                <div class="exp-desc">Data-driven analysis of dealership operations to improve performance visibility and decision speed.</div>
-                <ul class="exp-bullets">
-                    <!-- UPDATE 9: "building dashboards" → "enabled faster decision-making through dashboards" -->
-                    <li>Analyzed sales, service, and CRM/DMS data to identify performance trends and operational gaps</li>
-                    <li>Built dashboards and reports that reduced manual reporting time and improved visibility for management</li>
-                    <li>Recommended process improvements across sales and service workflows to increase deal speed</li>
-                </ul>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Business Analysis</span>
-                <span class="tag">Data Visualization</span>
-                <span class="tag">Customer Relationship Management (CRM)</span>
-                <span class="tag">Business Process Improvement</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Apr 2025 — Jul 2025</div>
-                <div class="exp-company">Nordstrom</div>
-            </div>
-            <div>
-                <div class="exp-role">Retail Sales Associate / Client Advisor – Luxury Accessories</div>
-                <div class="exp-desc">Consultative sales in a high-end retail environment, applying structured needs assessment to drive revenue and retention.</div>
-                <ul class="exp-bullets">
-                    <li>Generated $15K+ monthly revenue through personalized product recommendations</li>
-                    <li>Used customer purchase data to improve repeat sales and client retention</li>
-                    <li>Coordinated with team members to maintain inventory accuracy and product availability</li>
-                </ul>
-                <span class="tag">Customer Relationship Management (CRM)</span>
-                <span class="tag">Sales</span>
-                <span class="tag">Customer Experience</span>
-                <span class="tag">Upselling</span>
-                <span class="tag">Communication</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Oct 2024 — Jan 2025</div>
-                <div class="exp-company">Macy's</div>
-            </div>
-            <div>
-                <div class="exp-role">Sales Associate — Fragrance Division</div>
-                <div class="exp-desc">Consultative product advisory in a high-volume retail environment with consistent target attainment.</div>
-                <ul class="exp-bullets">
-                    <li>Assisted customers in a high-volume retail environment, driving product sales and satisfaction</li>
-                    <li>Matched products to customer preferences to improve conversion rates</li>
-                    <li>Supported inventory tracking and restocking during peak demand</li>
-                </ul>
-                <span class="tag">Sales</span>
-                <span class="tag">Communication</span>
-                <span class="tag">Customer Service</span>
-                <span class="tag">Retail Operations</span>
-                <span class="tag">Product Knowledge</span>
-            </div>
-        </div>
-
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jun 2022 — Oct 2024</div>
-                <div class="exp-company">Al-Noor Society of Greater Houston</div>
-            </div>
-            <div>
-                <div class="exp-role">Program Manager &amp; Administrative Coordinator</div>
-                <div class="exp-desc">End-to-end management of community programming serving 200+ families weekly across Houston.</div>
-                <ul class="exp-bullets">
-                    <li>Managed weekly programming serving 200+ families, including scheduling and logistics</li>
-                    <li>Increased participation by ~25% through improved outreach and program organization</li>
-                    <li>Streamlined administrative processes to improve consistency in program delivery</li>
-                </ul>
-                <span class="tag">Operations Management</span>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Program Management</span>
-                <span class="tag">Stakeholder Management</span>
-                <span class="tag">Project Coordination</span>
-            </div>
-        </div>
-        
-        <div class="exp-item fade-in">
-            <div class="exp-meta">
-                <div class="exp-date">Jun 2021 — Jun 2022</div>
-                <div class="exp-company">Deco Art Event Planners</div>
-            </div>
-            <div>
-                <div class="exp-role">Operations &amp; Account Manager</div>
-                <div class="exp-desc">Account management and operational oversight across a high-volume event planning business.</div>
-                <ul class="exp-bullets">
-                    <li>Managed 15–20 client accounts monthly, maintaining a 98% satisfaction rate</li>
-                    <li>Reduced billing errors by implementing weekly invoice review processes</li>
-                    <li>Coordinated event logistics across vendors and internal teams</li>
-                </ul>
-                <span class="tag">Operations Management</span>
-                <span class="tag">Project Coordination</span>
-                <span class="tag">Business Process Improvement</span>
-                <span class="tag">Account Management</span>
-                <span class="tag">Client Relations</span>
-            </div>
-        </div>
-
+      </div>
     </div>
+  </div>
 </section>
 
-<div class="divider"></div>
+<div class="gold-rule"></div>
 
-<!-- PROJECTS -->
-<section class="section fade-in" id="projects">
-    <div class="section-label">Analytics &amp; Consulting Projects</div>
-    <h2>Selected work.</h2>
-    <p class="section-subtitle">Applied analytics and consulting projects solving real business problems with measurable outcomes.</p>
-    <div class="projects-grid">
-
-        <div class="project-card fade-in fade-in-delay-1">
-            <div class="project-num">01</div>
-            <div class="project-name">MG Horse Habitat — Relational Database &amp; SQL Analytics</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> No structured data layer existed for a stable managing 160+ horses, 55 customers, and 15 races — making performance analysis dependent on manual, error-prone effort.<br><br>
-                <span class="pdl">Action:</span> Designed a fully normalized relational database and extracted operational insights using complex SQL (joins, aggregations, subqueries) in Oracle and DBeaver.<br><br>
-                <!-- UPDATE 6: "Reporting time reduced via relational database and SQL automation" removed; reworded naturally -->
-                <span class="pdl">Result:</span> Eliminated the need for manual, error-prone reporting and established a repeatable analytics infrastructure enabling ongoing performance tracking.
-            </div>
-            <span class="tag">SQL</span>
-            <span class="tag">Data Modeling</span>
-            <span class="tag">Data Analysis</span>
-            <span class="tag">Relational Databases</span>
-            <span class="tag">Database Queries</span>
-        </div>
-
-        <div class="project-card fade-in fade-in-delay-2">
-            <div class="project-num">02</div>
-            <div class="project-name">Financial Data Analysis — Home Depot vs. Lowe's</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> Conventional wisdom on Home Depot vs. Lowe's competitive positioning lacked rigorous financial backing — creating ambiguity for strategic decision-making.<br><br>
-                <span class="pdl">Action:</span> Modeled five years of financial statements in Excel, evaluating profitability, liquidity, and efficiency ratios across both companies in a structured comparative framework.<br><br>
-                <!-- UPDATE 5: Stronger result sentence connecting analysis → business decision -->
-                <span class="pdl">Result:</span> Produced a defensible competitive assessment identifying Home Depot's structural advantages — informing a clear investment and strategic positioning recommendation.
-            </div>
-            <span class="tag">Excel</span>
-            <span class="tag">Financial Analysis</span>
-        </div>
-
-        <div class="project-card fade-in fade-in-delay-3">
-            <div class="project-num">03</div>
-            <div class="project-name">Technical Hiring Optimization — Activera Consulting</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> Activera Consulting faced recurring mis-hires with no repeatable screening process — generating downstream project risk and compounding resource waste across engagements.<br><br>
-                <span class="pdl">Action:</span> Diagnosed root gaps in the existing hiring process, then designed a scalable role-specific evaluation framework translating vague fit criteria into consistent, structured assessments.<br><br>
-                <span class="pdl">Result:</span> Delivered a deployment-ready framework projected to reduce mis-hire rate by ~20% in the first hiring cycle.
-            </div>
-            <span class="tag">Process Design</span>
-            <span class="tag">Consulting</span>
-        </div>
-
-        <div class="project-card fade-in fade-in-delay-4">
-            <div class="project-num">04</div>
-            <div class="project-name">Consultative Selling — B2B Advisory Exercise</div>
-            <div class="project-desc">
-                <span class="pdl">Problem:</span> A B2B client needed a vendor partner who understood their business context — not one selling on product specs alone.<br><br>
-                <span class="pdl">Action:</span> Led the full sales cycle: structured discovery calls to identify client priorities, a tailored value proposition backed by competitive analysis, and a polished, client-ready business case presentation.<br><br>
-                <span class="pdl">Result:</span> Closed the engagement by delivering a tailored, client-ready solution aligned to business needs.
-            </div>
-            <span class="tag">Business Development</span>
-            <span class="tag">Strategy</span>
-        </div>
-
+<!-- ─── APPROACH ──────────────────────────────────────── -->
+<section class="section" id="approach">
+  <div class="sec-label"><span class="sec-label-line"></span>My Approach</div>
+  <h2>How I think through <em>problems.</em></h2>
+  <p class="sec-sub">Every engagement starts with the same discipline: understand the actual problem before solving the apparent one.</p>
+  <div class="approach-steps">
+    <div class="approach-step reveal reveal-delay-1">
+      <div class="approach-step-num">01</div>
+      <div class="approach-step-title"><span>Structure</span></div>
+      <div class="approach-step-text">Decompose ambiguity into a clear problem statement and a decision framework that actually holds under pressure.</div>
     </div>
+    <div class="approach-step reveal reveal-delay-2">
+      <div class="approach-step-num">02</div>
+      <div class="approach-step-title"><span>Data</span></div>
+      <div class="approach-step-text">Identify the right inputs, build from reliable sources, and pressure-test every assumption before moving forward.</div>
+    </div>
+    <div class="approach-step reveal reveal-delay-3">
+      <div class="approach-step-num">03</div>
+      <div class="approach-step-title"><span>Insight</span></div>
+      <div class="approach-step-text">Surface patterns that are business-relevant, not just statistically interesting — and know the difference between the two.</div>
+    </div>
+    <div class="approach-step reveal reveal-delay-4">
+      <div class="approach-step-num">04</div>
+      <div class="approach-step-title"><span>Recommend</span></div>
+      <div class="approach-step-text">Deliver a clear point of view with a defensible path forward. Analysis without a recommendation is unfinished work.</div>
+    </div>
+  </div>
 </section>
 
-<div class="divider"></div>
+<div class="gold-rule"></div>
 
-<!-- SKILLS -->
-<section class="section fade-in" id="skills">
-    <div class="section-label">Skills</div>
-    <h2 class="no-subtitle">What I work with.</h2>
-    <div class="core-tools-bar">
-        <span class="core-tools-label">Core Tools</span>
-        <span class="core-tools-sep"></span>
-        <span class="core-tools-list">SQL (Oracle, DBeaver) &nbsp;·&nbsp; Excel (Financial Modeling) &nbsp;·&nbsp; Salesforce CRM</span>
-    </div>
-    <div class="skills-grid">
-        <div class="skill-group">
-            <div class="skill-group-title">Data &amp; Analytics</div>
-            <div class="skill-item">SQL</div>
-            <div class="skill-item">Excel &amp; Modeling</div>
-            <div class="skill-item">Data Architecture</div>
-            <div class="skill-item">Business Intelligence</div>
-            <div class="skill-item">Quantitative Analysis</div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-group-title">Technical Tools</div>
-            <div class="skill-item">Oracle &amp; DBeaver</div>
-            <div class="skill-item">Salesforce CRM</div>
-            <div class="skill-item">Dashboard Design</div>
-            <div class="skill-item">CRM Systems</div>
-            <div class="skill-item">Data Visualization</div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-group-title">Business</div>
-            <div class="skill-item">Business Analysis</div>
-            <div class="skill-item">Process Improvement</div>
-            <div class="skill-item">Strategic Analysis</div>
-            <div class="skill-item">Returns &amp; Valuation</div>
-            <div class="skill-item">Market Research</div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-group-title">Core Strengths</div>
-            <div class="skill-item">Structured Problem-Solving</div>
-            <div class="skill-item">Executive Communication</div>
-            <div class="skill-item">Stakeholder Management</div>
-            <div class="skill-item">Cross-Functional Thinking</div>
-            <div class="skill-item">Adaptability Under Ambiguity</div>
-        </div>
-    </div>
-</section>
+<!-- ─── EXPERIENCE ────────────────────────────────────── -->
+<section class="section section-alt" id="experience" style="max-width:none;padding-left:0;padding-right:0">
+  <div style="max-width:1200px;margin:0 auto;padding:96px 64px">
+    <div class="sec-label"><span class="sec-label-line"></span>Experience</div>
+    <h2>Where I've <em>worked.</em></h2>
+    <p class="sec-sub">Click any role to expand the full detail.</p>
+    <div class="exp-list reveal">
 
-<div class="divider"></div>
-
-<!-- IN PRACTICE -->
-<section class="section fade-in" id="skills-applied">
-    <div class="section-label">In Practice</div>
-    <h2 class="no-subtitle">How I apply my skills.</h2>
-    <div class="projects-grid">
-        <div class="project-card fade-in fade-in-delay-1">
-            <div class="project-name">SQL &amp; Data Architecture</div>
-            <div class="project-desc">Designed and queried a relational database modeling 160+ entities — using joins, aggregations, and subqueries to extract operational insights that wouldn't surface in a spreadsheet, enabling faster, more reliable operational decision-making.</div>
-        </div>
-        <div class="project-card fade-in fade-in-delay-2">
-            <div class="project-name">Multi-Source Data Analytics</div>
-            <div class="project-desc">Built integrated datasets and custom scoring frameworks to quantify sponsorship visibility value across four data sources — turning fragmented inputs into a single, decision-ready view that eliminated ~40% of manual consolidation effort.</div>
-        </div>
-        <div class="project-card fade-in fade-in-delay-3">
-            <div class="project-name">Excel &amp; Financial Modeling</div>
-            <div class="project-desc">Modeled five years of financial statements to evaluate profitability, liquidity, and competitive positioning — producing analysis that went beyond the numbers to support a clear, evidence-backed strategic recommendation.</div>
-        </div>
-        <div class="project-card fade-in fade-in-delay-4">
-            <div class="project-name">CRM &amp; Process Improvement</div>
-            <!-- UPDATE 9: "diagnosed workflow inefficiencies" → impact-forward framing -->
-            <div class="project-desc">Improved decision speed and operational reliability by diagnosing workflow inefficiencies in CRM and DMS environments — designing process changes estimated to deliver ~20–25% efficiency gains with direct impact on management visibility.</div>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-<section class="section fade-in" id="education">
-    <div class="section-label">Education &amp; Certifications</div>
-    <h2 class="no-subtitle">Academic background.</h2>
-    <div class="edu-cert-grid">
-        <div class="edu-card">
-            <div class="edu-degree">BBA, Management Information Systems</div>
-            <div class="edu-school">University of Houston — C.T. Bauer College of Business</div>
-            <div class="edu-detail">Aug 2023 – May 2027 &nbsp;·&nbsp; Houston, TX</div>
-            <span class="gpa-badge">GPA 3.55 / 4.00</span>
-            <div class="coursework">
-                <div class="coursework-label">Relevant Coursework</div>
-                <div>
-                    <span class="tag">Data Management (SQL)</span>
-                    <span class="tag">Business Analytics</span>
-                    <span class="tag">Systems Analysis</span>
-                    <span class="tag">Data Visualization</span>
-                </div>
+      <!-- IMH -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-teal">IMH</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Healthcare Operations &amp; Consulting Externship</div>
+            <div class="exp-meta-line">
+              <span>Institute of Mental Health</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Extern</span>
+              <span class="exp-meta-sep">·</span>
+              <span>May 2026 — Present</span>
             </div>
-            <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border);">
-                <div class="edu-degree" style="font-size:16px;">High School Diploma</div>
-                <div class="edu-school">Michael E. DeBakey High School for Health Professions</div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">High-impact externship analyzing care coordination workflows and operational efficiency within a large-scale psychiatric hospital system.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Analyzed case management workflows across inpatient, emergency, and discharge stages to identify gaps in care continuity</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Applied process mapping and operational analysis frameworks to surface inefficiencies across multidisciplinary teams</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Developed a data-driven dashboard to quantify coordination impact and deliver 5+ recommendations for optimization</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Process Mapping</span>
+              <span class="exp-tag">Operational Analysis</span>
+              <span class="exp-tag">Data Visualization</span>
+              <span class="exp-tag">Healthcare Mgmt</span>
             </div>
+          </div>
         </div>
-        <div class="cert-card">
-            <div class="section-label" style="margin-bottom: 24px;">Certifications</div>
-            <div class="cert-name">SQL Certificate of Competency</div>
-            <div class="cert-issuer">LearnSQL.com</div>
-            <div class="cert-date">Issued December 2025</div>
-            <a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" target="_blank"
-               style="display:inline-flex; align-items:center; gap:8px; margin-top:16px; padding:9px 16px; background:var(--accent-dim); border:1px solid rgba(200,169,110,0.3); color:var(--accent); font-size:12px; letter-spacing:1px; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:background 0.25s cubic-bezier(0.4,0,0.2,1), border-color 0.25s cubic-bezier(0.4,0,0.2,1);"
-               onmouseover="this.style.background='rgba(200,169,110,0.22)'; this.style.borderColor='rgba(200,169,110,0.5)'"
-               onmouseout="this.style.background='var(--accent-dim)'; this.style.borderColor='rgba(200,169,110,0.3)'">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Show Credential
-            </a>
+      </div>
+
+      <!-- NASCAR -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-orange">NYR</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Sponsorship ROI Externship</div>
+            <div class="exp-meta-line">
+              <span>NASCAR NY Racing</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Extern</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Mar — May 2026</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
         </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Analyzed real-world sponsorship performance across multi-source NASCAR datasets to quantify brand visibility value.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Built a dataset combining race results, social media, YouTube, and media coverage to analyze visibility across the 2024 Cup Series</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Created a weighted scoring model to compare sponsor exposure across races and identify high-performing placements</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Delivered 5+ recommendations on sponsorship positioning based on data trends across events</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Data Analysis</span>
+              <span class="exp-tag">Data Modeling</span>
+              <span class="exp-tag">Excel</span>
+              <span class="exp-tag">Strategic Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deloitte -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-blue">DD</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Salesforce Consulting Trainee</div>
+            <div class="exp-meta-line">
+              <span>Deloitte Digital</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Consulting Program</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Mar — Apr 2026</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Consulting development program focused on CRM systems, Salesforce implementation, and advisory workflow.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Completed hands-on training in Salesforce CRM including Trailhead modules and implementation workflows</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Analyzed business processes to identify inefficiencies and map CRM-based improvements</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Evaluated business workflows in team-based case exercises to identify process improvement opportunities</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Salesforce CRM</span>
+              <span class="exp-tag">Business Analysis</span>
+              <span class="exp-tag">Process Improvement</span>
+              <span class="exp-tag">Consulting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HP Tech Ventures -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-green">HP</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Deal Sourcing &amp; Startup Analysis Externship</div>
+            <div class="exp-meta-line">
+              <span>HP Tech Ventures</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Extern</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Jan — Mar 2026</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Structured evaluation of early-stage startups against a corporate venture capital investment thesis.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Evaluated 5+ early-stage startups using structured frameworks (market size, product, strategic fit)</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Conducted market research on hardware and GPU-related technologies including cooling systems</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Delivered an investment recommendation supported by market, product, and competitive analysis</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Strategic Analysis</span>
+              <span class="exp-tag">Market Research</span>
+              <span class="exp-tag">Financial Analysis</span>
+              <span class="exp-tag">Due Diligence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VMH -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-purple">VMH</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Operations Manager — Healthcare Services</div>
+            <div class="exp-meta-line">
+              <span>Veteran Memorial Hospice</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Full-Time</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Oct 2025 — Jan 2026</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Operational leadership across administrative, scheduling, and compliance functions in a regulated healthcare environment.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Managed scheduling and operations across clinical teams to maintain service coverage and compliance</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Redesigned staffing and coordination processes, improving scheduling efficiency and coverage reliability</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Maintained audit documentation and ensured compliance with healthcare regulations</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Process Improvement</span>
+              <span class="exp-tag">Healthcare Mgmt</span>
+              <span class="exp-tag">Operations</span>
+              <span class="exp-tag">Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Premium Auto -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-gold">PAG</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Business Analyst Intern</div>
+            <div class="exp-meta-line">
+              <span>Premium Auto Group</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Internship</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Jul — Oct 2025</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Data-driven analysis of dealership operations to improve performance visibility and decision speed.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Analyzed sales, service, and CRM/DMS data to identify performance trends and operational gaps</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Built dashboards that reduced manual reporting time and improved visibility for management</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Recommended process improvements across sales and service workflows to increase deal speed</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Data Analysis</span>
+              <span class="exp-tag">Data Visualization</span>
+              <span class="exp-tag">CRM</span>
+              <span class="exp-tag">Process Improvement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nordstrom -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-pink">NRD</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Client Advisor — Luxury Accessories</div>
+            <div class="exp-meta-line">
+              <span>Nordstrom</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Sales Associate</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Apr — Jul 2025</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Consultative sales in a high-end retail environment, applying structured needs assessment to drive revenue and retention.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Generated $15K+ monthly revenue through personalized product recommendations</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Used customer purchase data to improve repeat sales and client retention</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Coordinated with team members to maintain inventory accuracy and product availability</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">CRM</span>
+              <span class="exp-tag">Sales</span>
+              <span class="exp-tag">Client Relations</span>
+              <span class="exp-tag">Communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Macy's -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-red">MCY</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Sales Associate — Fragrance Division</div>
+            <div class="exp-meta-line">
+              <span>Macy's</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Retail</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Oct 2024 — Jan 2025</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Consultative product advisory in a high-volume retail environment with consistent target attainment.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Assisted customers in a high-volume retail environment, driving product sales and satisfaction</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Matched products to customer preferences to improve conversion rates</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Sales</span>
+              <span class="exp-tag">Customer Service</span>
+              <span class="exp-tag">Retail Ops</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Al-Noor -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-slate">ANS</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Program Manager &amp; Administrative Coordinator</div>
+            <div class="exp-meta-line">
+              <span>Al-Noor Society of Greater Houston</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Jun 2022 — Oct 2024</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">End-to-end management of community programming serving 200+ families weekly across Houston.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Managed weekly programming serving 200+ families, including scheduling and logistics</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Increased participation by ~25% through improved outreach and program organization</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Streamlined administrative processes to improve consistency in program delivery</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Operations Mgmt</span>
+              <span class="exp-tag">Program Management</span>
+              <span class="exp-tag">Stakeholder Mgmt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deco Art -->
+      <div class="exp-item">
+        <div class="exp-trigger" onclick="toggleExp(this)">
+          <div class="exp-badge badge-lime">DAE</div>
+          <div class="exp-meta-row">
+            <div class="exp-role-title">Operations &amp; Account Manager</div>
+            <div class="exp-meta-line">
+              <span>Deco Art Event Planners</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Jun 2021 — Jun 2022</span>
+            </div>
+          </div>
+          <div class="exp-expand-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <div class="exp-desc">Account management and operational oversight across a high-volume event planning business.</div>
+            <ul class="exp-bullets">
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Managed 15–20 client accounts monthly, maintaining a 98% satisfaction rate</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Reduced billing errors by implementing weekly invoice review processes</li>
+              <li class="exp-bullet"><span class="exp-bullet-arrow">→</span>Coordinated event logistics across vendors and internal teams</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="exp-tag">Account Management</span>
+              <span class="exp-tag">Client Relations</span>
+              <span class="exp-tag">Operations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
+<div class="gold-rule"></div>
+
+<!-- ─── PROJECTS ──────────────────────────────────────── -->
+<section class="section" id="projects">
+  <div class="sec-label"><span class="sec-label-line"></span>Analytics &amp; Consulting Projects</div>
+  <h2>Selected <em>work.</em></h2>
+  <p class="sec-sub">Applied analytics and consulting projects solving real business problems with measurable outcomes.</p>
+  <div class="projects-grid">
+
+    <!-- PROJECT 01: SQL -->
+    <div class="proj-card reveal reveal-delay-1">
+      <div class="proj-visual">
+        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="pg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#c4a55a;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#f0d898;stop-opacity:1"/>
+            </linearGradient>
+          </defs>
+          <!-- Background -->
+          <rect width="400" height="160" fill="#13131a"/>
+          <!-- Grid dots -->
+          <pattern id="dots1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="1" fill="#222228"/>
+          </pattern>
+          <rect width="400" height="160" fill="url(#dots1)"/>
+          <!-- Table: HORSES -->
+          <rect x="30" y="30" width="100" height="100" rx="5" fill="#18181f" stroke="#c4a55a" stroke-width="1.5"/>
+          <rect x="30" y="30" width="100" height="26" rx="5" fill="#c4a55a"/>
+          <rect x="30" y="50" width="100" height="10" rx="0" fill="#c4a55a"/>
+          <text x="80" y="47" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="700" fill="#07070a" letter-spacing="1">HORSES</text>
+          <text x="40" y="72" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">horse_id (PK)</text>
+          <text x="40" y="84" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">name</text>
+          <text x="40" y="96" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">breed</text>
+          <text x="40" y="108" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">race_id (FK)</text>
+          <!-- Connector line -->
+          <line x1="130" y1="80" x2="170" y2="80" stroke="#c4a55a" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="130" cy="80" r="3" fill="#c4a55a"/>
+          <circle cx="170" cy="80" r="3" fill="#c4a55a"/>
+          <!-- Table: RACES -->
+          <rect x="170" y="44" width="100" height="72" rx="5" fill="#18181f" stroke="#5b8fa8" stroke-width="1.5"/>
+          <rect x="170" y="44" width="100" height="26" rx="5" fill="#5b8fa8"/>
+          <rect x="170" y="64" width="100" height="10" rx="0" fill="#5b8fa8"/>
+          <text x="220" y="61" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="700" fill="#07070a" letter-spacing="1">RACES</text>
+          <text x="180" y="82" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">race_id (PK)</text>
+          <text x="180" y="94" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">date</text>
+          <text x="180" y="106" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">location</text>
+          <!-- Connector line 2 -->
+          <line x1="270" y1="80" x2="300" y2="80" stroke="#5b8fa8" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="270" cy="80" r="3" fill="#5b8fa8"/>
+          <circle cx="300" cy="80" r="3" fill="#5b8fa8"/>
+          <!-- Table: CUSTOMERS -->
+          <rect x="300" y="30" width="90" height="100" rx="5" fill="#18181f" stroke="#c4a55a" stroke-width="1"/>
+          <rect x="300" y="30" width="90" height="26" rx="5" fill="rgba(196,165,90,.2)"/>
+          <text x="345" y="47" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#c4a55a" letter-spacing=".5">CUSTOMERS</text>
+          <text x="308" y="68" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">cust_id (PK)</text>
+          <text x="308" y="80" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">name</text>
+          <text x="308" y="92" font-family="DM Sans,sans-serif" font-size="8" fill="#888480">email</text>
+          <!-- SQL label -->
+          <text x="30" y="148" font-family="Syne,sans-serif" font-size="9" font-weight="700" fill="rgba(196,165,90,.4)" letter-spacing="2">SQL · ORACLE · DBEAVER</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-num">01</div>
+        <div class="proj-name">MG Horse Habitat — Relational Database &amp; SQL Analytics</div>
+        <span class="proj-pill">Data Architecture</span>
+        <div class="proj-psa">
+          <div class="proj-row">
+            <span class="proj-row-label">Problem</span>
+            <span class="proj-row-text">No structured data layer for a stable managing 160+ horses — making performance analysis manual and error-prone.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Action</span>
+            <span class="proj-row-text">Designed a fully normalized relational database and extracted insights using complex SQL (joins, aggregations, subqueries) in Oracle and DBeaver.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Result</span>
+            <span class="proj-row-text">Eliminated manual, error-prone reporting and established repeatable analytics infrastructure enabling ongoing performance tracking.</span>
+          </div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">SQL</span>
+          <span class="proj-tag">Data Modeling</span>
+          <span class="proj-tag">Relational DBs</span>
+          <span class="proj-tag">Oracle</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 02: Financial Analysis -->
+    <div class="proj-card reveal reveal-delay-2">
+      <div class="proj-visual">
+        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" id="fin-chart">
+          <defs>
+            <linearGradient id="hdBar" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#dfc070"/>
+              <stop offset="100%" style="stop-color:#c4a55a"/>
+            </linearGradient>
+            <linearGradient id="lwBar" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#7bafc8"/>
+              <stop offset="100%" style="stop-color:#5b8fa8"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="160" fill="#13131a"/>
+          <pattern id="dots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="1" fill="#222228"/>
+          </pattern>
+          <rect width="400" height="160" fill="url(#dots2)"/>
+          <!-- Legend -->
+          <rect x="30" y="16" width="10" height="10" rx="2" fill="url(#hdBar)"/>
+          <text x="44" y="25" font-family="Syne,sans-serif" font-size="9" fill="#c4a55a" font-weight="600">Home Depot</text>
+          <rect x="130" y="16" width="10" height="10" rx="2" fill="url(#lwBar)"/>
+          <text x="144" y="25" font-family="Syne,sans-serif" font-size="9" fill="#5b8fa8" font-weight="600">Lowe's</text>
+          <!-- X-axis -->
+          <line x1="30" y1="138" x2="380" y2="138" stroke="#222228" stroke-width="1"/>
+          <!-- Year labels -->
+          <text x="60" y="152" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" fill="#48484e">2020</text>
+          <text x="130" y="152" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" fill="#48484e">2021</text>
+          <text x="200" y="152" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" fill="#48484e">2022</text>
+          <text x="270" y="152" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" fill="#48484e">2023</text>
+          <text x="340" y="152" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" fill="#48484e">2024</text>
+          <!-- HD Bars (gold) -->
+          <rect x="38" y="58" width="20" height="80" rx="2" fill="url(#hdBar)" class="chart-bar" data-y="58" data-h="80"/>
+          <rect x="108" y="42" width="20" height="96" rx="2" fill="url(#hdBar)" class="chart-bar" data-y="42" data-h="96"/>
+          <rect x="178" y="38" width="20" height="100" rx="2" fill="url(#hdBar)" class="chart-bar" data-y="38" data-h="100"/>
+          <rect x="248" y="44" width="20" height="94" rx="2" fill="url(#hdBar)" class="chart-bar" data-y="44" data-h="94"/>
+          <rect x="318" y="48" width="20" height="90" rx="2" fill="url(#hdBar)" class="chart-bar" data-y="48" data-h="90"/>
+          <!-- LW Bars (blue) -->
+          <rect x="62" y="78" width="20" height="60" rx="2" fill="url(#lwBar)" class="chart-bar" data-y="78" data-h="60"/>
+          <rect x="132" y="68" width="20" height="70" rx="2" fill="url(#lwBar)" class="chart-bar" data-y="68" data-h="70"/>
+          <rect x="202" y="60" width="20" height="78" rx="2" fill="url(#lwBar)" class="chart-bar" data-y="60" data-h="78"/>
+          <rect x="272" y="64" width="20" height="74" rx="2" fill="url(#lwBar)" class="chart-bar" data-y="64" data-h="74"/>
+          <rect x="342" y="72" width="20" height="66" rx="2" fill="url(#lwBar)" class="chart-bar" data-y="72" data-h="66"/>
+          <!-- Label -->
+          <text x="30" y="10" font-family="Syne,sans-serif" font-size="8" font-weight="600" fill="rgba(196,165,90,.35)" letter-spacing="1.5">PROFITABILITY COMPARISON · 5-YEAR</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-num">02</div>
+        <div class="proj-name">Financial Data Analysis — Home Depot vs. Lowe's</div>
+        <span class="proj-pill">Financial Modeling</span>
+        <div class="proj-psa">
+          <div class="proj-row">
+            <span class="proj-row-label">Problem</span>
+            <span class="proj-row-text">Conventional wisdom on competitive positioning lacked rigorous financial backing — creating ambiguity for strategic decisions.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Action</span>
+            <span class="proj-row-text">Modeled five years of financial statements in Excel, evaluating profitability, liquidity, and efficiency ratios in a structured comparative framework.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Result</span>
+            <span class="proj-row-text">Produced a defensible competitive assessment identifying Home Depot's structural advantages — informing a clear investment and positioning recommendation.</span>
+          </div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Excel</span>
+          <span class="proj-tag">Financial Analysis</span>
+          <span class="proj-tag">Competitive Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 03: Hiring Optimization -->
+    <div class="proj-card reveal reveal-delay-3">
+      <div class="proj-visual">
+        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="160" fill="#13131a"/>
+          <pattern id="dots3" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="1" fill="#222228"/>
+          </pattern>
+          <rect width="400" height="160" fill="url(#dots3)"/>
+          <!-- Flow nodes -->
+          <!-- Node 1: Source -->
+          <rect x="20" y="60" width="70" height="40" rx="5" fill="#18181f" stroke="rgba(196,165,90,.3)" stroke-width="1.5"/>
+          <text x="55" y="77" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#888480" letter-spacing=".5">JOB</text>
+          <text x="55" y="90" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#888480" letter-spacing=".5">POSTING</text>
+          <!-- Arrow 1 -->
+          <line x1="90" y1="80" x2="115" y2="80" stroke="#c4a55a" stroke-width="1.5"/>
+          <polygon points="113,76 119,80 113,84" fill="#c4a55a"/>
+          <!-- Node 2: Screen -->
+          <rect x="118" y="56" width="74" height="48" rx="5" fill="#18181f" stroke="#c4a55a" stroke-width="1.5"/>
+          <text x="155" y="78" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#c4a55a" letter-spacing=".5">STRUCTURED</text>
+          <text x="155" y="91" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#c4a55a" letter-spacing=".5">SCREEN</text>
+          <!-- Arrow 2 -->
+          <line x1="192" y1="80" x2="217" y2="80" stroke="#c4a55a" stroke-width="1.5"/>
+          <polygon points="215,76 221,80 215,84" fill="#c4a55a"/>
+          <!-- Node 3: Score -->
+          <rect x="220" y="56" width="74" height="48" rx="5" fill="#18181f" stroke="#c4a55a" stroke-width="2"/>
+          <text x="257" y="78" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#c4a55a" letter-spacing=".5">SCORING</text>
+          <text x="257" y="91" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#c4a55a" letter-spacing=".5">MATRIX</text>
+          <!-- Arrow 3 -->
+          <line x1="294" y1="80" x2="316" y2="80" stroke="#c4a55a" stroke-width="1.5"/>
+          <polygon points="314,76 320,80 314,84" fill="#c4a55a"/>
+          <!-- Node 4: Hire -->
+          <rect x="318" y="60" width="64" height="40" rx="5" fill="rgba(196,165,90,.12)" stroke="#c4a55a" stroke-width="1.5"/>
+          <text x="350" y="77" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#dfc070" letter-spacing=".5">RIGHT</text>
+          <text x="350" y="90" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="700" fill="#dfc070" letter-spacing=".5">HIRE</text>
+          <!-- Badge -->
+          <rect x="20" y="120" width="110" height="20" rx="3" fill="rgba(196,165,90,.08)" stroke="rgba(196,165,90,.2)" stroke-width="1"/>
+          <text x="75" y="134" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="600" fill="#c4a55a" letter-spacing="1">~20% FEWER MIS-HIRES</text>
+          <!-- Label -->
+          <text x="290" y="148" text-anchor="end" font-family="Syne,sans-serif" font-size="8" font-weight="600" fill="rgba(196,165,90,.3)" letter-spacing="1.5">PROCESS DESIGN · CONSULTING</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-num">03</div>
+        <div class="proj-name">Technical Hiring Optimization — Activera Consulting</div>
+        <span class="proj-pill">Process Design</span>
+        <div class="proj-psa">
+          <div class="proj-row">
+            <span class="proj-row-label">Problem</span>
+            <span class="proj-row-text">Recurring mis-hires with no repeatable screening process — generating downstream project risk and resource waste.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Action</span>
+            <span class="proj-row-text">Diagnosed root gaps in the existing hiring process and designed a scalable role-specific evaluation framework translating vague fit criteria into structured assessments.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Result</span>
+            <span class="proj-row-text">Deployment-ready framework projected to reduce mis-hire rate by ~20% in the first hiring cycle.</span>
+          </div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Process Design</span>
+          <span class="proj-tag">Consulting</span>
+          <span class="proj-tag">Frameworks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 04: B2B Sales -->
+    <div class="proj-card reveal reveal-delay-4">
+      <div class="proj-visual">
+        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="funnel-g" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#c4a55a;stop-opacity:.9"/>
+              <stop offset="100%" style="stop-color:#5b8fa8;stop-opacity:.7"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="160" fill="#13131a"/>
+          <pattern id="dots4" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="1" fill="#222228"/>
+          </pattern>
+          <rect width="400" height="160" fill="url(#dots4)"/>
+          <!-- Funnel stages (horizontal bars getting smaller) -->
+          <!-- Stage 1: Prospect -->
+          <rect x="40" y="22" width="320" height="28" rx="4" fill="rgba(196,165,90,.15)" stroke="rgba(196,165,90,.3)" stroke-width="1"/>
+          <text x="200" y="41" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="700" fill="#c4a55a" letter-spacing="1">PROSPECT · Discovery Call</text>
+          <!-- Stage 2: Qualify -->
+          <rect x="70" y="55" width="260" height="26" rx="4" fill="rgba(196,165,90,.12)" stroke="rgba(196,165,90,.25)" stroke-width="1"/>
+          <text x="200" y="73" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="700" fill="#c4a55a" letter-spacing="1">QUALIFY · Competitive Analysis</text>
+          <!-- Stage 3: Propose -->
+          <rect x="100" y="86" width="200" height="26" rx="4" fill="rgba(91,143,168,.15)" stroke="rgba(91,143,168,.3)" stroke-width="1"/>
+          <text x="200" y="104" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="700" fill="#7bafc8" letter-spacing="1">PROPOSE · Tailored Value Prop</text>
+          <!-- Stage 4: Close -->
+          <rect x="130" y="117" width="140" height="26" rx="4" fill="rgba(196,165,90,.2)" stroke="#c4a55a" stroke-width="1.5"/>
+          <text x="200" y="135" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="700" fill="#dfc070" letter-spacing="1">✓ CLOSE · Engagement Won</text>
+          <!-- Label -->
+          <text x="380" y="155" text-anchor="end" font-family="Syne,sans-serif" font-size="8" font-weight="600" fill="rgba(196,165,90,.3)" letter-spacing="1.5">B2B SALES · STRATEGY</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-num">04</div>
+        <div class="proj-name">Consultative Selling — B2B Advisory Exercise</div>
+        <span class="proj-pill">Business Development</span>
+        <div class="proj-psa">
+          <div class="proj-row">
+            <span class="proj-row-label">Problem</span>
+            <span class="proj-row-text">A B2B client needed a vendor partner who understood their business context — not one selling on product specs alone.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Action</span>
+            <span class="proj-row-text">Led the full sales cycle: structured discovery calls, tailored value proposition backed by competitive analysis, and a polished client-ready business case.</span>
+          </div>
+          <div class="proj-row">
+            <span class="proj-row-label">Result</span>
+            <span class="proj-row-text">Closed the engagement by delivering a tailored client-ready solution aligned to stated business needs.</span>
+          </div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Business Dev</span>
+          <span class="proj-tag">Strategy</span>
+          <span class="proj-tag">Presentation</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ─── SKILLS ────────────────────────────────────────── -->
+<section class="section section-alt" id="skills" style="max-width:none;padding-left:0;padding-right:0">
+  <div style="max-width:1200px;margin:0 auto;padding:96px 64px">
+    <div class="sec-label"><span class="sec-label-line"></span>Skills</div>
+    <h2>What I <em>work with.</em></h2>
+    <div class="core-bar reveal">
+      <span class="core-bar-label">Core Tools</span>
+      <span class="core-bar-sep"></span>
+      <span class="core-bar-val">SQL (Oracle, DBeaver) &nbsp;·&nbsp; Excel Financial Modeling &nbsp;·&nbsp; Salesforce CRM &nbsp;·&nbsp; Dashboard Design</span>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <div class="skill-group-title">Data &amp; Analytics</div>
+        <div class="skill-item">SQL &amp; Database Querying</div>
+        <div class="skill-item">Excel &amp; Financial Modeling</div>
+        <div class="skill-item">Data Architecture</div>
+        <div class="skill-item">Business Intelligence</div>
+        <div class="skill-item">Quantitative Analysis</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Technical Tools</div>
+        <div class="skill-item">Oracle &amp; DBeaver</div>
+        <div class="skill-item">Salesforce CRM</div>
+        <div class="skill-item">Dashboard Design</div>
+        <div class="skill-item">CRM/DMS Systems</div>
+        <div class="skill-item">Data Visualization</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Business &amp; Strategy</div>
+        <div class="skill-item">Business Analysis</div>
+        <div class="skill-item">Process Improvement</div>
+        <div class="skill-item">Strategic Analysis</div>
+        <div class="skill-item">Market Research</div>
+        <div class="skill-item">Investment Analysis</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Core Strengths</div>
+        <div class="skill-item">Structured Problem-Solving</div>
+        <div class="skill-item">Executive Communication</div>
+        <div class="skill-item">Stakeholder Management</div>
+        <div class="skill-item">Cross-Functional Thinking</div>
+        <div class="skill-item">Adaptability Under Ambiguity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ─── EDUCATION ─────────────────────────────────────── -->
+<section class="section" id="education">
+  <div class="sec-label"><span class="sec-label-line"></span>Education &amp; Certifications</div>
+  <h2>Academic <em>background.</em></h2>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="edu-degree">BBA, Management Information Systems</div>
+      <div class="edu-school">University of Houston — C.T. Bauer College of Business</div>
+      <div class="edu-detail">Aug 2023 – May 2027 &nbsp;·&nbsp; Houston, TX &nbsp;·&nbsp; Double Concentration: Finance</div>
+      <span class="gpa-badge">GPA 3.55 / 4.00</span>
+      <div class="coursework-label">Relevant Coursework</div>
+      <div class="edu-tags">
+        <span class="edu-tag">Data Management (SQL)</span>
+        <span class="edu-tag">Business Analytics</span>
+        <span class="edu-tag">Systems Analysis</span>
+        <span class="edu-tag">Data Visualization</span>
+        <span class="edu-tag">Corporate Finance</span>
+      </div>
+      <div class="edu-sub">
+        <div class="edu-degree" style="font-size:17px">High School Diploma</div>
+        <div class="edu-school">Michael E. DeBakey High School for Health Professions</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-label">Certifications</div>
+      <div class="cert-name">SQL Certificate of Competency</div>
+      <div class="cert-issuer">LearnSQL.com</div>
+      <div class="cert-date">Issued December 2025</div>
+      <a href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk" target="_blank" class="cert-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Show Credential
+      </a>
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border)">
+        <div class="cert-label">Education Focus</div>
+        <p style="font-size:13px;color:var(--mid);line-height:1.8">MIS &amp; Finance dual focus at a top-ranked business school — combining technical data skills with strategic financial thinking to drive decisions at the intersection of analytics and business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ─── CONTACT ───────────────────────────────────────── -->
 <section id="contact">
-    <div class="contact-inner contact-inner--simple">
-        <div>
-            <div class="section-label">Contact</div>
-            <div class="contact-heading">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></div>
-            <p class="contact-sub">I'm an analytics-first consultant open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out directly — I'm always open to discussing opportunities and solving real business problems.</p>
-            <div class="contact-meta">
-                <span class="contact-meta-item">Houston, TX</span>
-                <span class="contact-meta-item">University of Houston</span>
-            </div>
-            <div class="contact-availability">Available for Summer 2026 Internships</div>
-            <div class="contact-links" style="margin-top:28px;">
-
-                <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com">
-                    <span class="contact-link-label">Email</span>
-                    <span class="contact-link-value">khiyani.hanzalah@gmail.com</span>
-                </a>
-
-                <a class="contact-link-item" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
-                    <span class="contact-link-label">LinkedIn</span>
-                    <span class="contact-link-value">linkedin.com/in/hanzalah-khiyani</span>
-                </a>
-
-                <a class="contact-link-item" href="mailto:khiyani.hanzalah@gmail.com?subject=Let%27s%20Connect%20%E2%80%94%20Internship%20%2F%20Opportunity" style="flex-direction:row; align-items:center; justify-content:space-between; background: var(--accent-dim); border-color: rgba(200,169,110,0.25);">
-                    <span style="display:flex; flex-direction:column; gap:4px;">
-                        <span class="contact-link-label" style="color: var(--accent);">Send a Note</span>
-                        <span class="contact-link-value" style="color: var(--accent);">Start the conversation →</span>
-                    </span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </a>
-
-            </div>
-        </div>
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="sec-label"><span class="sec-label-line"></span>Contact</div>
+      <div class="contact-heading">Let's work<br><em>together.</em></div>
+      <p class="contact-sub">I'm an analytics-first consultant open to internships, externships, and full-time opportunities in data analytics, consulting, or strategy. Reach out directly — I'm always open to discussing the right opportunity.</p>
+      <div class="contact-avail">Available — Summer 2026 Internships</div>
+      <div class="contact-meta">
+        <span class="contact-meta-item">Houston, TX</span>
+        <span class="contact-meta-item">University of Houston</span>
+        <span class="contact-meta-item">GPA 3.55</span>
+      </div>
     </div>
+    <div class="contact-links reveal reveal-delay-2">
+      <a class="contact-link" href="mailto:khiyani.hanzalah@gmail.com">
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-val">khiyani.hanzalah@gmail.com</span>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/hanzalah-khiyani/" target="_blank">
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-val">linkedin.com/in/hanzalah-khiyani</span>
+      </a>
+      <a class="contact-cta" href="mailto:khiyani.hanzalah@gmail.com?subject=Let%27s%20Connect%20%E2%80%94%20Internship%20Opportunity">
+        <div class="contact-cta-text">
+          <span class="contact-cta-label">Send a Note</span>
+          <span class="contact-cta-val">Start the conversation →</span>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ─── FOOTER ────────────────────────────────────────── -->
 <footer>
-    <div class="footer-left">Hanzalah Khiyani</div>
-    <div class="footer-right">© 2026 · Houston, TX</div>
+  <div class="footer-logo">Hanzalah Khiyani</div>
+  <div class="footer-right">© 2026 · Houston, TX · MIS &amp; Finance</div>
 </footer>
 
+<!-- ─── SCRIPT ────────────────────────────────────────── -->
 <script>
-    // ── Smart navbar: hide on scroll down, reveal on scroll up ──
-    const navbar = document.getElementById('navbar');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
+/* ── NAV: scroll hide/show, scrolled class, active section ─── */
+const nav = document.getElementById('nav');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+let lastY = 0, ticking = false;
 
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const currentScrollY = window.scrollY;
+function updateNav() {
+  const y = window.scrollY;
+  if (y < 80) {
+    nav.classList.remove('hidden','scrolled');
+  } else if (y > lastY + 2) {
+    nav.classList.add('hidden');
+  } else if (y < lastY - 2) {
+    nav.classList.remove('hidden');
+    nav.classList.add('scrolled');
+  }
+  lastY = y;
+  ticking = false;
+}
 
-                if (currentScrollY < 80) {
-                    navbar.classList.remove('nav-hidden');
-                } else if (currentScrollY > lastScrollY) {
-                    navbar.classList.add('nav-hidden');
-                } else {
-                    navbar.classList.remove('nav-hidden');
-                }
-
-                lastScrollY = currentScrollY;
-                ticking = false;
-            });
-
-            ticking = true;
-        }
-    });
-
-// ── Fade-in on scroll (Safari-safe) ──
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOptions = {
-    threshold: 0,
-    rootMargin: "0px 0px -10% 0px"
-};
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, appearOptions);
-
-faders.forEach(el => {
-    appearOnScroll.observe(el);
+window.addEventListener('scroll', () => {
+  if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
 });
 
-// ✅ SAFARI FAILSAFE (THIS FIXES YOUR ISSUE)
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.classList.add('visible');
-        });
-    }, 600);
+/* Active nav highlight */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const id = entry.target.id;
+      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -40% 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+/* ── SCROLL PROGRESS ─────────────────────────────────── */
+const progressBar = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  progressBar.style.width = pct + '%';
+});
+
+/* ── REVEAL ON SCROLL ────────────────────────────────── */
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+  });
+}, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+/* Fallback for slow connections */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }, 800);
+});
+
+/* ── HERO CHART ANIMATION ────────────────────────────── */
+function animateHeroChart() {
+  const bars = document.querySelectorAll('.viz-bar');
+  bars.forEach((bar, i) => {
+    const h = bar.dataset.height;
+    setTimeout(() => { bar.style.height = h + '%'; }, 700 + i * 180);
+  });
+}
+animateHeroChart();
+
+/* ── IMPACT COUNTER ANIMATION ────────────────────────── */
+function animateCounter(el, target, prefix = '', suffix = '', duration = 1400) {
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+    el.textContent = prefix + current + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+const impactObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      const valEl = entry.target.querySelector('.impact-val');
+      if (valEl && !valEl.dataset.animated) {
+        valEl.dataset.animated = 'true';
+        const target = parseInt(valEl.dataset.target);
+        const prefix = valEl.dataset.prefix || '';
+        const suffix = valEl.dataset.suffix || '';
+        animateCounter(valEl, target, prefix, suffix);
+      }
+      impactObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.impact-item').forEach(el => impactObs.observe(el));
+
+/* ── EXPERIENCE ACCORDION ────────────────────────────── */
+function toggleExp(trigger) {
+  const item = trigger.closest('.exp-item');
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.exp-item.open').forEach(el => el.classList.remove('open'));
+  // Toggle clicked
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ── SUBTLE PARALLAX ON HERO VISUAL ─────────────────── */
+const heroVisual = document.querySelector('.viz-wrapper');
+if (heroVisual) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      heroVisual.style.transform = `translateY(${y * 0.07}px)`;
+    }
+  }, { passive: true });
+}
+
+/* ── MOUSE GLOW ON PROJECT CARDS ─────────────────────── */
+document.querySelectorAll('.proj-card,.looking-card,.stat-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+    const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+    card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(196,165,90,.07), transparent 60%), var(--s2)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.background = ''; });
 });
 </script>
+</body>
+</html>
