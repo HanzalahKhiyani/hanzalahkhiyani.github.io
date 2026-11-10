@@ -1,12 +1,27 @@
 /* ======================================================
-   HANZALAH KHIYANI PORTFOLIO
+   HANZALAH KHIYANI
+   LUXURY DIGITAL PORTFOLIO
    APP.JS
 ====================================================== */
 
 
-/* ─── ELEMENT REFERENCES ─────────────────────────────── */
+/* ======================================================
+   GLOBAL SETTINGS
+====================================================== */
+
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+);
+
+const finePointer = window.matchMedia(
+  '(hover: hover) and (pointer: fine)'
+);
+
+const html = document.documentElement;
+const body = document.body;
 
 const nav = document.getElementById('nav');
+const hero = document.getElementById('hero');
 const progressBar = document.getElementById('progress');
 
 const sections = document.querySelectorAll('section[id]');
@@ -15,50 +30,539 @@ const navLinks = document.querySelectorAll('.nav-links a');
 let lastScrollY = window.scrollY;
 let navTicking = false;
 let progressTicking = false;
+let manifestoTicking = false;
+let resizeTimer;
 
 
 /* ======================================================
-   NAVIGATION
-   Hide on scroll down / show on scroll up
+   CINEMATIC INTRO
 ====================================================== */
 
-function updateNav() {
-  const currentScrollY = window.scrollY;
+function createIntroOverlay() {
+  if (
+    prefersReducedMotion.matches ||
+    document.querySelector('.intro-overlay')
+  ) {
+    body.classList.add('page-ready');
+    return;
+  }
 
+  const intro = document.createElement('div');
+
+  intro.className = 'intro-overlay';
+
+  intro.setAttribute('aria-hidden', 'true');
+
+  intro.innerHTML = `
+    <div class="intro-inner">
+
+      <div class="intro-meta">
+        C.T. Bauer College of Business
+        <br>
+        Houston, Texas
+      </div>
+
+      <div class="intro-line"></div>
+
+      <div class="intro-name">
+
+        <span class="intro-name-line">
+          <span class="intro-name-text">
+            Hanzalah
+          </span>
+        </span>
+
+        <span class="intro-name-line">
+          <span class="intro-name-text">
+            Khiyani
+          </span>
+        </span>
+
+      </div>
+
+      <div class="intro-caption">
+        Data · Strategy · Decisions
+      </div>
+
+    </div>
+  `;
+
+  body.prepend(intro);
+
+  body.classList.add('intro-active');
+
+  /*
+    The intro remains long enough for each element
+    to complete the entrance sequence.
+  */
+
+  window.setTimeout(() => {
+    intro.classList.add('finished');
+
+    body.classList.remove('intro-active');
+    body.classList.add('page-ready');
+  }, 2200);
+
+  /*
+    Remove the finished overlay from the DOM after
+    its fade-out transition.
+  */
+
+  window.setTimeout(() => {
+    intro.remove();
+  }, 3200);
+}
+
+
+/* ======================================================
+   HERO ENTRANCE FALLBACK
+====================================================== */
+
+function initializeHeroEntrance() {
+  if (prefersReducedMotion.matches) {
+    body.classList.add('page-ready');
+    return;
+  }
+
+  /*
+    If the cinematic overlay is not present,
+    reveal the page immediately.
+  */
+
+  if (!document.querySelector('.intro-overlay')) {
+    body.classList.add('page-ready');
+  }
+}
+
+
+/* ======================================================
+   CUSTOM LUXURY CURSOR
+====================================================== */
+
+function createLuxuryCursor() {
+  if (
+    !finePointer.matches ||
+    prefersReducedMotion.matches ||
+    document.querySelector('.luxury-cursor')
+  ) {
+    return;
+  }
+
+  const cursor = document.createElement('div');
+  const cursorLabel = document.createElement('div');
+
+  cursor.className = 'luxury-cursor';
+  cursorLabel.className = 'luxury-cursor-label';
+
+  cursor.setAttribute('aria-hidden', 'true');
+  cursorLabel.setAttribute('aria-hidden', 'true');
+
+  cursorLabel.textContent = '';
+
+  body.append(cursor, cursorLabel);
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+
+  let labelX = mouseX;
+  let labelY = mouseY;
+
+  let cursorAnimationFrame;
+
+
+  function renderCursor() {
+    /*
+      The cursor follows quickly.
+      The label follows slightly more slowly,
+      creating a smoother premium movement.
+    */
+
+    cursorX += (mouseX - cursorX) * 0.22;
+    cursorY += (mouseY - cursorY) * 0.22;
+
+    labelX += (mouseX - labelX) * 0.18;
+    labelY += (mouseY - labelY) * 0.18;
+
+    cursor.style.transform =
+      `translate3d(${cursorX}px, ${cursorY}px, 0)
+       translate(-50%, -50%)`;
+
+    cursorLabel.style.transform =
+      `translate3d(${labelX}px, ${labelY}px, 0)
+       translate(-50%, -50%)`;
+
+    cursorAnimationFrame =
+      requestAnimationFrame(renderCursor);
+  }
+
+
+  document.addEventListener(
+    'mousemove',
+    event => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      cursor.classList.add('visible');
+      cursorLabel.classList.add('visible');
+    },
+    { passive: true }
+  );
+
+
+  document.addEventListener('mouseleave', () => {
+    cursor.classList.remove('visible');
+    cursorLabel.classList.remove('visible');
+  });
+
+
+  document.addEventListener('mouseenter', () => {
+    cursor.classList.add('visible');
+    cursorLabel.classList.add('visible');
+  });
+
+
+  /*
+    Elements that should expand the cursor.
+  */
+
+  const interactiveElements = document.querySelectorAll(
+    [
+      'a',
+      'button',
+      '.exp-trigger',
+      '.impact-item',
+      '.stat-card',
+      '.approach-step',
+      '.skill-group',
+      '.project-feature'
+    ].join(', ')
+  );
+
+
+  interactiveElements.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      cursor.classList.add('interactive');
+
+      const cursorText =
+        element.dataset.cursor ||
+        getCursorLabel(element);
+
+      cursorLabel.textContent = cursorText;
+
+      if (cursorText) {
+        cursorLabel.classList.add('visible');
+      }
+    });
+
+
+    element.addEventListener('mouseleave', () => {
+      cursor.classList.remove('interactive');
+
+      cursorLabel.textContent = '';
+    });
+  });
+
+
+  cursorAnimationFrame =
+    requestAnimationFrame(renderCursor);
+
+
+  window.addEventListener('beforeunload', () => {
+    cancelAnimationFrame(cursorAnimationFrame);
+  });
+}
+
+
+function getCursorLabel(element) {
+  if (element.classList.contains('exp-trigger')) {
+    return element
+      .closest('.exp-item')
+      ?.classList.contains('open')
+      ? 'CLOSE'
+      : 'OPEN';
+  }
+
+  if (
+    element.classList.contains('project-feature') ||
+    element.closest('#projects')
+  ) {
+    return 'VIEW';
+  }
+
+  if (element.matches('a[target="_blank"]')) {
+    return 'OPEN';
+  }
+
+  if (
+    element.classList.contains('impact-item') ||
+    element.classList.contains('stat-card')
+  ) {
+    return '';
+  }
+
+  if (element.classList.contains('contact-cta')) {
+    return 'SEND';
+  }
+
+  return '';
+}
+
+
+/* ======================================================
+   INTERACTIVE HERO SPOTLIGHT
+====================================================== */
+
+function initializeHeroSpotlight() {
+  if (
+    !hero ||
+    !finePointer.matches ||
+    prefersReducedMotion.matches
+  ) {
+    return;
+  }
+
+  let spotlightFrame;
+
+
+  hero.addEventListener(
+    'mousemove',
+    event => {
+      cancelAnimationFrame(spotlightFrame);
+
+      spotlightFrame = requestAnimationFrame(() => {
+        const rect = hero.getBoundingClientRect();
+
+        const x =
+          ((event.clientX - rect.left) / rect.width) * 100;
+
+        const y =
+          ((event.clientY - rect.top) / rect.height) * 100;
+
+        hero.style.setProperty(
+          '--spotlight-x',
+          `${x.toFixed(2)}%`
+        );
+
+        hero.style.setProperty(
+          '--spotlight-y',
+          `${y.toFixed(2)}%`
+        );
+      });
+    },
+    { passive: true }
+  );
+
+
+  hero.addEventListener('mouseleave', () => {
+    hero.style.setProperty(
+      '--spotlight-x',
+      '70%'
+    );
+
+    hero.style.setProperty(
+      '--spotlight-y',
+      '35%'
+    );
+  });
+}
+
+
+/* ======================================================
+   DATA · STRATEGY · DECISIONS MANIFESTO
+====================================================== */
+
+function createBrandManifesto() {
+  if (document.querySelector('.brand-manifesto')) {
+    return;
+  }
+
+  const aboutSection =
+    document.getElementById('about');
+
+  if (!aboutSection) {
+    return;
+  }
+
+  const manifesto =
+    document.createElement('section');
+
+  manifesto.className = 'brand-manifesto';
+
+  manifesto.setAttribute(
+    'aria-label',
+    'Data, strategy, and decisions'
+  );
+
+  manifesto.innerHTML = `
+    <div
+      class="manifesto-line"
+      data-direction="right"
+      aria-hidden="true"
+    >
+      <span class="manifesto-word">
+        Data
+      </span>
+
+      <span class="manifesto-word">
+        Data
+      </span>
+
+      <span class="manifesto-word">
+        Data
+      </span>
+    </div>
+
+    <div
+      class="manifesto-line"
+      data-direction="left"
+      aria-hidden="true"
+    >
+      <span class="manifesto-word">
+        Strategy
+      </span>
+
+      <span class="manifesto-word">
+        Strategy
+      </span>
+    </div>
+
+    <div
+      class="manifesto-line"
+      data-direction="right"
+      aria-hidden="true"
+    >
+      <span class="manifesto-word">
+        Decisions
+      </span>
+
+      <span class="manifesto-word">
+        Decisions
+      </span>
+    </div>
+  `;
+
+  aboutSection.before(manifesto);
+}
+
+
+/* ======================================================
+   MANIFESTO SCROLL MOVEMENT
+====================================================== */
+
+function updateManifestoMovement() {
+  const manifesto =
+    document.querySelector('.brand-manifesto');
+
+  if (
+    !manifesto ||
+    prefersReducedMotion.matches
+  ) {
+    manifestoTicking = false;
+    return;
+  }
+
+  const rect =
+    manifesto.getBoundingClientRect();
+
+  const viewportHeight =
+    window.innerHeight;
+
+  /*
+    Only calculate transforms while the manifesto
+    is near or inside the viewport.
+  */
+
+  if (
+    rect.bottom < -200 ||
+    rect.top > viewportHeight + 200
+  ) {
+    manifestoTicking = false;
+    return;
+  }
+
+  const visibleProgress =
+    (viewportHeight - rect.top) /
+    (viewportHeight + rect.height);
+
+  const normalizedProgress =
+    Math.min(
+      Math.max(visibleProgress, 0),
+      1
+    );
+
+  const lines =
+    manifesto.querySelectorAll('.manifesto-line');
+
+
+  lines.forEach((line, index) => {
+    const direction =
+      line.dataset.direction === 'left'
+        ? -1
+        : 1;
+
+    const baseOffset =
+      index === 1
+        ? 7
+        : -10;
+
+    const movement =
+      baseOffset +
+      direction *
+      (normalizedProgress - 0.5) *
+      20;
+
+    line.style.transform =
+      `translate3d(${movement}vw, 0, 0)`;
+  });
+
+  manifestoTicking = false;
+}
+
+
+/* ======================================================
+   NAVIGATION HIDE / SHOW
+====================================================== */
+
+function updateNavigation() {
   if (!nav) {
     navTicking = false;
     return;
   }
 
+  const currentScrollY =
+    Math.max(window.scrollY, 0);
+
   if (currentScrollY < 80) {
-    nav.classList.remove('hidden', 'scrolled');
-  } else if (currentScrollY > lastScrollY + 3) {
-    nav.classList.add('hidden');
-    nav.classList.add('scrolled');
-  } else if (currentScrollY < lastScrollY - 3) {
+    nav.classList.remove(
+      'hidden',
+      'scrolled'
+    );
+  } else if (
+    currentScrollY >
+    lastScrollY + 4
+  ) {
+    nav.classList.add(
+      'hidden',
+      'scrolled'
+    );
+  } else if (
+    currentScrollY <
+    lastScrollY - 4
+  ) {
     nav.classList.remove('hidden');
     nav.classList.add('scrolled');
   }
 
-  lastScrollY = Math.max(currentScrollY, 0);
+  lastScrollY = currentScrollY;
   navTicking = false;
 }
 
 
-window.addEventListener(
-  'scroll',
-  () => {
-    if (!navTicking) {
-      requestAnimationFrame(updateNav);
-      navTicking = true;
-    }
-  },
-  { passive: true }
-);
-
-
 /* ======================================================
-   ACTIVE NAVIGATION SECTION
+   ACTIVE NAVIGATION LINK
 ====================================================== */
 
 const navObserver = new IntersectionObserver(
@@ -68,15 +572,17 @@ const navObserver = new IntersectionObserver(
         return;
       }
 
-      const sectionId = entry.target.id;
+      const sectionId =
+        entry.target.id;
 
       navLinks.forEach(link => {
         link.classList.remove('active');
       });
 
-      const activeLink = document.querySelector(
-        `.nav-links a[href="#${sectionId}"]`
-      );
+      const activeLink =
+        document.querySelector(
+          `.nav-links a[href="#${sectionId}"]`
+        );
 
       if (activeLink) {
         activeLink.classList.add('active');
@@ -84,7 +590,7 @@ const navObserver = new IntersectionObserver(
     });
   },
   {
-    rootMargin: '-40% 0px -40% 0px',
+    rootMargin: '-42% 0px -42% 0px',
     threshold: 0
   }
 );
@@ -96,18 +602,23 @@ sections.forEach(section => {
 
 
 /* ======================================================
-   SMOOTH NAVIGATION LINKS
+   SMOOTH NAVIGATION
 ====================================================== */
 
 navLinks.forEach(link => {
   link.addEventListener('click', event => {
-    const targetId = link.getAttribute('href');
+    const targetId =
+      link.getAttribute('href');
 
-    if (!targetId || !targetId.startsWith('#')) {
+    if (
+      !targetId ||
+      !targetId.startsWith('#')
+    ) {
       return;
     }
 
-    const target = document.querySelector(targetId);
+    const target =
+      document.querySelector(targetId);
 
     if (!target) {
       return;
@@ -116,14 +627,15 @@ navLinks.forEach(link => {
     event.preventDefault();
 
     target.scrollIntoView({
-      behavior: 'smooth',
+      behavior:
+        prefersReducedMotion.matches
+          ? 'auto'
+          : 'smooth',
       block: 'start'
     });
 
-    if (nav) {
-      nav.classList.remove('hidden');
-      nav.classList.add('scrolled');
-    }
+    nav?.classList.remove('hidden');
+    nav?.classList.add('scrolled');
   });
 });
 
@@ -138,13 +650,13 @@ function updateScrollProgress() {
     return;
   }
 
-  const documentHeight =
+  const scrollableHeight =
     document.documentElement.scrollHeight -
     window.innerHeight;
 
   const percentage =
-    documentHeight > 0
-      ? (window.scrollY / documentHeight) * 100
+    scrollableHeight > 0
+      ? (window.scrollY / scrollableHeight) * 100
       : 0;
 
   const clampedPercentage =
@@ -160,70 +672,100 @@ function updateScrollProgress() {
 }
 
 
+/* ======================================================
+   MASTER SCROLL HANDLER
+====================================================== */
+
 window.addEventListener(
   'scroll',
   () => {
+    if (!navTicking) {
+      requestAnimationFrame(
+        updateNavigation
+      );
+
+      navTicking = true;
+    }
+
     if (!progressTicking) {
-      requestAnimationFrame(updateScrollProgress);
+      requestAnimationFrame(
+        updateScrollProgress
+      );
+
       progressTicking = true;
+    }
+
+    if (!manifestoTicking) {
+      requestAnimationFrame(
+        updateManifestoMovement
+      );
+
+      manifestoTicking = true;
     }
   },
   { passive: true }
 );
 
 
-/* Initial progress state */
-
-updateScrollProgress();
-
-
 /* ======================================================
    REVEAL ON SCROLL
 ====================================================== */
 
-const revealElements =
-  document.querySelectorAll('.reveal');
+function initializeScrollReveals() {
+  const revealElements =
+    document.querySelectorAll('.reveal');
 
-
-const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      entry.target.classList.add('visible');
-
-      revealObserver.unobserve(entry.target);
+  if (prefersReducedMotion.matches) {
+    revealElements.forEach(element => {
+      element.classList.add('visible');
     });
-  },
-  {
-    rootMargin: '0px 0px -8% 0px',
-    threshold: 0.05
+
+    return;
   }
-);
+
+  const revealObserver =
+    new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add(
+            'visible'
+          );
+
+          revealObserver.unobserve(
+            entry.target
+          );
+        });
+      },
+      {
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.05
+      }
+    );
 
 
-revealElements.forEach(element => {
-  revealObserver.observe(element);
-});
+  revealElements.forEach(element => {
+    revealObserver.observe(element);
+  });
 
 
-/* Fallback in case IntersectionObserver reveal is delayed */
+  /*
+    Fallback for slow font or resource loading.
+  */
 
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document
-      .querySelectorAll('.reveal')
-      .forEach(element => {
-        element.classList.add('visible');
-      });
-  }, 1000);
-});
+  window.setTimeout(() => {
+    revealElements.forEach(element => {
+      element.classList.add('visible');
+    });
+  }, 2200);
+}
 
 
 /* ======================================================
-   IMPACT COUNTER ANIMATION
+   IMPACT COUNTERS
 ====================================================== */
 
 function animateCounter(
@@ -231,9 +773,17 @@ function animateCounter(
   target,
   prefix = '',
   suffix = '',
-  duration = 1400
+  duration = 1650
 ) {
-  const startTime = performance.now();
+  if (prefersReducedMotion.matches) {
+    element.textContent =
+      `${prefix}${target}${suffix}`;
+
+    return;
+  }
+
+  const startTime =
+    performance.now();
 
 
   function updateCounter(currentTime) {
@@ -247,12 +797,13 @@ function animateCounter(
       );
 
     /*
-      Cubic ease-out.
-      Fast at the beginning and slows toward the end.
+      Luxury easing:
+      quick confidence at the beginning,
+      gradual settle at the end.
     */
 
     const easedProgress =
-      1 - Math.pow(1 - progress, 3);
+      1 - Math.pow(1 - progress, 4);
 
     const currentValue =
       Math.round(
@@ -262,9 +813,10 @@ function animateCounter(
     element.textContent =
       `${prefix}${currentValue}${suffix}`;
 
-
     if (progress < 1) {
-      requestAnimationFrame(updateCounter);
+      requestAnimationFrame(
+        updateCounter
+      );
     }
   }
 
@@ -273,161 +825,158 @@ function animateCounter(
 }
 
 
-const impactObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      }
+function initializeImpactCounters() {
+  const impactItems =
+    document.querySelectorAll(
+      '.impact-item'
+    );
 
+  const impactObserver =
+    new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          }
 
-      entry.target.classList.add('in-view');
-
-
-      const valueElement =
-        entry.target.querySelector('.impact-val');
-
-
-      if (
-        valueElement &&
-        !valueElement.dataset.animated
-      ) {
-        const target =
-          Number.parseInt(
-            valueElement.dataset.target,
-            10
+          entry.target.classList.add(
+            'in-view'
           );
 
+          const valueElement =
+            entry.target.querySelector(
+              '.impact-val'
+            );
 
-        if (!Number.isNaN(target)) {
-          valueElement.dataset.animated = 'true';
+          if (
+            valueElement &&
+            !valueElement.dataset.animated
+          ) {
+            const target =
+              Number.parseInt(
+                valueElement.dataset.target,
+                10
+              );
 
-          const prefix =
-            valueElement.dataset.prefix || '';
+            if (!Number.isNaN(target)) {
+              valueElement.dataset.animated =
+                'true';
 
-          const suffix =
-            valueElement.dataset.suffix || '';
+              animateCounter(
+                valueElement,
+                target,
+                valueElement.dataset.prefix || '',
+                valueElement.dataset.suffix || ''
+              );
+            }
+          }
 
-
-          animateCounter(
-            valueElement,
-            target,
-            prefix,
-            suffix
+          impactObserver.unobserve(
+            entry.target
           );
-        }
+        });
+      },
+      {
+        threshold: 0.3
       }
+    );
 
 
-      impactObserver.unobserve(entry.target);
-    });
-  },
-  {
-    threshold: 0.3
-  }
-);
-
-
-document
-  .querySelectorAll('.impact-item')
-  .forEach(item => {
+  impactItems.forEach(item => {
     impactObserver.observe(item);
   });
+}
 
 
 /* ======================================================
-   EXPERIENCE + PROJECT ACCORDIONS
+   LUXURY ACCORDIONS
 ====================================================== */
 
-/*
-  The HTML uses:
+function closeAccordion(item) {
+  const trigger =
+    item.querySelector('.exp-trigger');
 
-  onclick="toggleExp(this)"
+  const bodyElement =
+    item.querySelector('.exp-body');
 
-  so this function remains globally available.
-*/
+  const button =
+    item.querySelector('.exp-expand-btn');
+
+  item.classList.remove('open');
+
+  trigger?.setAttribute(
+    'aria-expanded',
+    'false'
+  );
+
+  button?.setAttribute(
+    'aria-expanded',
+    'false'
+  );
+
+  if (bodyElement) {
+    bodyElement.style.maxHeight = '';
+  }
+}
+
+
+function openAccordion(item) {
+  const trigger =
+    item.querySelector('.exp-trigger');
+
+  const bodyElement =
+    item.querySelector('.exp-body');
+
+  const button =
+    item.querySelector('.exp-expand-btn');
+
+  item.classList.add('open');
+
+  trigger?.setAttribute(
+    'aria-expanded',
+    'true'
+  );
+
+  button?.setAttribute(
+    'aria-expanded',
+    'true'
+  );
+
+  if (bodyElement) {
+    bodyElement.style.maxHeight =
+      `${bodyElement.scrollHeight}px`;
+  }
+}
+
 
 function toggleExp(trigger) {
   const selectedItem =
     trigger.closest('.exp-item');
 
-
   if (!selectedItem) {
     return;
   }
 
-
-  const selectedBody =
-    selectedItem.querySelector('.exp-body');
-
-
-  const selectedButton =
-    selectedItem.querySelector('.exp-expand-btn');
-
-
   const wasOpen =
     selectedItem.classList.contains('open');
 
-
   /*
-    Close every currently open accordion first.
+    Close all Experience and Project accordions
+    before opening the selected one.
   */
 
   document
     .querySelectorAll('.exp-item.open')
     .forEach(openItem => {
-      const body =
-        openItem.querySelector('.exp-body');
-
-      const button =
-        openItem.querySelector('.exp-expand-btn');
-
-
-      openItem.classList.remove('open');
-
-
-      if (body) {
-        body.style.maxHeight = '';
-      }
-
-
-      if (button) {
-        button.setAttribute(
-          'aria-expanded',
-          'false'
-        );
-      }
+      closeAccordion(openItem);
     });
 
 
-  /*
-    If the clicked item was previously closed,
-    open it and calculate the exact content height.
-  */
-
   if (!wasOpen) {
-    selectedItem.classList.add('open');
-
-
-    if (selectedBody) {
-      selectedBody.style.maxHeight =
-        `${selectedBody.scrollHeight}px`;
-    }
-
-
-    if (selectedButton) {
-      selectedButton.setAttribute(
-        'aria-expanded',
-        'true'
-      );
-    }
+    openAccordion(selectedItem);
   }
 }
 
-
-/*
-  Make toggleExp available to inline HTML onclick handlers.
-*/
 
 window.toggleExp = toggleExp;
 
@@ -436,127 +985,364 @@ window.toggleExp = toggleExp;
    ACCORDION ACCESSIBILITY
 ====================================================== */
 
-const accordionTriggers =
-  document.querySelectorAll('.exp-trigger');
-
-
-accordionTriggers.forEach(trigger => {
-  const button =
-    trigger.querySelector('.exp-expand-btn');
-
-
-  /*
-    Makes the entire accordion row keyboard-focusable.
-  */
-
-  trigger.setAttribute('tabindex', '0');
-
-  trigger.setAttribute(
-    'role',
-    'button'
-  );
-
-  trigger.setAttribute(
-    'aria-expanded',
-    'false'
-  );
-
-
-  if (button) {
-    button.setAttribute(
-      'aria-expanded',
-      'false'
+function initializeAccordions() {
+  const accordionTriggers =
+    document.querySelectorAll(
+      '.exp-trigger'
     );
 
-    button.setAttribute(
-      'aria-hidden',
-      'true'
-    );
-  }
+  accordionTriggers.forEach(
+    (trigger, index) => {
+      const item =
+        trigger.closest('.exp-item');
+
+      const bodyElement =
+        item?.querySelector('.exp-body');
+
+      const button =
+        trigger.querySelector(
+          '.exp-expand-btn'
+        );
+
+      const bodyId =
+        `accordion-content-${index + 1}`;
+
+      trigger.setAttribute(
+        'tabindex',
+        '0'
+      );
+
+      trigger.setAttribute(
+        'role',
+        'button'
+      );
+
+      trigger.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+      trigger.setAttribute(
+        'aria-controls',
+        bodyId
+      );
 
 
-  /*
-    Enter or Space opens the accordion.
-  */
+      if (bodyElement) {
+        bodyElement.id = bodyId;
+      }
 
-  trigger.addEventListener(
-    'keydown',
-    event => {
-      if (
-        event.key === 'Enter' ||
-        event.key === ' '
-      ) {
-        event.preventDefault();
 
-        toggleExp(trigger);
-
-        trigger.setAttribute(
+      if (button) {
+        button.setAttribute(
           'aria-expanded',
-          trigger
-            .closest('.exp-item')
-            ?.classList.contains('open')
-            ? 'true'
-            : 'false'
+          'false'
+        );
+
+        button.setAttribute(
+          'aria-hidden',
+          'true'
         );
       }
+
+
+      trigger.addEventListener(
+        'keydown',
+        event => {
+          if (
+            event.key === 'Enter' ||
+            event.key === ' '
+          ) {
+            event.preventDefault();
+
+            toggleExp(trigger);
+          }
+        }
+      );
     }
   );
-});
+}
 
 
 /* ======================================================
-   KEEP ACCORDION HEIGHT CORRECT ON WINDOW RESIZE
+   MAGNETIC BUTTON MOVEMENT
 ====================================================== */
 
-let resizeTimer;
+function initializeMagneticElements() {
+  if (
+    !finePointer.matches ||
+    prefersReducedMotion.matches
+  ) {
+    return;
+  }
 
+  const magneticElements =
+    document.querySelectorAll(
+      [
+        '.btn-gold',
+        '.btn-outline',
+        '.contact-cta',
+        '.project-explore'
+      ].join(', ')
+    );
+
+
+  magneticElements.forEach(element => {
+    element.addEventListener(
+      'mousemove',
+      event => {
+        const rect =
+          element.getBoundingClientRect();
+
+        const relativeX =
+          event.clientX -
+          rect.left -
+          rect.width / 2;
+
+        const relativeY =
+          event.clientY -
+          rect.top -
+          rect.height / 2;
+
+        const moveX =
+          relativeX * 0.08;
+
+        const moveY =
+          relativeY * 0.12;
+
+        element.style.transform =
+          `translate3d(${moveX}px, ${moveY}px, 0)`;
+      }
+    );
+
+
+    element.addEventListener(
+      'mouseleave',
+      () => {
+        element.style.transform = '';
+      }
+    );
+  });
+}
+
+
+/* ======================================================
+   PROJECT FEATURE SCROLL REVEAL
+====================================================== */
+
+function initializeProjectFeatures() {
+  const projectFeatures =
+    document.querySelectorAll(
+      '.project-feature'
+    );
+
+  if (!projectFeatures.length) {
+    return;
+  }
+
+  projectFeatures.forEach(
+    (feature, index) => {
+      feature.classList.add('reveal');
+
+      feature.style.transitionDelay =
+        `${Math.min(index * 0.05, 0.2)}s`;
+    }
+  );
+}
+
+
+/* ======================================================
+   HERO TEXT DATA ATTRIBUTES
+====================================================== */
+
+function initializeHeroText() {
+  const firstName =
+    document.querySelector(
+      '.hero-name-first'
+    );
+
+  const lastName =
+    document.querySelector(
+      '.hero-name-last'
+    );
+
+  if (firstName) {
+    firstName.dataset.text =
+      firstName.textContent.trim();
+  }
+
+  if (lastName) {
+    lastName.dataset.text =
+      lastName.textContent.trim();
+  }
+}
+
+
+/* ======================================================
+   RESIZE HANDLING
+====================================================== */
 
 window.addEventListener(
   'resize',
   () => {
-    clearTimeout(resizeTimer);
+    window.clearTimeout(resizeTimer);
+
+    resizeTimer =
+      window.setTimeout(() => {
+        document
+          .querySelectorAll(
+            '.exp-item.open'
+          )
+          .forEach(item => {
+            const bodyElement =
+              item.querySelector(
+                '.exp-body'
+              );
+
+            if (bodyElement) {
+              bodyElement.style.maxHeight =
+                `${bodyElement.scrollHeight}px`;
+            }
+          });
+
+        updateScrollProgress();
+        updateManifestoMovement();
+      }, 140);
+  },
+  { passive: true }
+);
 
 
-    resizeTimer = setTimeout(() => {
+/* ======================================================
+   REDUCED MOTION CHANGES
+====================================================== */
+
+prefersReducedMotion.addEventListener(
+  'change',
+  event => {
+    if (event.matches) {
+      document
+        .querySelector('.intro-overlay')
+        ?.remove();
 
       document
-        .querySelectorAll('.exp-item.open')
-        .forEach(item => {
-          const body =
-            item.querySelector('.exp-body');
+        .querySelector('.luxury-cursor')
+        ?.remove();
 
+      document
+        .querySelector(
+          '.luxury-cursor-label'
+        )
+        ?.remove();
 
-          if (body) {
-            body.style.maxHeight =
-              `${body.scrollHeight}px`;
-          }
+      body.classList.remove(
+        'intro-active'
+      );
+
+      body.classList.add(
+        'page-ready'
+      );
+
+      document
+        .querySelectorAll('.reveal')
+        .forEach(element => {
+          element.classList.add(
+            'visible'
+          );
         });
-
-
-      updateScrollProgress();
-
-    }, 120);
+    }
   }
 );
 
 
 /* ======================================================
-   PAGE LOAD INITIALIZATION
+   INITIALIZATION
+====================================================== */
+
+function initializePortfolio() {
+  /*
+    Build page elements that are not part of the
+    original HTML structure.
+  */
+
+  createIntroOverlay();
+  createBrandManifesto();
+
+  /*
+    Prepare interface behavior.
+  */
+
+  initializeHeroText();
+  initializeHeroSpotlight();
+  initializeProjectFeatures();
+  initializeAccordions();
+  initializeImpactCounters();
+  initializeScrollReveals();
+  initializeMagneticElements();
+
+  /*
+    The custom cursor is initialized after the
+    dynamically generated page elements exist.
+  */
+
+  createLuxuryCursor();
+
+  /*
+    Ensure the normal hero entrance still works
+    when the intro is disabled.
+  */
+
+  initializeHeroEntrance();
+
+  /*
+    Initial layout and page calculations.
+  */
+
+  updateNavigation();
+  updateScrollProgress();
+  updateManifestoMovement();
+}
+
+
+/* ======================================================
+   START THE PORTFOLIO
+====================================================== */
+
+if (
+  document.readyState === 'loading'
+) {
+  document.addEventListener(
+    'DOMContentLoaded',
+    initializePortfolio
+  );
+} else {
+  initializePortfolio();
+}
+
+
+/* ======================================================
+   FINAL LOAD RECALCULATION
 ====================================================== */
 
 window.addEventListener('load', () => {
-
-  /*
-    Ensure the navigation starts in the correct state.
-  */
-
-  updateNav();
-
-
-  /*
-    Recalculate progress once fonts/content have loaded.
-  */
-
+  updateNavigation();
   updateScrollProgress();
+  updateManifestoMovement();
 
+  /*
+    Fonts can change accordion measurements after
+    they finish loading.
+  */
+
+  document
+    .querySelectorAll('.exp-item.open')
+    .forEach(item => {
+      const bodyElement =
+        item.querySelector('.exp-body');
+
+      if (bodyElement) {
+        bodyElement.style.maxHeight =
+          `${bodyElement.scrollHeight}px`;
+      }
+    });
 });
