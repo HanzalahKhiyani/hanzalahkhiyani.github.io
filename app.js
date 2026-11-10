@@ -1,6 +1,6 @@
 /* ======================================================
    HANZALAH KHIYANI PORTFOLIO
-   SIMPLE PREMIUM APP.JS
+   SIMPLE PREMIUM EDITORIAL APP.JS
 ====================================================== */
 
 
@@ -33,19 +33,21 @@ let resizeTimer;
 
 
 /* ======================================================
-   PAGE READY / HERO ENTRANCE
+   PAGE READY
+   Activates the simple hero entrance
 ====================================================== */
 
 function initializePage() {
   /*
-    Make sure the old cinematic intro can never
-    leave the page locked.
+    Remove any leftover lock from older versions.
   */
 
   body.classList.remove('intro-active');
 
+
   /*
-    Activates the clean hero entrance animation.
+    Add page-ready on the next animation frame
+    so the hero entrance animation can play.
   */
 
   requestAnimationFrame(() => {
@@ -60,8 +62,7 @@ function initializePage() {
 
 function createCustomCursor() {
   /*
-    Only show the custom cursor on desktop devices
-    with an actual mouse / fine pointer.
+    Desktop / mouse only.
   */
 
   if (
@@ -76,56 +77,110 @@ function createCustomCursor() {
   const cursor = document.createElement('div');
   const cursorLabel = document.createElement('div');
 
+
   cursor.className = 'luxury-cursor';
-  cursorLabel.className = 'luxury-cursor-label';
 
-  cursor.setAttribute('aria-hidden', 'true');
-  cursorLabel.setAttribute('aria-hidden', 'true');
-
-  body.append(cursor, cursorLabel);
+  cursorLabel.className =
+    'luxury-cursor-label';
 
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
+  cursor.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  cursorLabel.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+
+  body.append(
+    cursor,
+    cursorLabel
+  );
+
+
+  /* Mouse coordinates */
+
+  let mouseX =
+    window.innerWidth / 2;
+
+  let mouseY =
+    window.innerHeight / 2;
+
+
+  /* Cursor coordinates */
 
   let cursorX = mouseX;
   let cursorY = mouseY;
 
+
+  /* Cursor label coordinates */
+
   let labelX = mouseX;
   let labelY = mouseY;
 
-  let cursorFrame;
 
+  let animationFrame;
+
+
+  /* ====================================================
+     CURSOR ANIMATION LOOP
+  ==================================================== */
 
   function renderCursor() {
     /*
-      Slight easing creates the smooth trailing effect.
+      Eased movement creates the subtle
+      trailing effect.
     */
 
-    cursorX += (mouseX - cursorX) * 0.24;
-    cursorY += (mouseY - cursorY) * 0.24;
+    cursorX +=
+      (mouseX - cursorX) * 0.24;
 
-    labelX += (mouseX - labelX) * 0.2;
-    labelY += (mouseY - labelY) * 0.2;
+    cursorY +=
+      (mouseY - cursorY) * 0.24;
+
+
+    labelX +=
+      (mouseX - labelX) * 0.2;
+
+    labelY +=
+      (mouseY - labelY) * 0.2;
 
 
     cursor.style.transform =
-      `translate3d(${cursorX}px, ${cursorY}px, 0)
-       translate(-50%, -50%)`;
+      `
+        translate3d(
+          ${cursorX}px,
+          ${cursorY}px,
+          0
+        )
+        translate(-50%, -50%)
+      `;
 
 
     cursorLabel.style.transform =
-      `translate3d(${labelX}px, ${labelY}px, 0)
-       translate(-50%, -50%)`;
+      `
+        translate3d(
+          ${labelX}px,
+          ${labelY}px,
+          0
+        )
+        translate(-50%, -50%)
+      `;
 
 
-    cursorFrame = requestAnimationFrame(
-      renderCursor
-    );
+    animationFrame =
+      requestAnimationFrame(
+        renderCursor
+      );
   }
 
 
-  /* Track mouse position */
+  /* ====================================================
+     TRACK MOUSE
+  ==================================================== */
 
   document.addEventListener(
     'mousemove',
@@ -133,7 +188,9 @@ function createCustomCursor() {
       mouseX = event.clientX;
       mouseY = event.clientY;
 
-      cursor.classList.add('visible');
+      cursor.classList.add(
+        'visible'
+      );
     },
     {
       passive: true
@@ -141,13 +198,20 @@ function createCustomCursor() {
   );
 
 
-  /* Hide cursor when mouse leaves browser area */
+  /* ====================================================
+     HIDE CURSOR WHEN LEAVING WINDOW
+  ==================================================== */
 
   document.addEventListener(
     'mouseleave',
     () => {
-      cursor.classList.remove('visible');
-      cursorLabel.classList.remove('visible');
+      cursor.classList.remove(
+        'visible'
+      );
+
+      cursorLabel.classList.remove(
+        'visible'
+      );
     }
   );
 
@@ -155,72 +219,98 @@ function createCustomCursor() {
   document.addEventListener(
     'mouseenter',
     () => {
-      cursor.classList.add('visible');
+      cursor.classList.add(
+        'visible'
+      );
     }
   );
 
 
-  /*
-    Elements that should trigger the larger pointer.
-  */
+  /* ====================================================
+     INTERACTIVE ELEMENTS
+  ==================================================== */
 
   const interactiveElements =
     document.querySelectorAll(
       [
         'a',
         'button',
-        '.exp-trigger',
-        '.project-feature'
+        '.editorial-entry',
+        '.stat-card',
+        '.impact-item',
+        '.approach-step',
+        '.skill-group',
+        '.project-case-item'
       ].join(', ')
     );
 
 
-  interactiveElements.forEach(element => {
+  interactiveElements.forEach(
+    element => {
 
-    element.addEventListener(
-      'mouseenter',
-      () => {
-        cursor.classList.add('interactive');
-
-
-        const label =
-          element.dataset.cursor ||
-          getCursorLabel(element);
+      element.addEventListener(
+        'mouseenter',
+        () => {
+          cursor.classList.add(
+            'interactive'
+          );
 
 
-        if (label) {
-          cursorLabel.textContent = label;
-          cursorLabel.classList.add('visible');
-        } else {
-          cursorLabel.textContent = '';
-          cursorLabel.classList.remove('visible');
+          const label =
+            element.dataset.cursor ||
+            getCursorLabel(element);
+
+
+          if (label) {
+            cursorLabel.textContent =
+              label;
+
+            cursorLabel.classList.add(
+              'visible'
+            );
+          } else {
+            cursorLabel.textContent = '';
+
+            cursorLabel.classList.remove(
+              'visible'
+            );
+          }
         }
-      }
-    );
+      );
 
 
-    element.addEventListener(
-      'mouseleave',
-      () => {
-        cursor.classList.remove('interactive');
-
-        cursorLabel.textContent = '';
-        cursorLabel.classList.remove('visible');
-      }
-    );
-
-  });
+      element.addEventListener(
+        'mouseleave',
+        () => {
+          cursor.classList.remove(
+            'interactive'
+          );
 
 
-  cursorFrame = requestAnimationFrame(
-    renderCursor
+          cursorLabel.textContent = '';
+
+          cursorLabel.classList.remove(
+            'visible'
+          );
+        }
+      );
+
+    }
   );
+
+
+  animationFrame =
+    requestAnimationFrame(
+      renderCursor
+    );
 
 
   window.addEventListener(
     'beforeunload',
     () => {
-      cancelAnimationFrame(cursorFrame);
+      cancelAnimationFrame(
+        animationFrame
+      );
     }
   );
 }
@@ -232,24 +322,12 @@ function createCustomCursor() {
 
 function getCursorLabel(element) {
   /*
-    Experience accordion
+    Explicit data-cursor values in the HTML
+    always take priority.
   */
 
-  if (element.classList.contains('exp-trigger')) {
-    const item = element.closest('.exp-item');
-
-    return item?.classList.contains('open')
-      ? 'CLOSE'
-      : 'OPEN';
-  }
-
-
-  /*
-    Project showcase
-  */
-
-  if (element.classList.contains('project-feature')) {
-    return '';
+  if (element.dataset.cursor) {
+    return element.dataset.cursor;
   }
 
 
@@ -257,19 +335,33 @@ function getCursorLabel(element) {
     External links
   */
 
-  if (element.matches('a[target="_blank"]')) {
+  if (
+    element.matches(
+      'a[target="_blank"]'
+    )
+  ) {
     return 'OPEN';
   }
 
 
   /*
-    Email CTA
+    Email / contact CTA
   */
 
-  if (element.classList.contains('contact-cta')) {
+  if (
+    element.classList.contains(
+      'contact-cta'
+    )
+  ) {
     return 'SEND';
   }
 
+
+  /*
+    The editorial Experience and Projects
+    remain visually interactive without
+    requiring cursor text.
+  */
 
   return '';
 }
@@ -295,40 +387,52 @@ function initializeHeroSpotlight() {
   hero.addEventListener(
     'mousemove',
     event => {
-      cancelAnimationFrame(spotlightFrame);
+      cancelAnimationFrame(
+        spotlightFrame
+      );
 
 
       spotlightFrame =
-        requestAnimationFrame(() => {
-
-          const rect =
-            hero.getBoundingClientRect();
-
-
-          const x =
-            ((event.clientX - rect.left) /
-              rect.width) *
-            100;
+        requestAnimationFrame(
+          () => {
+            const rect =
+              hero.getBoundingClientRect();
 
 
-          const y =
-            ((event.clientY - rect.top) /
-              rect.height) *
-            100;
+            const relativeX =
+              event.clientX -
+              rect.left;
 
 
-          hero.style.setProperty(
-            '--spotlight-x',
-            `${x.toFixed(2)}%`
-          );
+            const relativeY =
+              event.clientY -
+              rect.top;
 
 
-          hero.style.setProperty(
-            '--spotlight-y',
-            `${y.toFixed(2)}%`
-          );
+            const x =
+              (relativeX /
+                rect.width) *
+              100;
 
-        });
+
+            const y =
+              (relativeY /
+                rect.height) *
+              100;
+
+
+            hero.style.setProperty(
+              '--spotlight-x',
+              `${x.toFixed(2)}%`
+            );
+
+
+            hero.style.setProperty(
+              '--spotlight-y',
+              `${y.toFixed(2)}%`
+            );
+          }
+        );
     },
     {
       passive: true
@@ -337,7 +441,7 @@ function initializeHeroSpotlight() {
 
 
   /*
-    Return the spotlight to its default position.
+    Reset when mouse leaves hero.
   */
 
   hero.addEventListener(
@@ -347,6 +451,7 @@ function initializeHeroSpotlight() {
         '--spotlight-x',
         '70%'
       );
+
 
       hero.style.setProperty(
         '--spotlight-y',
@@ -376,53 +481,53 @@ function updateNavigation() {
 
 
   /*
-    At top of page:
-    show normal navigation.
+    Top of page.
   */
 
   if (currentScrollY < 80) {
-
     nav.classList.remove(
       'hidden',
       'scrolled'
     );
-
   }
 
+
   /*
-    Scrolling down:
-    hide navigation.
+    Scroll down.
   */
 
   else if (
     currentScrollY >
     lastScrollY + 4
   ) {
-
     nav.classList.add(
       'hidden',
       'scrolled'
     );
-
   }
 
+
   /*
-    Scrolling up:
-    show compact navigation.
+    Scroll up.
   */
 
   else if (
     currentScrollY <
     lastScrollY - 4
   ) {
+    nav.classList.remove(
+      'hidden'
+    );
 
-    nav.classList.remove('hidden');
-    nav.classList.add('scrolled');
-
+    nav.classList.add(
+      'scrolled'
+    );
   }
 
 
-  lastScrollY = currentScrollY;
+  lastScrollY =
+    currentScrollY;
+
 
   navTicking = false;
 }
@@ -441,49 +546,69 @@ function initializeActiveNavigation() {
   }
 
 
-  const navObserver =
+  const observer =
     new IntersectionObserver(
       entries => {
-
-        entries.forEach(entry => {
-
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-
-          const sectionId =
-            entry.target.id;
+        entries.forEach(
+          entry => {
+            if (
+              !entry.isIntersecting
+            ) {
+              return;
+            }
 
 
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-          });
+            const sectionId =
+              entry.target.id;
 
 
-          const activeLink =
-            document.querySelector(
-              `.nav-links a[href="#${sectionId}"]`
+            /*
+              Clear previous active link.
+            */
+
+            navLinks.forEach(
+              link => {
+                link.classList.remove(
+                  'active'
+                );
+              }
             );
 
 
-          if (activeLink) {
-            activeLink.classList.add('active');
+            /*
+              Find corresponding navigation link.
+            */
+
+            const activeLink =
+              document.querySelector(
+                `.nav-links a[href="#${sectionId}"]`
+              );
+
+
+            if (activeLink) {
+              activeLink.classList.add(
+                'active'
+              );
+            }
           }
-
-        });
-
+        );
       },
       {
-        rootMargin: '-42% 0px -42% 0px',
+        rootMargin:
+          '-42% 0px -42% 0px',
+
         threshold: 0
       }
     );
 
 
-  sections.forEach(section => {
-    navObserver.observe(section);
-  });
+  sections.forEach(
+    section => {
+      observer.observe(
+        section
+      );
+    }
+  );
 }
 
 
@@ -492,53 +617,83 @@ function initializeActiveNavigation() {
 ====================================================== */
 
 function initializeSmoothNavigation() {
-  navLinks.forEach(link => {
+  /*
+    Handles both top navigation and
+    internal hero links.
+  */
 
-    link.addEventListener(
-      'click',
-      event => {
-
-        const targetId =
-          link.getAttribute('href');
-
-
-        if (
-          !targetId ||
-          !targetId.startsWith('#')
-        ) {
-          return;
-        }
-
-
-        const target =
-          document.querySelector(targetId);
-
-
-        if (!target) {
-          return;
-        }
-
-
-        event.preventDefault();
-
-
-        target.scrollIntoView({
-          behavior:
-            prefersReducedMotion.matches
-              ? 'auto'
-              : 'smooth',
-
-          block: 'start'
-        });
-
-
-        nav?.classList.remove('hidden');
-        nav?.classList.add('scrolled');
-
-      }
+  const internalLinks =
+    document.querySelectorAll(
+      'a[href^="#"]'
     );
 
-  });
+
+  internalLinks.forEach(
+    link => {
+      link.addEventListener(
+        'click',
+        event => {
+          const targetId =
+            link.getAttribute(
+              'href'
+            );
+
+
+          /*
+            Ignore plain # links.
+          */
+
+          if (
+            !targetId ||
+            targetId === '#'
+          ) {
+            return;
+          }
+
+
+          const target =
+            document.querySelector(
+              targetId
+            );
+
+
+          if (!target) {
+            return;
+          }
+
+
+          event.preventDefault();
+
+
+          target.scrollIntoView({
+            behavior:
+              prefersReducedMotion.matches
+                ? 'auto'
+                : 'smooth',
+
+            block: 'start'
+          });
+
+
+          /*
+            Keep navigation visible after
+            a navigation click.
+          */
+
+          nav?.classList.remove(
+            'hidden'
+          );
+
+
+          if (window.scrollY > 80) {
+            nav?.classList.add(
+              'scrolled'
+            );
+          }
+        }
+      );
+    }
+  );
 }
 
 
@@ -554,13 +709,17 @@ function updateScrollProgress() {
 
 
   const scrollableHeight =
-    document.documentElement.scrollHeight -
+    document.documentElement
+      .scrollHeight -
     window.innerHeight;
 
 
   const percentage =
     scrollableHeight > 0
-      ? (window.scrollY / scrollableHeight) * 100
+      ? (
+          window.scrollY /
+          scrollableHeight
+        ) * 100
       : 0;
 
 
@@ -590,28 +749,30 @@ function initializeScrollEvents() {
   window.addEventListener(
     'scroll',
     () => {
+      /*
+        Navigation update
+      */
 
       if (!navTicking) {
-
         requestAnimationFrame(
           updateNavigation
         );
 
         navTicking = true;
-
       }
 
 
-      if (!progressTicking) {
+      /*
+        Progress bar update
+      */
 
+      if (!progressTicking) {
         requestAnimationFrame(
           updateScrollProgress
         );
 
         progressTicking = true;
-
       }
-
     },
     {
       passive: true
@@ -621,12 +782,14 @@ function initializeScrollEvents() {
 
 
 /* ======================================================
-   REVEAL ON SCROLL
+   SCROLL REVEALS
 ====================================================== */
 
 function initializeScrollReveals() {
   const revealElements =
-    document.querySelectorAll('.reveal');
+    document.querySelectorAll(
+      '.reveal'
+    );
 
 
   if (!revealElements.length) {
@@ -635,65 +798,85 @@ function initializeScrollReveals() {
 
 
   /*
-    Skip animation if reduced motion is enabled.
+    Accessibility:
+    immediately show everything when
+    reduced motion is enabled.
   */
 
-  if (prefersReducedMotion.matches) {
-
-    revealElements.forEach(element => {
-      element.classList.add('visible');
-    });
+  if (
+    prefersReducedMotion.matches
+  ) {
+    revealElements.forEach(
+      element => {
+        element.classList.add(
+          'visible'
+        );
+      }
+    );
 
     return;
   }
 
 
-  const revealObserver =
+  const observer =
     new IntersectionObserver(
       entries => {
+        entries.forEach(
+          entry => {
+            if (
+              !entry.isIntersecting
+            ) {
+              return;
+            }
 
-        entries.forEach(entry => {
 
-          if (!entry.isIntersecting) {
-            return;
+            entry.target.classList.add(
+              'visible'
+            );
+
+
+            /*
+              Animation only needs to happen once.
+            */
+
+            observer.unobserve(
+              entry.target
+            );
           }
-
-
-          entry.target.classList.add(
-            'visible'
-          );
-
-
-          revealObserver.unobserve(
-            entry.target
-          );
-
-        });
-
+        );
       },
       {
-        rootMargin: '0px 0px -8% 0px',
+        rootMargin:
+          '0px 0px -8% 0px',
+
         threshold: 0.05
       }
     );
 
 
-  revealElements.forEach(element => {
-    revealObserver.observe(element);
-  });
+  revealElements.forEach(
+    element => {
+      observer.observe(
+        element
+      );
+    }
+  );
 
 
   /*
-    Safety fallback.
+    Safety fallback in case a browser
+    delays IntersectionObserver.
   */
 
   window.setTimeout(
     () => {
-
-      revealElements.forEach(element => {
-        element.classList.add('visible');
-      });
-
+      revealElements.forEach(
+        element => {
+          element.classList.add(
+            'visible'
+          );
+        }
+      );
     },
     1800
   );
@@ -701,7 +884,7 @@ function initializeScrollReveals() {
 
 
 /* ======================================================
-   IMPACT COUNTERS
+   IMPACT COUNTER ANIMATION
 ====================================================== */
 
 function animateCounter(
@@ -711,14 +894,18 @@ function animateCounter(
   suffix = '',
   duration = 1400
 ) {
+  /*
+    Reduced motion:
+    immediately display the final value.
+  */
 
-  if (prefersReducedMotion.matches) {
-
+  if (
+    prefersReducedMotion.matches
+  ) {
     element.textContent =
       `${prefix}${target}${suffix}`;
 
     return;
-
   }
 
 
@@ -726,25 +913,29 @@ function animateCounter(
     performance.now();
 
 
-  function updateCounter(currentTime) {
-
+  function updateCounter(
+    currentTime
+  ) {
     const elapsed =
-      currentTime - startTime;
+      currentTime -
+      startTime;
 
 
     const progress =
       Math.min(
-        elapsed / duration,
+        elapsed /
+          duration,
         1
       );
 
 
     /*
-      Ease-out cubic.
+      Smooth ease-out.
     */
 
     const easedProgress =
-      1 - Math.pow(
+      1 -
+      Math.pow(
         1 - progress,
         3
       );
@@ -752,7 +943,8 @@ function animateCounter(
 
     const currentValue =
       Math.round(
-        easedProgress * target
+        easedProgress *
+        target
       );
 
 
@@ -761,13 +953,10 @@ function animateCounter(
 
 
     if (progress < 1) {
-
       requestAnimationFrame(
         updateCounter
       );
-
     }
-
   }
 
 
@@ -776,6 +965,10 @@ function animateCounter(
   );
 }
 
+
+/* ======================================================
+   INITIALIZE IMPACT COUNTERS
+====================================================== */
 
 function initializeImpactCounters() {
   const impactItems =
@@ -789,74 +982,90 @@ function initializeImpactCounters() {
   }
 
 
-  const impactObserver =
+  const observer =
     new IntersectionObserver(
       entries => {
-
-        entries.forEach(entry => {
-
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-
-          entry.target.classList.add(
-            'in-view'
-          );
+        entries.forEach(
+          entry => {
+            if (
+              !entry.isIntersecting
+            ) {
+              return;
+            }
 
 
-          const valueElement =
-            entry.target.querySelector(
-              '.impact-val'
+            /*
+              Activates the gold top line.
+            */
+
+            entry.target.classList.add(
+              'in-view'
             );
 
 
-          if (
-            valueElement &&
-            !valueElement.dataset.animated
-          ) {
-
-            const target =
-              Number.parseInt(
-                valueElement.dataset.target,
-                10
+            const valueElement =
+              entry.target.querySelector(
+                '.impact-val'
               );
 
 
-            if (!Number.isNaN(target)) {
+            /*
+              Prevent duplicate animation.
+            */
 
-              valueElement.dataset.animated =
-                'true';
+            if (
+              valueElement &&
+              !valueElement.dataset
+                .animated
+            ) {
+              const target =
+                Number.parseInt(
+                  valueElement
+                    .dataset
+                    .target,
+                  10
+                );
 
 
-              const prefix =
-                valueElement.dataset.prefix ||
-                '';
+              if (
+                !Number.isNaN(
+                  target
+                )
+              ) {
+                valueElement.dataset
+                  .animated =
+                  'true';
 
 
-              const suffix =
-                valueElement.dataset.suffix ||
-                '';
+                const prefix =
+                  valueElement
+                    .dataset
+                    .prefix ||
+                  '';
 
 
-              animateCounter(
-                valueElement,
-                target,
-                prefix,
-                suffix
-              );
+                const suffix =
+                  valueElement
+                    .dataset
+                    .suffix ||
+                  '';
 
+
+                animateCounter(
+                  valueElement,
+                  target,
+                  prefix,
+                  suffix
+                );
+              }
             }
 
+
+            observer.unobserve(
+              entry.target
+            );
           }
-
-
-          impactObserver.unobserve(
-            entry.target
-          );
-
-        });
-
+        );
       },
       {
         threshold: 0.3
@@ -864,388 +1073,142 @@ function initializeImpactCounters() {
     );
 
 
-  impactItems.forEach(item => {
-    impactObserver.observe(item);
-  });
-}
-
-
-/* ======================================================
-   EXPERIENCE ACCORDIONS
-====================================================== */
-
-function closeAccordion(item) {
-  if (!item) {
-    return;
-  }
-
-
-  const trigger =
-    item.querySelector(
-      '.exp-trigger'
-    );
-
-
-  const bodyElement =
-    item.querySelector(
-      '.exp-body'
-    );
-
-
-  const button =
-    item.querySelector(
-      '.exp-expand-btn'
-    );
-
-
-  item.classList.remove('open');
-
-
-  trigger?.setAttribute(
-    'aria-expanded',
-    'false'
-  );
-
-
-  button?.setAttribute(
-    'aria-expanded',
-    'false'
-  );
-
-
-  if (bodyElement) {
-    bodyElement.style.maxHeight = '';
-  }
-}
-
-
-function openAccordion(item) {
-  if (!item) {
-    return;
-  }
-
-
-  const trigger =
-    item.querySelector(
-      '.exp-trigger'
-    );
-
-
-  const bodyElement =
-    item.querySelector(
-      '.exp-body'
-    );
-
-
-  const button =
-    item.querySelector(
-      '.exp-expand-btn'
-    );
-
-
-  item.classList.add('open');
-
-
-  trigger?.setAttribute(
-    'aria-expanded',
-    'true'
-  );
-
-
-  button?.setAttribute(
-    'aria-expanded',
-    'true'
-  );
-
-
-  if (bodyElement) {
-
-    bodyElement.style.maxHeight =
-      `${bodyElement.scrollHeight}px`;
-
-  }
-}
-
-
-/* ======================================================
-   PUBLIC ACCORDION FUNCTION
-====================================================== */
-
-function toggleExp(trigger) {
-  const selectedItem =
-    trigger.closest(
-      '.exp-item'
-    );
-
-
-  if (!selectedItem) {
-    return;
-  }
-
-
-  const wasOpen =
-    selectedItem.classList.contains(
-      'open'
-    );
-
-
-  /*
-    Close any currently open Experience item.
-  */
-
-  document
-    .querySelectorAll(
-      '.exp-item.open'
-    )
-    .forEach(openItem => {
-
-      closeAccordion(openItem);
-
-    });
-
-
-  /*
-    Open the selected item if it wasn't already open.
-  */
-
-  if (!wasOpen) {
-    openAccordion(selectedItem);
-  }
-}
-
-
-/*
-  Required because the HTML currently uses:
-
-  onclick="toggleExp(this)"
-*/
-
-window.toggleExp = toggleExp;
-
-
-/* ======================================================
-   ACCORDION ACCESSIBILITY
-====================================================== */
-
-function initializeAccordions() {
-  const accordionTriggers =
-    document.querySelectorAll(
-      '.exp-trigger'
-    );
-
-
-  accordionTriggers.forEach(
-    (trigger, index) => {
-
-      const item =
-        trigger.closest(
-          '.exp-item'
-        );
-
-
-      const bodyElement =
-        item?.querySelector(
-          '.exp-body'
-        );
-
-
-      const button =
-        trigger.querySelector(
-          '.exp-expand-btn'
-        );
-
-
-      const bodyId =
-        `experience-panel-${index + 1}`;
-
-
-      /*
-        Make the complete row keyboard accessible.
-      */
-
-      trigger.setAttribute(
-        'tabindex',
-        '0'
+  impactItems.forEach(
+    item => {
+      observer.observe(
+        item
       );
-
-
-      trigger.setAttribute(
-        'role',
-        'button'
-      );
-
-
-      trigger.setAttribute(
-        'aria-expanded',
-        'false'
-      );
-
-
-      trigger.setAttribute(
-        'aria-controls',
-        bodyId
-      );
-
-
-      if (bodyElement) {
-        bodyElement.id = bodyId;
-      }
-
-
-      if (button) {
-
-        button.setAttribute(
-          'aria-hidden',
-          'true'
-        );
-
-      }
-
-
-      /*
-        Keyboard support.
-      */
-
-      trigger.addEventListener(
-        'keydown',
-        event => {
-
-          if (
-            event.key === 'Enter' ||
-            event.key === ' '
-          ) {
-
-            event.preventDefault();
-
-            toggleExp(trigger);
-
-          }
-
-        }
-      );
-
     }
   );
 }
 
 
 /* ======================================================
-   PROJECT SHOWCASE
+   EDITORIAL EXPERIENCE
+====================================================== */
+
+function initializeExperience() {
+  const experienceEntries =
+    document.querySelectorAll(
+      '.experience-entry'
+    );
+
+
+  /*
+    Experience is intentionally static now.
+    Nothing opens or closes.
+  */
+
+  experienceEntries.forEach(
+    entry => {
+      entry.removeAttribute(
+        'aria-expanded'
+      );
+    }
+  );
+}
+
+
+/* ======================================================
+   EDITORIAL PROJECTS
 ====================================================== */
 
 function initializeProjects() {
-  const projectFeatures =
+  const projectEntries =
     document.querySelectorAll(
-      '.project-feature'
+      '.project-entry'
     );
 
 
-  if (!projectFeatures.length) {
-    return;
-  }
+  /*
+    Projects are fully expanded and visible.
+    There is no Explore Project behavior.
+  */
 
-
-  projectFeatures.forEach(
-    (project, index) => {
-
-      /*
-        Projects are always fully visible.
-        No Explore Project interaction is needed.
-      */
-
-      const detail =
-        project.querySelector(
-          '.project-detail'
+  projectEntries.forEach(
+    entry => {
+      const caseStudy =
+        entry.querySelector(
+          '.project-case-study'
         );
 
 
-      if (detail) {
-
-        /*
-          Remove the HTML hidden state.
-          CSS also handles this as a backup.
-        */
-
-        detail.hidden = false;
-
+      if (caseStudy) {
+        caseStudy.hidden = false;
       }
-
-
-      /*
-        Give each project a reveal animation
-        without turning it into another accordion.
-      */
-
-      project.classList.add(
-        'reveal'
-      );
-
-
-      project.style.transitionDelay =
-        `${Math.min(
-          index * 0.06,
-          0.18
-        )}s`;
-
     }
   );
 
 
   /*
-    Hide any leftover Explore Project links
-    from older HTML.
+    Remove any leftover Explore Project
+    buttons from older versions.
   */
 
   document
     .querySelectorAll(
       '.project-explore'
     )
-    .forEach(link => {
+    .forEach(
+      element => {
+        element.remove();
+      }
+    );
 
-      link.remove();
 
-    });
+  /*
+    Remove leftover older hidden
+    project-detail containers if somehow
+    still present in the DOM.
+  */
+
+  document
+    .querySelectorAll(
+      '.project-detail[hidden]'
+    )
+    .forEach(
+      detail => {
+        detail.hidden = false;
+      }
+    );
 }
 
 
 /* ======================================================
-   REMOVE OLD OVERDONE ELEMENTS
+   CLEAN UP OLD ACCORDION MARKUP
 ====================================================== */
 
-function removeLegacyLuxuryElements() {
+function cleanLegacyAccordionState() {
   /*
-    Remove any leftover intro popup.
+    The new HTML should not contain these,
+    but cleaning the old state prevents stale
+    classes from affecting the page if Chrome
+    restores an older DOM state.
   */
 
   document
     .querySelectorAll(
-      '.intro-overlay'
+      '.exp-item.open'
     )
-    .forEach(element => {
-      element.remove();
-    });
+    .forEach(
+      item => {
+        item.classList.remove(
+          'open'
+        );
+      }
+    );
 
-
-  /*
-    Remove any leftover scrolling manifesto.
-  */
 
   document
     .querySelectorAll(
-      '.brand-manifesto'
+      '.exp-body'
     )
-    .forEach(element => {
-      element.remove();
-    });
-
-
-  /*
-    Remove the old body lock.
-  */
-
-  body.classList.remove(
-    'intro-active'
-  );
+    .forEach(
+      bodyElement => {
+        bodyElement.style
+          .maxHeight = '';
+      }
+    );
 }
 
 
@@ -1257,7 +1220,6 @@ function initializeResizeHandling() {
   window.addEventListener(
     'resize',
     () => {
-
       window.clearTimeout(
         resizeTimer
       );
@@ -1266,39 +1228,34 @@ function initializeResizeHandling() {
       resizeTimer =
         window.setTimeout(
           () => {
-
             /*
-              Recalculate open accordion height.
+              Progress height can change when
+              responsive content wraps.
             */
-
-            document
-              .querySelectorAll(
-                '.exp-item.open'
-              )
-              .forEach(item => {
-
-                const bodyElement =
-                  item.querySelector(
-                    '.exp-body'
-                  );
-
-
-                if (bodyElement) {
-
-                  bodyElement.style.maxHeight =
-                    `${bodyElement.scrollHeight}px`;
-
-                }
-
-              });
-
 
             updateScrollProgress();
 
+
+            /*
+              Reset hero spotlight to a sensible
+              position after viewport changes.
+            */
+
+            if (hero) {
+              hero.style.setProperty(
+                '--spotlight-x',
+                '70%'
+              );
+
+
+              hero.style.setProperty(
+                '--spotlight-y',
+                '35%'
+              );
+            }
           },
           120
         );
-
     },
     {
       passive: true
@@ -1308,14 +1265,13 @@ function initializeResizeHandling() {
 
 
 /* ======================================================
-   REDUCED MOTION CHANGES
+   REDUCED MOTION HANDLING
 ====================================================== */
 
 function initializeReducedMotionHandling() {
   prefersReducedMotion.addEventListener(
     'change',
     event => {
-
       if (!event.matches) {
         return;
       }
@@ -1340,59 +1296,135 @@ function initializeReducedMotionHandling() {
 
 
       /*
-        Reveal all content immediately.
+        Ensure all reveal content is shown.
       */
 
       document
         .querySelectorAll(
           '.reveal'
         )
-        .forEach(element => {
-
-          element.classList.add(
-            'visible'
-          );
-
-        });
+        .forEach(
+          element => {
+            element.classList.add(
+              'visible'
+            );
+          }
+        );
 
 
       /*
-        Ensure hero is visible.
+        Ensure hero is fully visible.
       */
 
       body.classList.add(
         'page-ready'
       );
 
+
+      /*
+        Immediately finish all counters.
+      */
+
+      document
+        .querySelectorAll(
+          '.impact-val[data-target]'
+        )
+        .forEach(
+          element => {
+            const target =
+              element.dataset.target;
+
+            const prefix =
+              element.dataset.prefix ||
+              '';
+
+            const suffix =
+              element.dataset.suffix ||
+              '';
+
+
+            element.textContent =
+              `${prefix}${target}${suffix}`;
+          }
+        );
     }
   );
 }
 
 
 /* ======================================================
-   INITIALIZE EVERYTHING
+   CLEAN OLD EXPERIMENTAL ELEMENTS
+====================================================== */
+
+function removeLegacyElements() {
+  /*
+    Remove cinematic intro if leftover
+    from an older version.
+  */
+
+  document
+    .querySelectorAll(
+      '.intro-overlay'
+    )
+    .forEach(
+      element => {
+        element.remove();
+      }
+    );
+
+
+  /*
+    Remove scrolling manifesto if leftover.
+  */
+
+  document
+    .querySelectorAll(
+      '.brand-manifesto'
+    )
+    .forEach(
+      element => {
+        element.remove();
+      }
+    );
+
+
+  /*
+    Remove old body lock.
+  */
+
+  body.classList.remove(
+    'intro-active'
+  );
+}
+
+
+/* ======================================================
+   INITIALIZE PORTFOLIO
 ====================================================== */
 
 function initializePortfolio() {
   /*
-    Remove effects from the previous luxury experiment.
+    Cleanup first.
   */
 
-  removeLegacyLuxuryElements();
+  removeLegacyElements();
+
+  cleanLegacyAccordionState();
 
 
   /*
-    Initialize the actual page.
+    Hero.
   */
 
   initializePage();
 
+  initializeHeroSpotlight();
+
 
   /*
-    Pointer-follow effects.
+    Custom cursor.
   */
 
-  initializeHeroSpotlight();
   createCustomCursor();
 
 
@@ -1401,25 +1433,31 @@ function initializePortfolio() {
   */
 
   initializeActiveNavigation();
+
   initializeSmoothNavigation();
+
   initializeScrollEvents();
 
 
   /*
-    Content interaction.
+    Main page content.
   */
 
+  initializeExperience();
+
   initializeProjects();
-  initializeAccordions();
+
   initializeImpactCounters();
+
   initializeScrollReveals();
 
 
   /*
-    Browser / accessibility handling.
+    Browser behavior.
   */
 
   initializeResizeHandling();
+
   initializeReducedMotionHandling();
 
 
@@ -1428,6 +1466,7 @@ function initializePortfolio() {
   */
 
   updateNavigation();
+
   updateScrollProgress();
 }
 
@@ -1437,76 +1476,80 @@ function initializePortfolio() {
 ====================================================== */
 
 if (
-  document.readyState === 'loading'
+  document.readyState ===
+  'loading'
 ) {
-
   document.addEventListener(
     'DOMContentLoaded',
     initializePortfolio
   );
-
 } else {
-
   initializePortfolio();
-
 }
 
 
 /* ======================================================
-   FINAL LOAD RECALCULATION
+   FINAL LOAD CHECK
 ====================================================== */
 
 window.addEventListener(
   'load',
   () => {
-
     /*
-      Recalculate after fonts and other resources load.
+      Recalculate after Google Fonts and
+      other resources have loaded.
     */
 
     updateNavigation();
+
     updateScrollProgress();
 
 
     /*
-      Ensure all project details remain visible.
+      Make sure projects remain visible.
     */
 
     document
       .querySelectorAll(
-        '.project-detail'
+        '.project-case-study'
       )
-      .forEach(detail => {
-
-        detail.hidden = false;
-
-      });
+      .forEach(
+        caseStudy => {
+          caseStudy.hidden = false;
+        }
+      );
 
 
     /*
-      Fix accordion measurements after fonts load.
+      Last reveal fallback.
     */
 
     document
       .querySelectorAll(
-        '.exp-item.open'
+        '.reveal'
       )
-      .forEach(item => {
+      .forEach(
+        element => {
+          /*
+            IntersectionObserver handles the
+            normal animation. This only fixes
+            content that somehow remained hidden.
+          */
 
-        const bodyElement =
-          item.querySelector(
-            '.exp-body'
-          );
+          const rect =
+            element.getBoundingClientRect();
 
 
-        if (bodyElement) {
-
-          bodyElement.style.maxHeight =
-            `${bodyElement.scrollHeight}px`;
-
+          if (
+            rect.top <
+            window.innerHeight *
+              1.15
+          ) {
+            element.classList.add(
+              'visible'
+            );
+          }
         }
-
-      });
-
+      );
   }
 );
