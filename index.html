@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hanzalah Khiyani Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- External JavaScript -->
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+  <!-- GRAIN + ORBS -->
+  <div id="grain"></div>
+  <div id="progress"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+
+  <!-- NAV -->
+  <nav id="nav">
+
+    <div
+      class="nav-logo"
+      onclick="scrollTo({top:0,behavior:'smooth'})"
+    >
+      HK
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+  <section id="hero">
+
+    <div class="hero-left">
+
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line"></span>
+        MIS &amp; Finance — Bauer College of Business
+      </div>
+
+      <div class="hero-name">
+        <span class="hero-name-first">Hanzalah</span>
+        <span class="hero-name-last">Khiyani</span>
+      </div>
+
+      <p class="hero-tagline">
+        Turning data into better business decisions through analytics, technology, and strategy.
+      </p>
+
+      <p class="hero-focus">
+        Analytics · Consulting · Strategy · Operations
+      </p>
+
+      <div class="hero-cta">
+
+        <a href="#experience" class="btn-gold">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+
+          View Experience
+        </a>
+
+        <a href="#contact" class="btn-outline">
+          Get in Touch
+        </a>
+
+      </div>
+
+      <div class="hero-tags">
+        <span class="hero-tag">Bauer College · UH</span>
+        <span class="hero-tag">GPA 3.55</span>
+        <span class="hero-tag">SQL Certified</span>
+        <span class="hero-tag open">Full-Time · Summer 2027</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+
+    <div class="sec-label">
+      <span class="sec-label-line"></span>
+      About
+    </div>
+
+    <h2>
+      Data, strategy,<br>
+      <em>and structured thinking.</em>
+    </h2>
+
+    <div class="about-grid reveal">
+
+      <div class="about-text">
+
+        <p>
+          I'm an MIS and Finance student at the C.T. Bauer College of Business interested in the intersection of data, technology, and business strategy. I enjoy breaking down complex problems, finding the information that actually matters, and turning analysis into practical decisions.
+        </p>
+
+        <p>
+          My experience has taken me across technology, analytics, consulting, operations, and venture analysis. Through work with organizations including UT MD Anderson, NY Racing, HP Tech Ventures, and the SURE Program, I've supported enterprise technology, analyzed sponsorship performance, evaluated early-stage companies, and worked directly with entrepreneurs on real business challenges.
+        </p>
+
+        <p>
+          Those experiences have helped me build a foundation in SQL, Excel, data analysis, business analysis, and structured problem-solving. I'm now working toward full-time opportunities beginning Summer 2027 where I can combine those skills to solve complex business and technology problems.
+        </p>
+
+      </div>
+
+
+      <div class="stat-grid">
+
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-num">3.55</div>
+          <div class="stat-lbl">GPA — Bauer College</div>
+        </div>
+
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-num">98%</div>
+          <div class="stat-lbl">Client Satisfaction</div>
+        </div>
+
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-num">$15K+</div>
+          <div class="stat-lbl">Monthly Revenue Generated</div>
+        </div>
+
+        <div class="stat-card reveal reveal-delay-4">
+          <div class="stat-num">200+</div>
+          <div class="stat-lbl">Families Served Weekly</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- SELECTED IMPACT -->
+  <section id="impact">
+
+    <div class="impact-inner">
+
+      <div class="impact-header reveal">
+
+        <div class="sec-label">
+          <span class="sec-label-line"></span>
+          Selected Impact
+        </div>
+
+        <h2>
+          Key <em>results</em> at a glance.
+        </h2>
+
+      </div>
+
+
+      <div class="impact-grid">
+
+        <div class="impact-item reveal reveal-delay-1">
+
+          <div
+            class="impact-val"
+            data-target="15"
+            data-prefix="$"
+            data-suffix="K+"
+          >
+            $0
+          </div>
+
+          <div class="impact-desc">
+            Monthly Revenue Generated
+          </div>
+
+          <div class="impact-context">
+            Nordstrom — Luxury Accessories
+          </div>
+
+        </div>
+
+
+        <div class="impact-item reveal reveal-delay-2">
+
+          <div
+            class="impact-val"
+            data-target="200"
+            data-suffix="+"
+          >
+            0
+          </div>
+
+          <div class="impact-desc">
+            Families Served Weekly
+          </div>
+
+          <div class="impact-context">
+            Al-Noor Society of Greater Houston
+          </div>
+
+        </div>
+
+
+        <div class="impact-item reveal reveal-delay-3">
+
+          <div
+            class="impact-val"
+            data-target="5"
+            data-suffix="+"
+          >
+            0
+          </div>
+
+          <div class="impact-desc">
+            Startups Evaluated
+          </div>
+
+          <div class="impact-context">
+            HP Tech Ventures
+          </div>
+
+        </div>
+
+
+        <div class="impact-item reveal reveal-delay-4">
+
+          <div
+            class="impact-val"
+            data-target="25"
+            data-prefix="~"
+            data-suffix="%"
+          >
+            ~0%
+          </div>
+
+          <div class="impact-desc">
+            Participation Growth
+          </div>
+
+          <div class="impact-context">
+            Al-Noor Society of Greater Houston
+          </div>
+
+        </div>
+
+
+        <div
+          class="impact-item reveal"
+          style="transition-delay:.5s"
+        >
+
+          <div
+            class="impact-val"
+            data-target="98"
+            data-suffix="%"
+          >
+            0%
+          </div>
+
+          <div class="impact-desc">
+            Client Satisfaction
+          </div>
+
+          <div class="impact-context">
+            Deco Art Event Planners
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- EXPERIENCE -->
+  <section
+    class="section section-alt"
+    id="experience"
+    style="max-width:none;padding-left:0;padding-right:0"
+  >
+
+    <div style="max-width:1200px;margin:0 auto;padding:96px 64px">
+
+      <div class="sec-label">
+        <span class="sec-label-line"></span>
+        Experience
+      </div>
+
+      <h2>
+        Where I've <em>worked.</em>
+      </h2>
+
+      <p class="sec-sub">
+        Experience across technology, consulting, analytics, operations, and client-facing roles.
+      </p>
+
+
+      <div class="exp-list reveal">
+
+
+        <!-- MD ANDERSON -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-blue">
+              UT MD
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Student Extern - Enterprise Dev &amp; Integration
+              </div>
+
+              <div class="exp-meta-line">
+                <span>UT MD Anderson</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Externship</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Aug 2026 — Present</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Supporting enterprise applications and QA work across development, integration, troubleshooting, and technical operations.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Assisted with application support, system analysis, troubleshooting, and technical operations across enterprise environments
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Supported quality assurance, technical documentation, and system maintenance activities to improve application reliability and performance
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Collaborated with enterprise development and integration teams on troubleshooting, system improvements, and cross-platform integration initiatives
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Quality Assurance</span>
+                <span class="exp-tag">System Analysis</span>
+                <span class="exp-tag">Technical Support</span>
+                <span class="exp-tag">Troubleshooting</span>
+                <span class="exp-tag">Healthcare IT</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SURE PROGRAM -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-blue">
+              SURE
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Student Consultant
+              </div>
+
+              <div class="exp-meta-line">
+                <span>SURE Program at University of Houston</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Consulting Program</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Aug 2026 — Present</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Working directly with entrepreneurs to turn business challenges into practical recommendations across strategy, operations, and market positioning.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Led weekly client meetings to assess business needs, identify operational gaps, and develop actionable recommendations
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Conducted competitive and financial analysis to evaluate business plan feasibility, strengthen strategic positioning, and improve pitch-day readiness
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Collaborated with SCORE mentors and senior consultants to refine client deliverables, business strategies, and presentation materials
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Consulting</span>
+                <span class="exp-tag">Business Analysis</span>
+                <span class="exp-tag">Market Research</span>
+                <span class="exp-tag">Strategic Analysis</span>
+                <span class="exp-tag">Client Communication</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- AMSYS -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-blue">
+              AMSYS
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Information Technology Intern
+              </div>
+
+              <div class="exp-meta-line">
+                <span>AMSYS Innovative Solutions</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Internship</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Jun 2026 — Jul 2026</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Supported enterprise IT infrastructure, systems administration, troubleshooting, and day-to-day technology operations.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Assisted with IT infrastructure, network administration, and system support activities across enterprise environments
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Supported troubleshooting and technical support efforts to improve system performance and end-user experience
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Collaborated with technical teams on technology deployment, security practices, and operational improvement initiatives
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Network Administration</span>
+                <span class="exp-tag">System Administration</span>
+                <span class="exp-tag">Cybersecurity</span>
+                <span class="exp-tag">IT Infrastructure</span>
+                <span class="exp-tag">Technical Support</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- IMH -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-teal">
+              Extern
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Institute of Mental Health - Healthcare Operations Analyst
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Extern</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Externship Program</span>
+                <span class="exp-meta-sep">·</span>
+                <span>May 2026 — June 2026</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Analyzed healthcare workflows to identify gaps in care coordination and opportunities to improve operational efficiency.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Analyzed case management workflows across inpatient, emergency, and discharge stages to identify gaps in care continuity
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Applied process mapping and operational analysis frameworks to surface inefficiencies across multidisciplinary teams
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Developed a data-driven dashboard to quantify coordination impact and deliver 5+ recommendations for optimization
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Process Mapping</span>
+                <span class="exp-tag">Operational Analysis</span>
+                <span class="exp-tag">Data Analysis</span>
+                <span class="exp-tag">Data Visualization</span>
+                <span class="exp-tag">Healthcare Management</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- NASCAR -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-orange">
+              Extern
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                NASCAR NY Racing - Data Analyst Extern
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Extern</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Externship Program</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Mar 2026 — May 2026</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Used multi-source racing and media data to evaluate sponsorship visibility and identify stronger positioning opportunities.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Built a dataset combining race results, social media, YouTube, and media coverage to analyze visibility across the 2024 Cup Series
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Created a weighted scoring model to compare sponsor exposure across races and identify high-performing placements
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Delivered 5+ recommendations on sponsorship positioning based on data trends across events
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Data Analysis</span>
+                <span class="exp-tag">Data Visualization</span>
+                <span class="exp-tag">Data Modeling</span>
+                <span class="exp-tag">Microsoft Excel</span>
+                <span class="exp-tag">Strategic Analysis</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DELOITTE -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-blue">
+              DD
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Salesforce Consulting Trainee
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Deloitte Digital</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Consulting Program</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Mar 2026 — Apr 2026</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Built experience with Salesforce, CRM implementation, and consulting-style business process analysis.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Completed hands-on training in Salesforce CRM including Trailhead modules and implementation workflows
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Analyzed business processes to identify inefficiencies and map CRM-based improvements
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Evaluated business workflows in team-based case exercises to identify process improvement opportunities
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Salesforce CRM</span>
+                <span class="exp-tag">Business Analysis</span>
+                <span class="exp-tag">Process Improvement</span>
+                <span class="exp-tag">CRM</span>
+                <span class="exp-tag">Consulting</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- HP TECH VENTURES -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-green">
+              Extern
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                HP Tech Ventures - Venture Capital Analyst
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Extern</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Externship Program</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Jan 2026 — Mar 2026</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Evaluated early-stage technology companies to assess market opportunity, product potential, competitive positioning, and strategic fit.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Evaluated 5+ early-stage startups using structured frameworks across market size, product, and strategic fit
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Conducted market research on hardware and GPU-related technologies including cooling systems
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Delivered an investment recommendation supported by market, product, and competitive analysis
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Strategic Analysis</span>
+                <span class="exp-tag">Market Research</span>
+                <span class="exp-tag">Financial Analysis</span>
+                <span class="exp-tag">Due Diligence</span>
+                <span class="exp-tag">Investment Analysis</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- VETERAN MEMORIAL HOSPICE -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-purple">
+              VMH
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Operations Manager - Healthcare Services
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Veteran Memorial Hospice</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Full-Time</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Oct 2025 — Jan 2026</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Managed administrative, scheduling, and compliance operations in a regulated healthcare environment.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Managed scheduling and operations across clinical teams to maintain service coverage and compliance
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Redesigned staffing and coordination processes, improving scheduling efficiency and coverage reliability
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Maintained audit documentation and ensured compliance with healthcare regulations
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Process Improvement</span>
+                <span class="exp-tag">Healthcare Management</span>
+                <span class="exp-tag">Operations Management</span>
+                <span class="exp-tag">Compliance</span>
+                <span class="exp-tag">Scheduling</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PREMIUM AUTO GROUP -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-gold">
+              PAG
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Business Analyst Intern
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Premium Auto Group</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Internship</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Jul 2025 — Oct 2025</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Used dealership data and reporting to identify performance trends, improve visibility, and support operational decisions.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Analyzed sales, service, and CRM/DMS data to identify performance trends and operational gaps
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Built dashboards that reduced manual reporting time and improved visibility for management
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Recommended process improvements across sales and service workflows to increase deal speed
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Data Analysis</span>
+                <span class="exp-tag">Business Analysis</span>
+                <span class="exp-tag">Data Visualization</span>
+                <span class="exp-tag">CRM/DMS</span>
+                <span class="exp-tag">Process Improvement</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- NORDSTROM -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-pink">
+              NRD
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Client Advisor - Luxury Accessories
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Nordstrom</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Full-Time</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Apr 2025 — Jul 2025</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Combined consultative selling and customer insights to generate revenue and build stronger client relationships.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Generated $15K+ monthly revenue through personalized product recommendations
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Used customer purchase data to improve repeat sales and client retention
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Coordinated with team members to maintain inventory accuracy and product availability
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">CRM</span>
+                <span class="exp-tag">Sales</span>
+                <span class="exp-tag">Customer Experience</span>
+                <span class="exp-tag">Upselling</span>
+                <span class="exp-tag">Communication</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- MACY'S -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-red">
+              Macy's
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Sales Associate - Fragrance Division
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Macy's</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Full-Time</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Oct 2024 — Jan 2025</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Helped customers identify products that matched their preferences in a fast-moving, high-volume retail environment.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Assisted customers in a high-volume retail environment, driving product sales and satisfaction
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Matched products to customer preferences to improve conversion rates
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Sales</span>
+                <span class="exp-tag">Communication</span>
+                <span class="exp-tag">Customer Service</span>
+                <span class="exp-tag">Retail Operations</span>
+                <span class="exp-tag">Product Knowledge</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- AL-NOOR -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-slate">
+              ANS
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Program Manager &amp; Administrative Coordinator
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Al-Noor Society of Greater Houston</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Jun 2022 — Oct 2024</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Managed community programs, scheduling, logistics, and administrative operations serving 200+ families each week.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Managed weekly programming serving 200+ families, including scheduling and logistics
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Increased participation by ~25% through improved outreach and program organization
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Streamlined administrative processes to improve consistency in program delivery
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Operations</span>
+                <span class="exp-tag">Program Management</span>
+                <span class="exp-tag">Stakeholder Management</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DECO ART -->
+        <div class="exp-item">
+
+          <div class="exp-trigger" onclick="toggleExp(this)">
+
+            <div class="exp-badge badge-lime">
+              DAE
+            </div>
+
+            <div class="exp-meta-row">
+
+              <div class="exp-role-title">
+                Operations &amp; Account Manager
+              </div>
+
+              <div class="exp-meta-line">
+                <span>Deco Art Event Planners</span>
+                <span class="exp-meta-sep">·</span>
+                <span>Jun 2021 — Jun 2022</span>
+              </div>
+
+            </div>
+
+            <div class="exp-expand-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+
+          </div>
+
+
+          <div class="exp-body">
+
+            <div class="exp-body-inner">
+
+              <div class="exp-desc">
+                Managed client accounts and event operations while coordinating vendors, billing, logistics, and changing client needs.
+              </div>
+
+              <ul class="exp-bullets">
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Managed 15–20 client accounts monthly, maintaining a 98% satisfaction rate
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Reduced billing errors by implementing weekly invoice review processes
+                </li>
+
+                <li class="exp-bullet">
+                  <span class="exp-bullet-arrow">→</span>
+                  Coordinated event logistics across vendors and internal teams
+                </li>
+
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Account Management</span>
+                <span class="exp-tag">Client Relations</span>
+                <span class="exp-tag">Operations</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+
+    <div class="sec-label">
+      <span class="sec-label-line"></span>
+      Analytics &amp; Consulting Projects
+    </div>
+
+    <h2>
+      Selected <em>work.</em>
+    </h2>
+
+    <p class="sec-sub">
+      Projects where I used data, financial analysis, process design, and structured problem-solving to answer real business questions.
+    </p>
+
+
+    <div class="exp-list reveal">
+
+
+      <!-- PROJECT 01 -->
+      <div class="exp-item">
+
+        <div class="exp-trigger" onclick="toggleExp(this)">
+
+          <div
+            class="exp-badge badge-gold"
+            style="font-size:11px;font-weight:800"
+          >
+            01
+          </div>
+
+          <div class="exp-meta-row">
+
+            <div class="exp-role-title">
+              MG Horse Habitat — Relational Database &amp; SQL Analytics
+            </div>
+
+            <div class="exp-meta-line">
+              <span>Data Architecture</span>
+              <span class="exp-meta-sep">·</span>
+              <span>SQL · Oracle · DBeaver</span>
+            </div>
+
+          </div>
+
+          <div class="exp-expand-btn">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+
+        </div>
+
+
+        <div class="exp-body">
+
+          <div class="exp-body-inner">
+
+            <div class="exp-desc">
+              Designed a relational database to organize stable operations and make performance data easier to query and analyze.
+            </div>
+
+            <ul class="exp-bullets">
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Problem →</span>
+                Organize data across 160+ horses, 55 customers, and 15 races in a structured system that supported reliable analysis.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Action →</span>
+                Designed a normalized relational database and used SQL joins, aggregations, and subqueries in Oracle and DBeaver to analyze the data.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Result →</span>
+                Created a repeatable database structure that reduced reliance on manual reporting and made ongoing performance analysis easier.
+              </li>
+
+            </ul>
+
+            <div class="exp-tags">
+              <span class="exp-tag">SQL</span>
+              <span class="exp-tag">Data Modeling</span>
+              <span class="exp-tag">Relational Databases</span>
+              <span class="exp-tag">Oracle</span>
+              <span class="exp-tag">DBeaver</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT 02 -->
+      <div class="exp-item">
+
+        <div class="exp-trigger" onclick="toggleExp(this)">
+
+          <div
+            class="exp-badge badge-blue"
+            style="font-size:11px;font-weight:800"
+          >
+            02
+          </div>
+
+          <div class="exp-meta-row">
+
+            <div class="exp-role-title">
+              Financial Data Analysis — Home Depot vs. Lowe's
+            </div>
+
+            <div class="exp-meta-line">
+              <span>Financial Modeling</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Excel · Ratio Analysis · Competitive Analysis</span>
+            </div>
+
+          </div>
+
+          <div class="exp-expand-btn">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+
+        </div>
+
+
+        <div class="exp-body">
+
+          <div class="exp-body-inner">
+
+            <div class="exp-desc">
+              Compared five years of financial performance to determine which retailer demonstrated stronger financial and competitive positioning.
+            </div>
+
+            <ul class="exp-bullets">
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Problem →</span>
+                Determine which company demonstrated stronger financial performance and competitive positioning over a five-year period.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Action →</span>
+                Analyzed five years of financial statements in Excel using profitability, liquidity, and efficiency ratios.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Result →</span>
+                Identified Home Depot's stronger financial positioning and developed an evidence-based investment recommendation.
+              </li>
+
+            </ul>
+
+            <div class="exp-tags">
+              <span class="exp-tag">Excel</span>
+              <span class="exp-tag">Financial Analysis</span>
+              <span class="exp-tag">Competitive Analysis</span>
+              <span class="exp-tag">Financial Modeling</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT 03 -->
+      <div class="exp-item">
+
+        <div class="exp-trigger" onclick="toggleExp(this)">
+
+          <div
+            class="exp-badge badge-teal"
+            style="font-size:11px;font-weight:800"
+          >
+            03
+          </div>
+
+          <div class="exp-meta-row">
+
+            <div class="exp-role-title">
+              Technical Hiring Optimization — Activera Consulting
+            </div>
+
+            <div class="exp-meta-line">
+              <span>Process Design</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Consulting · Framework Development</span>
+            </div>
+
+          </div>
+
+          <div class="exp-expand-btn">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+
+        </div>
+
+
+        <div class="exp-body">
+
+          <div class="exp-body-inner">
+
+            <div class="exp-desc">
+              Developed a more consistent way to evaluate technical candidates and reduce hiring decisions based on unclear fit criteria.
+            </div>
+
+            <ul class="exp-bullets">
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Problem →</span>
+                The hiring process lacked a repeatable way to evaluate candidates against role-specific requirements.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Action →</span>
+                Identified gaps in the existing process and designed a structured evaluation framework around technical and role-specific criteria.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Result →</span>
+                Produced a deployment-ready framework designed to improve consistency and support better hiring decisions.
+              </li>
+
+            </ul>
+
+            <div class="exp-tags">
+              <span class="exp-tag">Process Design</span>
+              <span class="exp-tag">Consulting</span>
+              <span class="exp-tag">Framework Development</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT 04 -->
+      <div class="exp-item">
+
+        <div class="exp-trigger" onclick="toggleExp(this)">
+
+          <div
+            class="exp-badge badge-purple"
+            style="font-size:11px;font-weight:800"
+          >
+            04
+          </div>
+
+          <div class="exp-meta-row">
+
+            <div class="exp-role-title">
+              Consultative Selling — B2B Advisory Exercise
+            </div>
+
+            <div class="exp-meta-line">
+              <span>Business Development</span>
+              <span class="exp-meta-sep">·</span>
+              <span>Strategy · Client Presentation</span>
+            </div>
+
+          </div>
+
+          <div class="exp-expand-btn">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+
+        </div>
+
+
+        <div class="exp-body">
+
+          <div class="exp-body-inner">
+
+            <div class="exp-desc">
+              Built a B2B recommendation around the client's business needs rather than relying only on product features.
+            </div>
+
+            <ul class="exp-bullets">
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Problem →</span>
+                Understand the client's priorities and determine which solution best addressed the business problem.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Action →</span>
+                Conducted discovery, analyzed the competitive landscape, and developed a tailored value proposition and client presentation.
+              </li>
+
+              <li class="exp-bullet">
+                <span class="exp-bullet-arrow">Result →</span>
+                Delivered a client-ready recommendation aligned with the needs identified during discovery.
+              </li>
+
+            </ul>
+
+            <div class="exp-tags">
+              <span class="exp-tag">Business Development</span>
+              <span class="exp-tag">Strategy</span>
+              <span class="exp-tag">Client Communication</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- APPROACH -->
+  <section class="section" id="approach">
+
+    <div class="sec-label">
+      <span class="sec-label-line"></span>
+      My Approach
+    </div>
+
+    <h2>
+      How I think through <em>problems.</em>
+    </h2>
+
+    <p class="sec-sub">
+      I try to keep problem-solving simple: understand the question, find the right information, identify what matters, and turn it into a clear next step.
+    </p>
+
+
+    <div class="approach-steps">
+
+      <div class="approach-step reveal reveal-delay-1">
+
+        <div class="approach-step-num">
+          01
+        </div>
+
+        <div class="approach-step-title">
+          <span>Structure</span>
+        </div>
+
+        <div class="approach-step-text">
+          Start by figuring out what actually needs to be solved and breaking the problem into manageable pieces.
+        </div>
+
+      </div>
+
+
+      <div class="approach-step reveal reveal-delay-2">
+
+        <div class="approach-step-num">
+          02
+        </div>
+
+        <div class="approach-step-title">
+          <span>Data</span>
+        </div>
+
+        <div class="approach-step-text">
+          Find the right information, check the assumptions behind it, and make sure the analysis is built on something reliable.
+        </div>
+
+      </div>
+
+
+      <div class="approach-step reveal reveal-delay-3">
+
+        <div class="approach-step-num">
+          03
+        </div>
+
+        <div class="approach-step-title">
+          <span>Insight</span>
+        </div>
+
+        <div class="approach-step-text">
+          Look beyond the numbers to identify patterns that actually matter to the business and the decision being made.
+        </div>
+
+      </div>
+
+
+      <div class="approach-step reveal reveal-delay-4">
+
+        <div class="approach-step-num">
+          04
+        </div>
+
+        <div class="approach-step-title">
+          <span>Recommend</span>
+        </div>
+
+        <div class="approach-step-text">
+          Turn the analysis into a clear recommendation that explains what should happen next and why.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- SKILLS -->
+  <section
+    class="section section-alt"
+    id="skills"
+    style="max-width:none;padding-left:0;padding-right:0"
+  >
+
+    <div style="max-width:1200px;margin:0 auto;padding:96px 64px">
+
+      <div class="sec-label">
+        <span class="sec-label-line"></span>
+        Skills
+      </div>
+
+      <h2>
+        What I <em>work with.</em>
+      </h2>
+
+      <p class="sec-sub">
+        A mix of technical, analytical, and business skills I've developed through coursework and hands-on experience.
+      </p>
+
+
+      <div class="core-bar reveal">
+
+        <span class="core-bar-label">
+          Core Tools
+        </span>
+
+        <span class="core-bar-sep"></span>
+
+        <span class="core-bar-val">
+          SQL (Oracle, DBeaver)
+          &nbsp;·&nbsp;
+          Excel Financial Modeling
+          &nbsp;·&nbsp;
+          Salesforce CRM
+          &nbsp;·&nbsp;
+          Dashboard Design
+        </span>
+
+      </div>
+
+
+      <div class="skills-grid reveal">
+
+        <div class="skill-group">
+
+          <div class="skill-group-title">
+            Data &amp; Analytics
+          </div>
+
+          <div class="skill-item">SQL &amp; Database Querying</div>
+          <div class="skill-item">Excel &amp; Financial Modeling</div>
+          <div class="skill-item">Data Modeling</div>
+          <div class="skill-item">Business Intelligence</div>
+          <div class="skill-item">Quantitative Analysis</div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+          <div class="skill-group-title">
+            Technical Tools
+          </div>
+
+          <div class="skill-item">Oracle &amp; DBeaver</div>
+          <div class="skill-item">Salesforce CRM</div>
+          <div class="skill-item">Dashboard Design</div>
+          <div class="skill-item">CRM/DMS Systems</div>
+          <div class="skill-item">Data Visualization</div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+          <div class="skill-group-title">
+            Business &amp; Strategy
+          </div>
+
+          <div class="skill-item">Business Analysis</div>
+          <div class="skill-item">Process Improvement</div>
+          <div class="skill-item">Strategic Analysis</div>
+          <div class="skill-item">Market Research</div>
+          <div class="skill-item">Investment Analysis</div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+          <div class="skill-group-title">
+            Core Strengths
+          </div>
+
+          <div class="skill-item">Structured Problem-Solving</div>
+          <div class="skill-item">Client Communication</div>
+          <div class="skill-item">Stakeholder Management</div>
+          <div class="skill-item">Cross-Functional Collaboration</div>
+          <div class="skill-item">Adaptability</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+
+    <div class="sec-label">
+      <span class="sec-label-line"></span>
+      Education &amp; Certifications
+    </div>
+
+    <h2>
+      Academic <em>background.</em>
+    </h2>
+
+
+    <div class="edu-grid reveal">
+
+      <div class="edu-card">
+
+        <div class="edu-degree">
+          BBA, Management Information Systems
+        </div>
+
+        <div class="edu-school">
+          University of Houston — C.T. Bauer College of Business
+        </div>
+
+        <div class="edu-detail">
+          Aug 2023 – May 2027
+          &nbsp;·&nbsp;
+          Houston, TX
+          &nbsp;·&nbsp;
+          Minor: Finance
+        </div>
+
+        <span class="gpa-badge">
+          GPA 3.55 / 4.00
+        </span>
+
+
+        <div class="coursework-label">
+          Relevant Coursework
+        </div>
+
+        <div class="edu-tags">
+
+          <span class="edu-tag">
+            Data Management (SQL)
+          </span>
+
+          <span class="edu-tag">
+            Business Analytics
+          </span>
+
+          <span class="edu-tag">
+            Systems Analysis
+          </span>
+
+          <span class="edu-tag">
+            Data Visualization
+          </span>
+
+          <span class="edu-tag">
+            Corporate Finance
+          </span>
+
+        </div>
+
+
+        <div class="edu-sub">
+
+          <div
+            class="edu-degree"
+            style="font-size:17px"
+          >
+            High School Diploma
+          </div>
+
+          <div class="edu-school">
+            Michael E. DeBakey High School for Health Professions
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="cert-card">
+
+        <div class="cert-label">
+          Certifications
+        </div>
+
+        <div class="cert-name">
+          SQL Certificate of Competency
+        </div>
+
+        <div class="cert-issuer">
+          LearnSQL.com
+        </div>
+
+        <div class="cert-date">
+          Issued December 2025
+        </div>
+
+
+        <a
+          href="https://learnsql.com/files/course-certificate/qrlEBCIssfXIEOsGZKOFKlCTxmkrlhgVtKCTivVk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cert-link"
+        >
+
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+
+          Show Credential
+
+        </a>
+
+
+        <div
+          style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border)"
+        >
+
+          <div class="cert-label">
+            Education Focus
+          </div>
+
+          <p
+            style="font-size:13px;color:var(--mid);line-height:1.8"
+          >
+            Combining Management Information Systems with Finance to build both the technical and business foundation needed to analyze problems, understand their financial impact, and communicate practical recommendations.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="gold-rule"></div>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="contact-inner">
+
+      <div class="reveal">
+
+        <div class="sec-label">
+          <span class="sec-label-line"></span>
+          Contact
+        </div>
+
+        <div class="contact-heading">
+          Let's work<br>
+          <em>together.</em>
+        </div>
+
+        <p class="contact-sub">
+          I'm seeking full-time opportunities starting Summer 2027 in consulting, data analytics, strategy, and technology. If my background aligns with what your team is building or solving, I'd be glad to connect.
+        </p>
+
+        <div class="contact-avail">
+          Seeking Full-Time Roles — Summer 2027
+        </div>
+
+
+        <div class="contact-meta">
+
+          <span class="contact-meta-item">
+            Houston, TX
+          </span>
+
+          <span class="contact-meta-item">
+            University of Houston
+          </span>
+
+          <span class="contact-meta-item">
+            May 2027 Graduate
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="contact-links reveal reveal-delay-2">
+
+        <a
+          class="contact-link"
+          href="mailto:khiyani.hanzalah@gmail.com"
+        >
+
+          <span class="contact-link-label">
+            Email
+          </span>
+
+          <span class="contact-link-val">
+            khiyani.hanzalah@gmail.com
+          </span>
+
+        </a>
+
+
+        <a
+          class="contact-link"
+          href="https://www.linkedin.com/in/hanzalah-khiyani/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="contact-link-label">
+            LinkedIn
+          </span>
+
+          <span class="contact-link-val">
+            linkedin.com/in/hanzalah-khiyani
+          </span>
+
+        </a>
+
+
+        <a
+          class="contact-cta"
+          href="mailto:khiyani.hanzalah@gmail.com?subject=Let%27s%20Connect"
+        >
+
+          <div class="contact-cta-text">
+
+            <span class="contact-cta-label">
+              Send a Note
+            </span>
+
+            <span class="contact-cta-val">
+              Start the conversation →
+            </span>
+
+          </div>
+
+
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--gold)"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-logo">
+      Hanzalah Khiyani
+    </div>
+
+    <div class="footer-right">
+      © 2026 · Houston, TX · MIS &amp; Finance
+    </div>
+
+  </footer>
+
+</body>
+</html>
