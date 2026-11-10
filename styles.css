@@ -16,7 +16,7 @@
 
   --espresso: #211c17;
   --espresso-soft: #2b241e;
-  --espresso-lighter: #352c24;
+  --espresso-light: #352c24;
 
   --ink: #29231d;
   --ink-soft: #494139;
@@ -52,41 +52,6 @@
   --content-width: 1200px;
   --page-padding: clamp(24px, 6vw, 88px);
 
-  /* Compatibility */
-  --bg: var(--stone);
-  --bg-soft: var(--stone-soft);
-
-  --surface: var(--paper);
-  --surface-hover: #eee6d8;
-
-  --ivory: var(--ink);
-  --ivory-soft: var(--ink-soft);
-
-  --body-text: var(--body);
-
-  --gold: var(--bronze);
-  --gold-light: var(--bronze-light);
-  --champagne: var(--bronze-soft);
-  --gold-dark: var(--bronze-dark);
-
-  --gold-faint: var(--bronze-faint);
-  --gold-soft: var(--bronze-low);
-  --gold-medium: var(--bronze-medium);
-
-  --border: var(--border-light);
-  --border-strong: var(--border-light-strong);
-
-  --black: var(--espresso);
-  --black-2: var(--espresso-soft);
-  --black-3: var(--espresso-lighter);
-
-  --text: var(--ink);
-  --mid: var(--body);
-
-  --gold-l: var(--bronze-light);
-  --gold-b: var(--bronze-soft);
-
-  /* Hero spotlight updated by JS */
   --spotlight-x: 70%;
   --spotlight-y: 35%;
 }
@@ -147,8 +112,8 @@ ul {
 
 button {
   border: 0;
-  background: none;
 
+  background: none;
   color: inherit;
 
   cursor: pointer;
@@ -162,7 +127,7 @@ button {
 
 
 /* ======================================================
-   REMOVE OLD EXPERIMENTAL ELEMENTS
+   REMOVE OLD / UNUSED ELEMENTS
 ====================================================== */
 
 .intro-overlay,
@@ -433,7 +398,7 @@ button {
 
 /* ======================================================
    HERO
-   DARK ESPRESSO
+   ESPRESSO
 ====================================================== */
 
 #hero {
@@ -481,10 +446,6 @@ button {
       rgba(181, 123, 82, 0.025) 40%,
       transparent 72%
     );
-}
-
-#hero::after {
-  display: none;
 }
 
 .hero-left {
@@ -566,12 +527,6 @@ button {
   font-style: italic;
 
   color: var(--bronze-soft);
-
-  background: none;
-
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-  background-clip: initial;
 }
 
 .page-ready .hero-name-first {
@@ -742,6 +697,8 @@ button {
   border-radius: 50%;
 
   background: var(--bronze);
+
+  transform: translateY(-50%);
 }
 
 .hero-tag:last-child {
@@ -757,14 +714,12 @@ button {
   color: var(--bronze-soft);
 }
 
-
 @keyframes heroNameReveal {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 
 @keyframes heroReveal {
   to {
@@ -778,10 +733,6 @@ button {
    SHARED SECTIONS
 ====================================================== */
 
-.gold-rule {
-  display: none;
-}
-
 .section {
   width: 100%;
   max-width: none;
@@ -793,8 +744,7 @@ button {
     var(--page-padding);
 }
 
-.section-alt,
-.section-deep {
+.section-alt {
   max-width: none;
 }
 
@@ -857,8 +807,7 @@ h2 em {
 
 
 /* ======================================================
-   ABOUT
-   WARM IVORY
+   ABOUT + RECENT IMPACT
 ====================================================== */
 
 #about {
@@ -867,174 +816,67 @@ h2 em {
   border-top: 1px solid var(--border-light);
 }
 
-.about-grid {
+.about-impact {
+  position: relative;
+}
+
+.about-impact > .sec-label {
   width: min(100%, var(--content-width));
 
-  margin: 58px auto 0;
+  display: flex;
 
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-
-  align-items: start;
-
-  gap: clamp(60px, 8vw, 115px);
+  margin:
+    0
+    auto
+    35px;
 }
 
-.about-text {
-  max-width: 710px;
-}
-
-.about-text p {
-  margin-bottom: 24px;
-
-  font-size: 16px;
-  line-height: 1.9;
-
-  color: var(--body);
-}
-
-.about-text p:first-child {
-  font-family: var(--font-display);
-  font-size: clamp(21px, 2vw, 29px);
-
-  line-height: 1.5;
-  letter-spacing: -0.015em;
-
-  color: var(--ink);
-}
-
-.about-text p:last-child {
-  margin-bottom: 0;
-}
-
-.stat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  gap: 11px;
-}
-
-.stat-card {
-  min-height: 148px;
-
-  padding: 23px;
-
-  position: relative;
-  overflow: hidden;
-
-  background: rgba(255, 255, 255, 0.32);
-
-  border: 1px solid var(--border-light);
-  border-radius: 3px;
-
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s var(--ease-premium);
-}
-
-.stat-card::before {
-  content: '';
-
-  position: absolute;
-
-  left: 0;
-  top: 0;
-
-  width: 0;
-  height: 2px;
-
-  background: var(--bronze);
-
-  transition:
-    width 0.45s var(--ease-premium);
-}
-
-.stat-card:hover {
-  background: var(--paper);
-
-  border-color: var(--bronze-medium);
-
-  transform: translateY(-3px);
-}
-
-.stat-card:hover::before {
-  width: 100%;
-}
-
-.stat-num {
-  margin-bottom: 11px;
-
-  font-family: var(--font-display);
-  font-size: 44px;
-  font-weight: 600;
-
-  line-height: 1;
-
-  color: var(--bronze);
-}
-
-.stat-lbl {
-  font-family: var(--font-ui);
-  font-size: 8px;
-  font-weight: 600;
-
-  line-height: 1.55;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-
-  color: var(--muted);
-}
-
-
-/* ======================================================
-   IMPACT
-   SOFT STONE
-====================================================== */
-
-#impact {
-  position: relative;
-
-  overflow: hidden;
-
-  background: var(--stone-soft);
-
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.impact-inner {
-  width: min(
-    100%,
-    calc(
-      var(--content-width) +
-      2 * var(--page-padding)
-    )
-  );
+.about-impact-grid {
+  width: min(100%, var(--content-width));
 
   margin: 0 auto;
 
-  padding:
-    clamp(95px, 11vw, 145px)
-    var(--page-padding);
-}
-
-.impact-header {
-  margin-bottom: 58px;
-}
-
-.impact-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+
+  align-items: start;
+
+  gap: clamp(65px, 9vw, 140px);
+}
+
+
+/* ─── ABOUT LEFT ─────────────────────────────────────── */
+
+.about-impact-left h2 {
+  max-width: 570px;
+
+  margin-bottom: 52px;
+
+  font-size: clamp(52px, 6.6vw, 88px);
+
+  line-height: 0.92;
+}
+
+.about-impact-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
   border-top: 1px solid var(--border-light-strong);
   border-bottom: 1px solid var(--border-light-strong);
 }
 
-.impact-item {
-  min-height: 200px;
+.about-impact-stat {
+  min-height: 150px;
 
-  padding: 32px 23px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding:
+    25px
+    clamp(15px, 2vw, 25px);
 
   position: relative;
 
@@ -1045,17 +887,17 @@ h2 em {
     transform 0.3s var(--ease-premium);
 }
 
-.impact-item:first-child {
+.about-impact-stat:first-child {
   padding-left: 0;
 }
 
-.impact-item:last-child {
+.about-impact-stat:last-child {
   padding-right: 0;
 
   border-right: 0;
 }
 
-.impact-item::before {
+.about-impact-stat::before {
   content: '';
 
   position: absolute;
@@ -1069,92 +911,104 @@ h2 em {
   background: var(--bronze);
 
   transition:
-    width 0.55s var(--ease-premium);
+    width 0.45s var(--ease-premium);
 }
 
-.impact-item.in-view::before {
-  width: 48px;
+.about-impact-stat:hover {
+  background: rgba(255, 255, 255, 0.3);
+
+  transform: translateY(-2px);
 }
 
-.impact-item:hover {
-  background: rgba(255, 255, 255, 0.27);
-
-  transform: translateY(-4px);
-}
-
-.impact-item:hover::before {
+.about-impact-stat:hover::before {
   width: 100%;
 }
 
-.impact-val {
-  margin-bottom: 18px;
+.about-impact-stat strong {
+  display: block;
+
+  margin-bottom: 12px;
 
   font-family: var(--font-display);
-  font-size: clamp(42px, 4.3vw, 61px);
+  font-size: clamp(37px, 4vw, 52px);
   font-weight: 600;
 
   line-height: 0.9;
-  letter-spacing: -0.045em;
 
   color: var(--bronze);
 }
 
-.impact-desc {
-  margin-bottom: 7px;
-
+.about-impact-stat span {
   font-family: var(--font-ui);
-  font-size: 8px;
-  font-weight: 700;
+  font-size: 7px;
+  font-weight: 600;
 
-  line-height: 1.55;
+  line-height: 1.65;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-
-  color: var(--ink-soft);
-}
-
-.impact-context {
-  max-width: 170px;
-
-  font-size: 11px;
-  line-height: 1.55;
 
   color: var(--muted);
 }
 
 
-/* ======================================================
-   EXPERIENCE
-   WARM IVORY
-====================================================== */
+/* ─── ABOUT RIGHT ────────────────────────────────────── */
 
-#experience {
-  background: var(--stone);
+.about-impact-copy {
+  max-width: 670px;
 
-  border-top: 1px solid var(--border-light);
+  padding-top: 4px;
+}
+
+.about-impact-copy p {
+  margin-bottom: 27px;
+
+  font-size: 16px;
+  line-height: 1.9;
+
+  color: var(--body);
+}
+
+.about-impact-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-impact-copy .about-lead {
+  font-family: var(--font-display);
+  font-size: clamp(21px, 2vw, 29px);
+
+  line-height: 1.53;
+  letter-spacing: -0.012em;
+
+  color: var(--ink);
+}
+
+.about-impact-copy strong {
+  font-weight: 600;
+
+  color: var(--ink);
 }
 
 
 /* ======================================================
-   PROJECTS
-   SOFT STONE
-====================================================== */
-
-#projects {
-  background: var(--stone-soft);
-
-  border-top: 1px solid var(--border-light);
-}
-
-
-/* ======================================================
-   EDITORIAL EXPERIENCE + PROJECTS
+   EXPERIENCE + PROJECTS
 ====================================================== */
 
 .editorial-section {
   position: relative;
 
   overflow: hidden;
+}
+
+#experience {
+  background: var(--paper);
+
+  border-top: 1px solid var(--border-light);
+}
+
+#projects {
+  background: var(--stone-soft);
+
+  border-top: 1px solid var(--border-light);
 }
 
 .editorial-heading {
@@ -1216,9 +1070,7 @@ h2 em {
 }
 
 
-/* ======================================================
-   EDITORIAL LEFT META
-====================================================== */
+/* ─── META ───────────────────────────────────────────── */
 
 .editorial-entry-meta {
   position: relative;
@@ -1242,7 +1094,7 @@ h2 em {
   border: 1px solid var(--bronze);
   border-radius: 50%;
 
-  background: var(--stone);
+  background: var(--paper);
 
   box-shadow:
     0 0 0 5px
@@ -1310,9 +1162,7 @@ h2 em {
 }
 
 
-/* ======================================================
-   EDITORIAL RIGHT CONTENT
-====================================================== */
+/* ─── CONTENT ────────────────────────────────────────── */
 
 .editorial-entry-content {
   min-width: 0;
@@ -1422,7 +1272,7 @@ h2 em {
   border: 1px solid var(--border-light);
   border-radius: 2px;
 
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.21);
 
   font-family: var(--font-ui);
   font-size: 7px;
@@ -1442,7 +1292,7 @@ h2 em {
 .editorial-tags span:hover {
   color: var(--bronze-dark);
 
-  background: rgba(255, 255, 255, 0.46);
+  background: rgba(255, 255, 255, 0.5);
 
   border-color: var(--bronze-medium);
 }
@@ -1473,7 +1323,7 @@ h2 em {
 
   padding: 24px;
 
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.19);
 
   border-right: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
@@ -1485,7 +1335,7 @@ h2 em {
 }
 
 .project-case-item:hover {
-  background: rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.55);
 
   border-color: var(--bronze-medium);
 
@@ -1522,8 +1372,6 @@ h2 em {
   align-items: stretch;
   flex-wrap: wrap;
 
-  gap: 0;
-
   margin-bottom: 24px;
 
   border-top: 1px solid var(--border-light);
@@ -1540,7 +1388,7 @@ h2 em {
 
   padding: 17px 21px;
 
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.19);
 
   border-right: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
@@ -1550,7 +1398,7 @@ h2 em {
 }
 
 .project-metric-compact:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.52);
 }
 
 .project-metric-compact strong {
@@ -1577,7 +1425,7 @@ h2 em {
 
 /* ======================================================
    APPROACH
-   DEEP ESPRESSO
+   ESPRESSO
 ====================================================== */
 
 #approach {
@@ -1697,7 +1545,6 @@ h2 em {
 
 /* ======================================================
    SKILLS
-   WARM IVORY
 ====================================================== */
 
 #skills {
@@ -1837,7 +1684,6 @@ h2 em {
 
 /* ======================================================
    EDUCATION
-   SOFT STONE
 ====================================================== */
 
 #education {
@@ -1915,28 +1761,8 @@ h2 em {
   color: var(--muted);
 }
 
-.gpa-badge {
-  display: inline-block;
-
-  padding: 6px 10px;
-
-  border: 1px solid var(--bronze);
-
-  border-radius: 2px;
-
-  background: rgba(255, 255, 255, 0.24);
-
-  font-family: var(--font-ui);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: 0.1em;
-
-  color: var(--bronze-dark);
-}
-
 .coursework-label {
-  margin: 26px 0 12px;
+  margin: 8px 0 12px;
 
   font-family: var(--font-ui);
   font-size: 8px;
@@ -1959,7 +1785,6 @@ h2 em {
   padding: 5px 8px;
 
   border: 1px solid var(--border-light);
-
   border-radius: 2px;
 
   background: rgba(255, 255, 255, 0.18);
@@ -2055,19 +1880,17 @@ h2 em {
   color: var(--ink);
 }
 
+.cert-card .edu-sub p {
+  font-size: 13px;
+  line-height: 1.85;
 
-/* ======================================================
-   FIX INLINE EDUCATION TEXT FROM HTML
-====================================================== */
-
-#education .cert-card .edu-sub p {
-  color: var(--body) !important;
+  color: var(--body);
 }
 
 
 /* ======================================================
    CONTACT
-   DARK ESPRESSO
+   ESPRESSO
 ====================================================== */
 
 #contact {
@@ -2181,7 +2004,6 @@ h2 em {
   padding: 7px 11px;
 
   border: 1px solid rgba(200, 146, 105, 0.52);
-
   border-radius: 2px;
 
   font-family: var(--font-ui);
@@ -2460,24 +2282,41 @@ button:focus-visible {
 ====================================================== */
 
 @media (max-width: 1100px) {
-  .impact-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .about-impact-grid {
+    grid-template-columns: 0.95fr 1.05fr;
+
+    gap: 65px;
   }
 
-  .impact-item {
+  .about-impact-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .about-impact-stat {
+    min-height: auto;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 21px 0;
+
+    border-right: 0;
     border-bottom: 1px solid var(--border-light);
   }
 
-  .impact-item:nth-child(3) {
-    border-right: 0;
+  .about-impact-stat:last-child {
+    border-bottom: 0;
   }
 
-  .approach-steps {
-    grid-template-columns: repeat(2, 1fr);
+  .about-impact-stat strong {
+    margin-bottom: 0;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .about-impact-stat span {
+    text-align: right;
   }
 
   .editorial-entry {
@@ -2492,8 +2331,12 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .project-case-item {
-    min-height: auto;
+  .approach-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2550,43 +2393,54 @@ button:focus-visible {
       24px;
   }
 
-  .impact-inner,
   #skills > div {
     padding:
       85px
       24px;
   }
 
-  .about-grid {
+  .about-impact-grid {
     grid-template-columns: 1fr;
 
-    gap: 48px;
+    gap: 55px;
   }
 
-  .impact-grid {
-    grid-template-columns: 1fr 1fr;
+  .about-impact-left h2 {
+    max-width: 650px;
+
+    margin-bottom: 42px;
   }
 
-  .impact-item {
-    padding: 28px 19px;
-
-    border-bottom: 1px solid var(--border-light);
+  .about-impact-stats {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .impact-item:first-child {
-    padding-left: 19px;
+  .about-impact-stat {
+    min-height: 135px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 20px 15px;
+
+    border-right: 1px solid var(--border-light);
+    border-bottom: 0;
   }
 
-  .impact-item:last-child {
-    padding-right: 19px;
+  .about-impact-stat:first-child {
+    padding-left: 0;
   }
 
-  .impact-item:nth-child(even) {
+  .about-impact-stat:last-child {
+    padding-right: 0;
+
     border-right: 0;
   }
 
-  .impact-item:nth-child(3) {
-    border-right: 1px solid var(--border-light);
+  .about-impact-stat span {
+    text-align: left;
   }
 
   .editorial-list {
@@ -2747,30 +2601,49 @@ button:focus-visible {
     font-size: 44px;
   }
 
-  .stat-grid {
-    grid-template-columns: 1fr;
+  .about-impact-left h2 {
+    font-size: 49px;
   }
 
-  .stat-card {
-    min-height: auto;
-  }
-
-  .impact-grid {
+  .about-impact-stats {
     grid-template-columns: 1fr;
 
     border-bottom: 0;
   }
 
-  .impact-item,
-  .impact-item:first-child,
-  .impact-item:last-child,
-  .impact-item:nth-child(3) {
+  .about-impact-stat,
+  .about-impact-stat:first-child,
+  .about-impact-stat:last-child {
     min-height: auto;
 
-    padding: 27px 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 0;
 
     border-right: 0;
     border-bottom: 1px solid var(--border-light);
+  }
+
+  .about-impact-stat strong {
+    margin: 0;
+
+    font-size: 39px;
+  }
+
+  .about-impact-stat span {
+    text-align: right;
+  }
+
+  .about-impact-copy .about-lead {
+    font-size: 21px;
+  }
+
+  .about-impact-copy p {
+    font-size: 15px;
   }
 
   .editorial-entry-title {
