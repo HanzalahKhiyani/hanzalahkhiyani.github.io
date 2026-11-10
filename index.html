@@ -21,7 +21,7 @@
 
   <meta
     name="theme-color"
-    content="#0d0d0b"
+    content="#211c17"
   >
 
   <meta
@@ -43,6 +43,7 @@
 
 
   <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -58,28 +59,51 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
 
 
   <!-- JavaScript -->
-  <script src="app.js" defer></script>
+
+  <script
+    src="app.js"
+    defer
+  ></script>
+
 </head>
 
 
 <body>
 
-  <!-- Background texture -->
-  <div id="grain" aria-hidden="true"></div>
 
-  <!-- Scroll progress -->
-  <div id="progress" aria-hidden="true"></div>
+  <!-- ==================================================
+       BACKGROUND ELEMENTS
+  =================================================== -->
+
+  <div
+    id="grain"
+    aria-hidden="true"
+  ></div>
+
+
+  <div
+    id="progress"
+    aria-hidden="true"
+  ></div>
+
 
 
   <!-- ==================================================
        NAVIGATION
   =================================================== -->
 
-  <nav id="nav" aria-label="Primary navigation">
+  <nav
+    id="nav"
+    aria-label="Primary navigation"
+  >
 
     <button
       class="nav-logo"
@@ -94,40 +118,51 @@
     <ul class="nav-links">
 
       <li>
-        <a href="#about">About</a>
+        <a href="#about">
+          About
+        </a>
       </li>
 
       <li>
-        <a href="#impact">Impact</a>
+        <a href="#experience">
+          Experience
+        </a>
       </li>
 
       <li>
-        <a href="#experience">Experience</a>
+        <a href="#projects">
+          Projects
+        </a>
       </li>
 
       <li>
-        <a href="#projects">Projects</a>
+        <a href="#approach">
+          Approach
+        </a>
       </li>
 
       <li>
-        <a href="#approach">Approach</a>
+        <a href="#skills">
+          Skills
+        </a>
       </li>
 
       <li>
-        <a href="#skills">Skills</a>
+        <a href="#education">
+          Education
+        </a>
       </li>
 
       <li>
-        <a href="#education">Education</a>
-      </li>
-
-      <li>
-        <a href="#contact">Contact</a>
+        <a href="#contact">
+          Contact
+        </a>
       </li>
 
     </ul>
 
   </nav>
+
 
 
   <main>
@@ -143,6 +178,7 @@
     >
 
       <div class="hero-left">
+
 
         <div class="hero-eyebrow">
 
@@ -204,8 +240,16 @@
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <line x1="12" y1="5" x2="12" y2="19"/>
-              <polyline points="19 12 12 19 5 12"/>
+              <line
+                x1="12"
+                y1="5"
+                x2="12"
+                y2="19"
+              />
+
+              <polyline
+                points="19 12 12 19 5 12"
+              />
             </svg>
 
           </a>
@@ -230,8 +274,16 @@
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
+              <line
+                x1="5"
+                y1="12"
+                x2="19"
+                y2="12"
+              />
+
+              <polyline
+                points="12 5 19 12 12 19"
+              />
             </svg>
 
           </a>
@@ -249,7 +301,7 @@
           </span>
 
           <span class="hero-tag">
-            GPA 3.55
+            MIS · Finance
           </span>
 
           <span class="hero-tag">
@@ -267,12 +319,13 @@
     </section>
 
 
+
     <!-- ==================================================
-         ABOUT
+         ABOUT + RECENT IMPACT
     =================================================== -->
 
     <section
-      class="section"
+      class="section about-impact"
       id="about"
       aria-labelledby="about-title"
     >
@@ -289,265 +342,123 @@
       </div>
 
 
-      <h2 id="about-title">
-        Data, strategy,<br>
-        <em>and structured thinking.</em>
-      </h2>
+      <div class="about-impact-grid">
 
 
-      <div class="about-grid reveal">
+        <!-- LEFT SIDE -->
 
-        <div class="about-text">
-
-          <p>
-            I'm an MIS and Finance student at the C.T. Bauer College of
-            Business interested in the intersection of data, technology,
-            and business strategy. I enjoy breaking down complex problems,
-            finding the information that actually matters, and turning
-            analysis into practical decisions.
-          </p>
+        <div class="about-impact-left reveal">
 
 
-          <p>
-            My experience has taken me across technology, analytics,
-            consulting, operations, and venture analysis. Through work with
-            organizations including UT MD Anderson, NY Racing, HP Tech
-            Ventures, and the SURE Program, I've supported enterprise
-            technology, analyzed sponsorship performance, evaluated
-            early-stage companies, and worked directly with entrepreneurs
-            on real business challenges.
-          </p>
-
-
-          <p>
-            Those experiences have helped me build a foundation in SQL,
-            Excel, data analysis, business analysis, and structured
-            problem-solving. I'm now working toward full-time opportunities
-            beginning Summer 2027 where I can combine those skills to solve
-            complex business and technology problems.
-          </p>
-
-        </div>
-
-
-        <div
-          class="stat-grid"
-          aria-label="Professional highlights"
-        >
-
-          <div class="stat-card reveal reveal-delay-1">
-
-            <div class="stat-num">
-              3.55
-            </div>
-
-            <div class="stat-lbl">
-              GPA · Bauer College
-            </div>
-
-          </div>
-
-
-          <div class="stat-card reveal reveal-delay-2">
-
-            <div class="stat-num">
-              98%
-            </div>
-
-            <div class="stat-lbl">
-              Client Satisfaction
-            </div>
-
-          </div>
-
-
-          <div class="stat-card reveal reveal-delay-3">
-
-            <div class="stat-num">
-              $15K+
-            </div>
-
-            <div class="stat-lbl">
-              Monthly Revenue Generated
-            </div>
-
-          </div>
-
-
-          <div class="stat-card reveal reveal-delay-4">
-
-            <div class="stat-num">
-              200+
-            </div>
-
-            <div class="stat-lbl">
-              Families Served Weekly
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         SELECTED IMPACT
-    =================================================== -->
-
-    <section
-      id="impact"
-      aria-labelledby="impact-title"
-    >
-
-      <div class="impact-inner">
-
-        <div class="impact-header reveal">
-
-          <div class="sec-label">
-
-            <span
-              class="sec-label-line"
-              aria-hidden="true"
-            ></span>
-
-            Selected Impact
-
-          </div>
-
-
-          <h2 id="impact-title">
-            Key <em>results</em><br>
-            at a glance.
+          <h2 id="about-title">
+            Turning data<br>
+            into better<br>
+            <em>decisions.</em>
           </h2>
 
+
+          <div
+            class="about-impact-stats"
+            aria-label="Recent professional impact"
+          >
+
+
+            <div class="about-impact-stat">
+
+              <strong>
+                5+
+              </strong>
+
+              <span>
+                Startups<br>
+                Evaluated
+              </span>
+
+            </div>
+
+
+            <div class="about-impact-stat">
+
+              <strong>
+                5+
+              </strong>
+
+              <span>
+                Data-Driven<br>
+                Recommendations
+              </span>
+
+            </div>
+
+
+            <div class="about-impact-stat">
+
+              <strong>
+                5+
+              </strong>
+
+              <span>
+                Locations Using<br>
+                Systems Tested
+              </span>
+
+            </div>
+
+
+          </div>
+
         </div>
 
 
-        <div class="impact-grid">
+
+        <!-- RIGHT SIDE -->
+
+        <div class="about-impact-copy reveal reveal-delay-1">
 
 
-          <article class="impact-item reveal reveal-delay-1">
-
-            <div
-              class="impact-val"
-              data-target="15"
-              data-prefix="$"
-              data-suffix="K+"
-            >
-              $0
-            </div>
-
-            <h3 class="impact-desc">
-              Monthly Revenue Generated
-            </h3>
-
-            <p class="impact-context">
-              Nordstrom · Luxury Accessories
-            </p>
-
-          </article>
+          <p class="about-lead">
+            I'm an MIS student with a minor in Finance at the
+            C.T. Bauer College of Business, interested in how
+            <strong>
+              data, technology, and strategy
+            </strong>
+            come together to solve business problems.
+          </p>
 
 
-          <article class="impact-item reveal reveal-delay-2">
-
-            <div
-              class="impact-val"
-              data-target="200"
-              data-suffix="+"
-            >
-              0
-            </div>
-
-            <h3 class="impact-desc">
-              Families Served Weekly
-            </h3>
-
-            <p class="impact-context">
-              Al-Noor Society of Greater Houston
-            </p>
-
-          </article>
+          <p>
+            My recent experience spans
+            <strong>
+              enterprise technology, consulting, analytics,
+              healthcare operations, and venture analysis.
+            </strong>
+            I've supported quality assurance and enterprise systems,
+            worked directly with entrepreneurs, analyzed sponsorship
+            performance, and evaluated early-stage technology companies.
+          </p>
 
 
-          <article class="impact-item reveal reveal-delay-3">
-
-            <div
-              class="impact-val"
-              data-target="5"
-              data-suffix="+"
-            >
-              0
-            </div>
-
-            <h3 class="impact-desc">
-              Startups Evaluated
-            </h3>
-
-            <p class="impact-context">
-              HP Tech Ventures
-            </p>
-
-          </article>
-
-
-          <article class="impact-item reveal reveal-delay-4">
-
-            <div
-              class="impact-val"
-              data-target="25"
-              data-prefix="~"
-              data-suffix="%"
-            >
-              ~0%
-            </div>
-
-            <h3 class="impact-desc">
-              Participation Growth
-            </h3>
-
-            <p class="impact-context">
-              Al-Noor Society of Greater Houston
-            </p>
-
-          </article>
-
-
-          <article
-            class="impact-item reveal"
-            style="transition-delay:.4s"
-          >
-
-            <div
-              class="impact-val"
-              data-target="98"
-              data-suffix="%"
-            >
-              0%
-            </div>
-
-            <h3 class="impact-desc">
-              Client Satisfaction
-            </h3>
-
-            <p class="impact-context">
-              Deco Art Event Planners
-            </p>
-
-          </article>
+          <p>
+            Across those experiences, I've built a foundation in
+            <strong>
+              SQL, Excel, business analysis, data analysis,
+              and structured problem-solving.
+            </strong>
+            I'm now looking for full-time opportunities beginning
+            Summer 2027 where I can apply those skills to complex
+            business and technology challenges.
+          </p>
 
         </div>
 
       </div>
 
     </section>
+
 
 
     <!-- ==================================================
          EXPERIENCE
-         CLEAN EDITORIAL LAYOUT
     =================================================== -->
 
     <section
@@ -557,6 +468,7 @@
     >
 
       <div class="editorial-heading reveal">
+
 
         <div class="sec-label">
 
@@ -583,12 +495,17 @@
       </div>
 
 
+
       <div class="editorial-list experience-list">
 
 
-        <!-- EXPERIENCE 01 -->
+        <!-- ==================================================
+             EXPERIENCE 01
+             UT MD ANDERSON
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -613,33 +530,35 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               UT MD Anderson
             </h3>
+
 
             <div class="editorial-entry-role">
               Student Extern · Enterprise Development &amp; Integration
             </div>
 
+
             <p class="editorial-entry-summary">
-              Supporting enterprise applications and QA work across
-              development, integration, troubleshooting, and technical
-              operations.
+              Supporting enterprise applications and quality assurance
+              across development, integration, troubleshooting, and
+              technical operations.
             </p>
 
 
             <ul class="editorial-bullets">
 
               <li>
-                Assisted with application support, system analysis,
-                troubleshooting, and technical operations across enterprise
-                environments.
+                Tested enterprise systems used across 5+ Houston-area
+                locations, supporting quality assurance and system reliability.
               </li>
 
               <li>
-                Supported quality assurance, technical documentation, and
-                system maintenance activities to improve application
-                reliability and performance.
+                Assisted with application support, system analysis,
+                troubleshooting, and technical operations across enterprise
+                environments.
               </li>
 
               <li>
@@ -652,10 +571,23 @@
 
 
             <div class="editorial-tags">
-              <span>Quality Assurance</span>
-              <span>System Analysis</span>
-              <span>Technical Support</span>
-              <span>Healthcare IT</span>
+
+              <span>
+                Quality Assurance
+              </span>
+
+              <span>
+                System Analysis
+              </span>
+
+              <span>
+                Enterprise Technology
+              </span>
+
+              <span>
+                Healthcare IT
+              </span>
+
             </div>
 
           </div>
@@ -663,9 +595,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 02 -->
+
+        <!-- ==================================================
+             EXPERIENCE 02
+             SURE
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -690,13 +627,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               SURE Program · University of Houston
             </h3>
 
+
             <div class="editorial-entry-role">
               Student Consultant
             </div>
+
 
             <p class="editorial-entry-summary">
               Working directly with entrepreneurs to turn business challenges
@@ -708,8 +648,9 @@
             <ul class="editorial-bullets">
 
               <li>
-                Led weekly client meetings to assess business needs, identify
-                operational gaps, and develop actionable recommendations.
+                Led weekly client meetings to assess business needs,
+                identify operational gaps, and develop actionable
+                recommendations.
               </li>
 
               <li>
@@ -727,10 +668,23 @@
 
 
             <div class="editorial-tags">
-              <span>Consulting</span>
-              <span>Business Analysis</span>
-              <span>Market Research</span>
-              <span>Client Communication</span>
+
+              <span>
+                Consulting
+              </span>
+
+              <span>
+                Business Analysis
+              </span>
+
+              <span>
+                Market Research
+              </span>
+
+              <span>
+                Client Communication
+              </span>
+
             </div>
 
           </div>
@@ -738,9 +692,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 03 -->
+
+        <!-- ==================================================
+             EXPERIENCE 03
+             AMSYS
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -765,13 +724,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               AMSYS Innovative Solutions
             </h3>
 
+
             <div class="editorial-entry-role">
               Information Technology Intern
             </div>
+
 
             <p class="editorial-entry-summary">
               Supported enterprise IT infrastructure, systems administration,
@@ -782,13 +744,13 @@
             <ul class="editorial-bullets">
 
               <li>
-                Assisted with IT infrastructure, network administration, and
-                system support activities across enterprise environments.
+                Assisted with IT infrastructure, network administration,
+                and system support activities across enterprise environments.
               </li>
 
               <li>
-                Supported troubleshooting and technical support efforts to
-                improve system performance and end-user experience.
+                Supported troubleshooting and technical support efforts
+                to improve system performance and end-user experience.
               </li>
 
               <li>
@@ -800,10 +762,23 @@
 
 
             <div class="editorial-tags">
-              <span>Network Administration</span>
-              <span>System Administration</span>
-              <span>Cybersecurity</span>
-              <span>IT Infrastructure</span>
+
+              <span>
+                Network Administration
+              </span>
+
+              <span>
+                System Administration
+              </span>
+
+              <span>
+                Cybersecurity
+              </span>
+
+              <span>
+                IT Infrastructure
+              </span>
+
             </div>
 
           </div>
@@ -811,9 +786,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 04 -->
+
+        <!-- ==================================================
+             EXPERIENCE 04
+             INSTITUTE OF MENTAL HEALTH
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -838,13 +818,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Institute of Mental Health
             </h3>
 
+
             <div class="editorial-entry-role">
               Healthcare Operations Analyst
             </div>
+
 
             <p class="editorial-entry-summary">
               Analyzed healthcare workflows to identify gaps in care
@@ -857,13 +840,13 @@
 
               <li>
                 Analyzed case management workflows across inpatient,
-                emergency, and discharge stages to identify gaps in care
-                continuity.
+                emergency, and discharge stages to identify gaps in
+                care continuity.
               </li>
 
               <li>
-                Applied process mapping and operational analysis to surface
-                inefficiencies across multidisciplinary teams.
+                Applied process mapping and operational analysis to
+                surface inefficiencies across multidisciplinary teams.
               </li>
 
               <li>
@@ -875,10 +858,23 @@
 
 
             <div class="editorial-tags">
-              <span>Process Mapping</span>
-              <span>Operational Analysis</span>
-              <span>Data Visualization</span>
-              <span>Healthcare Management</span>
+
+              <span>
+                Process Mapping
+              </span>
+
+              <span>
+                Operational Analysis
+              </span>
+
+              <span>
+                Data Visualization
+              </span>
+
+              <span>
+                Healthcare Management
+              </span>
+
             </div>
 
           </div>
@@ -886,9 +882,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 05 -->
+
+        <!-- ==================================================
+             EXPERIENCE 05
+             NASCAR NY RACING
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -913,26 +914,30 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               NASCAR NY Racing
             </h3>
+
 
             <div class="editorial-entry-role">
               Data Analyst Extern
             </div>
 
+
             <p class="editorial-entry-summary">
-              Used multi-source racing and media data to evaluate sponsorship
-              visibility and identify stronger positioning opportunities.
+              Used multi-source racing and media data to evaluate
+              sponsorship visibility and identify stronger positioning
+              opportunities.
             </p>
 
 
             <ul class="editorial-bullets">
 
               <li>
-                Built a dataset combining race results, social media, YouTube,
-                and media coverage to analyze visibility across the 2024 Cup
-                Series.
+                Built a dataset combining race results, social media,
+                YouTube, and media coverage to analyze visibility across
+                the 2024 Cup Series.
               </li>
 
               <li>
@@ -941,18 +946,31 @@
               </li>
 
               <li>
-                Delivered 5+ recommendations on sponsorship positioning based
-                on data trends across events.
+                Delivered 5+ recommendations on sponsorship positioning
+                based on data trends across events.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Data Analysis</span>
-              <span>Data Modeling</span>
-              <span>Microsoft Excel</span>
-              <span>Strategic Analysis</span>
+
+              <span>
+                Data Analysis
+              </span>
+
+              <span>
+                Data Modeling
+              </span>
+
+              <span>
+                Microsoft Excel
+              </span>
+
+              <span>
+                Strategic Analysis
+              </span>
+
             </div>
 
           </div>
@@ -960,9 +978,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 06 -->
+
+        <!-- ==================================================
+             EXPERIENCE 06
+             DELOITTE DIGITAL
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -987,17 +1010,20 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Deloitte Digital
             </h3>
+
 
             <div class="editorial-entry-role">
               Salesforce Consulting Trainee
             </div>
 
+
             <p class="editorial-entry-summary">
-              Built experience with Salesforce, CRM implementation, and
-              consulting-style business process analysis.
+              Built experience with Salesforce, CRM implementation,
+              and consulting-style business process analysis.
             </p>
 
 
@@ -1009,23 +1035,36 @@
               </li>
 
               <li>
-                Analyzed business processes to identify inefficiencies and
-                map CRM-based improvements.
+                Analyzed business processes to identify inefficiencies
+                and map CRM-based improvements.
               </li>
 
               <li>
-                Evaluated business workflows in team-based case exercises to
-                identify process improvement opportunities.
+                Evaluated business workflows in team-based case exercises
+                to identify process improvement opportunities.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Salesforce CRM</span>
-              <span>Business Analysis</span>
-              <span>Process Improvement</span>
-              <span>Consulting</span>
+
+              <span>
+                Salesforce CRM
+              </span>
+
+              <span>
+                Business Analysis
+              </span>
+
+              <span>
+                Process Improvement
+              </span>
+
+              <span>
+                Consulting
+              </span>
+
             </div>
 
           </div>
@@ -1033,9 +1072,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 07 -->
+
+        <!-- ==================================================
+             EXPERIENCE 07
+             HP TECH VENTURES
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1060,13 +1104,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               HP Tech Ventures
             </h3>
 
+
             <div class="editorial-entry-role">
               Venture Capital Analyst
             </div>
+
 
             <p class="editorial-entry-summary">
               Evaluated early-stage technology companies to assess market
@@ -1088,18 +1135,31 @@
               </li>
 
               <li>
-                Delivered an investment recommendation supported by market,
-                product, and competitive analysis.
+                Delivered an investment recommendation supported by
+                market, product, and competitive analysis.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Market Research</span>
-              <span>Due Diligence</span>
-              <span>Investment Analysis</span>
-              <span>Strategic Analysis</span>
+
+              <span>
+                Market Research
+              </span>
+
+              <span>
+                Due Diligence
+              </span>
+
+              <span>
+                Investment Analysis
+              </span>
+
+              <span>
+                Strategic Analysis
+              </span>
+
             </div>
 
           </div>
@@ -1107,9 +1167,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 08 -->
+
+        <!-- ==================================================
+             EXPERIENCE 08
+             VETERAN MEMORIAL HOSPICE
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1134,13 +1199,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Veteran Memorial Hospice
             </h3>
 
+
             <div class="editorial-entry-role">
               Operations Manager · Healthcare Services
             </div>
+
 
             <p class="editorial-entry-summary">
               Managed administrative, scheduling, and compliance operations
@@ -1151,8 +1219,8 @@
             <ul class="editorial-bullets">
 
               <li>
-                Managed scheduling and operations across clinical teams to
-                maintain service coverage and compliance.
+                Managed scheduling and operations across clinical teams
+                to maintain service coverage and compliance.
               </li>
 
               <li>
@@ -1161,18 +1229,31 @@
               </li>
 
               <li>
-                Maintained audit documentation and ensured compliance with
-                healthcare regulations.
+                Maintained audit documentation and ensured compliance
+                with healthcare regulations.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Operations Management</span>
-              <span>Healthcare Management</span>
-              <span>Compliance</span>
-              <span>Scheduling</span>
+
+              <span>
+                Operations Management
+              </span>
+
+              <span>
+                Healthcare Management
+              </span>
+
+              <span>
+                Compliance
+              </span>
+
+              <span>
+                Scheduling
+              </span>
+
             </div>
 
           </div>
@@ -1180,9 +1261,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 09 -->
+
+        <!-- ==================================================
+             EXPERIENCE 09
+             PREMIUM AUTO GROUP
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1207,13 +1293,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Premium Auto Group
             </h3>
 
+
             <div class="editorial-entry-role">
               Business Analyst Intern
             </div>
+
 
             <p class="editorial-entry-summary">
               Used dealership data and reporting to identify performance
@@ -1229,8 +1318,8 @@
               </li>
 
               <li>
-                Built dashboards that reduced manual reporting time and
-                improved visibility for management.
+                Built dashboards that reduced manual reporting time
+                and improved visibility for management.
               </li>
 
               <li>
@@ -1242,10 +1331,23 @@
 
 
             <div class="editorial-tags">
-              <span>Data Analysis</span>
-              <span>Business Analysis</span>
-              <span>CRM / DMS</span>
-              <span>Process Improvement</span>
+
+              <span>
+                Data Analysis
+              </span>
+
+              <span>
+                Business Analysis
+              </span>
+
+              <span>
+                CRM / DMS
+              </span>
+
+              <span>
+                Process Improvement
+              </span>
+
             </div>
 
           </div>
@@ -1253,9 +1355,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 10 -->
+
+        <!-- ==================================================
+             EXPERIENCE 10
+             NORDSTROM
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1280,45 +1387,61 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Nordstrom
             </h3>
+
 
             <div class="editorial-entry-role">
               Client Advisor · Luxury Accessories
             </div>
 
+
             <p class="editorial-entry-summary">
-              Combined consultative selling and customer insights to generate
-              revenue and build stronger client relationships.
+              Combined consultative selling and customer insights to
+              generate revenue and build stronger client relationships.
             </p>
 
 
             <ul class="editorial-bullets">
 
               <li>
-                Generated $15K+ monthly revenue through personalized product
-                recommendations.
+                Generated $15K+ monthly revenue through personalized
+                product recommendations.
               </li>
 
               <li>
-                Used customer purchase data to support repeat sales and client
-                retention.
+                Used customer purchase data to support repeat sales
+                and client retention.
               </li>
 
               <li>
-                Coordinated with team members to maintain inventory accuracy
-                and product availability.
+                Coordinated with team members to maintain inventory
+                accuracy and product availability.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Sales</span>
-              <span>CRM</span>
-              <span>Customer Experience</span>
-              <span>Communication</span>
+
+              <span>
+                Sales
+              </span>
+
+              <span>
+                CRM
+              </span>
+
+              <span>
+                Customer Experience
+              </span>
+
+              <span>
+                Communication
+              </span>
+
             </div>
 
           </div>
@@ -1326,9 +1449,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 11 -->
+
+        <!-- ==================================================
+             EXPERIENCE 11
+             MACY'S
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1353,13 +1481,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Macy's
             </h3>
 
+
             <div class="editorial-entry-role">
               Sales Associate · Fragrance Division
             </div>
+
 
             <p class="editorial-entry-summary">
               Helped customers identify products that matched their
@@ -1375,18 +1506,31 @@
               </li>
 
               <li>
-                Matched products to customer preferences to support stronger
-                conversion.
+                Matched products to customer preferences to support
+                stronger conversion.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Sales</span>
-              <span>Customer Service</span>
-              <span>Retail Operations</span>
-              <span>Product Knowledge</span>
+
+              <span>
+                Sales
+              </span>
+
+              <span>
+                Customer Service
+              </span>
+
+              <span>
+                Retail Operations
+              </span>
+
+              <span>
+                Product Knowledge
+              </span>
+
             </div>
 
           </div>
@@ -1394,9 +1538,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 12 -->
+
+        <!-- ==================================================
+             EXPERIENCE 12
+             AL-NOOR
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1421,44 +1570,58 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Al-Noor Society of Greater Houston
             </h3>
+
 
             <div class="editorial-entry-role">
               Program Manager &amp; Administrative Coordinator
             </div>
 
+
             <p class="editorial-entry-summary">
-              Managed community programming, scheduling, logistics, and
-              administrative operations serving 200+ families each week.
+              Managed community programming, scheduling, logistics,
+              and administrative operations serving 200+ families
+              each week.
             </p>
 
 
             <ul class="editorial-bullets">
 
               <li>
-                Managed weekly programming serving 200+ families, including
-                scheduling and logistics.
+                Managed weekly programming serving 200+ families,
+                including scheduling and logistics.
               </li>
 
               <li>
-                Increased participation by approximately 25% through improved
-                outreach and program organization.
+                Increased participation by approximately 25% through
+                improved outreach and program organization.
               </li>
 
               <li>
-                Streamlined administrative processes to improve consistency
-                in program delivery.
+                Streamlined administrative processes to improve
+                consistency in program delivery.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Operations</span>
-              <span>Program Management</span>
-              <span>Stakeholder Management</span>
+
+              <span>
+                Operations
+              </span>
+
+              <span>
+                Program Management
+              </span>
+
+              <span>
+                Stakeholder Management
+              </span>
+
             </div>
 
           </div>
@@ -1466,9 +1629,14 @@
         </article>
 
 
-        <!-- EXPERIENCE 13 -->
+
+        <!-- ==================================================
+             EXPERIENCE 13
+             DECO ART
+        =================================================== -->
 
         <article class="editorial-entry experience-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1493,43 +1661,58 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Deco Art Event Planners
             </h3>
+
 
             <div class="editorial-entry-role">
               Operations &amp; Account Manager
             </div>
 
+
             <p class="editorial-entry-summary">
-              Managed client accounts and event operations while coordinating
-              vendors, billing, logistics, and changing client needs.
+              Managed client accounts and event operations while
+              coordinating vendors, billing, logistics, and changing
+              client needs.
             </p>
 
 
             <ul class="editorial-bullets">
 
               <li>
-                Managed 15–20 client accounts monthly while maintaining a
-                98% satisfaction rate.
+                Managed 15–20 client accounts monthly while
+                maintaining a 98% satisfaction rate.
               </li>
 
               <li>
-                Reduced billing errors by implementing weekly invoice review
-                processes.
+                Reduced billing errors by implementing weekly
+                invoice review processes.
               </li>
 
               <li>
-                Coordinated event logistics across vendors and internal teams.
+                Coordinated event logistics across vendors
+                and internal teams.
               </li>
 
             </ul>
 
 
             <div class="editorial-tags">
-              <span>Account Management</span>
-              <span>Client Relations</span>
-              <span>Operations</span>
+
+              <span>
+                Account Management
+              </span>
+
+              <span>
+                Client Relations
+              </span>
+
+              <span>
+                Operations
+              </span>
+
             </div>
 
           </div>
@@ -1541,9 +1724,9 @@
     </section>
 
 
+
     <!-- ==================================================
          PROJECTS
-         CLEAN EDITORIAL CASE STUDIES
     =================================================== -->
 
     <section
@@ -1553,6 +1736,7 @@
     >
 
       <div class="editorial-heading reveal">
+
 
         <div class="sec-label">
 
@@ -1580,12 +1764,17 @@
       </div>
 
 
+
       <div class="editorial-list projects-list">
 
 
-        <!-- PROJECT 01 -->
+        <!-- ==================================================
+             PROJECT 01
+             MG HORSE HABITAT
+        =================================================== -->
 
         <article class="editorial-entry project-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1610,13 +1799,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               MG Horse Habitat
             </h3>
 
+
             <div class="editorial-entry-role">
               Relational Database &amp; SQL Analytics
             </div>
+
 
             <p class="editorial-entry-summary">
               Designed a normalized relational database to organize stable
@@ -1625,7 +1817,9 @@
             </p>
 
 
+
             <div class="project-case-study">
+
 
               <div class="project-case-item">
 
@@ -1634,9 +1828,9 @@
                 </h4>
 
                 <p>
-                  Organize data across 160+ horses, 55 customers, and 15 races
-                  in a structured system capable of supporting reliable
-                  analysis.
+                  Organize data across 160+ horses, 55 customers, and
+                  15 races in a structured system capable of supporting
+                  reliable analysis.
                 </p>
 
               </div>
@@ -1649,9 +1843,9 @@
                 </h4>
 
                 <p>
-                  Designed a normalized relational model and used SQL joins,
-                  aggregations, and subqueries in Oracle and DBeaver to query
-                  and analyze the data.
+                  Designed a normalized relational model and used SQL
+                  joins, aggregations, and subqueries in Oracle and DBeaver
+                  to query and analyze the data.
                 </p>
 
               </div>
@@ -1674,7 +1868,9 @@
             </div>
 
 
+
             <div class="project-metric-row">
+
 
               <div class="project-metric-compact">
 
@@ -1714,15 +1910,33 @@
 
               </div>
 
+
             </div>
 
 
+
             <div class="editorial-tags">
-              <span>SQL</span>
-              <span>Oracle</span>
-              <span>DBeaver</span>
-              <span>Data Modeling</span>
-              <span>Relational Databases</span>
+
+              <span>
+                SQL
+              </span>
+
+              <span>
+                Oracle
+              </span>
+
+              <span>
+                DBeaver
+              </span>
+
+              <span>
+                Data Modeling
+              </span>
+
+              <span>
+                Relational Databases
+              </span>
+
             </div>
 
           </div>
@@ -1730,9 +1944,14 @@
         </article>
 
 
-        <!-- PROJECT 02 -->
+
+        <!-- ==================================================
+             PROJECT 02
+             HOME DEPOT VS LOWE'S
+        =================================================== -->
 
         <article class="editorial-entry project-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1757,22 +1976,27 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Home Depot vs. Lowe's
             </h3>
+
 
             <div class="editorial-entry-role">
               Five-Year Financial &amp; Competitive Analysis
             </div>
 
+
             <p class="editorial-entry-summary">
-              Compared five years of financial performance to determine which
-              retailer demonstrated stronger financial health, operating
-              efficiency, and competitive positioning.
+              Compared five years of financial performance to determine
+              which retailer demonstrated stronger financial health,
+              operating efficiency, and competitive positioning.
             </p>
 
 
+
             <div class="project-case-study">
+
 
               <div class="project-case-item">
 
@@ -1810,8 +2034,8 @@
                 </h4>
 
                 <p>
-                  Identified Home Depot's stronger financial positioning and
-                  developed an evidence-based investment recommendation.
+                  Identified Home Depot's stronger financial positioning
+                  and developed an evidence-based investment recommendation.
                 </p>
 
               </div>
@@ -1819,7 +2043,9 @@
             </div>
 
 
+
             <div class="project-metric-row">
+
 
               <div class="project-metric-compact">
 
@@ -1859,15 +2085,33 @@
 
               </div>
 
+
             </div>
 
 
+
             <div class="editorial-tags">
-              <span>Excel</span>
-              <span>Financial Analysis</span>
-              <span>Ratio Analysis</span>
-              <span>Financial Modeling</span>
-              <span>Competitive Analysis</span>
+
+              <span>
+                Excel
+              </span>
+
+              <span>
+                Financial Analysis
+              </span>
+
+              <span>
+                Ratio Analysis
+              </span>
+
+              <span>
+                Financial Modeling
+              </span>
+
+              <span>
+                Competitive Analysis
+              </span>
+
             </div>
 
           </div>
@@ -1875,9 +2119,14 @@
         </article>
 
 
-        <!-- PROJECT 03 -->
+
+        <!-- ==================================================
+             PROJECT 03
+             TECHNICAL HIRING OPTIMIZATION
+        =================================================== -->
 
         <article class="editorial-entry project-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -1902,13 +2151,16 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Technical Hiring Optimization
             </h3>
 
+
             <div class="editorial-entry-role">
               Candidate Evaluation Framework
             </div>
+
 
             <p class="editorial-entry-summary">
               Developed a repeatable evaluation framework to improve
@@ -1917,7 +2169,9 @@
             </p>
 
 
+
             <div class="project-case-study">
+
 
               <div class="project-case-item">
 
@@ -1964,11 +2218,25 @@
             </div>
 
 
+
             <div class="editorial-tags">
-              <span>Process Design</span>
-              <span>Business Analysis</span>
-              <span>Consulting</span>
-              <span>Framework Development</span>
+
+              <span>
+                Process Design
+              </span>
+
+              <span>
+                Business Analysis
+              </span>
+
+              <span>
+                Consulting
+              </span>
+
+              <span>
+                Framework Development
+              </span>
+
             </div>
 
           </div>
@@ -1976,9 +2244,14 @@
         </article>
 
 
-        <!-- PROJECT 04 -->
+
+        <!-- ==================================================
+             PROJECT 04
+             CONSULTATIVE SELLING
+        =================================================== -->
 
         <article class="editorial-entry project-entry reveal">
+
 
           <div class="editorial-entry-meta">
 
@@ -2003,21 +2276,27 @@
 
           <div class="editorial-entry-content">
 
+
             <h3 class="editorial-entry-title">
               Consultative Selling
             </h3>
+
 
             <div class="editorial-entry-role">
               B2B Discovery &amp; Client Recommendation
             </div>
 
+
             <p class="editorial-entry-summary">
-              Built a B2B recommendation around the client's actual business
-              priorities rather than relying exclusively on product features.
+              Built a B2B recommendation around the client's actual
+              business priorities rather than relying exclusively on
+              product features.
             </p>
 
 
+
             <div class="project-case-study">
+
 
               <div class="project-case-item">
 
@@ -2055,8 +2334,8 @@
                 </h4>
 
                 <p>
-                  Delivered a client-ready recommendation aligned with the
-                  needs identified during discovery.
+                  Delivered a client-ready recommendation aligned with
+                  the needs identified during discovery.
                 </p>
 
               </div>
@@ -2064,12 +2343,29 @@
             </div>
 
 
+
             <div class="editorial-tags">
-              <span>Business Development</span>
-              <span>Discovery</span>
-              <span>Competitive Analysis</span>
-              <span>Client Presentation</span>
-              <span>Strategy</span>
+
+              <span>
+                Business Development
+              </span>
+
+              <span>
+                Discovery
+              </span>
+
+              <span>
+                Competitive Analysis
+              </span>
+
+              <span>
+                Client Presentation
+              </span>
+
+              <span>
+                Strategy
+              </span>
+
             </div>
 
           </div>
@@ -2079,6 +2375,7 @@
       </div>
 
     </section>
+
 
 
     <!-- ==================================================
@@ -2113,6 +2410,7 @@
         Understand the question, find reliable information, identify what
         matters, and turn the analysis into a defensible next step.
       </p>
+
 
 
       <div class="approach-steps">
@@ -2165,8 +2463,8 @@
           </h3>
 
           <p class="approach-step-text">
-            Look beyond the numbers to identify patterns that matter to the
-            business and the decision being made.
+            Look beyond the numbers to identify patterns that matter
+            to the business and the decision being made.
           </p>
 
         </article>
@@ -2194,6 +2492,7 @@
     </section>
 
 
+
     <!-- ==================================================
          SKILLS
     =================================================== -->
@@ -2205,6 +2504,7 @@
     >
 
       <div>
+
 
         <div class="sec-label">
 
@@ -2224,9 +2524,11 @@
 
 
         <p class="sec-sub">
-          Technical, analytical, and business capabilities developed through
-          coursework, projects, internships, externships, and client work.
+          Technical, analytical, and business capabilities developed
+          through coursework, projects, internships, externships,
+          and client work.
         </p>
+
 
 
         <div class="core-bar reveal">
@@ -2251,6 +2553,7 @@
           </span>
 
         </div>
+
 
 
         <div class="skills-grid reveal">
@@ -2371,11 +2674,13 @@
 
           </article>
 
+
         </div>
 
       </div>
 
     </section>
+
 
 
     <!-- ==================================================
@@ -2405,18 +2710,24 @@
       </h2>
 
 
+
       <div class="edu-grid reveal">
 
 
+        <!-- EDUCATION -->
+
         <article class="edu-card">
+
 
           <h3 class="edu-degree">
             BBA, Management Information Systems
           </h3>
 
+
           <div class="edu-school">
             University of Houston · C.T. Bauer College of Business
           </div>
+
 
           <div class="edu-detail">
             Aug 2023 – May 2027
@@ -2426,10 +2737,6 @@
             Minor in Finance
           </div>
 
-
-          <span class="gpa-badge">
-            GPA 3.55 / 4.00
-          </span>
 
 
           <div class="coursework-label">
@@ -2462,6 +2769,7 @@
           </div>
 
 
+
           <div class="edu-sub">
 
             <h3
@@ -2480,23 +2788,31 @@
         </article>
 
 
+
+        <!-- CERTIFICATION -->
+
         <article class="cert-card">
+
 
           <div class="cert-label">
             Certification
           </div>
 
+
           <h3 class="cert-name">
             SQL Certificate of Competency
           </h3>
+
 
           <div class="cert-issuer">
             LearnSQL.com
           </div>
 
+
           <div class="cert-date">
             Issued December 2025
           </div>
+
 
 
           <a
@@ -2509,6 +2825,7 @@
 
             Show Credential
 
+
             <svg
               width="12"
               height="12"
@@ -2520,33 +2837,43 @@
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15 3 21 3 21 9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
+
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              />
+
+              <polyline
+                points="15 3 21 3 21 9"
+              />
+
+              <line
+                x1="10"
+                y1="14"
+                x2="21"
+                y2="3"
+              />
+
             </svg>
 
           </a>
 
 
+
           <div class="edu-sub">
+
 
             <div class="cert-label">
               Education Focus
             </div>
 
-            <p
-              style="
-                max-width:430px;
-                font-size:13px;
-                color:#777168;
-                line-height:1.85;
-              "
-            >
-              Combining Management Information Systems with Finance to build
-              the technical and business foundation needed to analyze
+
+            <p>
+              Combining Management Information Systems with Finance to
+              build the technical and business foundation needed to analyze
               problems, understand financial impact, and communicate
               practical recommendations.
             </p>
+
 
           </div>
 
@@ -2555,6 +2882,7 @@
       </div>
 
     </section>
+
 
 
     <!-- ==================================================
@@ -2569,7 +2897,10 @@
       <div class="contact-inner">
 
 
+        <!-- CONTACT COPY -->
+
         <div class="reveal">
+
 
           <div class="sec-label">
 
@@ -2593,10 +2924,10 @@
 
 
           <p class="contact-sub">
-            I'm seeking full-time opportunities beginning Summer 2027 in
-            consulting, data analytics, strategy, and technology. If my
-            background aligns with what your team is building or solving,
-            I'd be glad to connect.
+            I'm seeking full-time opportunities beginning Summer 2027
+            in consulting, data analytics, strategy, and technology.
+            If my background aligns with what your team is building
+            or solving, I'd be glad to connect.
           </p>
 
 
@@ -2624,6 +2955,9 @@
         </div>
 
 
+
+        <!-- CONTACT LINKS -->
+
         <div class="contact-links reveal reveal-delay-2">
 
 
@@ -2644,6 +2978,7 @@
           </a>
 
 
+
           <a
             class="contact-link"
             href="https://www.linkedin.com/in/hanzalah-khiyani/"
@@ -2661,6 +2996,7 @@
             </span>
 
           </a>
+
 
 
           <a
@@ -2693,8 +3029,18 @@
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <line x1="22" y1="2" x2="11" y2="13"/>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+
+              <line
+                x1="22"
+                y1="2"
+                x2="11"
+                y2="13"
+              />
+
+              <polygon
+                points="22 2 15 22 11 13 2 9 22 2"
+              />
+
             </svg>
 
           </a>
@@ -2706,6 +3052,7 @@
     </section>
 
   </main>
+
 
 
   <!-- ==================================================
@@ -2723,6 +3070,7 @@
     </div>
 
   </footer>
+
 
 </body>
 
