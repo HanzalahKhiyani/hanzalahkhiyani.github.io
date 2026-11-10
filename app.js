@@ -1,7 +1,6 @@
 /* ======================================================
-   HANZALAH KHIYANI
-   LUXURY DIGITAL PORTFOLIO
-   APP.JS
+   HANZALAH KHIYANI PORTFOLIO
+   SIMPLE PREMIUM APP.JS
 ====================================================== */
 
 
@@ -17,7 +16,6 @@ const finePointer = window.matchMedia(
   '(hover: hover) and (pointer: fine)'
 );
 
-const html = document.documentElement;
 const body = document.body;
 
 const nav = document.getElementById('nav');
@@ -28,118 +26,44 @@ const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 let lastScrollY = window.scrollY;
+
 let navTicking = false;
 let progressTicking = false;
-let manifestoTicking = false;
 let resizeTimer;
 
 
 /* ======================================================
-   CINEMATIC INTRO
+   PAGE READY / HERO ENTRANCE
 ====================================================== */
 
-function createIntroOverlay() {
-  if (
-    prefersReducedMotion.matches ||
-    document.querySelector('.intro-overlay')
-  ) {
-    body.classList.add('page-ready');
-    return;
-  }
-
-  const intro = document.createElement('div');
-
-  intro.className = 'intro-overlay';
-
-  intro.setAttribute('aria-hidden', 'true');
-
-  intro.innerHTML = `
-    <div class="intro-inner">
-
-      <div class="intro-meta">
-        C.T. Bauer College of Business
-        <br>
-        Houston, Texas
-      </div>
-
-      <div class="intro-line"></div>
-
-      <div class="intro-name">
-
-        <span class="intro-name-line">
-          <span class="intro-name-text">
-            Hanzalah
-          </span>
-        </span>
-
-        <span class="intro-name-line">
-          <span class="intro-name-text">
-            Khiyani
-          </span>
-        </span>
-
-      </div>
-
-      <div class="intro-caption">
-        Data · Strategy · Decisions
-      </div>
-
-    </div>
-  `;
-
-  body.prepend(intro);
-
-  body.classList.add('intro-active');
-
+function initializePage() {
   /*
-    The intro remains long enough for each element
-    to complete the entrance sequence.
+    Make sure the old cinematic intro can never
+    leave the page locked.
   */
 
-  window.setTimeout(() => {
-    intro.classList.add('finished');
-
-    body.classList.remove('intro-active');
-    body.classList.add('page-ready');
-  }, 2200);
+  body.classList.remove('intro-active');
 
   /*
-    Remove the finished overlay from the DOM after
-    its fade-out transition.
+    Activates the clean hero entrance animation.
   */
 
-  window.setTimeout(() => {
-    intro.remove();
-  }, 3200);
+  requestAnimationFrame(() => {
+    body.classList.add('page-ready');
+  });
 }
 
 
 /* ======================================================
-   HERO ENTRANCE FALLBACK
+   CUSTOM POINTER-FOLLOW CURSOR
 ====================================================== */
 
-function initializeHeroEntrance() {
-  if (prefersReducedMotion.matches) {
-    body.classList.add('page-ready');
-    return;
-  }
-
+function createCustomCursor() {
   /*
-    If the cinematic overlay is not present,
-    reveal the page immediately.
+    Only show the custom cursor on desktop devices
+    with an actual mouse / fine pointer.
   */
 
-  if (!document.querySelector('.intro-overlay')) {
-    body.classList.add('page-ready');
-  }
-}
-
-
-/* ======================================================
-   CUSTOM LUXURY CURSOR
-====================================================== */
-
-function createLuxuryCursor() {
   if (
     !finePointer.matches ||
     prefersReducedMotion.matches ||
@@ -147,6 +71,7 @@ function createLuxuryCursor() {
   ) {
     return;
   }
+
 
   const cursor = document.createElement('div');
   const cursorLabel = document.createElement('div');
@@ -157,9 +82,8 @@ function createLuxuryCursor() {
   cursor.setAttribute('aria-hidden', 'true');
   cursorLabel.setAttribute('aria-hidden', 'true');
 
-  cursorLabel.textContent = '';
-
   body.append(cursor, cursorLabel);
+
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -170,34 +94,38 @@ function createLuxuryCursor() {
   let labelX = mouseX;
   let labelY = mouseY;
 
-  let cursorAnimationFrame;
+  let cursorFrame;
 
 
   function renderCursor() {
     /*
-      The cursor follows quickly.
-      The label follows slightly more slowly,
-      creating a smoother premium movement.
+      Slight easing creates the smooth trailing effect.
     */
 
-    cursorX += (mouseX - cursorX) * 0.22;
-    cursorY += (mouseY - cursorY) * 0.22;
+    cursorX += (mouseX - cursorX) * 0.24;
+    cursorY += (mouseY - cursorY) * 0.24;
 
-    labelX += (mouseX - labelX) * 0.18;
-    labelY += (mouseY - labelY) * 0.18;
+    labelX += (mouseX - labelX) * 0.2;
+    labelY += (mouseY - labelY) * 0.2;
+
 
     cursor.style.transform =
       `translate3d(${cursorX}px, ${cursorY}px, 0)
        translate(-50%, -50%)`;
 
+
     cursorLabel.style.transform =
       `translate3d(${labelX}px, ${labelY}px, 0)
        translate(-50%, -50%)`;
 
-    cursorAnimationFrame =
-      requestAnimationFrame(renderCursor);
+
+    cursorFrame = requestAnimationFrame(
+      renderCursor
+    );
   }
 
+
+  /* Track mouse position */
 
   document.addEventListener(
     'mousemove',
@@ -206,113 +134,149 @@ function createLuxuryCursor() {
       mouseY = event.clientY;
 
       cursor.classList.add('visible');
-      cursorLabel.classList.add('visible');
     },
-    { passive: true }
+    {
+      passive: true
+    }
   );
 
 
-  document.addEventListener('mouseleave', () => {
-    cursor.classList.remove('visible');
-    cursorLabel.classList.remove('visible');
-  });
+  /* Hide cursor when mouse leaves browser area */
+
+  document.addEventListener(
+    'mouseleave',
+    () => {
+      cursor.classList.remove('visible');
+      cursorLabel.classList.remove('visible');
+    }
+  );
 
 
-  document.addEventListener('mouseenter', () => {
-    cursor.classList.add('visible');
-    cursorLabel.classList.add('visible');
-  });
+  document.addEventListener(
+    'mouseenter',
+    () => {
+      cursor.classList.add('visible');
+    }
+  );
 
 
   /*
-    Elements that should expand the cursor.
+    Elements that should trigger the larger pointer.
   */
 
-  const interactiveElements = document.querySelectorAll(
-    [
-      'a',
-      'button',
-      '.exp-trigger',
-      '.impact-item',
-      '.stat-card',
-      '.approach-step',
-      '.skill-group',
-      '.project-feature'
-    ].join(', ')
-  );
+  const interactiveElements =
+    document.querySelectorAll(
+      [
+        'a',
+        'button',
+        '.exp-trigger',
+        '.project-feature'
+      ].join(', ')
+    );
 
 
   interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-      cursor.classList.add('interactive');
 
-      const cursorText =
-        element.dataset.cursor ||
-        getCursorLabel(element);
+    element.addEventListener(
+      'mouseenter',
+      () => {
+        cursor.classList.add('interactive');
 
-      cursorLabel.textContent = cursorText;
 
-      if (cursorText) {
-        cursorLabel.classList.add('visible');
+        const label =
+          element.dataset.cursor ||
+          getCursorLabel(element);
+
+
+        if (label) {
+          cursorLabel.textContent = label;
+          cursorLabel.classList.add('visible');
+        } else {
+          cursorLabel.textContent = '';
+          cursorLabel.classList.remove('visible');
+        }
       }
-    });
+    );
 
 
-    element.addEventListener('mouseleave', () => {
-      cursor.classList.remove('interactive');
+    element.addEventListener(
+      'mouseleave',
+      () => {
+        cursor.classList.remove('interactive');
 
-      cursorLabel.textContent = '';
-    });
+        cursorLabel.textContent = '';
+        cursorLabel.classList.remove('visible');
+      }
+    );
+
   });
 
 
-  cursorAnimationFrame =
-    requestAnimationFrame(renderCursor);
+  cursorFrame = requestAnimationFrame(
+    renderCursor
+  );
 
 
-  window.addEventListener('beforeunload', () => {
-    cancelAnimationFrame(cursorAnimationFrame);
-  });
+  window.addEventListener(
+    'beforeunload',
+    () => {
+      cancelAnimationFrame(cursorFrame);
+    }
+  );
 }
 
 
+/* ======================================================
+   CURSOR LABELS
+====================================================== */
+
 function getCursorLabel(element) {
+  /*
+    Experience accordion
+  */
+
   if (element.classList.contains('exp-trigger')) {
-    return element
-      .closest('.exp-item')
-      ?.classList.contains('open')
+    const item = element.closest('.exp-item');
+
+    return item?.classList.contains('open')
       ? 'CLOSE'
       : 'OPEN';
   }
 
-  if (
-    element.classList.contains('project-feature') ||
-    element.closest('#projects')
-  ) {
-    return 'VIEW';
+
+  /*
+    Project showcase
+  */
+
+  if (element.classList.contains('project-feature')) {
+    return '';
   }
+
+
+  /*
+    External links
+  */
 
   if (element.matches('a[target="_blank"]')) {
     return 'OPEN';
   }
 
-  if (
-    element.classList.contains('impact-item') ||
-    element.classList.contains('stat-card')
-  ) {
-    return '';
-  }
+
+  /*
+    Email CTA
+  */
 
   if (element.classList.contains('contact-cta')) {
     return 'SEND';
   }
+
 
   return '';
 }
 
 
 /* ======================================================
-   INTERACTIVE HERO SPOTLIGHT
+   HERO POINTER SPOTLIGHT
 ====================================================== */
 
 function initializeHeroSpotlight() {
@@ -324,6 +288,7 @@ function initializeHeroSpotlight() {
     return;
   }
 
+
   let spotlightFrame;
 
 
@@ -332,193 +297,63 @@ function initializeHeroSpotlight() {
     event => {
       cancelAnimationFrame(spotlightFrame);
 
-      spotlightFrame = requestAnimationFrame(() => {
-        const rect = hero.getBoundingClientRect();
 
-        const x =
-          ((event.clientX - rect.left) / rect.width) * 100;
+      spotlightFrame =
+        requestAnimationFrame(() => {
 
-        const y =
-          ((event.clientY - rect.top) / rect.height) * 100;
+          const rect =
+            hero.getBoundingClientRect();
 
-        hero.style.setProperty(
-          '--spotlight-x',
-          `${x.toFixed(2)}%`
-        );
 
-        hero.style.setProperty(
-          '--spotlight-y',
-          `${y.toFixed(2)}%`
-        );
-      });
+          const x =
+            ((event.clientX - rect.left) /
+              rect.width) *
+            100;
+
+
+          const y =
+            ((event.clientY - rect.top) /
+              rect.height) *
+            100;
+
+
+          hero.style.setProperty(
+            '--spotlight-x',
+            `${x.toFixed(2)}%`
+          );
+
+
+          hero.style.setProperty(
+            '--spotlight-y',
+            `${y.toFixed(2)}%`
+          );
+
+        });
     },
-    { passive: true }
+    {
+      passive: true
+    }
   );
 
-
-  hero.addEventListener('mouseleave', () => {
-    hero.style.setProperty(
-      '--spotlight-x',
-      '70%'
-    );
-
-    hero.style.setProperty(
-      '--spotlight-y',
-      '35%'
-    );
-  });
-}
-
-
-/* ======================================================
-   DATA · STRATEGY · DECISIONS MANIFESTO
-====================================================== */
-
-function createBrandManifesto() {
-  if (document.querySelector('.brand-manifesto')) {
-    return;
-  }
-
-  const aboutSection =
-    document.getElementById('about');
-
-  if (!aboutSection) {
-    return;
-  }
-
-  const manifesto =
-    document.createElement('section');
-
-  manifesto.className = 'brand-manifesto';
-
-  manifesto.setAttribute(
-    'aria-label',
-    'Data, strategy, and decisions'
-  );
-
-  manifesto.innerHTML = `
-    <div
-      class="manifesto-line"
-      data-direction="right"
-      aria-hidden="true"
-    >
-      <span class="manifesto-word">
-        Data
-      </span>
-
-      <span class="manifesto-word">
-        Data
-      </span>
-
-      <span class="manifesto-word">
-        Data
-      </span>
-    </div>
-
-    <div
-      class="manifesto-line"
-      data-direction="left"
-      aria-hidden="true"
-    >
-      <span class="manifesto-word">
-        Strategy
-      </span>
-
-      <span class="manifesto-word">
-        Strategy
-      </span>
-    </div>
-
-    <div
-      class="manifesto-line"
-      data-direction="right"
-      aria-hidden="true"
-    >
-      <span class="manifesto-word">
-        Decisions
-      </span>
-
-      <span class="manifesto-word">
-        Decisions
-      </span>
-    </div>
-  `;
-
-  aboutSection.before(manifesto);
-}
-
-
-/* ======================================================
-   MANIFESTO SCROLL MOVEMENT
-====================================================== */
-
-function updateManifestoMovement() {
-  const manifesto =
-    document.querySelector('.brand-manifesto');
-
-  if (
-    !manifesto ||
-    prefersReducedMotion.matches
-  ) {
-    manifestoTicking = false;
-    return;
-  }
-
-  const rect =
-    manifesto.getBoundingClientRect();
-
-  const viewportHeight =
-    window.innerHeight;
 
   /*
-    Only calculate transforms while the manifesto
-    is near or inside the viewport.
+    Return the spotlight to its default position.
   */
 
-  if (
-    rect.bottom < -200 ||
-    rect.top > viewportHeight + 200
-  ) {
-    manifestoTicking = false;
-    return;
-  }
+  hero.addEventListener(
+    'mouseleave',
+    () => {
+      hero.style.setProperty(
+        '--spotlight-x',
+        '70%'
+      );
 
-  const visibleProgress =
-    (viewportHeight - rect.top) /
-    (viewportHeight + rect.height);
-
-  const normalizedProgress =
-    Math.min(
-      Math.max(visibleProgress, 0),
-      1
-    );
-
-  const lines =
-    manifesto.querySelectorAll('.manifesto-line');
-
-
-  lines.forEach((line, index) => {
-    const direction =
-      line.dataset.direction === 'left'
-        ? -1
-        : 1;
-
-    const baseOffset =
-      index === 1
-        ? 7
-        : -10;
-
-    const movement =
-      baseOffset +
-      direction *
-      (normalizedProgress - 0.5) *
-      20;
-
-    line.style.transform =
-      `translate3d(${movement}vw, 0, 0)`;
-  });
-
-  manifestoTicking = false;
+      hero.style.setProperty(
+        '--spotlight-y',
+        '35%'
+      );
+    }
+  );
 }
 
 
@@ -532,112 +367,179 @@ function updateNavigation() {
     return;
   }
 
+
   const currentScrollY =
-    Math.max(window.scrollY, 0);
+    Math.max(
+      window.scrollY,
+      0
+    );
+
+
+  /*
+    At top of page:
+    show normal navigation.
+  */
 
   if (currentScrollY < 80) {
+
     nav.classList.remove(
       'hidden',
       'scrolled'
     );
-  } else if (
+
+  }
+
+  /*
+    Scrolling down:
+    hide navigation.
+  */
+
+  else if (
     currentScrollY >
     lastScrollY + 4
   ) {
+
     nav.classList.add(
       'hidden',
       'scrolled'
     );
-  } else if (
+
+  }
+
+  /*
+    Scrolling up:
+    show compact navigation.
+  */
+
+  else if (
     currentScrollY <
     lastScrollY - 4
   ) {
+
     nav.classList.remove('hidden');
     nav.classList.add('scrolled');
+
   }
 
+
   lastScrollY = currentScrollY;
+
   navTicking = false;
 }
 
 
 /* ======================================================
-   ACTIVE NAVIGATION LINK
+   ACTIVE NAVIGATION SECTION
 ====================================================== */
 
-const navObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      const sectionId =
-        entry.target.id;
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-      });
-
-      const activeLink =
-        document.querySelector(
-          `.nav-links a[href="#${sectionId}"]`
-        );
-
-      if (activeLink) {
-        activeLink.classList.add('active');
-      }
-    });
-  },
-  {
-    rootMargin: '-42% 0px -42% 0px',
-    threshold: 0
+function initializeActiveNavigation() {
+  if (
+    !sections.length ||
+    !navLinks.length
+  ) {
+    return;
   }
-);
 
 
-sections.forEach(section => {
-  navObserver.observe(section);
-});
+  const navObserver =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+
+          const sectionId =
+            entry.target.id;
+
+
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+
+
+          const activeLink =
+            document.querySelector(
+              `.nav-links a[href="#${sectionId}"]`
+            );
+
+
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+
+        });
+
+      },
+      {
+        rootMargin: '-42% 0px -42% 0px',
+        threshold: 0
+      }
+    );
+
+
+  sections.forEach(section => {
+    navObserver.observe(section);
+  });
+}
 
 
 /* ======================================================
    SMOOTH NAVIGATION
 ====================================================== */
 
-navLinks.forEach(link => {
-  link.addEventListener('click', event => {
-    const targetId =
-      link.getAttribute('href');
+function initializeSmoothNavigation() {
+  navLinks.forEach(link => {
 
-    if (
-      !targetId ||
-      !targetId.startsWith('#')
-    ) {
-      return;
-    }
+    link.addEventListener(
+      'click',
+      event => {
 
-    const target =
-      document.querySelector(targetId);
+        const targetId =
+          link.getAttribute('href');
 
-    if (!target) {
-      return;
-    }
 
-    event.preventDefault();
+        if (
+          !targetId ||
+          !targetId.startsWith('#')
+        ) {
+          return;
+        }
 
-    target.scrollIntoView({
-      behavior:
-        prefersReducedMotion.matches
-          ? 'auto'
-          : 'smooth',
-      block: 'start'
-    });
 
-    nav?.classList.remove('hidden');
-    nav?.classList.add('scrolled');
+        const target =
+          document.querySelector(targetId);
+
+
+        if (!target) {
+          return;
+        }
+
+
+        event.preventDefault();
+
+
+        target.scrollIntoView({
+          behavior:
+            prefersReducedMotion.matches
+              ? 'auto'
+              : 'smooth',
+
+          block: 'start'
+        });
+
+
+        nav?.classList.remove('hidden');
+        nav?.classList.add('scrolled');
+
+      }
+    );
+
   });
-});
+}
 
 
 /* ======================================================
@@ -650,61 +552,72 @@ function updateScrollProgress() {
     return;
   }
 
+
   const scrollableHeight =
     document.documentElement.scrollHeight -
     window.innerHeight;
+
 
   const percentage =
     scrollableHeight > 0
       ? (window.scrollY / scrollableHeight) * 100
       : 0;
 
+
   const clampedPercentage =
     Math.min(
-      Math.max(percentage, 0),
+      Math.max(
+        percentage,
+        0
+      ),
       100
     );
 
+
   progressBar.style.width =
     `${clampedPercentage}%`;
+
 
   progressTicking = false;
 }
 
 
 /* ======================================================
-   MASTER SCROLL HANDLER
+   MASTER SCROLL LISTENER
 ====================================================== */
 
-window.addEventListener(
-  'scroll',
-  () => {
-    if (!navTicking) {
-      requestAnimationFrame(
-        updateNavigation
-      );
+function initializeScrollEvents() {
+  window.addEventListener(
+    'scroll',
+    () => {
 
-      navTicking = true;
+      if (!navTicking) {
+
+        requestAnimationFrame(
+          updateNavigation
+        );
+
+        navTicking = true;
+
+      }
+
+
+      if (!progressTicking) {
+
+        requestAnimationFrame(
+          updateScrollProgress
+        );
+
+        progressTicking = true;
+
+      }
+
+    },
+    {
+      passive: true
     }
-
-    if (!progressTicking) {
-      requestAnimationFrame(
-        updateScrollProgress
-      );
-
-      progressTicking = true;
-    }
-
-    if (!manifestoTicking) {
-      requestAnimationFrame(
-        updateManifestoMovement
-      );
-
-      manifestoTicking = true;
-    }
-  },
-  { passive: true }
-);
+  );
+}
 
 
 /* ======================================================
@@ -715,7 +628,18 @@ function initializeScrollReveals() {
   const revealElements =
     document.querySelectorAll('.reveal');
 
+
+  if (!revealElements.length) {
+    return;
+  }
+
+
+  /*
+    Skip animation if reduced motion is enabled.
+  */
+
   if (prefersReducedMotion.matches) {
+
     revealElements.forEach(element => {
       element.classList.add('visible');
     });
@@ -723,22 +647,29 @@ function initializeScrollReveals() {
     return;
   }
 
+
   const revealObserver =
     new IntersectionObserver(
       entries => {
+
         entries.forEach(entry => {
+
           if (!entry.isIntersecting) {
             return;
           }
+
 
           entry.target.classList.add(
             'visible'
           );
 
+
           revealObserver.unobserve(
             entry.target
           );
+
         });
+
       },
       {
         rootMargin: '0px 0px -8% 0px',
@@ -753,14 +684,19 @@ function initializeScrollReveals() {
 
 
   /*
-    Fallback for slow font or resource loading.
+    Safety fallback.
   */
 
-  window.setTimeout(() => {
-    revealElements.forEach(element => {
-      element.classList.add('visible');
-    });
-  }, 2200);
+  window.setTimeout(
+    () => {
+
+      revealElements.forEach(element => {
+        element.classList.add('visible');
+      });
+
+    },
+    1800
+  );
 }
 
 
@@ -773,22 +709,28 @@ function animateCounter(
   target,
   prefix = '',
   suffix = '',
-  duration = 1650
+  duration = 1400
 ) {
+
   if (prefersReducedMotion.matches) {
+
     element.textContent =
       `${prefix}${target}${suffix}`;
 
     return;
+
   }
+
 
   const startTime =
     performance.now();
 
 
   function updateCounter(currentTime) {
+
     const elapsed =
       currentTime - startTime;
+
 
     const progress =
       Math.min(
@@ -796,32 +738,42 @@ function animateCounter(
         1
       );
 
+
     /*
-      Luxury easing:
-      quick confidence at the beginning,
-      gradual settle at the end.
+      Ease-out cubic.
     */
 
     const easedProgress =
-      1 - Math.pow(1 - progress, 4);
+      1 - Math.pow(
+        1 - progress,
+        3
+      );
+
 
     const currentValue =
       Math.round(
         easedProgress * target
       );
 
+
     element.textContent =
       `${prefix}${currentValue}${suffix}`;
 
+
     if (progress < 1) {
+
       requestAnimationFrame(
         updateCounter
       );
+
     }
+
   }
 
 
-  requestAnimationFrame(updateCounter);
+  requestAnimationFrame(
+    updateCounter
+  );
 }
 
 
@@ -831,50 +783,80 @@ function initializeImpactCounters() {
       '.impact-item'
     );
 
+
+  if (!impactItems.length) {
+    return;
+  }
+
+
   const impactObserver =
     new IntersectionObserver(
       entries => {
+
         entries.forEach(entry => {
+
           if (!entry.isIntersecting) {
             return;
           }
 
+
           entry.target.classList.add(
             'in-view'
           );
+
 
           const valueElement =
             entry.target.querySelector(
               '.impact-val'
             );
 
+
           if (
             valueElement &&
             !valueElement.dataset.animated
           ) {
+
             const target =
               Number.parseInt(
                 valueElement.dataset.target,
                 10
               );
 
+
             if (!Number.isNaN(target)) {
+
               valueElement.dataset.animated =
                 'true';
+
+
+              const prefix =
+                valueElement.dataset.prefix ||
+                '';
+
+
+              const suffix =
+                valueElement.dataset.suffix ||
+                '';
+
 
               animateCounter(
                 valueElement,
                 target,
-                valueElement.dataset.prefix || '',
-                valueElement.dataset.suffix || ''
+                prefix,
+                suffix
               );
+
             }
+
           }
+
 
           impactObserver.unobserve(
             entry.target
           );
+
         });
+
       },
       {
         threshold: 0.3
@@ -889,30 +871,47 @@ function initializeImpactCounters() {
 
 
 /* ======================================================
-   LUXURY ACCORDIONS
+   EXPERIENCE ACCORDIONS
 ====================================================== */
 
 function closeAccordion(item) {
+  if (!item) {
+    return;
+  }
+
+
   const trigger =
-    item.querySelector('.exp-trigger');
+    item.querySelector(
+      '.exp-trigger'
+    );
+
 
   const bodyElement =
-    item.querySelector('.exp-body');
+    item.querySelector(
+      '.exp-body'
+    );
+
 
   const button =
-    item.querySelector('.exp-expand-btn');
+    item.querySelector(
+      '.exp-expand-btn'
+    );
+
 
   item.classList.remove('open');
+
 
   trigger?.setAttribute(
     'aria-expanded',
     'false'
   );
 
+
   button?.setAttribute(
     'aria-expanded',
     'false'
   );
+
 
   if (bodyElement) {
     bodyElement.style.maxHeight = '';
@@ -921,62 +920,105 @@ function closeAccordion(item) {
 
 
 function openAccordion(item) {
+  if (!item) {
+    return;
+  }
+
+
   const trigger =
-    item.querySelector('.exp-trigger');
+    item.querySelector(
+      '.exp-trigger'
+    );
+
 
   const bodyElement =
-    item.querySelector('.exp-body');
+    item.querySelector(
+      '.exp-body'
+    );
+
 
   const button =
-    item.querySelector('.exp-expand-btn');
+    item.querySelector(
+      '.exp-expand-btn'
+    );
+
 
   item.classList.add('open');
+
 
   trigger?.setAttribute(
     'aria-expanded',
     'true'
   );
 
+
   button?.setAttribute(
     'aria-expanded',
     'true'
   );
 
+
   if (bodyElement) {
+
     bodyElement.style.maxHeight =
       `${bodyElement.scrollHeight}px`;
+
   }
 }
 
 
+/* ======================================================
+   PUBLIC ACCORDION FUNCTION
+====================================================== */
+
 function toggleExp(trigger) {
   const selectedItem =
-    trigger.closest('.exp-item');
+    trigger.closest(
+      '.exp-item'
+    );
+
 
   if (!selectedItem) {
     return;
   }
 
+
   const wasOpen =
-    selectedItem.classList.contains('open');
+    selectedItem.classList.contains(
+      'open'
+    );
+
 
   /*
-    Close all Experience and Project accordions
-    before opening the selected one.
+    Close any currently open Experience item.
   */
 
   document
-    .querySelectorAll('.exp-item.open')
+    .querySelectorAll(
+      '.exp-item.open'
+    )
     .forEach(openItem => {
+
       closeAccordion(openItem);
+
     });
 
+
+  /*
+    Open the selected item if it wasn't already open.
+  */
 
   if (!wasOpen) {
     openAccordion(selectedItem);
   }
 }
 
+
+/*
+  Required because the HTML currently uses:
+
+  onclick="toggleExp(this)"
+*/
 
 window.toggleExp = toggleExp;
 
@@ -991,36 +1033,53 @@ function initializeAccordions() {
       '.exp-trigger'
     );
 
+
   accordionTriggers.forEach(
     (trigger, index) => {
+
       const item =
-        trigger.closest('.exp-item');
+        trigger.closest(
+          '.exp-item'
+        );
+
 
       const bodyElement =
-        item?.querySelector('.exp-body');
+        item?.querySelector(
+          '.exp-body'
+        );
+
 
       const button =
         trigger.querySelector(
           '.exp-expand-btn'
         );
 
+
       const bodyId =
-        `accordion-content-${index + 1}`;
+        `experience-panel-${index + 1}`;
+
+
+      /*
+        Make the complete row keyboard accessible.
+      */
 
       trigger.setAttribute(
         'tabindex',
         '0'
       );
 
+
       trigger.setAttribute(
         'role',
         'button'
       );
 
+
       trigger.setAttribute(
         'aria-expanded',
         'false'
       );
+
 
       trigger.setAttribute(
         'aria-controls',
@@ -1034,147 +1093,159 @@ function initializeAccordions() {
 
 
       if (button) {
-        button.setAttribute(
-          'aria-expanded',
-          'false'
-        );
 
         button.setAttribute(
           'aria-hidden',
           'true'
         );
+
       }
 
+
+      /*
+        Keyboard support.
+      */
 
       trigger.addEventListener(
         'keydown',
         event => {
+
           if (
             event.key === 'Enter' ||
             event.key === ' '
           ) {
+
             event.preventDefault();
 
             toggleExp(trigger);
+
           }
+
         }
       );
+
     }
   );
 }
 
 
 /* ======================================================
-   MAGNETIC BUTTON MOVEMENT
+   PROJECT SHOWCASE
 ====================================================== */
 
-function initializeMagneticElements() {
-  if (
-    !finePointer.matches ||
-    prefersReducedMotion.matches
-  ) {
-    return;
-  }
-
-  const magneticElements =
-    document.querySelectorAll(
-      [
-        '.btn-gold',
-        '.btn-outline',
-        '.contact-cta',
-        '.project-explore'
-      ].join(', ')
-    );
-
-
-  magneticElements.forEach(element => {
-    element.addEventListener(
-      'mousemove',
-      event => {
-        const rect =
-          element.getBoundingClientRect();
-
-        const relativeX =
-          event.clientX -
-          rect.left -
-          rect.width / 2;
-
-        const relativeY =
-          event.clientY -
-          rect.top -
-          rect.height / 2;
-
-        const moveX =
-          relativeX * 0.08;
-
-        const moveY =
-          relativeY * 0.12;
-
-        element.style.transform =
-          `translate3d(${moveX}px, ${moveY}px, 0)`;
-      }
-    );
-
-
-    element.addEventListener(
-      'mouseleave',
-      () => {
-        element.style.transform = '';
-      }
-    );
-  });
-}
-
-
-/* ======================================================
-   PROJECT FEATURE SCROLL REVEAL
-====================================================== */
-
-function initializeProjectFeatures() {
+function initializeProjects() {
   const projectFeatures =
     document.querySelectorAll(
       '.project-feature'
     );
 
+
   if (!projectFeatures.length) {
     return;
   }
 
-  projectFeatures.forEach(
-    (feature, index) => {
-      feature.classList.add('reveal');
 
-      feature.style.transitionDelay =
-        `${Math.min(index * 0.05, 0.2)}s`;
+  projectFeatures.forEach(
+    (project, index) => {
+
+      /*
+        Projects are always fully visible.
+        No Explore Project interaction is needed.
+      */
+
+      const detail =
+        project.querySelector(
+          '.project-detail'
+        );
+
+
+      if (detail) {
+
+        /*
+          Remove the HTML hidden state.
+          CSS also handles this as a backup.
+        */
+
+        detail.hidden = false;
+
+      }
+
+
+      /*
+        Give each project a reveal animation
+        without turning it into another accordion.
+      */
+
+      project.classList.add(
+        'reveal'
+      );
+
+
+      project.style.transitionDelay =
+        `${Math.min(
+          index * 0.06,
+          0.18
+        )}s`;
+
     }
   );
+
+
+  /*
+    Hide any leftover Explore Project links
+    from older HTML.
+  */
+
+  document
+    .querySelectorAll(
+      '.project-explore'
+    )
+    .forEach(link => {
+
+      link.remove();
+
+    });
 }
 
 
 /* ======================================================
-   HERO TEXT DATA ATTRIBUTES
+   REMOVE OLD OVERDONE ELEMENTS
 ====================================================== */
 
-function initializeHeroText() {
-  const firstName =
-    document.querySelector(
-      '.hero-name-first'
-    );
+function removeLegacyLuxuryElements() {
+  /*
+    Remove any leftover intro popup.
+  */
 
-  const lastName =
-    document.querySelector(
-      '.hero-name-last'
-    );
+  document
+    .querySelectorAll(
+      '.intro-overlay'
+    )
+    .forEach(element => {
+      element.remove();
+    });
 
-  if (firstName) {
-    firstName.dataset.text =
-      firstName.textContent.trim();
-  }
 
-  if (lastName) {
-    lastName.dataset.text =
-      lastName.textContent.trim();
-  }
+  /*
+    Remove any leftover scrolling manifesto.
+  */
+
+  document
+    .querySelectorAll(
+      '.brand-manifesto'
+    )
+    .forEach(element => {
+      element.remove();
+    });
+
+
+  /*
+    Remove the old body lock.
+  */
+
+  body.classList.remove(
+    'intro-active'
+  );
 }
 
 
@@ -1182,52 +1253,84 @@ function initializeHeroText() {
    RESIZE HANDLING
 ====================================================== */
 
-window.addEventListener(
-  'resize',
-  () => {
-    window.clearTimeout(resizeTimer);
+function initializeResizeHandling() {
+  window.addEventListener(
+    'resize',
+    () => {
 
-    resizeTimer =
-      window.setTimeout(() => {
-        document
-          .querySelectorAll(
-            '.exp-item.open'
-          )
-          .forEach(item => {
-            const bodyElement =
-              item.querySelector(
-                '.exp-body'
-              );
+      window.clearTimeout(
+        resizeTimer
+      );
 
-            if (bodyElement) {
-              bodyElement.style.maxHeight =
-                `${bodyElement.scrollHeight}px`;
-            }
-          });
 
-        updateScrollProgress();
-        updateManifestoMovement();
-      }, 140);
-  },
-  { passive: true }
-);
+      resizeTimer =
+        window.setTimeout(
+          () => {
+
+            /*
+              Recalculate open accordion height.
+            */
+
+            document
+              .querySelectorAll(
+                '.exp-item.open'
+              )
+              .forEach(item => {
+
+                const bodyElement =
+                  item.querySelector(
+                    '.exp-body'
+                  );
+
+
+                if (bodyElement) {
+
+                  bodyElement.style.maxHeight =
+                    `${bodyElement.scrollHeight}px`;
+
+                }
+
+              });
+
+
+            updateScrollProgress();
+
+          },
+          120
+        );
+
+    },
+    {
+      passive: true
+    }
+  );
+}
 
 
 /* ======================================================
    REDUCED MOTION CHANGES
 ====================================================== */
 
-prefersReducedMotion.addEventListener(
-  'change',
-  event => {
-    if (event.matches) {
-      document
-        .querySelector('.intro-overlay')
-        ?.remove();
+function initializeReducedMotionHandling() {
+  prefersReducedMotion.addEventListener(
+    'change',
+    event => {
+
+      if (!event.matches) {
+        return;
+      }
+
+
+      /*
+        Remove custom cursor.
+      */
 
       document
-        .querySelector('.luxury-cursor')
+        .querySelector(
+          '.luxury-cursor'
+        )
         ?.remove();
+
 
       document
         .querySelector(
@@ -1235,88 +1338,117 @@ prefersReducedMotion.addEventListener(
         )
         ?.remove();
 
-      body.classList.remove(
-        'intro-active'
-      );
+
+      /*
+        Reveal all content immediately.
+      */
+
+      document
+        .querySelectorAll(
+          '.reveal'
+        )
+        .forEach(element => {
+
+          element.classList.add(
+            'visible'
+          );
+
+        });
+
+
+      /*
+        Ensure hero is visible.
+      */
 
       body.classList.add(
         'page-ready'
       );
 
-      document
-        .querySelectorAll('.reveal')
-        .forEach(element => {
-          element.classList.add(
-            'visible'
-          );
-        });
     }
-  }
-);
-
-
-/* ======================================================
-   INITIALIZATION
-====================================================== */
-
-function initializePortfolio() {
-  /*
-    Build page elements that are not part of the
-    original HTML structure.
-  */
-
-  createIntroOverlay();
-  createBrandManifesto();
-
-  /*
-    Prepare interface behavior.
-  */
-
-  initializeHeroText();
-  initializeHeroSpotlight();
-  initializeProjectFeatures();
-  initializeAccordions();
-  initializeImpactCounters();
-  initializeScrollReveals();
-  initializeMagneticElements();
-
-  /*
-    The custom cursor is initialized after the
-    dynamically generated page elements exist.
-  */
-
-  createLuxuryCursor();
-
-  /*
-    Ensure the normal hero entrance still works
-    when the intro is disabled.
-  */
-
-  initializeHeroEntrance();
-
-  /*
-    Initial layout and page calculations.
-  */
-
-  updateNavigation();
-  updateScrollProgress();
-  updateManifestoMovement();
+  );
 }
 
 
 /* ======================================================
-   START THE PORTFOLIO
+   INITIALIZE EVERYTHING
+====================================================== */
+
+function initializePortfolio() {
+  /*
+    Remove effects from the previous luxury experiment.
+  */
+
+  removeLegacyLuxuryElements();
+
+
+  /*
+    Initialize the actual page.
+  */
+
+  initializePage();
+
+
+  /*
+    Pointer-follow effects.
+  */
+
+  initializeHeroSpotlight();
+  createCustomCursor();
+
+
+  /*
+    Navigation.
+  */
+
+  initializeActiveNavigation();
+  initializeSmoothNavigation();
+  initializeScrollEvents();
+
+
+  /*
+    Content interaction.
+  */
+
+  initializeProjects();
+  initializeAccordions();
+  initializeImpactCounters();
+  initializeScrollReveals();
+
+
+  /*
+    Browser / accessibility handling.
+  */
+
+  initializeResizeHandling();
+  initializeReducedMotionHandling();
+
+
+  /*
+    Initial measurements.
+  */
+
+  updateNavigation();
+  updateScrollProgress();
+}
+
+
+/* ======================================================
+   START APPLICATION
 ====================================================== */
 
 if (
   document.readyState === 'loading'
 ) {
+
   document.addEventListener(
     'DOMContentLoaded',
     initializePortfolio
   );
+
 } else {
+
   initializePortfolio();
+
 }
 
 
@@ -1324,25 +1456,57 @@ if (
    FINAL LOAD RECALCULATION
 ====================================================== */
 
-window.addEventListener('load', () => {
-  updateNavigation();
-  updateScrollProgress();
-  updateManifestoMovement();
+window.addEventListener(
+  'load',
+  () => {
 
-  /*
-    Fonts can change accordion measurements after
-    they finish loading.
-  */
+    /*
+      Recalculate after fonts and other resources load.
+    */
 
-  document
-    .querySelectorAll('.exp-item.open')
-    .forEach(item => {
-      const bodyElement =
-        item.querySelector('.exp-body');
+    updateNavigation();
+    updateScrollProgress();
 
-      if (bodyElement) {
-        bodyElement.style.maxHeight =
-          `${bodyElement.scrollHeight}px`;
-      }
-    });
-});
+
+    /*
+      Ensure all project details remain visible.
+    */
+
+    document
+      .querySelectorAll(
+        '.project-detail'
+      )
+      .forEach(detail => {
+
+        detail.hidden = false;
+
+      });
+
+
+    /*
+      Fix accordion measurements after fonts load.
+    */
+
+    document
+      .querySelectorAll(
+        '.exp-item.open'
+      )
+      .forEach(item => {
+
+        const bodyElement =
+          item.querySelector(
+            '.exp-body'
+          );
+
+
+        if (bodyElement) {
+
+          bodyElement.style.maxHeight =
+            `${bodyElement.scrollHeight}px`;
+
+        }
+
+      });
+
+  }
+);
